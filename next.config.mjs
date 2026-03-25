@@ -17,6 +17,12 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
       { protocol: 'https', hostname: 'images.pexels.com', pathname: '/**' },
+      /** Gallery seed (nicenailsphoenix.com); pathname /** avoids micromatch issues with .jpg in segment */
+      {
+        protocol: 'https',
+        hostname: 'nicenailsphoenix.com',
+        pathname: '/**',
+      },
       {
         protocol: apiProtocol,
         hostname: apiHost,

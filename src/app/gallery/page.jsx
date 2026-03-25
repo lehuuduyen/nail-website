@@ -17,6 +17,11 @@ function srcUrl(url) {
   return `${b}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 
+/** Absolute remote URLs: skip /_next/image — optimizer can return 400 when path has dots (.JPG) vs remotePatterns. */
+function unoptimizedRemote(src) {
+  return typeof src === 'string' && /^https?:\/\//i.test(src.trim());
+}
+
 export default function GalleryPage() {
   const [tab, setTab] = useState('all');
   const [all, setAll] = useState([]);
@@ -96,6 +101,9 @@ export default function GalleryPage() {
                       src={srcUrl(g.thumbnailUrl || g.imageUrl)}
                       alt={g.title || 'Gallery'}
                       fill
+                      unoptimized={unoptimizedRemote(
+                        srcUrl(g.thumbnailUrl || g.imageUrl)
+                      )}
                       className="object-cover transition duration-500 hover:scale-105"
                       sizes="(max-width: 640px) 100vw, 33vw"
                     />
@@ -170,6 +178,7 @@ export default function GalleryPage() {
                   src={srcUrl(current.imageUrl)}
                   alt={current.title || ''}
                   fill
+                  unoptimized={unoptimizedRemote(srcUrl(current.imageUrl))}
                   className="object-contain"
                 />
               </div>
