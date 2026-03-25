@@ -11,8 +11,8 @@ import {
   salonMapsEmbedUrl,
 } from '@/lib/salon';
 
-const HERO_IMG =
-  'https://images.unsplash.com/photo-1519014815893-47d9d7bbc588?auto=format&fit=crop&w=1200&q=80';
+/** Local copy of salon banner (was nicenailsphoenix.com/MyPhotosGalary/newbanner22.jpg) */
+const HERO_IMG = '/images/about-banner.jpg';
 
 export default function AboutSection() {
   const name = salonName();
