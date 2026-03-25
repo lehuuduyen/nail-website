@@ -1,4 +1,4 @@
-import { Playfair_Display, DM_Sans } from 'next/font/google';
+import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -12,9 +12,10 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-const dmSans = DM_Sans({
+const lato = Lato({
   subsets: ['latin'],
-  variable: '--font-dm',
+  weight: ['300', '400', '700'],
+  variable: '--font-lato',
   display: 'swap',
 });
 
@@ -64,7 +65,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${lato.variable}`}>
       <body className="min-h-screen bg-cream font-sans antialiased text-ink">
         <LocalBusinessJsonLd />
         <Navbar />

@@ -39,7 +39,7 @@ function Confetti() {
         delay: Math.random() * 0.4,
         dur: 1.8 + Math.random(),
         rot: Math.random() * 360,
-        color: ['#D4AF8C', '#E8B4B8', '#F9F5F0', '#fff'][i % 4],
+        color: ['#9E8B85', '#DBCDC9', '#C5B9B5', '#F7F3F2'][i % 4],
       })),
     []
   );
@@ -116,7 +116,7 @@ export default function ConfirmationPage() {
           {[1, 2, 3, 4, 5].map((n) => (
             <div
               key={n}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-gold text-sm font-bold text-charcoal"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-gold text-sm font-bold text-white"
             >
               ✓
             </div>
@@ -147,7 +147,7 @@ export default function ConfirmationPage() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
-          className="rounded-2xl border border-rose-gold/25 bg-white p-8 shadow-xl"
+          className="rounded-2xl border border-rose-gold/25 bg-surface p-8 shadow-xl shadow-rose-gold/10"
         >
           <h1 className="text-center font-display text-2xl text-ink">You&apos;re all set</h1>
           <p className="mt-2 text-center text-sm text-charcoal/60">
@@ -192,7 +192,7 @@ export default function ConfirmationPage() {
           <Link
             href="/booking"
             onClick={() => sessionStorage.removeItem('lastBooking')}
-            className="rounded-full bg-rose-gold px-6 py-3 text-center text-sm font-semibold text-charcoal"
+            className="rounded-full bg-rose-gold px-6 py-3 text-center text-sm font-semibold text-white"
           >
             Book another appointment
           </Link>

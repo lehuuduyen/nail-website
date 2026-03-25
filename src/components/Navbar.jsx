@@ -11,6 +11,7 @@ const links = [
   { href: '/#about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/blog', label: 'Blog' },
   { href: '/booking', label: 'Book' },
 ];
 
@@ -27,8 +28,11 @@ export default function Navbar() {
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {links.map(({ href, label }) => {
-            const active =
-              href.startsWith('/#') ? pathname === '/' : pathname === href;
+            const active = href.startsWith('/#')
+              ? pathname === '/'
+              : href === '/blog'
+                ? pathname === '/blog' || pathname.startsWith('/blog/')
+                : pathname === href;
             return (
               <Link
                 key={href}
@@ -43,7 +47,7 @@ export default function Navbar() {
           })}
           <Link
             href="/booking"
-            className="rounded-full bg-rose-gold px-5 py-2 text-sm font-semibold text-charcoal shadow transition hover:bg-rose-gold/90"
+            className="rounded-full bg-rose-gold px-5 py-2 text-sm font-semibold text-white shadow transition hover:bg-rose-gold-deep"
           >
             Book now
           </Link>

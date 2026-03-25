@@ -1,13 +1,19 @@
-function baseUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(
-    /\/$/,
-    ''
-  );
-}
+import { getSiteUrl } from '@/lib/siteUrl';
 
+/**
+ * robots.txt — cho phép index toàn site; chặn API và trang xác nhận đặt chỗ.
+ * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
+ */
 export default function robots() {
+  const base = getSiteUrl();
+
   return {
-    rules: { userAgent: '*', allow: '/' },
-    sitemap: `${baseUrl()}/sitemap.xml`,
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: ['/api/', '/booking/confirmation'],
+    },
+    sitemap: `${base}/sitemap.xml`,
+    host: base,
   };
 }

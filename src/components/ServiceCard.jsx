@@ -12,11 +12,11 @@ export default function ServiceCard({
   compact = false,
 }) {
   const accent =
-    CATEGORY_ACCENT[service.category] || 'border-l-rose-gold/60';
+    CATEGORY_ACCENT[service.category] || 'border-l-rose-gold/50';
 
   return (
     <article
-      className={`group flex h-full flex-col rounded-xl border border-rose-gold/15 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-rose-gold/40 hover:shadow-md ${accent} border-l-[3px]`}
+      className={`group flex h-full flex-col rounded-xl border border-rose-gold/15 bg-surface shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-rose-gold/40 hover:shadow-md ${accent} border-l-[3px]`}
     >
       <div className={compact ? 'flex flex-1 flex-col p-4' : 'flex flex-1 flex-col p-5 md:p-6'}>
         <h3 className="font-display text-lg font-medium text-ink md:text-xl">
@@ -54,7 +54,7 @@ export default function ServiceCard({
         {showBookButton && (
           <Link
             href={`/booking?service=${service.id}`}
-            className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-rose-gold px-4 py-2.5 text-sm font-semibold text-charcoal transition hover:bg-rose-gold/90"
+            className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-rose-gold px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-gold-deep"
           >
             Book now
           </Link>

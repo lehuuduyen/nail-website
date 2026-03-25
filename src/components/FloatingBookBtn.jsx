@@ -14,7 +14,7 @@ export default function FloatingBookBtn() {
     >
       <Link
         href="/booking"
-        className="flex items-center gap-2 rounded-full bg-rose-gold px-5 py-3 text-sm font-semibold text-charcoal shadow-lg shadow-charcoal/20 ring-2 ring-cream/30 transition hover:bg-rose-gold/90"
+        className="flex items-center gap-2 rounded-full bg-rose-gold px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-charcoal/15 ring-2 ring-cream/40 transition hover:bg-rose-gold-deep"
       >
         <CalendarHeart size={20} />
         Book

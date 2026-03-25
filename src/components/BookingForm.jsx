@@ -174,7 +174,7 @@ export default function BookingForm() {
               <div
                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
                   done
-                    ? 'bg-rose-gold text-charcoal'
+                    ? 'bg-rose-gold text-white'
                     : active
                       ? 'bg-charcoal text-cream ring-2 ring-rose-gold'
                       : 'bg-cream text-charcoal/40'
@@ -221,7 +221,7 @@ export default function BookingForm() {
               <button
                 type="button"
                 onClick={goNext}
-                className="rounded-full bg-rose-gold px-8 py-3 text-sm font-semibold text-charcoal"
+                className="rounded-full bg-rose-gold px-8 py-3 text-sm font-semibold text-white"
               >
                 Next
               </button>
@@ -244,7 +244,7 @@ export default function BookingForm() {
               <button
                 type="button"
                 onClick={goNext}
-                className="rounded-full bg-rose-gold px-8 py-3 text-sm font-semibold text-charcoal"
+                className="rounded-full bg-rose-gold px-8 py-3 text-sm font-semibold text-white"
               >
                 Next
               </button>
@@ -293,7 +293,7 @@ export default function BookingForm() {
               <button
                 type="button"
                 onClick={goNext}
-                className="rounded-full bg-rose-gold px-8 py-3 text-sm font-semibold text-charcoal"
+                className="rounded-full bg-rose-gold px-8 py-3 text-sm font-semibold text-white"
               >
                 Next
               </button>
@@ -367,13 +367,13 @@ export default function BookingForm() {
                     type="button"
                     disabled={submitting}
                     onClick={handleConfirm}
-                    className="rounded-full bg-rose-gold px-10 py-3.5 text-sm font-bold text-charcoal shadow-lg disabled:opacity-60"
+                    className="rounded-full bg-rose-gold px-10 py-3.5 text-sm font-bold text-white shadow-lg disabled:opacity-60"
                   >
                     {submitting ? 'Booking…' : 'Confirm booking'}
                   </button>
                 </div>
               </div>
-              <aside className="h-fit rounded-2xl border border-rose-gold/20 bg-white p-6 shadow-sm">
+              <aside className="h-fit rounded-2xl border border-rose-gold/20 bg-surface p-6 shadow-sm shadow-rose-gold/5">
                 <h3 className="font-display text-lg text-ink">Summary</h3>
                 <ul className="mt-4 space-y-3 text-sm text-charcoal/80">
                   <li>

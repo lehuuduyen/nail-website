@@ -2,8 +2,12 @@ import axios from 'axios';
 
 const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
 
+export function getApiOrigin() {
+  return base.replace(/\/$/, '');
+}
+
 export const api = axios.create({
-  baseURL: `${base.replace(/\/$/, '')}/api`,
+  baseURL: `${getApiOrigin()}/api`,
   headers: { 'Content-Type': 'application/json' },
 });
 
@@ -39,5 +43,5 @@ export async function bookAppointment(body) {
 }
 
 export function getPublicBaseUrl() {
-  return base.replace(/\/$/, '');
+  return getApiOrigin();
 }

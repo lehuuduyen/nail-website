@@ -547,16 +547,17 @@ export const CATEGORY_NAV = [
   { key: 'facial', navLabel: 'Facial' },
 ];
 
+/** Viền trái nhẹ — tông lavender / dusty / vein (marble) */
 export const CATEGORY_ACCENT = {
-  manicure: 'border-l-rose-400',
-  pedicure: 'border-l-pink-400',
-  nails: 'border-l-purple-400',
-  addon: 'border-l-amber-400',
-  kids: 'border-l-yellow-400',
-  lash: 'border-l-indigo-400',
-  waxing: 'border-l-green-400',
-  head_spa: 'border-l-teal-400',
-  facial: 'border-l-orange-400',
+  manicure: 'border-l-lavender',
+  pedicure: 'border-l-dusty-rose',
+  nails: 'border-l-lavender-deep',
+  addon: 'border-l-muted',
+  kids: 'border-l-dusty-rose',
+  lash: 'border-l-lavender-deep',
+  waxing: 'border-l-lavender',
+  head_spa: 'border-l-muted',
+  facial: 'border-l-dusty-rose',
 };
 
 export const VALID_CATEGORY_SLUGS = CATEGORY_NAV.map((c) => c.key);

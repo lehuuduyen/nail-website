@@ -21,7 +21,7 @@ export default function AboutSection() {
   const embed = salonMapsEmbedUrl();
 
   return (
-    <section id="about" className="border-y border-rose-gold/10 bg-white py-20 md:py-28">
+    <section id="about" className="border-y border-rose-gold/15 marble-bg py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-4 text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-gold">
@@ -76,7 +76,7 @@ export default function AboutSection() {
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
                 href="/services"
-                className="inline-flex rounded-full bg-rose-gold px-6 py-2.5 text-sm font-semibold text-charcoal transition hover:bg-rose-gold/90"
+                className="inline-flex rounded-full bg-rose-gold px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-gold-deep"
               >
                 View services
               </Link>

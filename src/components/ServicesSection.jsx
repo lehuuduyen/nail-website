@@ -1,104 +1,117 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Sparkles, Footprints, Palette, Scissors } from 'lucide-react';
-import { fetchServices } from '@/lib/api';
-import { formatCurrency } from '@/lib/format';
+import { Sparkles } from 'lucide-react';
 
-const iconFor = (cat) => {
-  switch (cat) {
-    case 'pedicure':
-      return Footprints;
-    case 'acrylic':
-    case 'gel':
-    case 'dip':
-      return Palette;
-    case 'waxing':
-      return Scissors;
-    default:
-      return Sparkles;
-  }
-};
+const POPULAR = [
+  {
+    title: 'Manicure',
+    priceLine: 'From $30',
+    image: '/images/popular-manicure.png',
+    bookingId: 1,
+  },
+  {
+    title: 'Pedicure',
+    priceLine: 'From $35',
+    image: '/images/popular-pedicure.png',
+    bookingId: 4,
+  },
+  {
+    title: 'Acrylic Nails',
+    priceLine: 'From $40 +',
+    image: '/images/popular-acrylic-nails.png',
+    bookingId: 13,
+  },
+  {
+    title: 'Nail Art',
+    priceLine: 'From $15 +',
+    image: '/images/popular-nail-art.png',
+    bookingId: 21,
+  },
+];
 
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08 } },
 };
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 export default function ServicesSection() {
-  const [services, setServices] = useState([]);
-  const [err, setErr] = useState('');
-
-  useEffect(() => {
-    fetchServices()
-      .then((all) => setServices((all || []).slice(0, 6)))
-      .catch((e) => {
-        const msg = e.response?.data?.error || e.message;
-        setErr(
-          typeof msg === 'string'
-            ? msg
-            : 'Could not load services. Check API and run nail-backend npm run db:alter.'
-        );
-      });
-  }, []);
-
   return (
-    <section id="services-preview" className="bg-cream py-20 md:py-28">
+    <section id="popular-services" className="marble-bg pb-20 pt-4 md:pb-28 md:pt-2">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="mb-12 text-center">
-          <h2 className="font-display text-3xl text-ink md:text-4xl">Our Services</h2>
-          <div className="mx-auto mt-3 h-1 w-24 rounded-full bg-rose-gold" />
-        </div>
-        {err && <p className="text-center text-sm text-red-600">{err}</p>}
+        <h2 className="flex flex-wrap items-center justify-center gap-2 text-center font-display text-3xl font-normal text-ink md:text-4xl">
+          Our Most Popular Services
+          <span className="inline-flex items-center gap-0.5 text-rose-gold" aria-hidden>
+            <Sparkles className="h-6 w-6" strokeWidth={1.25} />
+            <Sparkles className="h-5 w-5 opacity-85" strokeWidth={1.25} />
+            <Sparkles className="h-4 w-4 opacity-70" strokeWidth={1.25} />
+          </span>
+        </h2>
+        <p className="mx-auto mt-3 max-w-lg text-center text-sm italic text-muted md:text-base">
+          We perfect our stunning nail designs
+        </p>
+
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: '-60px' }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          viewport={{ once: true, margin: '-40px' }}
+          className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {services.map((s) => {
-            const Icon = iconFor(s.category);
-            return (
-              <motion.article
-                key={s.id}
-                variants={item}
-                className="group rounded-2xl border border-transparent bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-rose-gold hover:shadow-xl"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-dusty-rose/30 text-charcoal">
-                  <Icon size={22} />
-                </div>
-                <h3 className="mt-4 font-display text-xl text-ink">{s.name}</h3>
-                <p className="mt-2 text-sm text-charcoal/70">
-                  {s.duration} min · {formatCurrency(s.price)}
-                </p>
-                {s.description && (
-                  <p className="mt-2 line-clamp-2 text-sm text-charcoal/60">{s.description}</p>
-                )}
+          {POPULAR.map((s) => (
+            <motion.article
+              key={s.title}
+              variants={item}
+              className="group overflow-hidden rounded-2xl border border-rose-gold/15 bg-surface/70 shadow-md shadow-rose-gold/10 backdrop-blur-sm transition-shadow duration-300 hover:border-rose-gold/25 hover:shadow-lg"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={s.image}
+                  alt={s.title}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+              <div className="px-4 pb-5 pt-4 text-center">
+                <h3 className="font-display text-lg font-medium text-ink">{s.title}</h3>
+                <p className="mt-2 text-base font-medium text-rose-gold">{s.priceLine}</p>
                 <Link
-                  href={`/booking?service=${s.id}`}
-                  className="mt-4 inline-block text-sm font-semibold text-rose-gold hover:underline"
+                  href={`/booking?service=${s.bookingId}`}
+                  className="mt-3 inline-block text-xs font-semibold uppercase tracking-wide text-muted underline decoration-rose-gold/50 underline-offset-4 hover:text-rose-gold"
                 >
-                  Book now →
+                  Book this service
                 </Link>
-              </motion.article>
-            );
-          })}
+              </div>
+            </motion.article>
+          ))}
         </motion.div>
-        <div className="mt-12 text-center">
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-14 flex flex-col items-center gap-4"
+        >
+          <Link
+            href="/booking"
+            className="btn-gold inline-flex min-w-[280px] items-center justify-center no-underline"
+          >
+            Book your appointment
+          </Link>
           <Link
             href="/services"
-            className="inline-flex items-center rounded-full border-2 border-rose-gold px-8 py-3 text-sm font-semibold text-charcoal transition hover:bg-rose-gold/15"
+            className="text-sm font-medium text-muted underline decoration-rose-gold/40 underline-offset-4 hover:text-ink"
           >
-            View All Services
+            View all services &amp; prices
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

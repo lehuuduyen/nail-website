@@ -15,10 +15,10 @@ export default function HeroSection() {
   const area = salonArea();
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center">
+    <section className="relative flex min-h-[100svh] items-center justify-center md:min-h-screen">
       <Image
         src={HERO_IMG}
-        alt="Elegant nail salon"
+        alt="Luxury nail salon"
         fill
         priority
         className="object-cover"
@@ -27,34 +27,26 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-hero-gradient" />
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
         <motion.h1
-          className="font-display text-4xl font-medium tracking-tight text-white md:text-6xl lg:text-7xl"
+          className="font-display text-4xl font-normal tracking-tight text-white md:text-6xl lg:text-7xl"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          Best Nail Salon in Phoenix, AZ
+          {name}
         </motion.h1>
         <motion.p
-          className="mt-3 font-display text-2xl font-medium text-white/95 md:text-3xl"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.08, duration: 0.65 }}
-        >
-          {name}
-        </motion.p>
-        <motion.p
-          className="mt-4 max-w-2xl text-lg text-white/90 md:mx-auto md:text-xl"
+          className="mt-4 max-w-2xl text-lg font-light text-white/92 md:mx-auto md:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15, duration: 0.7 }}
+          transition={{ delay: 0.1, duration: 0.7 }}
         >
           {tagline}
         </motion.p>
         <motion.p
-          className="mt-2 text-sm font-medium tracking-wide text-rose-gold/95 md:text-base"
+          className="mt-2 text-sm font-normal tracking-wide text-white/80 md:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.25, duration: 0.6 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         >
           {area}
         </motion.p>
@@ -62,30 +54,27 @@ export default function HeroSection() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          transition={{ delay: 0.28, duration: 0.6 }}
         >
-          <Link
-            href="/booking"
-            className="rounded-full bg-rose-gold px-8 py-3 text-sm font-semibold text-charcoal shadow-lg transition hover:bg-rose-gold/90"
-          >
-            Book Appointment
+          <Link href="/booking" className="btn-gold inline-flex items-center justify-center no-underline">
+            Book appointment
           </Link>
           <Link
             href="/services"
-            className="rounded-full border-2 border-white px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            className="rounded-full border-2 border-white/90 px-8 py-3 text-sm font-semibold tracking-wide text-white transition hover:bg-white/10"
           >
-            View Services
+            View services
           </Link>
         </motion.div>
       </div>
       <motion.a
-        href="#about"
+        href="#why-love"
         className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 text-white/75"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-        aria-label="Scroll to about"
+        aria-label="Scroll to Why Ladies Love section"
       >
-        <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">About</span>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">Discover</span>
         <ChevronDown size={32} strokeWidth={1.5} />
       </motion.a>
     </section>

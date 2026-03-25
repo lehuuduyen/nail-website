@@ -20,7 +20,7 @@ export default function ServicesPageClient() {
 
   return (
     <>
-      <section className="border-b border-rose-gold/15 bg-gradient-to-b from-dusty-rose/40 via-cream to-cream px-4 py-14 text-center md:py-16">
+      <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-14 text-center md:py-16">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-charcoal/55">
           Nice Nails &amp; Spa · Phoenix, AZ
         </p>
@@ -47,7 +47,7 @@ export default function ServicesPageClient() {
               key={key}
               type="button"
               onClick={() => onNav(key)}
-              className="shrink-0 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-charcoal/75 ring-1 ring-rose-gold/25 transition hover:bg-dusty-rose/25 md:text-sm"
+              className="shrink-0 rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold uppercase tracking-wide text-charcoal/75 ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50 md:text-sm"
             >
               {navLabel}
             </button>

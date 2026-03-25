@@ -57,7 +57,7 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-cream pb-24">
-      <section className="border-b border-rose-gold/15 bg-white px-4 py-14 text-center">
+      <section className="border-b border-rose-gold/15 bg-surface/80 px-4 py-14 text-center backdrop-blur-sm">
         <h1 className="font-display text-4xl text-ink md:text-5xl">Our Gallery</h1>
         <p className="mt-2 text-charcoal/65">A glimpse of the looks we create every day.</p>
       </section>
@@ -72,7 +72,7 @@ export default function GalleryPage() {
               className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition ${
                 tab === t.key
                   ? 'bg-charcoal text-cream'
-                  : 'bg-white text-charcoal/70 ring-1 ring-rose-gold/20 hover:bg-dusty-rose/20'
+                  : 'bg-surface-soft text-charcoal/70 ring-1 ring-rose-gold/20 hover:bg-cream-dark/40'
               }`}
             >
               {t.label}
@@ -94,7 +94,7 @@ export default function GalleryPage() {
                   viewport={{ once: true }}
                   transition={{ delay: (idx % 6) * 0.04 }}
                   onClick={() => openAt(all.findIndex((x) => x.id === g.id))}
-                  className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-gold"
+                  className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-rose-gold/10 bg-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-gold"
                 >
                   <div className="relative aspect-[3/4] w-full">
                     <Image
@@ -189,7 +189,7 @@ export default function GalleryPage() {
                 )}
                 <Link
                   href="/booking"
-                  className="inline-flex rounded-full bg-rose-gold px-6 py-2 text-sm font-semibold text-charcoal"
+                  className="inline-flex rounded-full bg-rose-gold px-6 py-2 text-sm font-semibold text-white"
                 >
                   Book this look
                 </Link>

@@ -21,14 +21,17 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-2 text-sm">
           <p className="font-semibold text-rose-gold">Explore</p>
-          <Link href="/#about" className="hover:text-rose-gold">
+          {/* <Link href="/#about" className="hover:text-rose-gold">
             About
-          </Link>
+          </Link> */}
           <Link href="/services" className="hover:text-rose-gold">
             Services
           </Link>
           <Link href="/gallery" className="hover:text-rose-gold">
             Gallery
+          </Link>
+          <Link href="/blog" className="hover:text-rose-gold">
+            Blog
           </Link>
           <Link href="/booking" className="hover:text-rose-gold">
             Book online

@@ -51,7 +51,7 @@ export default function ServiceCategoryPage({ params }) {
     <>
       <ServiceSchema services={list} />
       <div className="min-h-screen bg-cream pb-24">
-        <section className="border-b border-rose-gold/15 bg-gradient-to-b from-dusty-rose/35 to-cream px-4 py-12 md:py-16">
+        <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 md:py-16">
           <div className="mx-auto max-w-4xl">
             <nav className="text-xs font-medium text-charcoal/55" aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-1">
@@ -89,7 +89,7 @@ export default function ServiceCategoryPage({ params }) {
           </div>
 
           {faqs.length > 0 && (
-            <section className="mt-16 rounded-2xl border border-rose-gold/15 bg-white p-6 shadow-sm md:p-10">
+            <section className="mt-16 rounded-2xl border border-rose-gold/20 bg-surface/90 p-6 shadow-sm shadow-rose-gold/5 backdrop-blur-sm md:p-10">
               <h2 className="font-display text-2xl text-ink">FAQ</h2>
               <ul className="mt-6 space-y-6">
                 {faqs.map((f) => (
@@ -132,7 +132,7 @@ export default function ServiceCategoryPage({ params }) {
               <Link
                 key={c.key}
                 href={`/services/${c.key}`}
-                className="rounded-full bg-white px-3 py-1 ring-1 ring-rose-gold/20 hover:bg-dusty-rose/20"
+                className="rounded-full bg-surface-soft px-3 py-1 ring-1 ring-rose-gold/25 hover:bg-cream-dark/40"
               >
                 {c.navLabel}
               </Link>

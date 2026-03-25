@@ -1,48 +1,75 @@
-const CATEGORIES = [
-  'manicure',
-  'pedicure',
-  'nails',
-  'addon',
-  'kids',
-  'lash',
-  'waxing',
-  'head_spa',
-  'facial',
+import { absoluteUrl } from '@/lib/siteUrl';
+import { VALID_CATEGORY_SLUGS } from '@/data/services';
+import { getApiOrigin } from '@/lib/api';
+
+export const revalidate = 3600;
+
+/**
+ * Trang index được — không đưa: /booking/confirmation, /api/*, /_next/*.
+ * Blog: slug từ GET /api/public/blog (lastModified = updatedAt nếu có).
+ */
+const STATIC_ROUTES = [
+  { path: '/', changeFrequency: 'weekly', priority: 1 },
+  { path: '/services', changeFrequency: 'weekly', priority: 0.95 },
+  { path: '/blog', changeFrequency: 'weekly', priority: 0.85 },
+  { path: '/booking', changeFrequency: 'monthly', priority: 0.85 },
+  { path: '/gallery', changeFrequency: 'weekly', priority: 0.78 },
+  { path: '/services/gel-nails-phoenix', changeFrequency: 'monthly', priority: 0.8 },
+  ...VALID_CATEGORY_SLUGS.map((slug) => ({
+    path: `/services/${slug}`,
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  })),
 ];
 
-function baseUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(
-    /\/$/,
-    ''
-  );
+function buildStaticEntries(fallbackDate) {
+  return STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
+    url: absoluteUrl(path),
+    lastModified: fallbackDate,
+    changeFrequency,
+    priority,
+  }));
 }
 
-function abs(path) {
-  const b = baseUrl();
-  const p = path.startsWith('/') ? path : `/${path}`;
-  return `${b}${p}`;
+async function fetchBlogSitemapEntries(fallbackDate) {
+  const res = await fetch(`${getApiOrigin()}/api/public/blog`, {
+    next: { revalidate: 3600 },
+  });
+  if (!res.ok) return [];
+  const posts = await res.json();
+  if (!Array.isArray(posts) || !posts.length) return [];
+
+  const seen = new Set();
+  return posts
+    .filter((p) => p.slug && typeof p.slug === 'string' && !seen.has(p.slug) && seen.add(p.slug))
+    .map((p) => {
+      const last =
+        p.updatedAt != null
+          ? new Date(p.updatedAt)
+          : p.publishedAt != null
+            ? new Date(p.publishedAt)
+            : fallbackDate;
+      return {
+        url: absoluteUrl(`/blog/${p.slug}`),
+        lastModified: last,
+        changeFrequency: 'monthly',
+        priority: 0.72,
+      };
+    });
 }
 
-export default function sitemap() {
-  const now = new Date();
-  const common = { lastModified: now };
+export default async function sitemap() {
+  const fallbackDate = new Date();
 
-  return [
-    { url: abs('/'), changeFrequency: 'weekly', priority: 1, ...common },
-    { url: abs('/services'), changeFrequency: 'weekly', priority: 0.9, ...common },
-    { url: abs('/booking'), changeFrequency: 'monthly', priority: 0.8, ...common },
-    { url: abs('/gallery'), changeFrequency: 'weekly', priority: 0.7, ...common },
-    {
-      url: abs('/services/gel-nails-phoenix'),
-      changeFrequency: 'monthly',
-      priority: 0.75,
-      ...common,
-    },
-    ...CATEGORIES.map((cat) => ({
-      url: abs(`/services/${cat}`),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-      ...common,
-    })),
-  ];
+  const staticEntries = buildStaticEntries(fallbackDate);
+
+  try {
+    const blogEntries = await fetchBlogSitemapEntries(fallbackDate);
+    const merged = [...staticEntries, ...blogEntries];
+    merged.sort((a, b) => a.url.localeCompare(b.url));
+    return merged;
+  } catch {
+    const sorted = [...staticEntries].sort((a, b) => a.url.localeCompare(b.url));
+    return sorted;
+  }
 }

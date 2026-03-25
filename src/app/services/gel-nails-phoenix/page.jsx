@@ -16,7 +16,7 @@ export default function GelNailsPhoenixPage() {
 
   return (
     <div className="min-h-screen bg-cream pb-24">
-      <article className="border-b border-rose-gold/15 bg-gradient-to-b from-dusty-rose/35 to-cream px-4 py-14 md:py-20">
+      <article className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-14 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-charcoal/55">
             {salon}

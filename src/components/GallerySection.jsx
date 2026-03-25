@@ -22,7 +22,7 @@ export default function GallerySection() {
   }, []);
 
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="marble-bg py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="font-display text-3xl text-ink md:text-4xl">Our Work</h2>

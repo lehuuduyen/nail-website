@@ -48,7 +48,7 @@ export default function ServicePicker({ services, valueId, onChange, search, onS
           placeholder="Search services…"
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full rounded-xl border border-rose-gold/25 bg-white py-3 pl-10 pr-4 text-sm outline-none ring-rose-gold/30 focus:ring-2"
+          className="w-full rounded-xl border border-rose-gold/25 bg-surface py-3 pl-10 pr-4 text-sm outline-none ring-rose-gold/30 focus:ring-2"
         />
       </div>
       {ORDER.map((cat) => {
@@ -70,7 +70,7 @@ export default function ServicePicker({ services, valueId, onChange, search, onS
                     className={`rounded-2xl border-2 p-4 text-left transition ${
                       selected
                         ? 'border-rose-gold bg-rose-gold/10 shadow-md'
-                        : 'border-cream bg-white hover:border-rose-gold/40'
+                        : 'border-cream bg-surface hover:border-rose-gold/40'
                     }`}
                   >
                     <p className="font-display text-lg text-ink">{s.name}</p>

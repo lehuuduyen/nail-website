@@ -22,7 +22,7 @@ export default function StaffPicker({ employees, valueId, onChange }) {
         className={`w-full rounded-2xl border-2 p-4 text-left font-medium transition ${
           valueId == null
             ? 'border-rose-gold bg-rose-gold/10'
-            : 'border-cream bg-white hover:border-rose-gold/30'
+            : 'border-cream bg-surface hover:border-rose-gold/30'
         }`}
       >
         No preference — anyone available
@@ -39,7 +39,7 @@ export default function StaffPicker({ employees, valueId, onChange }) {
               className={`flex flex-col items-center rounded-2xl border-2 p-6 text-center transition ${
                 selected
                   ? 'border-rose-gold bg-rose-gold/10 shadow-lg'
-                  : 'border-cream bg-white hover:border-rose-gold/30'
+                  : 'border-cream bg-surface hover:border-rose-gold/30'
               }`}
             >
               <div

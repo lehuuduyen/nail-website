@@ -38,7 +38,7 @@ export default function TimeSlotPicker({ slots, value, onChange, loading }) {
                   ? 'cursor-not-allowed border-transparent bg-charcoal/5 text-charcoal/25'
                   : sel
                     ? 'border-rose-gold bg-rose-gold/20 text-charcoal shadow'
-                    : 'border-cream bg-white text-charcoal hover:border-rose-gold/40'
+                    : 'border-cream bg-surface text-charcoal hover:border-rose-gold/40'
               }`}
             >
               {toLabel(s.time)}
