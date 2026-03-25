@@ -32,8 +32,16 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          {name}
+          Best Nail Salon in Phoenix, AZ
         </motion.h1>
+        <motion.p
+          className="mt-3 font-display text-2xl font-medium text-white/95 md:text-3xl"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.08, duration: 0.65 }}
+        >
+          {name}
+        </motion.p>
         <motion.p
           className="mt-4 max-w-2xl text-lg text-white/90 md:mx-auto md:text-xl"
           initial={{ opacity: 0, y: 20 }}
