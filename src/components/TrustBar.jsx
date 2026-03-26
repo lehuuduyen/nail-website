@@ -31,9 +31,9 @@ export default function TrustBar() {
   const tel = `tel:${rawPhone.replace(/\D/g, '')}`;
 
   return (
-    <div className="relative z-20 -mt-10 flex justify-center px-4 md:-mt-[40px]">
+    <div className="relative z-10 flex justify-center px-3 max-md:mt-0 max-md:mb-2 md:px-4 md:-mt-[40px] md:z-20">
       <div
-        className="flex w-full max-w-[680px] flex-col gap-4 rounded-[50px] border border-rose-gold/20 bg-surface/90 px-6 py-4 shadow-[0_8px_32px_rgba(42,38,34,0.08)] backdrop-blur-md md:flex-row md:items-center md:justify-between md:gap-0 md:px-8 md:py-4"
+        className="flex w-full max-w-[20rem] flex-row flex-wrap items-center justify-between gap-x-2 gap-y-2 rounded-2xl border border-rose-gold/20 bg-surface/95 px-3 py-2 shadow-[0_6px_24px_rgba(42,38,34,0.07)] backdrop-blur-md sm:max-w-[22rem] sm:px-3.5 sm:py-2.5 md:max-w-[680px] md:flex-nowrap md:justify-between md:gap-0 md:rounded-[50px] md:px-8 md:py-4 md:shadow-[0_8px_32px_rgba(42,38,34,0.08)]"
       >
         {/* Desktop / tablet: Google + stars */}
         <div className="hidden flex-1 flex-col items-center border-charcoal/10 md:flex md:items-start md:border-r md:pr-6">
@@ -51,20 +51,24 @@ export default function TrustBar() {
           </p>
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-3 md:border-r md:border-charcoal/10 md:px-6">
+        <div className="flex min-w-0 flex-1 flex-col items-center justify-center md:border-r md:border-charcoal/10 md:px-6">
           <Link
             href="/booking"
-            className="inline-flex w-full max-w-[220px] items-center justify-center rounded-full bg-luxury-gold px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-md no-underline transition hover:opacity-95 md:w-auto"
+            className="inline-flex w-auto shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-luxury-gold px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-sm no-underline transition hover:opacity-95 sm:px-4 sm:py-2 sm:text-[11px] md:w-full md:max-w-[220px] md:px-6 md:py-3 md:text-xs md:tracking-[0.12em] md:shadow-md"
           >
             Book now
           </Link>
         </div>
 
-        <div className="flex flex-1 items-center justify-center gap-2 md:justify-end md:pl-6">
-          <Phone className="h-5 w-5 shrink-0 text-rose-gold" strokeWidth={1.75} aria-hidden />
+        <div className="flex min-w-0 flex-1 items-center justify-end gap-1.5 md:justify-end md:gap-2 md:pl-6">
+          <Phone
+            className="h-3.5 w-3.5 shrink-0 text-rose-gold md:h-5 md:w-5"
+            strokeWidth={2}
+            aria-hidden
+          />
           <a
             href={tel}
-            className="text-sm font-medium text-ink transition hover:text-rose-gold"
+            className="text-xs font-medium tabular-nums text-ink transition hover:text-rose-gold md:text-sm"
           >
             {rawPhone}
           </a>

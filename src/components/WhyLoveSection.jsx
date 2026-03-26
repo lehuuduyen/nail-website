@@ -37,7 +37,10 @@ export default function WhyLoveSection() {
   const area = salonArea();
 
   return (
-    <section id="why-love" className="relative overflow-hidden py-16 md:py-24">
+    <section
+      id="why-love"
+      className="relative z-[1] overflow-hidden scroll-mt-24 pb-16 pt-24 max-md:pt-28 md:py-24"
+    >
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
         aria-hidden

@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 import { salonTagline, salonArea } from '@/lib/salon';
 import { HERO_IMAGE } from '@/lib/siteImages';
 
@@ -67,16 +66,39 @@ export default function HeroSection() {
           </Link>
         </motion.div>
       </div>
-      <motion.a
+      <a
         href="#why-love"
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 text-white/75"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+        className="absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 text-white/85 md:bottom-8"
         aria-label="Scroll to Why Ladies Love section"
       >
-        <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">Discover</span>
-        <ChevronDown size={32} strokeWidth={1.5} />
-      </motion.a>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
+          Discover
+        </span>
+        <motion.span
+          className="inline-flex items-center justify-center"
+          aria-hidden
+          animate={{ y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.75, ease: [0.45, 0, 0.55, 1] }}
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-current"
+          >
+            <path
+              d="M6 10l6 6 6-6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
+        </motion.span>
+      </a>
     </section>
   );
 }
