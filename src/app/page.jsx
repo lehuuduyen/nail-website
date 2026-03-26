@@ -1,4 +1,5 @@
 import HeroSection from '@/components/HeroSection';
+import HeroKeywordTags from '@/components/HeroKeywordTags';
 import TrustBar from '@/components/TrustBar';
 import HomeAboutSection from '@/components/HomeAboutSection';
 import HomeHashScroll from '@/components/HomeHashScroll';
@@ -40,7 +41,8 @@ export default function HomePage() {
       <HomeHashScroll />
       <div className="relative bg-[#1a1a1a]">
         <HeroSection />
-        <TrustBar />
+        <HeroKeywordTags />
+        {/* <TrustBar /> */}
       </div>
       <WhyLoveSection />
       <OurLuxuryServicesSection />

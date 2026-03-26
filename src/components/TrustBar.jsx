@@ -31,7 +31,7 @@ export default function TrustBar() {
   const tel = `tel:${rawPhone.replace(/\D/g, '')}`;
 
   return (
-    <div className="relative z-10 flex justify-center px-3 max-md:mt-0 max-md:mb-2 md:px-4 md:-mt-[40px] md:z-20">
+    <div className="relative z-10 flex justify-center px-3 max-md:mt-1 max-md:mb-2 md:mt-0 md:px-4 md:-mt-6 md:z-20">
       <div
         className="flex w-full max-w-[20rem] flex-row flex-wrap items-center justify-between gap-x-2 gap-y-2 rounded-2xl border border-rose-gold/20 bg-surface/95 px-3 py-2 shadow-[0_6px_24px_rgba(42,38,34,0.07)] backdrop-blur-md sm:max-w-[22rem] sm:px-3.5 sm:py-2.5 md:max-w-[680px] md:flex-nowrap md:justify-between md:gap-0 md:rounded-[50px] md:px-8 md:py-4 md:shadow-[0_8px_32px_rgba(42,38,34,0.08)]"
       >

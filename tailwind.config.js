@@ -32,8 +32,9 @@ module.exports = {
         sans: ['var(--font-lato)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
+        /** Hero: overlay đậm trái, trong suốt phải — chữ trái đọc rõ, tay/móng phải lộ ảnh */
         'hero-gradient':
-          'linear-gradient(to top, rgba(38,34,32,0.88) 0%, rgba(38,34,32,0.5) 40%, rgba(38,34,32,0.32) 100%)',
+          'linear-gradient(to right, rgba(10,6,4,0.88) 0%, rgba(10,6,4,0.72) 38%, rgba(10,6,4,0.25) 65%, rgba(10,6,4,0) 100%)',
         /** CTA / band — gradient dusty → vein (thay metallic cũ) */
         'cta-gold':
           'linear-gradient(160deg, #DBCDC9 0%, #C5B9B5 38%, #9E8B85 72%, #8A7974 100%)',

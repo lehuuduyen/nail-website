@@ -81,6 +81,14 @@ export function getLocalBusinessJsonLd() {
   const url = getSiteUrl();
   const lat = Number.parseFloat(process.env.NEXT_PUBLIC_SALON_LAT ?? '33.5722');
   const lng = Number.parseFloat(process.env.NEXT_PUBLIC_SALON_LNG ?? '-112.0901');
+  const mapsUrl =
+    process.env.NEXT_PUBLIC_SALON_MAPS_URL ||
+    'https://maps.app.goo.gl/RxXkeYRL63uib95d6';
+  const sameAs = [
+    mapsUrl,
+    process.env.NEXT_PUBLIC_SALON_FACEBOOK_URL || 'https://www.facebook.com',
+    process.env.NEXT_PUBLIC_SALON_INSTAGRAM_URL || 'https://www.instagram.com',
+  ];
 
   return {
     '@context': 'https://schema.org',
@@ -90,6 +98,13 @@ export function getLocalBusinessJsonLd() {
     url,
     telephone,
     priceRange: '$$',
+    description:
+      process.env.NEXT_PUBLIC_JSONLD_DESCRIPTION ||
+      'Top-rated nail salon in North Phoenix AZ 85021. Professional manicure, pedicure, acrylic nails, eyelash extensions, head spa & facial. 4.9★ 656+ reviews. Walk-ins welcome.',
+    currenciesAccepted: 'USD',
+    paymentAccepted: 'Cash, Credit Card',
+    hasMap: mapsUrl,
+    sameAs,
     address: parseUsAddress(addressLine),
     geo: {
       '@type': 'GeoCoordinates',
@@ -101,8 +116,9 @@ export function getLocalBusinessJsonLd() {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
       reviewCount: '656',
+      bestRating: '5',
+      worstRating: '1',
     },
-    servesCuisine: 'Nail Salon',
     areaServed: ['North Phoenix', 'Phoenix', 'Glendale', 'Peoria'],
   };
 }

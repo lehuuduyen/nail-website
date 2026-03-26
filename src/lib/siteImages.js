@@ -4,9 +4,9 @@
  */
 
 export const HERO_IMAGE = {
-  src: '/images/hero-manicure.webp',
-  width: 682,
-  height: 1024,
+  src: '/images/popular-nail-art.webp',
+  width: 1024,
+  height: 384,
 };
 
 export const SERVICE_CARD_IMAGES = {
