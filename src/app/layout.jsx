@@ -1,6 +1,7 @@
 import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
 import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
+import { HERO_IMAGE } from '@/lib/siteImages';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingBookBtn from '@/components/FloatingBookBtn';
@@ -90,6 +91,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`} suppressHydrationWarning>
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href={HERO_IMAGE.src}
+          fetchPriority="high"
+        />
         <LocalBusinessJsonLd />
       </head>
       <body className="min-h-screen bg-cream font-sans antialiased text-ink" suppressHydrationWarning>
