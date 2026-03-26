@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { SERVICE_CARD_IMAGES } from '@/lib/siteImages';
 
+/** Homepage: only 4 cards — full list at /services */
 const POPULAR = [
   {
     title: 'Manicure',
@@ -77,8 +78,10 @@ export default function ServicesSection() {
                   alt={s.alt}
                   width={s.width}
                   height={s.height}
+                  loading="lazy"
+                  quality={80}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <div className="px-4 pb-5 pt-4 text-center">

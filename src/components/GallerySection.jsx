@@ -24,7 +24,7 @@ export default function GallerySection() {
   const [lightbox, setLightbox] = useState(null);
 
   useEffect(() => {
-    fetchGallery().then((all) => setItems((all || []).slice(0, 9)));
+    fetchGallery().then((all) => setItems((all || []).slice(0, 6)));
   }, []);
 
   const lightboxItem = lightbox != null ? items[lightbox] : null;
@@ -56,9 +56,11 @@ export default function GallerySection() {
                   src={thumbSrc}
                   alt={galleryImageAlt(g)}
                   fill
+                  loading="lazy"
+                  quality={80}
                   unoptimized={unoptimizedRemote(thumbSrc)}
                   className="object-cover transition duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-charcoal/0 transition group-hover:bg-charcoal/40">
                   <ZoomIn className="h-10 w-10 text-white opacity-0 transition group-hover:opacity-100" />
@@ -107,6 +109,7 @@ export default function GallerySection() {
                   src={lightboxSrc}
                   alt={galleryImageAlt(lightboxItem)}
                   fill
+                  quality={85}
                   unoptimized={unoptimizedRemote(lightboxSrc)}
                   className="object-contain bg-black"
                 />

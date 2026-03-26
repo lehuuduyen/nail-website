@@ -102,11 +102,13 @@ export default function GalleryPage() {
                       src={srcUrl(g.thumbnailUrl || g.imageUrl)}
                       alt={galleryImageAlt(g)}
                       fill
+                      loading="lazy"
+                      quality={80}
                       unoptimized={unoptimizedRemote(
                         srcUrl(g.thumbnailUrl || g.imageUrl)
                       )}
                       className="object-cover transition duration-500 hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 </motion.button>
@@ -179,6 +181,7 @@ export default function GalleryPage() {
                   src={srcUrl(current.imageUrl)}
                   alt={galleryImageAlt(current)}
                   fill
+                  quality={85}
                   unoptimized={unoptimizedRemote(srcUrl(current.imageUrl))}
                   className="object-contain"
                 />

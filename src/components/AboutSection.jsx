@@ -45,8 +45,10 @@ export default function AboutSection() {
               title="Best Nail Salon in North Phoenix AZ 85021"
               width={ABOUT_BANNER.width}
               height={ABOUT_BANNER.height}
+              loading="lazy"
+              quality={80}
               className="absolute inset-0 z-0 h-full w-full object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-charcoal/20 to-transparent" />
           </motion.div>

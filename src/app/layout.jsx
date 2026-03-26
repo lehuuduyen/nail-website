@@ -5,7 +5,6 @@ import { HERO_IMAGE } from '@/lib/siteImages';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingBookBtn from '@/components/FloatingBookBtn';
-import 'react-datepicker/dist/react-datepicker.css';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -87,6 +86,12 @@ export const metadata = {
   manifest: '/site.webmanifest',
 };
 
+const heroImageType = HERO_IMAGE.src.endsWith('.webp')
+  ? 'image/webp'
+  : HERO_IMAGE.src.endsWith('.png')
+    ? 'image/png'
+    : 'image/jpeg';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`} suppressHydrationWarning>
@@ -95,6 +100,7 @@ export default function RootLayout({ children }) {
           rel="preload"
           as="image"
           href={HERO_IMAGE.src}
+          type={heroImageType}
           fetchPriority="high"
         />
         <LocalBusinessJsonLd />
