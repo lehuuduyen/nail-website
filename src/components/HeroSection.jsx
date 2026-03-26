@@ -12,7 +12,10 @@ export default function HeroSection() {
   const area = salonArea();
 
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden md:min-h-screen">
+    <section
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden md:min-h-screen"
+      suppressHydrationWarning
+    >
       <Image
         src={HERO_IMAGE.src}
         alt="Nice Nails & Spa luxury nail salon interior North Phoenix AZ"
@@ -23,8 +26,8 @@ export default function HeroSection() {
         className="absolute inset-0 z-0 h-full w-full object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 z-[1] bg-hero-gradient" />
-      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
+      <div className="absolute inset-0 z-[1] bg-hero-gradient" suppressHydrationWarning />
+      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center" suppressHydrationWarning>
         <motion.h1
           className="font-display text-4xl font-normal tracking-tight text-white md:text-6xl lg:text-7xl"
           initial={{ opacity: 0, y: 28 }}

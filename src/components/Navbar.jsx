@@ -25,8 +25,14 @@ export default function Navbar() {
   const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-charcoal/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
+    <header
+      className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-charcoal/85 backdrop-blur-md"
+      suppressHydrationWarning
+    >
+      <div
+        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6"
+        suppressHydrationWarning
+      >
         <Link href="/" className="font-display text-xl tracking-tight text-cream md:text-2xl">
           {name}
         </Link>

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "images:webp": "node scripts/convert-images-to-webp.mjs"
+    "images:webp": "node scripts/convert-images-to-webp.mjs",
+    "favicons": "node scripts/generate-favicons.mjs"
   },
   "dependencies": {
     "axios": "^1.13.6",
@@ -24,6 +25,7 @@
     "eslint-config-next": "14.2.35",
     "postcss": "^8",
     "sharp": "^0.34.5",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "to-ico": "^1.1.5"
   }
 }
