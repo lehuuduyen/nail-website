@@ -86,7 +86,7 @@ h3 {
   background-color: #f7f3f2;
   background-image:
     linear-gradient(180deg, rgba(247, 243, 242, 0.88) 0%, rgba(247, 243, 242, 0.82) 100%),
-    url('/images/marble-texture.png'),
+    url('/images/marble-texture.webp'),
     radial-gradient(ellipse 120% 90% at 15% 25%, rgba(219, 205, 201, 0.45) 0%, transparent 55%),
     radial-gradient(ellipse 100% 70% at 88% 12%, rgba(197, 185, 181, 0.35) 0%, transparent 50%),
     radial-gradient(ellipse 70% 55% at 65% 88%, rgba(189, 178, 175, 0.2) 0%, transparent 48%),

@@ -4,6 +4,8 @@ import { getApiOrigin } from '@/lib/api';
 import { absoluteUrl } from '@/lib/siteUrl';
 import { salonName } from '@/lib/salon';
 import BlogArticleJsonLd from '@/components/BlogArticleJsonLd';
+import BlogArticleBody from '@/components/BlogArticleBody';
+import BlogFaqJsonLd from '@/components/BlogFaqJsonLd';
 
 export const revalidate = 3600;
 
@@ -30,35 +32,20 @@ export async function generateMetadata({ params }) {
         .map((s) => s.trim())
         .filter(Boolean)
     : undefined;
+  const pageTitle = post.metaTitle || post.title;
   return {
-    title: post.title,
+    title: pageTitle,
     description: post.metaDescription || post.excerpt,
     keywords: kw,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
-      title: post.title,
+      title: pageTitle,
       description: post.metaDescription || post.excerpt,
       type: 'article',
       publishedTime: post.publishedAt,
       url: absoluteUrl(`/blog/${post.slug}`),
     },
   };
-}
-
-function ArticleBody({ content }) {
-  const parts = String(content || '')
-    .split(/\n\n+/)
-    .map((p) => p.trim())
-    .filter(Boolean);
-  return (
-    <div className="mt-8">
-      {parts.map((para, i) => (
-        <p key={i} className="mb-4 text-base leading-relaxed text-charcoal/85 last:mb-0 md:text-lg">
-          {para}
-        </p>
-      ))}
-    </div>
-  );
 }
 
 function formatDate(iso) {
@@ -79,9 +66,12 @@ export default async function BlogArticlePage({ params }) {
 
   const name = salonName();
 
+  const faqs = Array.isArray(post.faqs) ? post.faqs : null;
+
   return (
     <>
       <BlogArticleJsonLd post={post} />
+      <BlogFaqJsonLd faqs={faqs} />
       <article className="min-h-screen bg-cream pb-20">
         <div className="border-b border-rose-gold/15 bg-surface/80 px-4 py-8 backdrop-blur-sm md:py-10">
           <div className="mx-auto max-w-3xl">
@@ -124,7 +114,26 @@ export default async function BlogArticlePage({ params }) {
           <p className="font-display text-lg italic leading-relaxed text-charcoal/80 md:text-xl">
             {post.excerpt}
           </p>
-          <ArticleBody content={post.content} />
+          <BlogArticleBody content={post.content} />
+
+          {faqs?.length ? (
+            <section className="mt-14" aria-labelledby="blog-faq-heading">
+              <h2
+                id="blog-faq-heading"
+                className="font-display text-2xl text-ink md:text-3xl"
+              >
+                Frequently asked questions
+              </h2>
+              <ul className="mt-6 space-y-6">
+                {faqs.map((f) => (
+                  <li key={f.q}>
+                    <h3 className="text-lg font-semibold text-charcoal">{f.q}</h3>
+                    <p className="mt-2 text-base leading-relaxed text-charcoal/75">{f.a}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
           <div className="mt-12 rounded-2xl border border-rose-gold/20 bg-surface/90 p-6 text-center md:p-8">
             <p className="font-display text-xl text-ink">Ready to visit us?</p>

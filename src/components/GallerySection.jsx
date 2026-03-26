@@ -6,11 +6,17 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ZoomIn, X } from 'lucide-react';
 import { fetchGallery, getPublicBaseUrl } from '@/lib/api';
+import { galleryImageAlt } from '@/lib/galleryImageAlt';
 
 function gallerySrc(url) {
   if (!url) return '';
   if (url.startsWith('http')) return url;
   return `${getPublicBaseUrl()}${url.startsWith('/') ? '' : '/'}${url}`;
+}
+
+/** Skip /_next/image for absolute URLs — nicenailsphoenix.com (and similar) often 403 server-side fetches. */
+function unoptimizedRemote(src) {
+  return typeof src === 'string' && /^https?:\/\//i.test(src.trim());
 }
 
 export default function GallerySection() {
@@ -21,6 +27,9 @@ export default function GallerySection() {
     fetchGallery().then((all) => setItems((all || []).slice(0, 9)));
   }, []);
 
+  const lightboxItem = lightbox != null ? items[lightbox] : null;
+  const lightboxSrc = lightboxItem ? gallerySrc(lightboxItem.imageUrl) : '';
+
   return (
     <section className="marble-bg py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
@@ -29,7 +38,9 @@ export default function GallerySection() {
           <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-rose-gold" />
         </div>
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {items.map((g, i) => (
+          {items.map((g, i) => {
+            const thumbSrc = gallerySrc(g.thumbnailUrl || g.imageUrl);
+            return (
             <motion.button
               key={g.id}
               type="button"
@@ -42,9 +53,10 @@ export default function GallerySection() {
             >
               <div className="group relative aspect-[4/5] w-full">
                 <Image
-                  src={gallerySrc(g.thumbnailUrl || g.imageUrl)}
-                  alt={g.title || 'Salon work'}
+                  src={thumbSrc}
+                  alt={galleryImageAlt(g)}
                   fill
+                  unoptimized={unoptimizedRemote(thumbSrc)}
                   className="object-cover transition duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, 33vw"
                 />
@@ -53,7 +65,8 @@ export default function GallerySection() {
                 </div>
               </div>
             </motion.button>
-          ))}
+            );
+          })}
         </div>
         <div className="mt-12 text-center">
           <Link
@@ -66,7 +79,7 @@ export default function GallerySection() {
       </div>
 
       <AnimatePresence>
-        {lightbox != null && items[lightbox] && (
+        {lightboxItem && (
           <motion.div
             className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/90 p-4"
             initial={{ opacity: 0 }}
@@ -91,15 +104,16 @@ export default function GallerySection() {
             >
               <div className="relative aspect-[4/5] w-full max-w-lg sm:aspect-video sm:max-w-3xl">
                 <Image
-                  src={gallerySrc(items[lightbox].imageUrl)}
-                  alt={items[lightbox].title || ''}
+                  src={lightboxSrc}
+                  alt={galleryImageAlt(lightboxItem)}
                   fill
+                  unoptimized={unoptimizedRemote(lightboxSrc)}
                   className="object-contain bg-black"
                 />
               </div>
-              {items[lightbox].title && (
+              {lightboxItem.title && (
                 <p className="bg-charcoal px-4 py-2 text-center text-sm text-cream">
-                  {items[lightbox].title}
+                  {lightboxItem.title}
                 </p>
               )}
             </motion.div>

@@ -5,9 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { salonTagline, salonArea } from '@/lib/salon';
-
-const HERO_IMG =
-  'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1920&q=85';
+import { HERO_IMAGE } from '@/lib/siteImages';
 
 export default function HeroSection() {
   const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
@@ -15,16 +13,18 @@ export default function HeroSection() {
   const area = salonArea();
 
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center md:min-h-screen">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden md:min-h-screen">
       <Image
-        src={HERO_IMG}
-        alt="Luxury nail salon"
-        fill
+        src={HERO_IMAGE.src}
+        alt="Nice Nails & Spa luxury nail salon interior North Phoenix AZ"
+        title="Best Nail Salon in North Phoenix AZ 85021"
+        width={HERO_IMAGE.width}
+        height={HERO_IMAGE.height}
         priority
-        className="object-cover"
+        className="absolute inset-0 z-0 h-full w-full object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-hero-gradient" />
+      <div className="absolute inset-0 z-[1] bg-hero-gradient" />
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
         <motion.h1
           className="font-display text-4xl font-normal tracking-tight text-white md:text-6xl lg:text-7xl"
@@ -35,7 +35,7 @@ export default function HeroSection() {
           {name}
         </motion.h1>
         <motion.p
-          className="mt-4 max-w-2xl text-lg font-light text-white/92 md:mx-auto md:text-xl"
+          className="mt-4 max-w-2xl text-lg font-light text-[#c9a96e] drop-shadow-sm md:mx-auto md:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.7 }}

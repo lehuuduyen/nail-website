@@ -33,8 +33,8 @@ const item = {
 
 export default function OurLuxuryServicesSection() {
   return (
-    <section id="luxury-services" className="marble-bg pb-16 pt-4 md:pb-24 md:pt-2">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <section id="luxury-services"  className="marble-bg pb-16 pt-4 md:pb-24 md:pt-2">
+      <div className="mx-auto max-w-6xl px-4 md:px-6" >
         <h2 className="flex flex-wrap items-center justify-center gap-2 text-center font-display text-3xl font-normal text-ink md:text-4xl">
           Our Luxury Services
           <span className="inline-flex items-center gap-0.5 text-[#c9a96e]" aria-hidden>

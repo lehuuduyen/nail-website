@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { MapPin, Star,StarHalf } from 'lucide-react';
+import { MapPin, Star, StarHalf } from 'lucide-react';
 import { salonArea } from '@/lib/salon';
+import { WHY_LOVE_IMAGES } from '@/lib/siteImages';
 
 function GoogleLogo({ className = 'h-6 w-6' }) {
   return (
@@ -31,17 +32,21 @@ function GoogleLogo({ className = 'h-6 w-6' }) {
 
 const nailNeutral =
   'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=640&q=85';
-/** Ảnh manicure — upload tại public/images/why-love-manicure.png */
-const nailPink = '/images/why-love-manicure.png';
-/** Ảnh nội thất tiệm — upload tại public/images/salon-interior.png */
-const salonInterior = '/images/salon-interior.png';
 
 export default function WhyLoveSection() {
   const area = salonArea();
 
   return (
-    <section id="why-love" className="marble-bg py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <section id="why-love" className="relative overflow-hidden py-16 md:py-24">
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream/30 via-cream/10 to-cream/35"
+        aria-hidden
+      />
+      <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <h2 className="text-center font-display text-3xl font-normal text-ink md:text-4xl">
           Why Ladies Love Nice Nails &amp; Spa
         </h2>
@@ -78,9 +83,10 @@ export default function WhyLoveSection() {
             <div className="relative aspect-[4/3] w-full">
               <Image
                 src={nailNeutral}
-                alt="Elegant manicured nails"
-                fill
-                className="object-cover"
+                alt="Professional manicure style inspiration at Nice Nails & Spa Phoenix AZ"
+                width={640}
+                height={960}
+                className="absolute inset-0 h-full w-full object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
@@ -104,10 +110,11 @@ export default function WhyLoveSection() {
           >
             <div className="relative aspect-[4/3] w-full shrink-0">
               <Image
-                src={nailPink}
-                alt="Soft pink manicure"
-                fill
-                className="object-cover"
+                src={WHY_LOVE_IMAGES.manicure.src}
+                alt="Professional manicure service at Nice Nails Spa Phoenix AZ"
+                width={WHY_LOVE_IMAGES.manicure.width}
+                height={WHY_LOVE_IMAGES.manicure.height}
+                className="h-full w-full object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
@@ -139,10 +146,12 @@ export default function WhyLoveSection() {
           >
             <div className="relative aspect-[4/3] w-full shrink-0">
               <Image
-                src={salonInterior}
-                alt="Nice Nails & Spa salon interior"
-                fill
-                className="object-cover"
+                src={WHY_LOVE_IMAGES.salonInterior.src}
+                alt="Nice Nails & Spa luxury nail salon interior North Phoenix AZ"
+                title="Best Nail Salon in North Phoenix AZ 85021"
+                width={WHY_LOVE_IMAGES.salonInterior.width}
+                height={WHY_LOVE_IMAGES.salonInterior.height}
+                className="absolute inset-0 h-full w-full object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>

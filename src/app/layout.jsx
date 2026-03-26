@@ -1,9 +1,9 @@
 import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
+import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingBookBtn from '@/components/FloatingBookBtn';
-import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const playfair = Playfair_Display({
@@ -66,8 +66,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`}>
-      <body className="min-h-screen bg-cream font-sans antialiased text-ink">
+      <head>
         <LocalBusinessJsonLd />
+      </head>
+      <body className="min-h-screen bg-cream font-sans antialiased text-ink">
         <Navbar />
         <main className="pt-[72px]">{children}</main>
         <Footer />

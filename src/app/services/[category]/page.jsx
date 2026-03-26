@@ -12,8 +12,22 @@ import {
 import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 
+const STATIC_CATEGORY_PAGES = new Set([
+  'pedicure',
+  'nails',
+  'lash',
+  'head_spa',
+  'manicure',
+  'facial',
+  'kids',
+  'waxing',
+  'addon',
+]);
+
 export function generateStaticParams() {
-  return VALID_CATEGORY_SLUGS.map((category) => ({ category }));
+  return VALID_CATEGORY_SLUGS.filter((c) => !STATIC_CATEGORY_PAGES.has(c)).map((category) => ({
+    category,
+  }));
 }
 
 export async function generateMetadata({ params }) {

@@ -10,9 +10,7 @@ import {
   salonMapsUrl,
   salonMapsEmbedUrl,
 } from '@/lib/salon';
-
-/** Local copy of salon banner (was nicenailsphoenix.com/MyPhotosGalary/newbanner22.jpg) */
-const HERO_IMG = '/images/about-banner.jpg';
+import { ABOUT_BANNER } from '@/lib/siteImages';
 
 export default function AboutSection() {
   const name = salonName();
@@ -42,10 +40,12 @@ export default function AboutSection() {
             className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl"
           >
             <Image
-              src={HERO_IMG}
-              alt={`${name} — nail salon atmosphere`}
-              fill
-              className="object-cover"
+              src={ABOUT_BANNER.src}
+              alt={`${name} luxury nail salon interior and manicure stations North Phoenix AZ`}
+              title="Best Nail Salon in North Phoenix AZ 85021"
+              width={ABOUT_BANNER.width}
+              height={ABOUT_BANNER.height}
+              className="absolute inset-0 z-0 h-full w-full object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-charcoal/20 to-transparent" />

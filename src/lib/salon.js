@@ -15,6 +15,13 @@ export function salonArea() {
   return process.env.NEXT_PUBLIC_SALON_AREA || 'North Phoenix, AZ 85021';
 }
 
+export function salonAddress() {
+  return (
+    process.env.NEXT_PUBLIC_SALON_ADDRESS ||
+    '8048 N 19th Ave, Phoenix, AZ 85021'
+  );
+}
+
 export function salonHours() {
   return (
     process.env.NEXT_PUBLIC_SALON_HOURS ||

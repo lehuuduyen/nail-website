@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { fetchGallery, getPublicBaseUrl } from '@/lib/api';
 import { GALLERY_TABS } from '@/lib/categories';
+import { galleryImageAlt } from '@/lib/galleryImageAlt';
 
 const PAGE = 12;
 
@@ -99,7 +100,7 @@ export default function GalleryPage() {
                   <div className="relative aspect-[3/4] w-full">
                     <Image
                       src={srcUrl(g.thumbnailUrl || g.imageUrl)}
-                      alt={g.title || 'Gallery'}
+                      alt={galleryImageAlt(g)}
                       fill
                       unoptimized={unoptimizedRemote(
                         srcUrl(g.thumbnailUrl || g.imageUrl)
@@ -176,7 +177,7 @@ export default function GalleryPage() {
               <div className="relative aspect-[4/3] w-full md:aspect-video">
                 <Image
                   src={srcUrl(current.imageUrl)}
-                  alt={current.title || ''}
+                  alt={galleryImageAlt(current)}
                   fill
                   unoptimized={unoptimizedRemote(srcUrl(current.imageUrl))}
                   className="object-contain"

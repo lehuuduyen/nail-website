@@ -8,12 +8,16 @@ import { useState } from 'react';
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/#about', label: 'About' },
+  { href: '/#about', label: 'About', hashScrollId: 'about' },
   { href: '/services', label: 'Services' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/blog', label: 'Blog' },
   { href: '/booking', label: 'Book' },
 ];
+
+function scrollToId(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -27,7 +31,7 @@ export default function Navbar() {
           {name}
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
-          {links.map(({ href, label }) => {
+          {links.map(({ href, label, hashScrollId }) => {
             const active = href.startsWith('/#')
               ? pathname === '/'
               : href === '/blog'
@@ -40,6 +44,15 @@ export default function Navbar() {
                 className={`text-sm font-medium transition ${
                   active ? 'text-rose-gold' : 'text-cream/80 hover:text-rose-gold'
                 }`}
+                onClick={(e) => {
+                  if (!hashScrollId) return;
+                  if (pathname === '/') {
+                    e.preventDefault();
+                    scrollToId(hashScrollId);
+                  } else {
+                    sessionStorage.setItem('homeScrollTarget', hashScrollId);
+                  }
+                }}
               >
                 {label}
               </Link>
@@ -68,11 +81,21 @@ export default function Navbar() {
           className="border-t border-white/10 bg-charcoal px-4 py-4 md:hidden"
         >
           <div className="flex flex-col gap-3">
-            {links.map(({ href, label }) => (
+            {links.map(({ href, label, hashScrollId }) => (
               <Link
                 key={href}
                 href={href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  if (hashScrollId) {
+                    if (pathname === '/') {
+                      e.preventDefault();
+                      scrollToId(hashScrollId);
+                    } else {
+                      sessionStorage.setItem('homeScrollTarget', hashScrollId);
+                    }
+                  }
+                  setOpen(false);
+                }}
                 className="text-cream/90"
               >
                 {label}

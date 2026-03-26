@@ -4,31 +4,32 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
+import { SERVICE_CARD_IMAGES } from '@/lib/siteImages';
 
 const POPULAR = [
   {
     title: 'Manicure',
     priceLine: 'From $30',
-    image: '/images/popular-manicure.png',
     bookingId: 1,
+    ...SERVICE_CARD_IMAGES.manicure,
   },
   {
     title: 'Pedicure',
     priceLine: 'From $35',
-    image: '/images/popular-pedicure.png',
     bookingId: 4,
+    ...SERVICE_CARD_IMAGES.pedicure,
   },
   {
     title: 'Acrylic Nails',
     priceLine: 'From $40 +',
-    image: '/images/popular-acrylic-nails.png',
     bookingId: 13,
+    ...SERVICE_CARD_IMAGES.acrylic,
   },
   {
     title: 'Nail Art',
     priceLine: 'From $15 +',
-    image: '/images/popular-nail-art.png',
     bookingId: 21,
+    ...SERVICE_CARD_IMAGES.nailArt,
   },
 ];
 
@@ -72,10 +73,11 @@ export default function ServicesSection() {
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src={s.image}
-                  alt={s.title}
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                  src={s.src}
+                  alt={s.alt}
+                  width={s.width}
+                  height={s.height}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
