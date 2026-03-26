@@ -58,6 +58,8 @@ export default function OurLuxuryServicesSection() {
             <motion.li
               key={p.title}
               variants={item}
+                              style={{ backgroundColor: '#F6E9EC' }}
+
               className="flex flex-col items-center rounded-2xl border border-white/45 bg-surface/55 px-4 py-6 text-center shadow-md shadow-charcoal/[0.04] backdrop-blur-sm md:py-8"
             >
               <div

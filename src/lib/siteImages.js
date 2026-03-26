@@ -4,7 +4,7 @@
  */
 
 export const HERO_IMAGE = {
-  src: '/images/hero-manicure.webp',
+  src: '/images/popular-nail-art.webp',
   width: 682,
   height: 1024,
 };

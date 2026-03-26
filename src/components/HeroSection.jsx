@@ -35,9 +35,10 @@ export default function HeroSection() {
 
   const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
   const rawPhone = process.env.NEXT_PUBLIC_SALON_PHONE || '(602)1234567';
+  const address = process.env.NEXT_PUBLIC_SALON_ADDRESS || '8048 N 19th Ave, Phoenix, AZ 85021';
   const phoneDisplay = formatUsPhoneDisplay(rawPhone);
   const tel = `tel:${rawPhone.replace(/\D/g, '')}`;
-
+  
   const headline = 'Luxury Nails That Turn Heads';
   const subline = 'Top-rated nail salon in Phoenix • Book in 60 seconds';
 
@@ -47,7 +48,7 @@ export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden" suppressHydrationWarning>
       <div
-        className="relative w-full min-h-[clamp(260px,72vw,440px)] overflow-hidden rounded-none bg-[#100d0c] sm:min-h-0 sm:aspect-[1024/420]"
+        className="relative w-full min-h-[clamp(340px,88vw,540px)] overflow-hidden rounded-none bg-[#100d0c] sm:min-h-0 md:aspect-[2.15/1] lg:aspect-[2.5/1]"
         suppressHydrationWarning
       >
         <Image
@@ -73,7 +74,7 @@ export default function HeroSection() {
           {SPARKLE_POS.map((pos, i) => (
             <span
               key={i}
-              className="absolute text-[10px] text-[#D4AF37]/40 md:text-xs"
+              className="absolute text-[13px] text-[#D4AF37]/40 md:text-[19px]"
               style={{ top: pos.top, left: pos.left }}
             >
               ✦
@@ -84,7 +85,7 @@ export default function HeroSection() {
           className="absolute inset-0 z-10 flex items-center"
           suppressHydrationWarning
         >
-          <div className="grid w-full grid-cols-1 items-center gap-4 px-5 py-10 md:grid-cols-2 md:gap-6 md:px-10 md:py-8 lg:px-12">
+          <div className="grid w-full grid-cols-1 items-center gap-4 px-5 py-12 md:grid-cols-2 md:gap-6 md:px-10 md:py-16 lg:px-14">
             <motion.div
               className="max-w-xl text-left"
               initial={false}
@@ -98,13 +99,22 @@ export default function HeroSection() {
                 {headline}
               </motion.h1>
               <motion.p
-                className="mt-3 max-w-md font-sans text-xs font-light leading-relaxed text-[#D1D1D1] sm:text-sm md:text-sm"
+                className="mt-3 max-w-md font-sans text-[15px] font-bold leading-relaxed text-[#D1D1D1] sm:text-[19px] md:text-[19px]"
                 initial={skipInitial ? false : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={HERO_MOTION_TRANSITION}
               >
                 {subline}
               </motion.p>
+              <motion.p
+                className="mt-3 max-w-md font-sans text-xs font-light leading-relaxed text-[#D1D1D1] sm:text-sm md:text-sm"
+                initial={skipInitial ? false : { opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={HERO_MOTION_TRANSITION}
+              >
+                {address}
+              </motion.p>
+
               <motion.div
                 className="mt-6 w-full min-w-0 max-w-full sm:mt-8 sm:max-w-md"
                 initial={skipInitial ? false : { opacity: 0, y: 14 }}
@@ -121,19 +131,19 @@ export default function HeroSection() {
                       aria-hidden
                     />
                     <span
-                      className="absolute left-2 top-1.5 animate-twinkle text-[6px] text-white/80 sm:left-3 sm:top-2 sm:text-[8px]"
+                      className="absolute left-2 top-1.5 animate-twinkle text-[9px] text-white/80 sm:left-3 sm:top-2 sm:text-[11px]"
                       aria-hidden
                     >
                       ✦
                     </span>
                     <span
-                      className="absolute bottom-1.5 right-2 animate-twinkle-delay text-[6px] text-white/60 sm:bottom-2 sm:right-4 sm:text-[7px]"
+                      className="absolute bottom-1.5 right-2 animate-twinkle-delay text-[9px] text-white/60 sm:bottom-2 sm:right-4 sm:text-[10px]"
                       aria-hidden
                     >
                       ✦
                     </span>
                     <span
-                      className="absolute right-2 top-1 animate-twinkle text-[5px] text-yellow-200/70 sm:right-3 sm:top-1.5 sm:text-[6px]"
+                      className="absolute right-2 top-1 animate-twinkle text-[8px] text-yellow-200/70 sm:right-3 sm:top-1.5 sm:text-[9px]"
                       aria-hidden
                     >
                       ★
