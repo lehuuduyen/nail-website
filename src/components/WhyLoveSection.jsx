@@ -90,7 +90,7 @@ export default function WhyLoveSection() {
                   <Star key={i} className="h-5 w-5 fill-current md:h-6 md:w-6" strokeWidth={0} aria-hidden />
                 ))}
               </div>
-              <p className="mt-3 font-sans text-sm text-muted">250+ happy clients</p>
+              <p className="mt-3 font-sans text-sm text-muted">656+ happy clients</p>
             </motion.article>
 
             <motion.article

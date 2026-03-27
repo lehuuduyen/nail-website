@@ -5,7 +5,7 @@
 
 /** Hero LCP — prefer smaller WebP (hero-manicure) over heavy nail-art file */
 export const HERO_IMAGE = {
-  src: '/images/hero-manicure.webp',
+  src: '/images/popular-nail-art.webp',
   width: 682,
   height: 1024,
 };
@@ -30,7 +30,7 @@ export const SERVICE_CARD_IMAGES = {
     alt: 'Acrylic nail extensions North Phoenix Arizona',
   },
   nailArt: {
-    src: '/images/popular-nail-art.webp',
+    src: '/images/hero-manicure.webp',
     width: 682,
     height: 1024,
     alt: 'Custom nail art designs Phoenix AZ Nice Nails Spa',

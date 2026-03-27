@@ -32,7 +32,7 @@ export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden" suppressHydrationWarning>
       <div
-        className="relative w-full min-h-[clamp(340px,88vw,540px)] overflow-hidden rounded-none bg-[#100d0c] sm:min-h-0 md:aspect-[2.15/1] lg:aspect-[2.5/1]"
+        className="relative w-full min-h-[clamp(340px,88vw,540px)] overflow-hidden rounded-none bg-[#100d0c] md:min-h-0 md:aspect-[2.15/1] lg:aspect-[2.5/1]"
         suppressHydrationWarning
       >
         <Image
@@ -72,37 +72,37 @@ export default function HeroSection() {
           suppressHydrationWarning
         >
           <div className="grid w-full grid-cols-1 items-center gap-4 px-5 py-12 md:grid-cols-2 md:gap-6 md:px-10 md:py-16 lg:px-14">
-            <div className="max-w-xl text-left">
+            <div className="max-w-xl w-full text-left mx-auto px-2 sm:px-0">
               <h1
-                className="hero-fade-up font-display text-balance text-3xl font-semibold leading-[1.08] tracking-tight text-[#F5F5F5] drop-shadow-[0_1px_24px_rgba(0,0,0,0.35)] sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.06]"
+                className="hero-fade-up font-display text-balance text-2xl font-semibold leading-tight tracking-tight text-[#F5F5F5] drop-shadow-[0_1px_18px_rgba(0,0,0,0.40)] sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.06]"
               >
                 {headline}
               </h1>
-              <p className="hero-fade-up-d1 mt-3 max-w-md font-sans text-[15px] font-bold leading-relaxed text-[#D1D1D1] sm:text-[19px] md:text-[19px]">
+              <p className="hero-fade-up-d1 mt-2 max-w-full font-sans text-sm font-bold leading-snug text-[#D1D1D1] sm:mt-3 sm:text-[19px] md:text-[19px]">
                 {subline}
               </p>
-              <p className="hero-fade-up-d2 mt-3 max-w-md font-sans text-xs font-light leading-relaxed text-[#D1D1D1] sm:text-sm md:text-sm">
+              <p className="hero-fade-up-d2 mt-2 max-w-full font-sans text-xs font-light leading-relaxed text-[#D1D1D1] sm:mt-3 sm:text-sm md:text-sm">
                 {address}
               </p>
 
-              <div className="hero-fade-up-d3 mt-6 w-full min-w-0 max-w-full sm:mt-8 sm:max-w-md">
-                <div className="box-border flex w-full min-w-0 max-w-full flex-col gap-1.5 overflow-hidden rounded-full border border-white/20 bg-white/15 p-1 backdrop-blur-md sm:gap-2 sm:p-1.5 sm:flex-row sm:items-stretch">
+              <div className="hero-fade-up-d3 mt-5 w-full min-w-0 max-w-full sm:mt-8 sm:max-w-md">
+                <div className="box-border flex w-full min-w-0 max-w-full flex-col gap-2 overflow-hidden rounded-2xl border border-white/20 bg-white/15 p-1.5 backdrop-blur-md sm:gap-2 sm:p-1.5 sm:flex-row sm:items-stretch">
                   <Link
                     href="/booking"
-                    className="relative flex w-full min-w-0 max-w-full min-h-[44px] flex-1 shrink items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-[#C9932A] via-[#E8C547] to-[#B8821E] px-[clamp(0.75rem,4vw,1.5rem)] py-2.5 text-center font-sans text-[clamp(9px,2.9vw,11px)] font-bold uppercase tracking-[0.12em] text-white no-underline shadow-[0_0_14px_rgba(212,175,55,0.4),inset_0_1px_0_rgba(255,255,255,0.28)] transition hover:brightness-110 hover:shadow-[0_0_24px_rgba(212,175,55,0.55)] sm:min-h-0 sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_0_18px_rgba(212,175,55,0.45),inset_0_1px_0_rgba(255,255,255,0.3)] sm:hover:shadow-[0_0_28px_rgba(212,175,55,0.65)]"
+                    className="relative flex w-full min-w-0 max-w-full min-h-[44px] flex-1 shrink items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-[#C9932A] via-[#E8C547] to-[#B8821E] px-3 py-2 text-center font-sans text-[12px] font-bold uppercase tracking-[0.13em] text-white no-underline shadow-[0_0_10px_rgba(212,175,55,0.34),inset_0_1px_0_rgba(255,255,255,0.20)] transition hover:brightness-110 hover:shadow-[0_0_18px_rgba(212,175,55,0.38)] sm:min-h-0 sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_0_18px_rgba(212,175,55,0.45),inset_0_1px_0_rgba(255,255,255,0.3)] sm:hover:shadow-[0_0_28px_rgba(212,175,55,0.65)]"
                   >
                     <span
                       className="pointer-events-none absolute inset-0 -skew-x-12 animate-shimmer bg-gradient-to-r from-transparent via-white/25 to-transparent"
                       aria-hidden
                     />
                     <span
-                      className="absolute left-2 top-1.5 animate-twinkle text-[9px] text-white/80 sm:left-3 sm:top-2 sm:text-[11px]"
+                      className="absolute left-2 top-1 animate-twinkle text-[9px] text-white/80 sm:left-3 sm:top-2 sm:text-[11px]"
                       aria-hidden
                     >
                       ✦
                     </span>
                     <span
-                      className="absolute bottom-1.5 right-2 animate-twinkle-delay text-[9px] text-white/60 sm:bottom-2 sm:right-4 sm:text-[10px]"
+                      className="absolute bottom-1 right-2 animate-twinkle-delay text-[9px] text-white/60 sm:bottom-2 sm:right-4 sm:text-[10px]"
                       aria-hidden
                     >
                       ✦
@@ -113,14 +113,14 @@ export default function HeroSection() {
                     >
                       ★
                     </span>
-                    <span className="relative z-10 px-1">BOOK NOW</span>
+                    <span className="relative z-10 px-1 text-xs sm:text-[11px]">BOOK NOW</span>
                   </Link>
                   <a
                     href={tel}
-                    className="flex w-full min-w-0 max-w-full min-h-[44px] flex-1 shrink items-center justify-center gap-1.5 overflow-hidden rounded-full bg-white/35 px-[clamp(0.625rem,3.5vw,1.25rem)] py-2.5 font-sans text-[clamp(0.7rem,3.4vw,0.875rem)] font-semibold tabular-nums leading-none text-[#2D1F0F] no-underline backdrop-blur-sm transition hover:bg-white/45 sm:min-h-0 sm:gap-2 sm:px-5 sm:py-3 sm:text-sm"
+                    className="flex w-full min-w-0 max-w-full min-h-[40px] flex-1 shrink items-center justify-center gap-1.5 overflow-hidden rounded-full bg-white/45 px-2.5 py-2 font-sans text-[13px] font-semibold tabular-nums leading-none text-[#2D1F0F] no-underline backdrop-blur-sm transition hover:bg-white/65 sm:min-h-0 sm:gap-2 sm:px-5 sm:py-3 sm:text-sm"
                   >
                     <Phone
-                      className="h-3.5 w-3.5 shrink-0 text-[#7A5C10] sm:h-4 sm:w-4"
+                      className="h-3 w-3 shrink-0 text-[#7A5C10] sm:h-4 sm:w-4"
                       strokeWidth={2}
                       aria-hidden
                     />
@@ -128,7 +128,7 @@ export default function HeroSection() {
                   </a>
                 </div>
               </div>
-              <p className="hero-fade-up-d4 mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-xs font-normal text-[#D1D1D1]/75">
+              <p className="hero-fade-up-d4 mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-[11px] font-normal text-[#D1D1D1]/80 sm:mt-4 sm:text-xs">
                 <span className="text-[#D4AF37]" aria-hidden>
                   ✦
                 </span>
