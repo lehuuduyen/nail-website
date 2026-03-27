@@ -44,11 +44,11 @@ export default async function BlogPage() {
   return (
     <div className="min-h-screen bg-cream">
       <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 text-center md:py-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-charcoal/55">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
           {name}
         </p>
         <h1 className="mt-3 font-display text-4xl text-ink md:text-5xl">Salon blog</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-charcoal/75 md:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-charcoal md:text-base">
           Practical guides for nails, spa services, and getting the most from your visit — written
           for our Phoenix guests.
         </p>
@@ -56,7 +56,7 @@ export default async function BlogPage() {
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16">
         {posts.length === 0 ? (
-          <p className="rounded-2xl border border-lavender/30 bg-surface/80 px-6 py-10 text-center text-charcoal/70">
+          <p className="rounded-2xl border border-lavender/30 bg-surface/80 px-6 py-10 text-center text-charcoal">
             Articles are loading soon. Please check back, or{' '}
             <Link href="/booking" className="font-semibold text-rose-gold underline">
               book an appointment
@@ -83,7 +83,7 @@ export default async function BlogPage() {
                       {p.title}
                     </Link>
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-charcoal/80 md:text-base">
+                  <p className="mt-3 text-sm leading-relaxed text-charcoal md:text-base">
                     {p.excerpt}
                   </p>
                   <Link

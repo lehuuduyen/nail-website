@@ -22,10 +22,11 @@ module.exports = {
         /** Xám lavender trong đá */
         lavender: '#C5B9B5',
         'lavender-deep': '#BDB2AF',
-        /** Chữ ấm, không đen thuần */
-        charcoal: '#4A4240',
-        ink: '#4A4240',
-        muted: '#8A7974',
+        /** Chữ ấm — ink đủ tương phản trên cream (~7:1); muted phụ đạt WCAG AA (~5.5:1) */
+        charcoal: '#3D3836',
+        ink: '#3D3836',
+        /** Trước #8A7974 (~3.5:1) — quá nhạt trên marble/cream */
+        muted: '#524845',
       },
       fontFamily: {
         display: ['var(--font-playfair)', 'Georgia', 'serif'],

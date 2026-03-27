@@ -24,7 +24,7 @@ export default function GallerySection() {
   const [lightbox, setLightbox] = useState(null);
 
   useEffect(() => {
-    fetchGallery().then((all) => setItems((all || []).slice(0, 6)));
+    fetchGallery({ limit: 6 }).then((data) => setItems(Array.isArray(data) ? data : []));
   }, []);
 
   const lightboxItem = lightbox != null ? items[lightbox] : null;
@@ -40,6 +40,7 @@ export default function GallerySection() {
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {items.map((g, i) => {
             const thumbSrc = gallerySrc(g.thumbnailUrl || g.imageUrl);
+            const isFirstCell = i < 2;
             return (
             <motion.button
               key={g.id}
@@ -56,11 +57,13 @@ export default function GallerySection() {
                   src={thumbSrc}
                   alt={galleryImageAlt(g)}
                   fill
-                  loading="lazy"
-                  quality={80}
+                  loading={isFirstCell ? 'eager' : 'lazy'}
+                  fetchPriority={isFirstCell ? 'high' : 'low'}
+                  decoding="async"
+                  quality={72}
                   unoptimized={unoptimizedRemote(thumbSrc)}
                   className="object-cover transition duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 96vw, (max-width: 1024px) 45vw, 380px"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-charcoal/0 transition group-hover:bg-charcoal/40">
                   <ZoomIn className="h-10 w-10 text-white opacity-0 transition group-hover:opacity-100" />

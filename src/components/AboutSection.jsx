@@ -58,7 +58,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-5 text-charcoal/80"
+            className="space-y-5 text-charcoal"
           >
             <p className="text-lg leading-relaxed text-ink">
               <span className="font-semibold text-charcoal">{name}</span> is a go-to spot for nails
@@ -71,7 +71,7 @@ export default function AboutSection() {
               lash services — all in a calm, welcoming space. Appointments and walk-ins are welcome;
               gift certificates available.
             </p>
-            <p className="text-sm leading-relaxed text-charcoal/65">
+            <p className="text-sm leading-relaxed text-charcoal">
               We prioritize hygiene: disposable liners and sanitary practices help keep every
               service comfortable and safe.
             </p>
@@ -124,7 +124,7 @@ export default function AboutSection() {
             <MapPin className="h-8 w-8 shrink-0 text-rose-gold" />
             <div className="text-left">
               <p className="text-sm font-semibold text-ink">Find us on Google Maps</p>
-              <p className="text-xs text-charcoal/60">Tap to open directions</p>
+              <p className="text-xs text-muted">Tap to open directions</p>
             </div>
           </motion.a>
         )}

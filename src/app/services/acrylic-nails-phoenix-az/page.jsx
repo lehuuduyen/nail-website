@@ -25,13 +25,13 @@ export default function AcrylicNailsPhoenixAzPage() {
     <div className="min-h-screen bg-cream pb-24">
       <article className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-14 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-charcoal/55">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
             {salon}
           </p>
           <h1 className="mt-3 font-display text-4xl tracking-tight text-ink md:text-5xl">
             Acrylic nails in Phoenix, AZ
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-charcoal/75 md:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-charcoal md:text-lg">
             Sculpted length, classic pink-and-white, and dependable fill schedules for busy Valley clients.
             See every enhancement we offer on the{' '}
             <Link href="/services/nails" className="font-medium text-rose-gold underline decoration-rose-gold/40">
@@ -64,7 +64,7 @@ export default function AcrylicNailsPhoenixAzPage() {
         </div>
       </article>
 
-      <div className="mx-auto max-w-3xl px-4 py-14 text-sm leading-relaxed text-charcoal/80 md:text-base">
+      <div className="mx-auto max-w-3xl px-4 py-14 text-sm leading-relaxed text-charcoal md:text-base">
         <h2 className="font-display text-2xl text-ink md:text-3xl">Why guests choose acrylic here</h2>
         <ul className="mt-4 list-inside list-disc space-y-2 marker:text-rose-gold">
           <li>Customizable length and shape with fills every two to three weeks for most clients.</li>

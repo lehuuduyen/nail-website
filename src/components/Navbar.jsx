@@ -48,7 +48,7 @@ export default function Navbar() {
                 key={href}
                 href={href}
                 className={`text-sm font-medium transition ${
-                  active ? 'text-rose-gold' : 'text-cream/80 hover:text-rose-gold'
+                  active ? 'text-rose-gold' : 'text-cream hover:text-rose-gold'
                 }`}
                 onClick={(e) => {
                   if (!hashScrollId) return;
@@ -102,7 +102,7 @@ export default function Navbar() {
                   }
                   setOpen(false);
                 }}
-                className="text-cream/90"
+                className="text-cream"
               >
                 {label}
               </Link>

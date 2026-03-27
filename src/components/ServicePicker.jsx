@@ -42,7 +42,7 @@ export default function ServicePicker({ services, valueId, onChange, search, onS
   return (
     <div className="space-y-6">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-charcoal/40" />
+        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
         <input
           type="search"
           placeholder="Search services…"
@@ -75,9 +75,9 @@ export default function ServicePicker({ services, valueId, onChange, search, onS
                   >
                     <p className="font-display text-lg text-ink">{s.name}</p>
                     {s.nameVi && (
-                      <p className="text-sm text-charcoal/60">{s.nameVi}</p>
+                      <p className="text-sm text-muted">{s.nameVi}</p>
                     )}
-                    <p className="mt-2 text-sm text-charcoal/70">
+                    <p className="mt-2 text-sm text-charcoal">
                       {s.duration} min · {formatCurrency(s.price)}
                     </p>
                   </button>

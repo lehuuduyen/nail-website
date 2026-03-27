@@ -48,7 +48,7 @@ export default function FacialServicesPage() {
       <div className="min-h-screen bg-cream pb-24">
         <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 md:py-16">
           <div className="mx-auto max-w-4xl">
-            <nav className="text-xs font-medium text-charcoal/55" aria-label="Breadcrumb">
+            <nav className="text-xs font-medium text-muted" aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-1">
                 <li>
                   <Link href="/" className="hover:text-rose-gold">
@@ -98,7 +98,7 @@ export default function FacialServicesPage() {
               </Link>
               <Link
                 href="/services"
-                className="rounded-full border-2 border-charcoal/15 px-4 py-2 text-charcoal/90 transition hover:border-rose-gold/30"
+                className="rounded-full border-2 border-charcoal/15 px-4 py-2 text-charcoal transition hover:border-rose-gold/30"
               >
                 View all services
               </Link>
@@ -107,7 +107,7 @@ export default function FacialServicesPage() {
         </section>
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
-          <p className="text-base leading-relaxed text-charcoal/80 md:text-lg">
+          <p className="text-base leading-relaxed text-charcoal md:text-lg">
             Searching for a <strong>facial Phoenix AZ</strong> studio that understands desert skin? Nice
             Nails &amp; Spa in <strong>North Phoenix</strong> designs each visit around hydration, clarity,
             and calm—because Sonoran air pulls moisture faster than most visitors expect. Whether you
@@ -137,7 +137,7 @@ export default function FacialServicesPage() {
             >
               Choose your facial
             </h2>
-            <p className="mt-2 text-sm text-charcoal/65">
+            <p className="mt-2 text-sm text-charcoal">
               Three combo levels—pick what matches your skin today; we adjust products at your
               appointment.
             </p>
@@ -149,7 +149,7 @@ export default function FacialServicesPage() {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-rose-gold">
                   45 min · $45
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/75">
+                <p className="mt-2 text-sm leading-relaxed text-charcoal">
                   Best for <strong>regular maintenance</strong> when you want steady hydration, polish, and
                   prevention—ideal if you are new to facials or need a dependable refresh between seasons.
                 </p>
@@ -161,7 +161,7 @@ export default function FacialServicesPage() {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-rose-gold">
                   60 min · $60
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/75">
+                <p className="mt-2 text-sm leading-relaxed text-charcoal">
                   Best for <strong>congested or dull skin</strong> that needs thorough cleansing,
                   exfoliation, mask time, facial acupressure, neck and shoulder massage, and a hydrating
                   finish so you look awake again.
@@ -174,7 +174,7 @@ export default function FacialServicesPage() {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-rose-gold">
                   80 min · $80
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/75">
+                <p className="mt-2 text-sm leading-relaxed text-charcoal">
                   Best for <strong>oily or acne-prone skin</strong> with charcoal, clay, and salicylic-style
                   focus plus steam to purify—especially helpful when <strong>Phoenix heat and humidity</strong>{' '}
                   amp up shine and clogged pores. We still rehydrate so skin feels clear, not tight.
@@ -195,7 +195,7 @@ export default function FacialServicesPage() {
             >
               Why your skin needs a facial in Phoenix AZ
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-charcoal/80 md:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-charcoal md:text-base">
               Living in the Valley means near-constant <strong>sun exposure</strong>, low desert humidity
               indoors and out, and temperature swings every time you step from AC into the heat. That
               combo dehydrates surface cells, exaggerates fine lines, and makes pores more noticeable—so
@@ -223,7 +223,7 @@ export default function FacialServicesPage() {
               {FACIAL_SEO_FAQS.map((f) => (
                 <li key={f.q}>
                   <h3 className="font-semibold text-charcoal">{f.q}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{f.a}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-charcoal">{f.a}</p>
                 </li>
               ))}
             </ul>
@@ -231,7 +231,7 @@ export default function FacialServicesPage() {
 
           <section className="mt-16">
             <h2 className="font-display text-2xl text-ink">You may also like</h2>
-            <p className="mt-1 text-sm text-charcoal/60">Popular picks from other categories</p>
+            <p className="mt-1 text-sm text-muted">Popular picks from other categories</p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((s) => (
                 <ServiceCard key={s.id} service={s} compact showBookButton />
@@ -260,13 +260,13 @@ export default function FacialServicesPage() {
             </Link>
             <Link
               href="/services"
-              className="inline-flex rounded-full border-2 border-charcoal/15 px-6 py-2.5 text-sm font-semibold text-charcoal/90 hover:border-rose-gold/30"
+              className="inline-flex rounded-full border-2 border-charcoal/15 px-6 py-2.5 text-sm font-semibold text-charcoal hover:border-rose-gold/30"
             >
               ← View all services
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-2 text-xs text-charcoal/50">
+          <div className="mt-10 flex flex-wrap gap-2 text-xs text-muted">
             {CATEGORY_NAV.filter((c) => c.key !== CATEGORY).map((c) => (
               <Link
                 key={c.key}

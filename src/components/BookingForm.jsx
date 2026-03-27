@@ -177,14 +177,14 @@ export default function BookingForm() {
                     ? 'bg-rose-gold text-white'
                     : active
                       ? 'bg-charcoal text-cream ring-2 ring-rose-gold'
-                      : 'bg-cream text-charcoal/40'
+                      : 'bg-cream text-muted'
                 }`}
               >
                 {done ? '✓' : n}
               </div>
               <span
                 className={`hidden truncate text-xs font-semibold uppercase tracking-wide md:inline ${
-                  active ? 'text-charcoal' : 'text-charcoal/45'
+                  active ? 'text-charcoal' : 'text-muted'
                 }`}
               >
                 {label}
@@ -196,10 +196,10 @@ export default function BookingForm() {
           );
         })}
         <div className="flex min-w-0 flex-1 items-center gap-2 opacity-50">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cream text-sm font-bold text-charcoal/40">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cream text-sm font-bold text-muted">
             5
           </div>
-          <span className="hidden truncate text-xs font-semibold uppercase tracking-wide text-charcoal/45 md:inline">
+          <span className="hidden truncate text-xs font-semibold uppercase tracking-wide text-muted md:inline">
             Confirmed
           </span>
         </div>
@@ -257,7 +257,7 @@ export default function BookingForm() {
             <h2 className="font-display text-2xl text-ink">Pick date & time</h2>
             <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
               <div>
-                <p className="mb-2 text-sm font-medium text-charcoal/70">Date</p>
+                <p className="mb-2 text-sm font-medium text-charcoal">Date</p>
                 <DatePicker
                   selected={dateVal}
                   onChange={(d) => {
@@ -271,7 +271,7 @@ export default function BookingForm() {
                 />
               </div>
               <div>
-                <p className="mb-2 text-sm font-medium text-charcoal/70">Available times</p>
+                <p className="mb-2 text-sm font-medium text-charcoal">Available times</p>
                 {slotsError && <p className="mb-2 text-sm text-red-600">{slotsError}</p>}
                 <TimeSlotPicker
                   slots={slots}
@@ -308,7 +308,7 @@ export default function BookingForm() {
                 <h2 className="font-display text-2xl text-ink">Your information</h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="text-xs font-semibold text-charcoal/70">First name *</label>
+                    <label className="text-xs font-semibold text-charcoal">First name *</label>
                     <input
                       required
                       className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm"
@@ -317,7 +317,7 @@ export default function BookingForm() {
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-charcoal/70">Last name *</label>
+                    <label className="text-xs font-semibold text-charcoal">Last name *</label>
                     <input
                       required
                       className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm"
@@ -327,7 +327,7 @@ export default function BookingForm() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-xs font-semibold text-charcoal/70">Phone *</label>
+                  <label className="text-xs font-semibold text-charcoal">Phone *</label>
                   <input
                     required
                     className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm"
@@ -337,7 +337,7 @@ export default function BookingForm() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold text-charcoal/70">Email (optional)</label>
+                  <label className="text-xs font-semibold text-charcoal">Email (optional)</label>
                   <input
                     type="email"
                     className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm"
@@ -346,7 +346,7 @@ export default function BookingForm() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold text-charcoal/70">Special requests</label>
+                  <label className="text-xs font-semibold text-charcoal">Special requests</label>
                   <textarea
                     rows={3}
                     className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm"
@@ -375,7 +375,7 @@ export default function BookingForm() {
               </div>
               <aside className="h-fit rounded-2xl border border-rose-gold/20 bg-surface p-6 shadow-sm shadow-rose-gold/5">
                 <h3 className="font-display text-lg text-ink">Summary</h3>
-                <ul className="mt-4 space-y-3 text-sm text-charcoal/80">
+                <ul className="mt-4 space-y-3 text-sm text-charcoal">
                   <li>
                     <span className="font-semibold text-charcoal">{service?.name}</span>
                     <div className="text-rose-gold">{formatCurrency(service?.price)}</div>

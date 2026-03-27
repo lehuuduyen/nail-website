@@ -68,7 +68,7 @@ export default function HomeFaqSection() {
           {items.map((item) => (
             <li key={item.q}>
               <h3 className="text-lg font-semibold text-charcoal">{item.q}</h3>
-              <p className="mt-2 text-base leading-relaxed text-charcoal/75">{item.a}</p>
+              <p className="mt-2 text-base leading-relaxed text-charcoal">{item.a}</p>
             </li>
           ))}
         </ul>

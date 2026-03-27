@@ -15,11 +15,11 @@ export default function HomeServiceAreasSection() {
         >
           Serving North Phoenix &amp; Surrounding Areas
         </h2>
-        <p className="mt-3 text-sm text-charcoal/70 md:text-base">
+        <p className="mt-3 text-sm text-charcoal md:text-base">
           {name} welcomes guests from across the Valley—here are a few communities we see often.
         </p>
 
-        <div className="mt-10 space-y-8 text-base leading-relaxed text-charcoal/85 md:text-lg">
+        <div className="mt-10 space-y-8 text-base leading-relaxed text-charcoal md:text-lg">
           <p>
             <strong className="text-charcoal">North Phoenix.</strong> We are proud to call North Phoenix
             home and to serve neighbors who want dependable manicures, pedicures, and enhancements without

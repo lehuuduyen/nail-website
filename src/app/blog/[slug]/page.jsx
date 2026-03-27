@@ -75,7 +75,7 @@ export default async function BlogArticlePage({ params }) {
       <article className="min-h-screen bg-cream pb-20">
         <div className="border-b border-rose-gold/15 bg-surface/80 px-4 py-8 backdrop-blur-sm md:py-10">
           <div className="mx-auto max-w-3xl">
-            <nav className="text-xs text-charcoal/55" aria-label="Breadcrumb">
+            <nav className="text-xs text-muted" aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-1">
                 <li>
                   <Link href="/" className="hover:text-rose-gold">
@@ -89,7 +89,7 @@ export default async function BlogArticlePage({ params }) {
                   </Link>
                 </li>
                 <li aria-hidden>/</li>
-                <li className="line-clamp-1 text-charcoal/70">{post.title}</li>
+                <li className="line-clamp-1 text-charcoal">{post.title}</li>
               </ol>
             </nav>
             <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted">
@@ -111,7 +111,7 @@ export default async function BlogArticlePage({ params }) {
         </div>
 
         <div className="mx-auto max-w-3xl px-4 py-10 md:px-6 md:py-14">
-          <p className="font-display text-lg italic leading-relaxed text-charcoal/80 md:text-xl">
+          <p className="font-display text-lg italic leading-relaxed text-charcoal md:text-xl">
             {post.excerpt}
           </p>
           <BlogArticleBody content={post.content} />
@@ -128,7 +128,7 @@ export default async function BlogArticlePage({ params }) {
                 {faqs.map((f) => (
                   <li key={f.q}>
                     <h3 className="text-lg font-semibold text-charcoal">{f.q}</h3>
-                    <p className="mt-2 text-base leading-relaxed text-charcoal/75">{f.a}</p>
+                    <p className="mt-2 text-base leading-relaxed text-charcoal">{f.a}</p>
                   </li>
                 ))}
               </ul>
@@ -137,7 +137,7 @@ export default async function BlogArticlePage({ params }) {
 
           <div className="mt-12 rounded-2xl border border-rose-gold/20 bg-surface/90 p-6 text-center md:p-8">
             <p className="font-display text-xl text-ink">Ready to visit us?</p>
-            <p className="mt-2 text-sm text-charcoal/70">
+            <p className="mt-2 text-sm text-charcoal">
               Book online or call — walk-ins welcome when we have space.
             </p>
             <Link

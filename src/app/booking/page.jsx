@@ -6,10 +6,10 @@ export default function BookingPage() {
     <div className="min-h-screen bg-gradient-to-b from-cream via-cream to-cream-dark/30">
       <section className="border-b border-rose-gold/15 bg-surface/85 px-4 py-10 text-center backdrop-blur-md">
         <h1 className="font-display text-3xl text-ink md:text-4xl">Book your visit</h1>
-        <p className="mt-2 text-sm text-charcoal/65">A few steps to your moment of calm.</p>
+        <p className="mt-2 text-sm text-charcoal">A few steps to your moment of calm.</p>
       </section>
       <Suspense
-        fallback={<p className="py-20 text-center text-charcoal/50">Loading…</p>}
+        fallback={<p className="py-20 text-center text-muted">Loading…</p>}
       >
         <BookingForm />
       </Suspense>

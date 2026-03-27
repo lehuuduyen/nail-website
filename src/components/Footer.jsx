@@ -11,11 +11,11 @@ export default function Footer() {
   const tel = phone.replace(/\D/g, '');
 
   return (
-    <footer className="border-t border-rose-gold/20 bg-charcoal text-cream/90">
+    <footer className="border-t border-rose-gold/20 bg-charcoal text-cream">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-6">
         <div>
           <p className="font-display text-2xl text-cream">{name}</p>
-          <p className="mt-2 text-sm leading-relaxed text-cream/70">
+          <p className="mt-2 text-sm leading-relaxed text-cream">
             Quality products, skilled hands, and a relaxing space — appointments & walk-ins welcome.
           </p>
         </div>
@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs text-cream/50">
+      <div className="border-t border-white/10 py-4 text-center text-xs text-cream/85">
         © {new Date().getFullYear()} {name}. All rights reserved.
       </div>
     </footer>

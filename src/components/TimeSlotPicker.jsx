@@ -10,17 +10,17 @@ function toLabel(time) {
 
 export default function TimeSlotPicker({ slots, value, onChange, loading }) {
   if (loading) {
-    return <p className="text-sm text-charcoal/60">Loading available times…</p>;
+    return <p className="text-sm text-muted">Loading available times…</p>;
   }
   if (!slots.length) {
-    return <p className="text-sm text-charcoal/60">No slots for this date.</p>;
+    return <p className="text-sm text-muted">No slots for this date.</p>;
   }
 
   const available = slots.filter((s) => s.available);
 
   return (
     <div>
-      <p className="mb-3 text-sm text-charcoal/70">
+      <p className="mb-3 text-sm text-charcoal">
         <span className="font-semibold text-rose-gold">{available.length}</span> slots remaining
       </p>
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5">

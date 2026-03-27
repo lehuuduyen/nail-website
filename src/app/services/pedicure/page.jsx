@@ -52,7 +52,7 @@ export default function PedicureServicesPage() {
       <div className="min-h-screen bg-cream pb-24">
         <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 md:py-16">
           <div className="mx-auto max-w-4xl">
-            <nav className="text-xs font-medium text-charcoal/55" aria-label="Breadcrumb">
+            <nav className="text-xs font-medium text-muted" aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-1">
                 <li>
                   <Link href="/" className="hover:text-rose-gold">
@@ -105,7 +105,7 @@ export default function PedicureServicesPage() {
         </section>
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
-          <p className="text-base leading-relaxed text-charcoal/80 md:text-lg">
+          <p className="text-base leading-relaxed text-charcoal md:text-lg">
             Looking for a <strong>pedicure in Phoenix AZ</strong> that feels like a real break in your
             day? At Nice Nails &amp; Spa in <strong>North Phoenix</strong>, our menu centers on{' '}
             <strong>spa pedicure</strong> rituals that soften rough spots, refresh tired feet, and leave
@@ -133,7 +133,7 @@ export default function PedicureServicesPage() {
               {PEDICURE_SEO_FAQS.map((f) => (
                 <li key={f.q}>
                   <h3 className="font-semibold text-charcoal">{f.q}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{f.a}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-charcoal">{f.a}</p>
                 </li>
               ))}
             </ul>
@@ -141,7 +141,7 @@ export default function PedicureServicesPage() {
 
           <section className="mt-16">
             <h2 className="font-display text-2xl text-ink">You may also like</h2>
-            <p className="mt-1 text-sm text-charcoal/60">Popular picks from other categories</p>
+            <p className="mt-1 text-sm text-muted">Popular picks from other categories</p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((s) => (
                 <ServiceCard key={s.id} service={s} compact showBookButton />
@@ -170,7 +170,7 @@ export default function PedicureServicesPage() {
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-2 text-xs text-charcoal/50">
+          <div className="mt-10 flex flex-wrap gap-2 text-xs text-muted">
             {CATEGORY_NAV.filter((c) => c.key !== CATEGORY).map((c) => (
               <Link
                 key={c.key}

@@ -23,12 +23,12 @@ export default function ServiceCard({
           {service.name}
         </h3>
         {service.description && !compact && (
-          <p className="mt-2 text-sm leading-relaxed text-charcoal/65">
+          <p className="mt-2 text-sm leading-relaxed text-charcoal">
             {service.description}
           </p>
         )}
         {service.description && compact && (
-          <p className="mt-1 line-clamp-2 text-xs text-charcoal/60">
+          <p className="mt-1 line-clamp-2 text-xs text-muted">
             {service.description}
           </p>
         )}
@@ -43,11 +43,11 @@ export default function ServiceCard({
             {formatMoney(service.price)}
           </p>
           {service.priceCard != null ? (
-            <p className="mt-0.5 text-sm text-charcoal/50">
+            <p className="mt-0.5 text-sm text-muted">
               Card: {formatMoney(service.priceCard)}
             </p>
           ) : (
-            <p className="mt-0.5 text-sm text-charcoal/50">Cash price</p>
+            <p className="mt-0.5 text-sm text-muted">Cash price</p>
           )}
         </div>
 

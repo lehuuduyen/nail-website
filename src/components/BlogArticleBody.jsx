@@ -38,7 +38,7 @@ export default function BlogArticleBody({ content }) {
       {parts.map((para, i) => (
         <p
           key={i}
-          className="mb-4 text-base leading-relaxed text-charcoal/85 last:mb-0 md:text-lg"
+          className="mb-4 text-base leading-relaxed text-charcoal last:mb-0 md:text-lg"
         >
           <RichParagraph text={para} />
         </p>

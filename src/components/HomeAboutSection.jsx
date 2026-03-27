@@ -17,7 +17,7 @@ export default function HomeAboutSection() {
         >
           About {name}
         </h2>
-        <div className="mt-6 space-y-4 text-base leading-relaxed text-charcoal/85 md:text-lg">
+        <div className="mt-6 space-y-4 text-base leading-relaxed text-charcoal md:text-lg">
           <p>
             Welcome to {name}, a <strong>nail salon North Phoenix AZ</strong> neighbors choose for
             careful work, a relaxed pace, and a team that greets you like a regular from day one. Our

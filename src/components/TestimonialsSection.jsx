@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
                 “{r.text}”
               </p>
               <p className="mt-6 text-sm font-semibold text-rose-gold">{r.name}</p>
-              <p className="text-xs text-cream/60">{r.service}</p>
+              <p className="text-xs text-cream/90">{r.service}</p>
             </motion.div>
           </AnimatePresence>
         </div>

@@ -60,7 +60,7 @@ export default function GalleryPage() {
     <div className="min-h-screen bg-cream pb-24">
       <section className="border-b border-rose-gold/15 bg-surface/80 px-4 py-14 text-center backdrop-blur-sm">
         <h1 className="font-display text-4xl text-ink md:text-5xl">Our Gallery</h1>
-        <p className="mt-2 text-charcoal/65">A glimpse of the looks we create every day.</p>
+        <p className="mt-2 text-charcoal">A glimpse of the looks we create every day.</p>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 pt-8 md:px-6">
@@ -73,7 +73,7 @@ export default function GalleryPage() {
               className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition ${
                 tab === t.key
                   ? 'bg-charcoal text-cream'
-                  : 'bg-surface-soft text-charcoal/70 ring-1 ring-rose-gold/20 hover:bg-cream-dark/40'
+                  : 'bg-surface-soft text-charcoal ring-1 ring-rose-gold/20 hover:bg-cream-dark/40'
               }`}
             >
               {t.label}
@@ -82,7 +82,7 @@ export default function GalleryPage() {
         </div>
 
         {loading ? (
-          <p className="mt-12 text-center text-charcoal/50">Loading gallery…</p>
+          <p className="mt-12 text-center text-muted">Loading gallery…</p>
         ) : (
           <>
             <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
@@ -102,13 +102,16 @@ export default function GalleryPage() {
                       src={srcUrl(g.thumbnailUrl || g.imageUrl)}
                       alt={galleryImageAlt(g)}
                       fill
-                      loading="lazy"
-                      quality={80}
+                      priority={idx === 0}
+                      loading={idx < 3 ? 'eager' : 'lazy'}
+                      fetchPriority={idx < 3 ? 'high' : 'low'}
+                      decoding="async"
+                      quality={72}
                       unoptimized={unoptimizedRemote(
                         srcUrl(g.thumbnailUrl || g.imageUrl)
                       )}
                       className="object-cover transition duration-500 hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 96vw, (max-width: 1024px) 45vw, 380px"
                     />
                   </div>
                 </motion.button>
@@ -181,7 +184,11 @@ export default function GalleryPage() {
                   src={srcUrl(current.imageUrl)}
                   alt={galleryImageAlt(current)}
                   fill
-                  quality={85}
+                  priority
+                  loading="eager"
+                  fetchPriority="high"
+                  quality={82}
+                  sizes="(max-width: 768px) 100vw, min(896px, 90vw)"
                   unoptimized={unoptimizedRemote(srcUrl(current.imageUrl))}
                   className="object-contain"
                 />
@@ -189,7 +196,7 @@ export default function GalleryPage() {
               <div className="space-y-3 bg-charcoal px-4 py-4 text-cream">
                 {current.title && <p className="font-display text-lg">{current.title}</p>}
                 {current.description && (
-                  <p className="text-sm text-cream/75">{current.description}</p>
+                  <p className="text-sm text-cream">{current.description}</p>
                 )}
                 <Link
                   href="/booking"

@@ -43,7 +43,7 @@ export default function OurLuxuryServicesSection() {
             <Sparkles className="h-4 w-4 opacity-80" strokeWidth={1.25} />
           </span>
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-center text-sm text-charcoal/80 md:text-base">
+        <p className="mx-auto mt-3 max-w-xl text-center text-sm text-charcoal md:text-base">
           Get inspired by our beautiful nail designs
         </p>
 

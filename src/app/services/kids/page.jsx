@@ -67,7 +67,7 @@ export default function KidsServicesPage() {
       <div className="min-h-screen bg-cream pb-24">
         <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 md:py-16">
           <div className="mx-auto max-w-4xl">
-            <nav className="text-xs font-medium text-charcoal/55" aria-label="Breadcrumb">
+            <nav className="text-xs font-medium text-muted" aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-1">
                 <li>
                   <Link href="/" className="hover:text-rose-gold">
@@ -120,7 +120,7 @@ export default function KidsServicesPage() {
         </section>
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
-          <p className="text-base leading-relaxed text-charcoal/80 md:text-lg">
+          <p className="text-base leading-relaxed text-charcoal md:text-lg">
             Looking for a <strong>kids nail salon Phoenix AZ</strong> parents actually trust? Nice Nails
             &amp; Spa welcomes children with manicures and pedicures sized for little hands and feet—not
             grown-up timelines. A <strong>children manicure Phoenix</strong> students request before
@@ -148,9 +148,9 @@ export default function KidsServicesPage() {
             >
               Perfect for special occasions
             </h2>
-            <p className="mt-2 text-sm text-charcoal/65">
+            <p className="mt-2 text-sm text-charcoal">
               Popular reasons families search things like{' '}
-              <span className="font-medium text-charcoal/75">
+              <span className="font-medium text-charcoal">
                 kids birthday nail salon Phoenix
               </span>
               —here is how we can help.
@@ -159,7 +159,7 @@ export default function KidsServicesPage() {
               {OCCASIONS.map((o) => (
                 <li key={o.title}>
                   <h3 className="text-lg font-semibold text-charcoal">{o.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-charcoal/75">{o.text}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-charcoal">{o.text}</p>
                 </li>
               ))}
             </ul>
@@ -179,7 +179,7 @@ export default function KidsServicesPage() {
               {KIDS_SEO_FAQS.map((f) => (
                 <li key={f.q}>
                   <h3 className="font-semibold text-charcoal">{f.q}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{f.a}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-charcoal">{f.a}</p>
                 </li>
               ))}
             </ul>
@@ -187,7 +187,7 @@ export default function KidsServicesPage() {
 
           <section className="mt-16">
             <h2 className="font-display text-2xl text-ink">You may also like</h2>
-            <p className="mt-1 text-sm text-charcoal/60">Popular picks from other categories</p>
+            <p className="mt-1 text-sm text-muted">Popular picks from other categories</p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((s) => (
                 <ServiceCard key={s.id} service={s} compact showBookButton />
@@ -216,7 +216,7 @@ export default function KidsServicesPage() {
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-2 text-xs text-charcoal/50">
+          <div className="mt-10 flex flex-wrap gap-2 text-xs text-muted">
             {CATEGORY_NAV.filter((c) => c.key !== CATEGORY).map((c) => (
               <Link
                 key={c.key}

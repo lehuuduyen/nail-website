@@ -78,7 +78,7 @@ export default function ConfirmationPage() {
 
   if (!data) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-charcoal/50">
+      <div className="flex min-h-[50vh] items-center justify-center text-muted">
         Loading…
       </div>
     );
@@ -150,29 +150,29 @@ export default function ConfirmationPage() {
           className="rounded-2xl border border-rose-gold/25 bg-surface p-8 shadow-xl shadow-rose-gold/10"
         >
           <h1 className="text-center font-display text-2xl text-ink">You&apos;re all set</h1>
-          <p className="mt-2 text-center text-sm text-charcoal/60">
+          <p className="mt-2 text-center text-sm text-muted">
             Reference{' '}
             <span className="font-mono font-semibold text-rose-gold">{data.confirmationNumber}</span>
           </p>
-          <ul className="mt-8 space-y-3 text-sm text-charcoal/80">
+          <ul className="mt-8 space-y-3 text-sm text-charcoal">
             <li>
-              <span className="text-charcoal/50">Service</span>
+              <span className="text-muted">Service</span>
               <div className="font-medium text-ink">
                 {data.service?.name} · {formatCurrency(data.service?.price)}
               </div>
             </li>
             <li>
-              <span className="text-charcoal/50">With</span>
+              <span className="text-muted">With</span>
               <div className="font-medium text-ink">{data.staffName}</div>
             </li>
             <li>
-              <span className="text-charcoal/50">When</span>
+              <span className="text-muted">When</span>
               <div className="font-medium text-ink">
                 {datePretty} · {timePretty}
               </div>
             </li>
           </ul>
-          <div className="mt-8 border-t border-rose-gold/15 pt-6 text-sm text-charcoal/70">
+          <div className="mt-8 border-t border-rose-gold/15 pt-6 text-sm text-charcoal">
             <p className="font-semibold text-ink">{salon}</p>
             <p className="mt-1">{address}</p>
             <a href={`tel:${phone.replace(/\D/g, '')}`} className="mt-1 inline-block text-rose-gold">
@@ -198,7 +198,7 @@ export default function ConfirmationPage() {
           </Link>
           <Link
             href="/"
-            className="rounded-full border border-rose-gold/40 px-6 py-3 text-center text-sm font-semibold text-charcoal/80"
+            className="rounded-full border border-rose-gold/40 px-6 py-3 text-center text-sm font-semibold text-charcoal"
           >
             Back to home
           </Link>

@@ -78,10 +78,10 @@ export default function HeroSection() {
               >
                 {headline}
               </h1>
-              <p className="hero-fade-up-d1 mt-2 max-w-full font-sans text-sm font-bold leading-snug text-[#D1D1D1] sm:mt-3 sm:text-[19px] md:text-[19px]">
+              <p className="hero-fade-up-d1 mt-2 max-w-full font-sans text-sm font-bold leading-snug text-[#EFEDEB] drop-shadow-[0_1px_3px_rgba(0,0,0,0.75)] sm:mt-3 sm:text-[19px] md:text-[19px]">
                 {subline}
               </p>
-              <p className="hero-fade-up-d2 mt-2 max-w-full font-sans text-xs font-light leading-relaxed text-[#D1D1D1] sm:mt-3 sm:text-sm md:text-sm">
+              <p className="hero-fade-up-d2 mt-2 max-w-full font-sans text-xs font-normal leading-relaxed text-[#EBE9E7] drop-shadow-[0_1px_3px_rgba(0,0,0,0.72)] sm:mt-3 sm:text-sm md:text-sm">
                 {address}
               </p>
 
@@ -128,7 +128,7 @@ export default function HeroSection() {
                   </a>
                 </div>
               </div>
-              <p className="hero-fade-up-d4 mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-[11px] font-normal text-[#D1D1D1]/80 sm:mt-4 sm:text-xs">
+              <p className="hero-fade-up-d4 mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-[11px] font-normal text-[#E8E6E4] drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)] sm:mt-4 sm:text-xs">
                 <span className="text-[#D4AF37]" aria-hidden>
                   ✦
                 </span>

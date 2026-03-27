@@ -48,7 +48,7 @@ export default function ManicureServicesPage() {
       <div className="min-h-screen bg-cream pb-24">
         <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 md:py-16">
           <div className="mx-auto max-w-4xl">
-            <nav className="text-xs font-medium text-charcoal/55" aria-label="Breadcrumb">
+            <nav className="text-xs font-medium text-muted" aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-1">
                 <li>
                   <Link href="/" className="hover:text-rose-gold">
@@ -101,7 +101,7 @@ export default function ManicureServicesPage() {
         </section>
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
-          <p className="text-base leading-relaxed text-charcoal/80 md:text-lg">
+          <p className="text-base leading-relaxed text-charcoal md:text-lg">
             Whether you want a <strong>manicure Phoenix AZ</strong> locals trust, a{' '}
             <strong>gel manicure North Phoenix</strong> that guests return for, or the{' '}
             <strong>best manicure Phoenix 85021</strong> experience before a packed week, Nice Nails &amp; Spa
@@ -130,7 +130,7 @@ export default function ManicureServicesPage() {
             >
               Which manicure is right for you?
             </h2>
-            <p className="mt-2 text-sm text-charcoal/65">
+            <p className="mt-2 text-sm text-charcoal">
               Match your schedule and how much pampering you want—your nail tech can fine-tune at
               check-in.
             </p>
@@ -140,7 +140,7 @@ export default function ManicureServicesPage() {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-rose-gold">
                   ~35 min · from $30
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/75">
+                <p className="mt-2 text-sm leading-relaxed text-charcoal">
                   A quick refresh for an everyday look—perfect when you need neat cuticles, balanced
                   shaping, lotion massage, and polish before heading back to work or errands.
                 </p>
@@ -150,7 +150,7 @@ export default function ManicureServicesPage() {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-rose-gold">
                   ~45 min · from $50
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/75">
+                <p className="mt-2 text-sm leading-relaxed text-charcoal">
                   Everything in Classic plus sugar scrub, cooling gel, and a hot towel moment—choose this
                   when your hands feel dull or you want a little spa rhythm without the longest appointment.
                 </p>
@@ -160,7 +160,7 @@ export default function ManicureServicesPage() {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-rose-gold">
                   ~50 min · from $60
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/75">
+                <p className="mt-2 text-sm leading-relaxed text-charcoal">
                   Full Deluxe care with a Jelly spa soak to soften skin and soothe muscles—ideal before
                   photos, travel, or anytime you want maximum hydration and melt-away tension.
                 </p>
@@ -182,7 +182,7 @@ export default function ManicureServicesPage() {
               {MANICURE_SEO_FAQS.map((f) => (
                 <li key={f.q}>
                   <h3 className="font-semibold text-charcoal">{f.q}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{f.a}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-charcoal">{f.a}</p>
                 </li>
               ))}
             </ul>
@@ -190,7 +190,7 @@ export default function ManicureServicesPage() {
 
           <section className="mt-16">
             <h2 className="font-display text-2xl text-ink">You may also like</h2>
-            <p className="mt-1 text-sm text-charcoal/60">Popular picks from other categories</p>
+            <p className="mt-1 text-sm text-muted">Popular picks from other categories</p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((s) => (
                 <ServiceCard key={s.id} service={s} compact showBookButton />
@@ -219,7 +219,7 @@ export default function ManicureServicesPage() {
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-2 text-xs text-charcoal/50">
+          <div className="mt-10 flex flex-wrap gap-2 text-xs text-muted">
             {CATEGORY_NAV.filter((c) => c.key !== CATEGORY).map((c) => (
               <Link
                 key={c.key}

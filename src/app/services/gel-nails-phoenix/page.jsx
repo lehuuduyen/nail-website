@@ -18,13 +18,13 @@ export default function GelNailsPhoenixPage() {
     <div className="min-h-screen bg-cream pb-24">
       <article className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-14 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-charcoal/55">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
             {salon}
           </p>
           <h1 className="mt-3 font-display text-4xl tracking-tight text-ink md:text-5xl">
             Gel nails in Phoenix, AZ
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-charcoal/75 md:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-charcoal md:text-lg">
             Durable shine, chip-resistant wear, and polished finishes — our gel manicures and gel-related
             services are performed at our North Phoenix location. Pair with a pedicure or browse our full{' '}
             <Link href="/services" className="font-medium text-rose-gold underline decoration-rose-gold/40">
@@ -57,7 +57,7 @@ export default function GelNailsPhoenixPage() {
         </div>
       </article>
 
-      <div className="mx-auto max-w-3xl px-4 py-14 text-sm leading-relaxed text-charcoal/80 md:text-base">
+      <div className="mx-auto max-w-3xl px-4 py-14 text-sm leading-relaxed text-charcoal md:text-base">
         <h2 className="font-display text-2xl text-ink md:text-3xl">Why clients choose gel</h2>
         <ul className="mt-4 list-inside list-disc space-y-2 marker:text-rose-gold">
           <li>Flexible strength and glossy finish that lasts longer than regular polish.</li>

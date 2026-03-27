@@ -21,13 +21,13 @@ export default function ServicesPageClient() {
   return (
     <>
       <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-14 text-center md:py-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-charcoal/55">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
           Nice Nails &amp; Spa · Phoenix, AZ
         </p>
         <h1 className="mt-3 font-display text-4xl text-ink md:text-5xl">
           Our services &amp; pricing
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-charcoal/70 md:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-charcoal md:text-base">
           Cash price shown. Card price includes a 3% processing fee. Book online anytime — walk-ins
           welcome.
         </p>
@@ -47,7 +47,7 @@ export default function ServicesPageClient() {
               key={key}
               type="button"
               onClick={() => onNav(key)}
-              className="shrink-0 rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold uppercase tracking-wide text-charcoal/75 ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50 md:text-sm"
+              className="shrink-0 rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold uppercase tracking-wide text-charcoal ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50 md:text-sm"
             >
               {navLabel}
             </button>
@@ -72,7 +72,7 @@ export default function ServicesPageClient() {
                 </span>
                 <h2 className="font-display text-3xl text-ink md:text-4xl">{meta.label}</h2>
               </div>
-              <p className="max-w-3xl text-charcoal/75">{meta.description}</p>
+              <p className="max-w-3xl text-charcoal">{meta.description}</p>
               <Link
                 href={`/services/${key}`}
                 className="mt-2 inline-block text-sm font-semibold text-rose-gold hover:underline"

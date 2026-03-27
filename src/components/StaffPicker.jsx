@@ -50,12 +50,12 @@ export default function StaffPicker({ employees, valueId, onChange }) {
               <p className="mt-3 font-display text-lg text-ink">
                 {emp.firstName} {emp.lastName}
               </p>
-              <p className="text-xs text-charcoal/50">Nail specialist</p>
+              <p className="text-xs text-muted">Nail specialist</p>
               <div className="mt-3 flex flex-wrap justify-center gap-1">
-                <span className="rounded-full bg-cream px-2 py-0.5 text-[10px] font-medium uppercase text-charcoal/70">
+                <span className="rounded-full bg-cream px-2 py-0.5 text-[10px] font-medium uppercase text-charcoal">
                   Manicure
                 </span>
-                <span className="rounded-full bg-cream px-2 py-0.5 text-[10px] font-medium uppercase text-charcoal/70">
+                <span className="rounded-full bg-cream px-2 py-0.5 text-[10px] font-medium uppercase text-charcoal">
                   Pedicure
                 </span>
               </div>
