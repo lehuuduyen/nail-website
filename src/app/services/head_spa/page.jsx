@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 import HeadSpaSeoSchemas, { HEAD_SPA_SEO_FAQS } from '@/components/HeadSpaSeoSchemas';
 import { absoluteUrl } from '@/lib/siteUrl';
+import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'head_spa';
 const TITLE =
@@ -37,10 +38,11 @@ export const metadata = {
   },
 };
 
-export default function HeadSpaServicesPage() {
+export default async function HeadSpaServicesPage() {
+  const services = await getSalonServices();
   const cat = CATEGORIES[CATEGORY];
-  const list = servicesInCategory(CATEGORY);
-  const related = relatedServices(CATEGORY, 3);
+  const list = servicesInCategory(services, CATEGORY);
+  const related = relatedServices(services, CATEGORY, 3);
 
   return (
     <>

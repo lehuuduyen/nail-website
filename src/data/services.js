@@ -1,553 +1,119 @@
-/** Hardcoded menu for SEO / static services pages (Nice Nails & Spa, Phoenix AZ). */
-
-export const SERVICES = [
-  {
-    id: 1,
-    category: 'manicure',
-    name: 'No. 1 — Classic Manicure',
-    price: 30,
-    priceCard: 30.9,
-    duration: 35,
-    description:
-      'Gel $35. Cuticle trim, nail shape, lotion massage & polish.',
-  },
-  {
-    id: 2,
-    category: 'manicure',
-    name: 'No. 2 — Deluxe Manicure',
-    price: 50,
-    priceCard: 51.5,
-    duration: 45,
-    description:
-      'Gel $55. Cuticle trim, sugar scrub, cooling gel, hot towel, lotion & polish.',
-  },
-  {
-    id: 3,
-    category: 'manicure',
-    name: 'No. 3 — Deep Manicure',
-    price: 60,
-    priceCard: 61.8,
-    duration: 50,
-    description:
-      'Gel $65. Deluxe manicure + Jelly spa to soften skin & soothe muscles.',
-  },
-  {
-    id: 4,
-    category: 'pedicure',
-    name: 'No. 1 — Classic Pedicure',
-    price: 35,
-    priceCard: 36.05,
-    duration: 40,
-    description:
-      'Gel $43. Cuticle trim, shape, sugar scrub, hot towel, massage, polish.',
-  },
-  {
-    id: 5,
-    category: 'pedicure',
-    name: 'No. 2 — Signature Pedicure',
-    price: 40,
-    priceCard: 41.2,
-    duration: 45,
-    description:
-      'Gel $52. + callus removal, cooling gel, hot towel, massage, polish.',
-  },
-  {
-    id: 6,
-    category: 'pedicure',
-    name: 'No. 3 — Deluxe Pedicure',
-    price: 48,
-    priceCard: 49.44,
-    duration: 55,
-    description: 'Gel $62. + hot stone, paraffin dip, massage, polish.',
-  },
-  {
-    id: 7,
-    category: 'pedicure',
-    name: 'No. 4 — Royal Pedicure',
-    price: 58,
-    priceCard: 59.74,
-    duration: 65,
-    description:
-      'Gel $72. Signature + special pedi kit (soak, scrub, mud masque, butter) & 8 min massage.',
-  },
-  {
-    id: 8,
-    category: 'pedicure',
-    name: 'No. 5 — Luxurious Pedicure',
-    price: 68,
-    priceCard: 70.04,
-    duration: 75,
-    description:
-      'Gel $82. Deluxe + special kit, 10 min massage; optional Margarita soak, milk, fruit, or collagen socks.',
-  },
-  {
-    id: 9,
-    category: 'pedicure',
-    name: 'No. 6 — Herbal La Palm Pedicure',
-    price: 82,
-    priceCard: 84.46,
-    duration: 80,
-    description:
-      'Gel $98. La Palm Collagen 7-step — exfoliate, moisturize, lemon & collagen glow.',
-  },
-  {
-    id: 10,
-    category: 'pedicure',
-    name: 'No. 7 — Vena Golden Pedicure',
-    price: 98,
-    priceCard: 100.94,
-    duration: 90,
-    description:
-      'Gel $115. Golden scrub, mask, serum & lotion; full pamper finish with polish.',
-  },
-  {
-    id: 11,
-    category: 'pedicure',
-    name: 'Add-on — Paraffin or hot stone',
-    price: 7,
-    priceCard: 7.21,
-    duration: 10,
-    description: 'Add to any pedicure.',
-  },
-  {
-    id: 12,
-    category: 'pedicure',
-    name: 'Add-on — Extra massage time',
-    price: 10,
-    priceCard: 10.3,
-    duration: 10,
-    description: 'Per block; ask in salon.',
-  },
-  {
-    id: 13,
-    category: 'nails',
-    name: 'Full set',
-    price: 40,
-    priceCard: 41.2,
-    duration: 90,
-    description: 'Gel $50 & up.',
-  },
-  {
-    id: 14,
-    category: 'nails',
-    name: 'Fill-in',
-    price: 35,
-    priceCard: 36.05,
-    duration: 60,
-    description: 'Gel $45 & up.',
-  },
-  {
-    id: 15,
-    category: 'nails',
-    name: 'Ombré / marble',
-    price: 55,
-    priceCard: 56.65,
-    duration: 90,
-    description: 'Starting price; varies by design.',
-  },
-  {
-    id: 16,
-    category: 'nails',
-    name: 'Fancy nail (custom)',
-    price: 60,
-    priceCard: 61.8,
-    duration: 90,
-    description: 'By request.',
-  },
-  {
-    id: 17,
-    category: 'nails',
-    name: 'Pink & white',
-    price: 60,
-    priceCard: 61.8,
-    duration: 75,
-    description: null,
-  },
-  {
-    id: 18,
-    category: 'nails',
-    name: 'White tip / French tip',
-    price: 55,
-    priceCard: 56.65,
-    duration: 75,
-    description: null,
-  },
-  {
-    id: 19,
-    category: 'nails',
-    name: 'Dipping nails',
-    price: 45,
-    priceCard: 46.35,
-    duration: 60,
-    description: 'Starting price.',
-  },
-  {
-    id: 20,
-    category: 'nails',
-    name: 'Gel-X',
-    price: 55,
-    priceCard: 56.65,
-    duration: 75,
-    description: 'Starting price.',
-  },
-  {
-    id: 21,
-    category: 'addon',
-    name: 'Color nail / feet',
-    price: 15,
-    priceCard: 15.45,
-    duration: 20,
-    description: 'Gel $25.',
-  },
-  {
-    id: 22,
-    category: 'addon',
-    name: 'Take-off nails',
-    price: 10,
-    priceCard: 10.3,
-    duration: 20,
-    description: '$10 / $15 by type.',
-  },
-  {
-    id: 23,
-    category: 'addon',
-    name: 'Full set toes',
-    price: 40,
-    priceCard: 41.2,
-    duration: 60,
-    description: '$40 / $45.',
-  },
-  {
-    id: 24,
-    category: 'addon',
-    name: 'Acrylic two big toes',
-    price: 10,
-    priceCard: 10.3,
-    duration: 25,
-    description: null,
-  },
-  {
-    id: 25,
-    category: 'addon',
-    name: 'Paraffin dip',
-    price: 8,
-    priceCard: 8.24,
-    duration: 15,
-    description: null,
-  },
-  {
-    id: 26,
-    category: 'addon',
-    name: 'Callus removal',
-    price: 8,
-    priceCard: 8.24,
-    duration: 15,
-    description: null,
-  },
-  {
-    id: 27,
-    category: 'addon',
-    name: 'Collagen socks',
-    price: 10,
-    priceCard: 10.3,
-    duration: 15,
-    description: null,
-  },
-  {
-    id: 28,
-    category: 'addon',
-    name: '10 minutes massage',
-    price: 10,
-    priceCard: 10.3,
-    duration: 10,
-    description: null,
-  },
-  {
-    id: 29,
-    category: 'addon',
-    name: 'Shiny buffing',
-    price: 8,
-    priceCard: 8.24,
-    duration: 15,
-    description: null,
-  },
-  {
-    id: 30,
-    category: 'addon',
-    name: 'Rhinestone',
-    price: 5,
-    priceCard: 5.15,
-    duration: 15,
-    description: 'Starting price.',
-  },
-  {
-    id: 31,
-    category: 'addon',
-    name: 'French (add-on)',
-    price: 8,
-    priceCard: 8.24,
-    duration: 15,
-    description: null,
-  },
-  {
-    id: 32,
-    category: 'kids',
-    name: 'Kids manicure',
-    price: 15,
-    priceCard: 15.45,
-    duration: 25,
-    description: 'Gel $20. Under 10 years.',
-  },
-  {
-    id: 33,
-    category: 'kids',
-    name: 'Kids pedicure',
-    price: 20,
-    priceCard: 20.6,
-    duration: 30,
-    description: 'Gel $27. Under 10 years.',
-  },
-  {
-    id: 34,
-    category: 'kids',
-    name: 'Kids color nail / feet',
-    price: 10,
-    priceCard: null,
-    duration: 20,
-    description: 'Gel $10.',
-  },
-  {
-    id: 35,
-    category: 'lash',
-    name: 'Classic full set',
-    price: 87,
-    priceCard: 89.61,
-    duration: 90,
-    description:
-      'Classic fill $40. One extension per natural lash; natural mascara look.',
-  },
-  {
-    id: 36,
-    category: 'lash',
-    name: 'Volume full set',
-    price: 120,
-    priceCard: 123.6,
-    duration: 120,
-    description: 'Volume fill $75. Fuller, darker fan style.',
-  },
-  {
-    id: 37,
-    category: 'lash',
-    name: 'Wispy full set',
-    price: 130,
-    priceCard: 133.9,
-    duration: 120,
-    description: 'Wispy fill $70. Soft, feathery length.',
-  },
-  {
-    id: 38,
-    category: 'lash',
-    name: 'Hybrid full set',
-    price: 125,
-    priceCard: 128.75,
-    duration: 105,
-    description: 'Hybrid fill $65. Mix of classic & volume.',
-  },
-  {
-    id: 39,
-    category: 'lash',
-    name: 'Lash lift',
-    price: 50,
-    priceCard: 51.5,
-    duration: 60,
-    description: '$50 / $60 options.',
-  },
-  {
-    id: 40,
-    category: 'lash',
-    name: 'Regular lash',
-    price: 35,
-    priceCard: 36.05,
-    duration: 45,
-    description: null,
-  },
-  {
-    id: 41,
-    category: 'waxing',
-    name: 'Eyebrow wax',
-    price: 12,
-    priceCard: 12.36,
-    duration: 15,
-    description: 'Starting price.',
-  },
-  {
-    id: 42,
-    category: 'waxing',
-    name: 'Face / chin / lip / back / body wax',
-    price: 12,
-    priceCard: 12.36,
-    duration: 15,
-    description: 'Starting price by area.',
-  },
-  {
-    id: 43,
-    category: 'head_spa',
-    name: 'Combo 1 — Basic shampoo (60 min)',
-    price: 78,
-    priceCard: 80.34,
-    duration: 60,
-    description:
-      'Aroma therapy, meridian release, face/scalp massage, aloe mask, double shampoo, conditioner, dry, tea.',
-  },
-  {
-    id: 44,
-    category: 'head_spa',
-    name: 'Combo 2 — Deluxe head spa (90 min)',
-    price: 98,
-    priceCard: 100.94,
-    duration: 90,
-    description:
-      'Combo 1 + foot & eye compress, face/scalp/neck/shoulder massage, hydrating facial, Korean sheet mask, shoulder & ear foam cleanse, tea.',
-  },
-  {
-    id: 45,
-    category: 'head_spa',
-    name: 'Combo 3 — Royal head spa (110 min)',
-    price: 120,
-    priceCard: 123.6,
-    duration: 110,
-    description:
-      'Combo 1 & 2 + hot stone shoulders/face, quartz massage, steam hair oil, arms & hands massage, professional dry, tea.',
-  },
-  {
-    id: 46,
-    category: 'head_spa',
-    name: 'Cluster lash',
-    price: 40,
-    priceCard: 41.2,
-    duration: 45,
-    description: 'Add-on at head spa.',
-  },
-  {
-    id: 47,
-    category: 'head_spa',
-    name: 'Facial scrub',
-    price: 15,
-    priceCard: 15.45,
-    duration: 20,
-    description: null,
-  },
-  {
-    id: 48,
-    category: 'head_spa',
-    name: 'Scalp massage',
-    price: 2,
-    priceCard: 2.06,
-    duration: 1,
-    description: '$2 / minute.',
-  },
-  {
-    id: 49,
-    category: 'head_spa',
-    name: 'Hand paraffin',
-    price: 15,
-    priceCard: 15.45,
-    duration: 20,
-    description: null,
-  },
-  {
-    id: 50,
-    category: 'facial',
-    name: 'Combo 1 — Basic hydrating facial (45 min)',
-    price: 45,
-    priceCard: 46.35,
-    duration: 45,
-    description: 'Cleanse, exfoliate, mask, serum & moisturizer.',
-  },
-  {
-    id: 51,
-    category: 'facial',
-    name: 'Combo 2 — Deep clean facial (60 min)',
-    price: 60,
-    priceCard: 61.8,
-    duration: 60,
-    description:
-      'Deep cleanse, exfoliation, mask, facial acupressure, neck/shoulder massage, hydrating finish.',
-  },
-  {
-    id: 52,
-    category: 'facial',
-    name: 'Combo 3 — Detox deep clean facial (80 min)',
-    price: 80,
-    priceCard: 82.4,
-    duration: 80,
-    description:
-      'Charcoal/clay/salicylic focus, steam, purify & hydrate — ideal for oily or congested skin.',
-  },
-];
+/**
+ * Salon menu metadata + SEO display names.
+ * Live prices/names for pages: getSalonServices() from @/lib/serverServices (API → shared JSON fallback).
+ */
 
 export const CATEGORIES = {
   manicure: {
-    label: 'Manicure',
+    slug: 'manicure',
+    label: 'Manicure - Tay',
     emoji: '💅',
-    description: 'Professional manicure services in Phoenix, AZ',
+    description:
+      'Professional manicure services — classic, deluxe & deep treatments.',
   },
   pedicure: {
-    label: 'Pedicure',
+    slug: 'pedicure',
+    label: 'Pedicure - Chân',
     emoji: '🦶',
-    description: 'Relaxing pedicure treatments',
+    description:
+      'Relaxing pedicure from classic to luxurious golden spa treatments.',
   },
   nails: {
-    label: 'Acrylic & Gel Nails',
+    slug: 'nails',
+    label: 'Acrylic - Bột',
     emoji: '✨',
-    description: 'Full sets, fill-ins, ombré and more',
+    description: 'Full sets, fill-ins, gel, dipping, ombré and nail art designs.',
   },
   addon: {
-    label: 'Add-ons',
+    slug: 'addon',
+    label: 'Additional - Thêm',
     emoji: '➕',
-    description: 'Enhance any service',
+    description: 'Add-on services to enhance any nail treatment.',
   },
   kids: {
-    label: 'Kids Services',
+    slug: 'kids',
+    label: 'Kid < 10YO',
     emoji: '🌟',
-    description: 'Special services for children under 10',
+    description: 'Gentle nail services designed specially for children under 10.',
   },
   lash: {
-    label: 'Eyelash Extensions',
+    slug: 'lash',
+    label: 'Eyelash',
     emoji: '👁️',
-    description: 'Classic, volume, wispy and hybrid sets',
+    description: 'Classic and cluster eyelash extensions.',
   },
   waxing: {
-    label: 'Waxing',
+    slug: 'waxing',
+    label: 'Wax - Tẩy Lông',
     emoji: '🌿',
-    description: 'Eyebrow, face and body waxing',
+    description: 'Eyebrow, body and facial waxing services.',
   },
   head_spa: {
+    slug: 'head_spa',
     label: 'Head Spa',
     emoji: '🧖',
-    description: 'Luxury head spa treatments',
+    description: 'Luxury head spa — basic, deluxe and royal combo treatments.',
   },
   facial: {
+    slug: 'facial',
     label: 'Facial',
     emoji: '✨',
-    description: 'Hydrating and deep clean facials',
+    description: 'Hydrating, deep clean and detox facial treatments.',
   },
 };
 
-/** Nav order + section anchors */
+/** English titles for website / SEO (POS may use shorter internal names). */
+export const WEBSITE_DISPLAY_NAMES = {
+  'Manicure 1 Regular': 'Classic Manicure',
+  'Manicure 1 Gel': 'Classic Manicure with Gel',
+  'Manicure 2 Regular': 'Deluxe Manicure',
+  'Manicure 2 Gel': 'Deluxe Manicure with Gel',
+  'Manicure 3 Regular': 'Deep Manicure',
+  'Manicure 3 Gel': 'Deep Manicure with Gel',
+  'Pedicure 1': 'Classic Pedicure',
+  'Pedicure 1 Gel': 'Classic Pedicure with Gel',
+  'Pedicure 2': 'Signature Pedicure',
+  'Pedicure 2 Gel': 'Signature Pedicure with Gel',
+  'Pedicure 3': 'Deluxe Pedicure',
+  'Pedicure 3 Gel': 'Deluxe Pedicure with Gel',
+  'Pedicure 4': 'Royal Pedicure',
+  'Pedicure 4 Gel': 'Royal Pedicure with Gel',
+  'Pedicure 5': 'Luxurious Pedicure',
+  'Pedicure 5 Gel': 'Luxurious Pedicure with Gel',
+  'Pedicure 6': 'Herbal La Palm Pedicure',
+  'Pedicure 6 Gel': 'Herbal La Palm Pedicure with Gel',
+  'Pedicure 7': 'Vena Golden Pedicure',
+  'Pedicure 7 Gel': 'Vena Golden Pedicure with Gel',
+  'Fill In Regular': 'Acrylic Fill-in',
+  'Fill In Gel': 'Gel Fill-in',
+  'Full Set Regular': 'Acrylic Full Set',
+  'Full Set Gel': 'Gel Full Set',
+  'Head Spa Combo 1': 'Basic Head Spa (60 min)',
+  'Head Spa Combo 2': 'Deluxe Head Spa (90 min)',
+  'Head Spa Combo 3': 'Royal Head Spa (110 min)',
+  'Facial Combo 1': 'Hydrating Facial (45 min)',
+  'Facial Combo 2': 'Deep Clean Facial (60 min)',
+  'Facial Combo 3': 'Detox Facial (80 min)',
+  'Eyelash Classic Full Set': 'Classic Eyelash Extensions',
+};
+
+export function getServiceDisplayName(service) {
+  if (!service?.name) return '';
+  return WEBSITE_DISPLAY_NAMES[service.name] || service.name;
+}
+
 export const CATEGORY_NAV = [
-  { key: 'manicure', navLabel: 'Manicure' },
-  { key: 'pedicure', navLabel: 'Pedicure' },
-  { key: 'nails', navLabel: 'Acrylic & Gel' },
-  { key: 'addon', navLabel: 'Add-ons' },
-  { key: 'kids', navLabel: 'Kids' },
-  { key: 'lash', navLabel: 'Lashes' },
-  { key: 'waxing', navLabel: 'Waxing' },
+  { key: 'manicure', navLabel: 'Manicure - Tay' },
+  { key: 'pedicure', navLabel: 'Pedicure - Chân' },
+  { key: 'nails', navLabel: 'Acrylic - Bột' },
+  { key: 'addon', navLabel: 'Additional - Thêm' },
+  { key: 'kids', navLabel: 'Kid < 10YO' },
+  { key: 'lash', navLabel: 'Eyelash' },
+  { key: 'waxing', navLabel: 'Wax - Tẩy Lông' },
   { key: 'head_spa', navLabel: 'Head Spa' },
   { key: 'facial', navLabel: 'Facial' },
 ];
 
-/** Viền trái nhẹ — tông lavender / dusty / vein (marble) */
 export const CATEGORY_ACCENT = {
   manicure: 'border-l-lavender',
   pedicure: 'border-l-dusty-rose',
@@ -562,19 +128,18 @@ export const CATEGORY_ACCENT = {
 
 export const VALID_CATEGORY_SLUGS = CATEGORY_NAV.map((c) => c.key);
 
-export function servicesInCategory(category) {
-  return SERVICES.filter((s) => s.category === category);
+export function servicesInCategory(services, category) {
+  return (services || []).filter((s) => s.category === category);
 }
 
-export function minPriceInCategory(category) {
-  const list = servicesInCategory(category);
+export function minPriceInCategory(services, category) {
+  const list = servicesInCategory(services, category);
   if (!list.length) return 0;
-  return Math.min(...list.map((s) => s.price));
+  return Math.min(...list.map((s) => Number(s.price) || 0));
 }
 
-/** First `limit` services from categories other than `currentCategory`. */
-export function relatedServices(currentCategory, limit = 3) {
-  return SERVICES.filter((s) => s.category !== currentCategory).slice(0, limit);
+export function relatedServices(services, currentCategory, limit = 3) {
+  return (services || []).filter((s) => s.category !== currentCategory).slice(0, limit);
 }
 
 export const FAQ_BY_CATEGORY = {

@@ -13,7 +13,7 @@ function scrollToId(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-export default function ServicesPageClient() {
+export default function ServicesPageClient({ services }) {
   const onNav = useCallback((key) => {
     scrollToId(key === 'all' ? 'top' : key);
   }, []);
@@ -58,7 +58,7 @@ export default function ServicesPageClient() {
       <div className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
         {CATEGORY_NAV.map(({ key }) => {
           const meta = CATEGORIES[key];
-          const items = servicesInCategory(key);
+          const items = servicesInCategory(services, key);
           if (!items.length) return null;
           return (
             <section

@@ -24,6 +24,10 @@ const siteUrl =
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
+/** Bump NEXT_PUBLIC_ICON_VERSION sau mỗi lần đổi favicon để trình duyệt không dùng bản cache cũ. */
+const iconV = process.env.NEXT_PUBLIC_ICON_VERSION;
+const iconQ = iconV ? `?v=${encodeURIComponent(iconV)}` : '';
+
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -63,27 +67,26 @@ export const metadata = {
     : {}),
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '32x32' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: `/favicon.ico${iconQ}`, sizes: '32x32' },
+      { url: `/favicon-16x16.png${iconQ}`, sizes: '16x16', type: 'image/png' },
+      { url: `/favicon-32x32.png${iconQ}`, sizes: '32x32', type: 'image/png' },
     ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    apple: [{ url: `/apple-touch-icon.png${iconQ}`, sizes: '180x180', type: 'image/png' }],
     other: [
       {
         rel: 'icon',
-        url: '/android-chrome-192x192.png',
+        url: `/android-chrome-192x192.png${iconQ}`,
         sizes: '192x192',
         type: 'image/png',
       },
       {
         rel: 'icon',
-        url: '/android-chrome-512x512.png',
+        url: `/android-chrome-512x512.png${iconQ}`,
         sizes: '512x512',
         type: 'image/png',
       },
     ],
   },
-  manifest: '/site.webmanifest',
 };
 
 const heroImageType = HERO_IMAGE.src.endsWith('.webp')

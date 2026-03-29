@@ -1,6 +1,6 @@
 import ServicesPageClient from './ServicesPageClient';
 import ServiceSchema from '@/components/ServiceSchema';
-import { SERVICES } from '@/data/services';
+import { getSalonServices } from '@/lib/serverServices';
 
 export const metadata = {
   title: 'Nail Salon Services & Prices | Nice Nails & Spa Phoenix AZ',
@@ -19,11 +19,12 @@ export const metadata = {
   },
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getSalonServices();
   return (
     <>
-      <ServiceSchema services={SERVICES} />
-      <ServicesPageClient />
+      <ServiceSchema services={services} />
+      <ServicesPageClient services={services} />
     </>
   );
 }

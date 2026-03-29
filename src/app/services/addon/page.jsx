@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 import AddonSeoSchemas, { ADDON_SEO_FAQS } from '@/components/AddonSeoSchemas';
 import { absoluteUrl } from '@/lib/siteUrl';
+import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'addon';
 const TITLE =
@@ -36,41 +37,54 @@ export const metadata = {
   },
 };
 
-/** Display order within each group matches menu / SEO brief */
+/** Grouped by canonical `name` from the salon menu (stable across DB ids). */
 const ADDON_GROUP_DEFS = [
   {
-    key: 'enhancements',
+    key: 'upgrades',
     emoji: '💅',
-    title: 'Nail Enhancements',
-    serviceIds: [30, 31, 29, 21],
+    title: 'Color & extras',
+    names: ['Additional - Thêm', 'Change Color'],
   },
   {
-    key: 'skin',
-    emoji: '🛁',
-    title: 'Skin Treatments',
-    serviceIds: [25, 27, 26, 28],
-  },
-  {
-    key: 'corrections',
+    key: 'relax',
     emoji: '💆',
-    title: 'Nail Corrections',
-    serviceIds: [22, 23, 24],
+    title: 'Massage add-on',
+    names: ['Massage 10 Min'],
+  },
+  {
+    key: 'removal',
+    emoji: '✨',
+    title: 'Removal',
+    names: ['Take Off - Tháo Móng'],
   },
 ];
 
-function buildAddonGroups(all) {
-  const byId = new Map(all.map((s) => [s.id, s]));
-  return ADDON_GROUP_DEFS.map((g) => ({
+function buildAddonGroups(all, defs) {
+  const byName = new Map(all.map((s) => [s.name, s]));
+  const groups = defs.map((g) => ({
     ...g,
-    services: g.serviceIds.map((id) => byId.get(id)).filter(Boolean),
+    services: g.names.map((n) => byName.get(n)).filter(Boolean),
   }));
+  const used = new Set();
+  for (const g of groups) for (const s of g.services) used.add(s.id);
+  const orphans = all.filter((s) => !used.has(s.id));
+  if (orphans.length) {
+    groups.push({
+      key: 'more',
+      emoji: '➕',
+      title: 'More add-ons',
+      services: orphans,
+    });
+  }
+  return groups;
 }
 
-export default function AddonServicesPage() {
+export default async function AddonServicesPage() {
+  const services = await getSalonServices();
   const cat = CATEGORIES[CATEGORY];
-  const list = servicesInCategory(CATEGORY);
-  const groups = buildAddonGroups(list);
-  const related = relatedServices(CATEGORY, 3);
+  const list = servicesInCategory(services, CATEGORY);
+  const groups = buildAddonGroups(list, ADDON_GROUP_DEFS);
+  const related = relatedServices(services, CATEGORY, 3);
 
   return (
     <>

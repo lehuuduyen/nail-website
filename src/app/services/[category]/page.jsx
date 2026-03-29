@@ -11,6 +11,7 @@ import {
 } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
+import { getSalonServices } from '@/lib/serverServices';
 
 const STATIC_CATEGORY_PAGES = new Set([
   'pedicure',
@@ -36,7 +37,8 @@ export async function generateMetadata({ params }) {
     return { title: 'Services' };
   }
   const cat = CATEGORIES[category];
-  const minP = minPriceInCategory(category);
+  const services = await getSalonServices();
+  const minP = minPriceInCategory(services, category);
   return {
     title: `${cat.label} Services Phoenix AZ — $${minP}+ | Nice Nails & Spa`,
     description: `${cat.description} at Nice Nails & Spa Phoenix. Starting at $${minP}. Book online today!`,
@@ -50,16 +52,17 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ServiceCategoryPage({ params }) {
+export default async function ServiceCategoryPage({ params }) {
   const { category } = params;
   if (!VALID_CATEGORY_SLUGS.includes(category)) {
     notFound();
   }
 
+  const services = await getSalonServices();
   const cat = CATEGORIES[category];
-  const list = servicesInCategory(category);
+  const list = servicesInCategory(services, category);
   const faqs = FAQ_BY_CATEGORY[category] || [];
-  const related = relatedServices(category, 3);
+  const related = relatedServices(services, category, 3);
 
   return (
     <>
@@ -90,7 +93,7 @@ export default function ServiceCategoryPage({ params }) {
             <h1 className="mt-2 font-display text-4xl text-ink md:text-5xl">{cat.label}</h1>
             <p className="mt-3 max-w-2xl text-charcoal">{cat.description}</p>
             <p className="mt-2 text-sm font-semibold text-rose-gold">
-              ${minPriceInCategory(category)}+ · Phoenix, AZ
+              ${minPriceInCategory(services, category)}+ · Phoenix, AZ
             </p>
           </div>
         </section>

@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 import WaxingSeoSchemas, { WAXING_SEO_FAQS } from '@/components/WaxingSeoSchemas';
 import { absoluteUrl } from '@/lib/siteUrl';
+import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'waxing';
 const TITLE =
@@ -60,10 +61,11 @@ const WAX_AREAS = [
   },
 ];
 
-export default function WaxingServicesPage() {
+export default async function WaxingServicesPage() {
+  const services = await getSalonServices();
   const cat = CATEGORIES[CATEGORY];
-  const list = servicesInCategory(CATEGORY);
-  const related = relatedServices(CATEGORY, 3);
+  const list = servicesInCategory(services, CATEGORY);
+  const related = relatedServices(services, CATEGORY, 3);
 
   return (
     <>

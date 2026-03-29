@@ -16,6 +16,12 @@ export async function fetchServices() {
   return data;
 }
 
+/** Grouped by category + flat list — same rows as GET /public/services */
+export async function fetchServicesMenu() {
+  const { data } = await api.get('/public/services/menu');
+  return data;
+}
+
 export async function fetchEmployees() {
   const { data } = await api.get('/public/employees');
   return data;

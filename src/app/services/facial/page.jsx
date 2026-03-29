@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 import FacialSeoSchemas, { FACIAL_SEO_FAQS } from '@/components/FacialSeoSchemas';
 import { absoluteUrl } from '@/lib/siteUrl';
+import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'facial';
 const TITLE =
@@ -36,10 +37,11 @@ export const metadata = {
   },
 };
 
-export default function FacialServicesPage() {
+export default async function FacialServicesPage() {
+  const services = await getSalonServices();
   const cat = CATEGORIES[CATEGORY];
-  const list = servicesInCategory(CATEGORY);
-  const related = relatedServices(CATEGORY, 3);
+  const list = servicesInCategory(services, CATEGORY);
+  const related = relatedServices(services, CATEGORY, 3);
 
   return (
     <>

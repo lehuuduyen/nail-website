@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 import ManicureSeoSchemas, { MANICURE_SEO_FAQS } from '@/components/ManicureSeoSchemas';
 import { absoluteUrl } from '@/lib/siteUrl';
+import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'manicure';
 const TITLE =
@@ -36,10 +37,11 @@ export const metadata = {
   },
 };
 
-export default function ManicureServicesPage() {
+export default async function ManicureServicesPage() {
+  const services = await getSalonServices();
   const cat = CATEGORIES[CATEGORY];
-  const list = servicesInCategory(CATEGORY);
-  const related = relatedServices(CATEGORY, 3);
+  const list = servicesInCategory(services, CATEGORY);
+  const related = relatedServices(services, CATEGORY, 3);
 
   return (
     <>

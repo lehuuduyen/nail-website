@@ -1,4 +1,5 @@
 import { getLocalBusinessJsonLd } from '@/lib/localBusinessJsonLd';
+import { getServiceDisplayName } from '@/data/services';
 
 /**
  * ItemList + Service offers for services pages (avoids duplicating full NailSalon vs layout JSON-LD).
@@ -16,7 +17,7 @@ export default function ServiceSchema({ services }) {
       position: i + 1,
       item: {
         '@type': 'Service',
-        name: s.name,
+        name: getServiceDisplayName(s),
         ...(s.description ? { description: s.description } : {}),
         provider: {
           '@type': 'NailSalon',

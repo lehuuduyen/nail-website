@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 import KidsSeoSchemas, { KIDS_SEO_FAQS } from '@/components/KidsSeoSchemas';
 import { absoluteUrl } from '@/lib/siteUrl';
+import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'kids';
 const TITLE =
@@ -55,10 +56,11 @@ const OCCASIONS = [
   },
 ];
 
-export default function KidsServicesPage() {
+export default async function KidsServicesPage() {
+  const services = await getSalonServices();
   const cat = CATEGORIES[CATEGORY];
-  const list = servicesInCategory(CATEGORY);
-  const related = relatedServices(CATEGORY, 3);
+  const list = servicesInCategory(services, CATEGORY);
+  const related = relatedServices(services, CATEGORY, 3);
 
   return (
     <>

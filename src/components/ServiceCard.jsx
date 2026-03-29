@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CATEGORY_ACCENT } from '@/data/services';
+import { CATEGORY_ACCENT, getServiceDisplayName } from '@/data/services';
 
 function formatMoney(n) {
   if (n == null || Number.isNaN(Number(n))) return '—';
@@ -13,6 +13,7 @@ export default function ServiceCard({
 }) {
   const accent =
     CATEGORY_ACCENT[service.category] || 'border-l-rose-gold/50';
+  const displayName = getServiceDisplayName(service);
 
   return (
     <article
@@ -20,8 +21,11 @@ export default function ServiceCard({
     >
       <div className={compact ? 'flex flex-1 flex-col p-4' : 'flex flex-1 flex-col p-5 md:p-6'}>
         <h3 className="font-display text-lg font-medium text-ink md:text-xl">
-          {service.name}
+          {displayName}
         </h3>
+        {service.nameVi ? (
+          <p className="mt-1 text-sm text-muted">{service.nameVi}</p>
+        ) : null}
         {service.description && !compact && (
           <p className="mt-2 text-sm leading-relaxed text-charcoal">
             {service.description}
@@ -39,15 +43,15 @@ export default function ServiceCard({
         </div>
 
         <div className="mt-4 border-t border-rose-gold/10 pt-4">
-          <p className="text-2xl font-semibold text-charcoal">
-            {formatMoney(service.price)}
+          <p className="text-sm font-semibold text-charcoal">
+            Cash: <span className="text-2xl font-semibold text-charcoal">{formatMoney(service.price)}</span>
           </p>
           {service.priceCard != null ? (
-            <p className="mt-0.5 text-sm text-muted">
+            <p className="mt-1 text-sm text-muted">
               Card: {formatMoney(service.priceCard)}
             </p>
           ) : (
-            <p className="mt-0.5 text-sm text-muted">Cash price</p>
+            <p className="mt-0.5 text-xs text-muted">Card price N/A — cash only for this item.</p>
           )}
         </div>
 

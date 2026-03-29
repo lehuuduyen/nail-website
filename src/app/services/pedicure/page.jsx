@@ -10,6 +10,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 import PedicureSeoSchemas, { PEDICURE_SEO_FAQS } from '@/components/PedicureSeoSchemas';
 import { absoluteUrl } from '@/lib/siteUrl';
+import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'pedicure';
 const TITLE = 'Pedicure in Phoenix AZ | Spa Pedicure Services | Nice Nails & Spa';
@@ -36,14 +37,15 @@ export const metadata = {
   },
 };
 
-export default function PedicureServicesPage() {
+export default async function PedicureServicesPage() {
+  const services = await getSalonServices();
   const cat = CATEGORIES[CATEGORY];
-  const list = servicesInCategory(CATEGORY);
-  const related = relatedServices(CATEGORY, 3);
+  const list = servicesInCategory(services, CATEGORY);
+  const related = relatedServices(services, CATEGORY, 3);
   const menuTiers = list.filter((s) => !s.name.startsWith('Add-on'));
   const minP = menuTiers.length
     ? Math.min(...menuTiers.map((s) => s.price))
-    : minPriceInCategory(CATEGORY);
+    : minPriceInCategory(services, CATEGORY);
 
   return (
     <>
