@@ -36,6 +36,9 @@ export default function Footer() {
           <Link href="/booking" className="hover:text-rose-gold">
             Book online
           </Link>
+          <Link href="/privacy" className="hover:text-rose-gold">
+            Privacy Policy
+          </Link>
         </div>
         <div className="space-y-3 text-sm">
           <div className="flex gap-2">
