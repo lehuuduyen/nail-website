@@ -1,28 +1,36 @@
 import { getLocalBusinessJsonLd } from '@/lib/localBusinessJsonLd';
 import { absoluteUrl } from '@/lib/siteUrl';
 
-function displayPhone() {
-  return process.env.NEXT_PUBLIC_SALON_PHONE || '(602)623-4921';
+function salonPhone() {
+  return (process.env.NEXT_PUBLIC_SALON_PHONE || '').trim();
 }
 
-const FAQ_ITEMS = [
-  {
-    q: 'Do you offer nail services for kids in Phoenix?',
-    a: 'Yes! We offer Kids Manicure ($15) and Kids Pedicure ($20) for children under 10, plus kids color for nails or feet. Gel upgrades are available where listed on our menu.',
-  },
-  {
-    q: 'Is it safe for kids to get their nails done?',
-    a: 'We use gentle, kid-appropriate products and keep appointments calm and age-friendly. Our staff is trained to work with young children—shorter service times, patient pacing, and careful communication so everyone feels comfortable.',
-  },
-  {
-    q: 'Can I book a mommy and daughter nail appointment?',
-    a: `Absolutely! Book side-by-side appointments online or call us at ${displayPhone()} so we can reserve neighboring chairs for a mommy-daughter or family visit.`,
-  },
-  {
-    q: 'What age is the kids service for?',
-    a: 'Kids services are designed for children under 10 years old, with pricing and timing sized for smaller hands and feet. If you have questions about a specific age or sensitivity, call before you book and we will guide you.',
-  },
-];
+function buildKidsFaqItems() {
+  const phone = salonPhone();
+  const mommyAnswer = phone
+    ? `Absolutely! Book side-by-side appointments online or call us at ${phone} so we can reserve neighboring chairs for a mommy-daughter or family visit.`
+    : 'Absolutely! Book side-by-side appointments online so we can reserve neighboring chairs for a mommy-daughter or family visit.';
+  return [
+    {
+      q: 'Do you offer nail services for kids in Phoenix?',
+      a: 'Yes! We offer Kids Manicure ($15) and Kids Pedicure ($20) for children under 10, plus kids color for nails or feet. Gel upgrades are available where listed on our menu.',
+    },
+    {
+      q: 'Is it safe for kids to get their nails done?',
+      a: 'We use gentle, kid-appropriate products and keep appointments calm and age-friendly. Our staff is trained to work with young children—shorter service times, patient pacing, and careful communication so everyone feels comfortable.',
+    },
+    {
+      q: 'Can I book a mommy and daughter nail appointment?',
+      a: mommyAnswer,
+    },
+    {
+      q: 'What age is the kids service for?',
+      a: 'Kids services are designed for children under 10 years old, with pricing and timing sized for smaller hands and feet. If you have questions about a specific age or sensitivity, call before you book and we will guide you.',
+    },
+  ];
+}
+
+const FAQ_ITEMS = buildKidsFaqItems();
 
 export function kidsFaqPageJsonLd() {
   return {

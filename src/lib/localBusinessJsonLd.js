@@ -76,8 +76,7 @@ export function getLocalBusinessJsonLd() {
   const addressLine =
     process.env.NEXT_PUBLIC_SALON_ADDRESS ||
     '8048 N 19th Ave, Phoenix, AZ 85021';
-  const telephone =
-    process.env.NEXT_PUBLIC_SALON_PHONE || '(602)623-4921';
+  const telephone = (process.env.NEXT_PUBLIC_SALON_PHONE || '').trim();
   const url = getSiteUrl();
   const lat = Number.parseFloat(process.env.NEXT_PUBLIC_SALON_LAT ?? '33.5722');
   const lng = Number.parseFloat(process.env.NEXT_PUBLIC_SALON_LNG ?? '-112.0901');
@@ -96,7 +95,7 @@ export function getLocalBusinessJsonLd() {
     name,
     image: absoluteUrl('/images/salon-interior.webp'),
     url,
-    telephone,
+    ...(telephone ? { telephone } : {}),
     priceRange: '$$',
     description:
       process.env.NEXT_PUBLIC_JSONLD_DESCRIPTION ||
