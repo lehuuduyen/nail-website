@@ -15,7 +15,6 @@ try {
 const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
-    optimizeCss: true,
   },
   images: {
     formats: ['image/avif', 'image/webp'],
