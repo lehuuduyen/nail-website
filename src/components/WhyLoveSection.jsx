@@ -104,9 +104,9 @@ export default function WhyLoveSection() {
                   alt={manicureImg.alt}
                   fill
                   loading="lazy"
-                  quality={80}
+                  quality={65}
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 1023px) 100vw, 380px"
                 />
               </div>
               <div className="border-t border-white/40 bg-[#f0e4e8]/90 px-5 py-4 text-center">
@@ -132,9 +132,9 @@ export default function WhyLoveSection() {
                 alt="Professional manicure service at Nice Nails Spa Phoenix AZ"
                 fill
                 loading="lazy"
-                quality={80}
+                quality={65}
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 1023px) 100vw, 380px"
               />
             </div>
             <div className={quotePanel}>
@@ -169,9 +169,9 @@ export default function WhyLoveSection() {
                 title="Best Nail Salon in North Phoenix AZ 85021"
                 fill
                 loading="lazy"
-                quality={80}
+                quality={65}
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 1023px) 100vw, 380px"
               />
             </div>
             <div className={`${quotePanel} justify-center`}>
