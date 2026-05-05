@@ -1,0 +1,29 @@
+/* react-datepicker — marble / lavender theme (booking route only) */
+.react-datepicker {
+  @apply rounded-2xl border font-sans shadow-xl;
+  border-color: rgba(197, 185, 181, 0.45);
+  background: rgba(250, 248, 247, 0.98);
+}
+.react-datepicker__header {
+  @apply rounded-t-2xl border-b font-semibold text-charcoal;
+  border-color: rgba(197, 185, 181, 0.35);
+  background: #f2ebe9;
+}
+.react-datepicker__current-month,
+.react-datepicker-time__header {
+  @apply font-semibold text-charcoal;
+}
+.react-datepicker__day-name {
+  @apply text-muted;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  @apply !text-white;
+  background: #9e8b85 !important;
+}
+.react-datepicker__day:hover {
+  @apply bg-[#dbcdc9];
+}
+.react-datepicker__day--disabled {
+  @apply text-charcoal/25;
+}

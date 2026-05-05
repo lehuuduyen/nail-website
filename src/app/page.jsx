@@ -1,17 +1,20 @@
+import dynamic from 'next/dynamic';
 import HeroSection from '@/components/HeroSection';
 import HeroKeywordTags from '@/components/HeroKeywordTags';
-import TrustBar from '@/components/TrustBar';
-import HomeAboutSection from '@/components/HomeAboutSection';
 import HomeHashScroll from '@/components/HomeHashScroll';
+import HomeAboutSection from '@/components/HomeAboutSection';
 import HomeServiceAreasSection from '@/components/HomeServiceAreasSection';
 import HomeFaqSection from '@/components/HomeFaqSection';
-import WhyLoveSection from '@/components/WhyLoveSection';
-import OurLuxuryServicesSection from '@/components/OurLuxuryServicesSection';
-import ServicesSection from '@/components/ServicesSection';
-import GallerySection from '@/components/GallerySection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+import LocationSection from '@/components/LocationSection';
 import BookingCtaBanner from '@/components/BookingCtaBanner';
 import { absoluteUrl } from '@/lib/siteUrl';
+
+// Sections below-fold dùng framer-motion — lazy load để không chặn LCP
+const WhyLoveSection        = dynamic(() => import('@/components/WhyLoveSection'));
+const OurLuxuryServicesSection = dynamic(() => import('@/components/OurLuxuryServicesSection'));
+const ServicesSection       = dynamic(() => import('@/components/ServicesSection'));
+const TestimonialsSection   = dynamic(() => import('@/components/TestimonialsSection'));
+const GallerySection        = dynamic(() => import('@/components/GallerySection'));
 
 const HOME_TITLE =
   'Nice Nails & Spa | Best Nail Salon in North Phoenix AZ 85021 | Manicure & Pedicure';
@@ -42,7 +45,6 @@ export default function HomePage() {
       <div className="relative bg-[#1a1a1a]">
         <HeroSection />
         <HeroKeywordTags />
-        {/* <TrustBar /> */}
       </div>
       <WhyLoveSection />
       <OurLuxuryServicesSection />
@@ -50,12 +52,10 @@ export default function HomePage() {
       <TestimonialsSection />
       <BookingCtaBanner />
       <GallerySection />
-      
       <HomeServiceAreasSection />
-
       <HomeAboutSection />
-
       <HomeFaqSection />
+      <LocationSection />
     </>
   );
 }

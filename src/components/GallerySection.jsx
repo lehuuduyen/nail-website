@@ -14,9 +14,17 @@ function gallerySrc(url) {
   return `${getPublicBaseUrl()}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 
-/** Skip /_next/image for absolute URLs — nicenailsphoenix.com (and similar) often 403 server-side fetches. */
+const API_HOST = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001')
+  .replace(/\/$/, '');
+
+/** Skip /_next/image only for truly external domains (not our own backend). */
 function unoptimizedRemote(src) {
-  return typeof src === 'string' && /^https?:\/\//i.test(src.trim());
+  if (typeof src !== 'string') return false;
+  const s = src.trim();
+  if (!s.startsWith('http')) return false;
+  // Allow Next.js optimization for backend-served images
+  if (s.startsWith(API_HOST)) return false;
+  return true;
 }
 
 export default function GallerySection() {

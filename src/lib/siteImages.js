@@ -3,11 +3,10 @@
  * Regenerate WebP: add PNG/JPG sources, then `npm run images:webp` in nail-website.
  */
 
-/** Hero LCP — prefer smaller WebP (hero-manicure) over heavy nail-art file */
 export const HERO_IMAGE = {
   src: '/images/popular-nail-art.webp',
-  width: 682,
-  height: 1024,
+  width: 1366,
+  height: 2050,
 };
 
 export const SERVICE_CARD_IMAGES = {

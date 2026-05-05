@@ -1,4 +1,5 @@
 import 'react-datepicker/dist/react-datepicker.css';
+import './datepicker.css';
 
 export const metadata = {
   title: 'Book Online | Nice Nails & Spa',

@@ -99,6 +99,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`} suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://maps.google.com" />
+        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="preload"
           as="image"

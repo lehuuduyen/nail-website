@@ -36,6 +36,10 @@ export function salonMapsUrl() {
   );
 }
 
+export function salonPhone() {
+  return process.env.NEXT_PUBLIC_SALON_PHONE || '(470) 246-1714';
+}
+
 export function salonMapsEmbedUrl() {
   return process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED || '';
 }
