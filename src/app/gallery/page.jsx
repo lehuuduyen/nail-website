@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { fetchGallery, getPublicBaseUrl } from '@/lib/api';
 import { GALLERY_TABS } from '@/lib/categories';
 import { galleryImageAlt } from '@/lib/galleryImageAlt';
+import { unoptimizedRemote } from '@/lib/imageOptimize';
 
 const PAGE = 12;
 
@@ -16,11 +17,6 @@ function srcUrl(url) {
   if (url.startsWith('http')) return url;
   const b = getPublicBaseUrl();
   return `${b}${url.startsWith('/') ? '' : '/'}${url}`;
-}
-
-/** Absolute remote URLs: skip /_next/image — optimizer can return 400 when path has dots (.JPG) vs remotePatterns. */
-function unoptimizedRemote(src) {
-  return typeof src === 'string' && /^https?:\/\//i.test(src.trim());
 }
 
 export default function GalleryPage() {

@@ -41,6 +41,9 @@ export const metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* preconnect for Google Maps iframe — only needed on this page */}
+      <link rel="preconnect" href="https://maps.google.com" />
+      <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
       <HomeHashScroll />
       <div className="relative bg-[#1a1a1a]">
         <HeroSection />

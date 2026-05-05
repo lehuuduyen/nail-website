@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Phone } from 'lucide-react';
@@ -43,7 +41,7 @@ export default function HeroSection() {
           priority
           fetchPriority="high"
           loading="eager"
-          quality={85}
+          quality={75}
           sizes="100vw"
           placeholder="blur"
           blurDataURL={HERO_BLUR_DATA_URL}

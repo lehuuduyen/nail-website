@@ -1,7 +1,6 @@
 import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
 import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
-import { HERO_IMAGE } from '@/lib/siteImages';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingBookBtn from '@/components/FloatingBookBtn';
@@ -89,25 +88,10 @@ export const metadata = {
   },
 };
 
-const heroImageType = HERO_IMAGE.src.endsWith('.webp')
-  ? 'image/webp'
-  : HERO_IMAGE.src.endsWith('.png')
-    ? 'image/png'
-    : 'image/jpeg';
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://maps.google.com" />
-        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          as="image"
-          href={HERO_IMAGE.src}
-          type={heroImageType}
-          fetchPriority="high"
-        />
         <LocalBusinessJsonLd />
       </head>
       <body className="min-h-screen bg-cream font-sans antialiased text-ink" suppressHydrationWarning>
