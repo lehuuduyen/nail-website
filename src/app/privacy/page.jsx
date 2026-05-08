@@ -36,7 +36,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="font-display text-xl text-ink md:text-2xl">Introduction</h2>
             <p className="mt-3">
-              {name} (“we,” “us,” or “our”) respects your privacy. This Privacy Policy describes how we
+              {name} (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your privacy. This Privacy Policy describes how we
               collect, use, disclose, and safeguard information when you visit our website, use our online
               booking, or interact with related services operated on our behalf (including our salon
               management tools). By using our services, you agree to this policy. If you do not agree,
