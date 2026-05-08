@@ -148,6 +148,42 @@ export default function PrivacyPage() {
           </section>
 
           <section>
+            <h2 className="font-display text-xl text-ink md:text-2xl">SMS Privacy</h2>
+            <p className="mt-3">
+              We are committed to protecting your privacy with respect to our SMS appointment reminder and
+              marketing services.
+            </p>
+            <ol className="mt-3 list-decimal space-y-2 pl-5">
+              <li>
+                <strong className="text-ink">Information Collection.</strong> We collect your phone number
+                when you book an appointment through our website, in person, or over the phone.
+              </li>
+              <li>
+                <strong className="text-ink">Use of Information.</strong> Your mobile number is used
+                exclusively to send appointment confirmations, reminders, and updates related to your
+                services at {name}.
+              </li>
+              <li>
+                <strong className="text-ink">No Sharing with Third Parties.</strong> No mobile information
+                will be shared with third parties or affiliates for marketing or promotional purposes. All
+                the above categories exclude text messaging originator opt-in data and consent; this
+                information will not be shared with any third parties.
+              </li>
+              <li>
+                <strong className="text-ink">Data Security.</strong> We implement industry-standard
+                security measures to protect your information.
+              </li>
+              <li>
+                <strong className="text-ink">Message Frequency.</strong> Message frequency varies based on
+                your appointment activity.
+              </li>
+              <li>
+                <strong className="text-ink">Charges.</strong> Message and data rates may apply.
+              </li>
+            </ol>
+          </section>
+
+          <section>
             <h2 className="font-display text-xl text-ink md:text-2xl">Changes</h2>
             <p className="mt-3">
               We may update this Privacy Policy from time to time. We will post the revised version on this
