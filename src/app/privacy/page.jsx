@@ -124,7 +124,7 @@ export default function PrivacyPage() {
             <p className="mt-3">
               Depending on where you live, you may have rights to access, correct, delete, or restrict
               certain processing of your personal information, or to opt out of certain uses (e.g., sale or
-              sharing under U.S. state laws, where “sale” has a legal definition). California residents may
+              sharing under U.S. state laws, where &ldquo;sale&rdquo; has a legal definition). California residents may
               have additional rights under the CPRA. To exercise rights, contact us using the information
               below. We may verify your request as permitted by law.
             </p>
@@ -187,7 +187,7 @@ export default function PrivacyPage() {
             <h2 className="font-display text-xl text-ink md:text-2xl">Changes</h2>
             <p className="mt-3">
               We may update this Privacy Policy from time to time. We will post the revised version on this
-              page and update the “Last updated” date. Continued use after changes means you accept the
+              page and update the &ldquo;Last updated&rdquo; date. Continued use after changes means you accept the
               updated policy.
             </p>
           </section>
