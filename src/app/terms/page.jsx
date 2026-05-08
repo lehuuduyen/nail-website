@@ -36,8 +36,7 @@ export default function TermsPage() {
           <section>
             <h2 className="font-display text-xl text-ink md:text-2xl">Agreement to Terms</h2>
             <p className="mt-3">
-              By accessing our website, using our online booking system, or visiting {name} ("we," "us," or
-              "our"), you agree to be bound by these Terms and Conditions. If you do not agree, please do
+              By accessing our website, using our online booking system, or visiting {name} , you agree to be bound by these Terms and Conditions. If you do not agree, please do
               not use our website or services.
             </p>
           </section>
@@ -128,7 +127,7 @@ export default function TermsPage() {
               Disclaimer of Warranties
             </h2>
             <p className="mt-3">
-              This website and its content are provided "as is" without warranties of any kind, either
+              This website and its content are provided , without warranties of any kind, either
               express or implied, including but not limited to implied warranties of merchantability,
               fitness for a particular purpose, or non-infringement. We do not warrant that the website
               will be uninterrupted, error-free, or free of viruses.
