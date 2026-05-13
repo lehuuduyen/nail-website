@@ -64,6 +64,9 @@ export const metadata = {
   ...(googleVerification
     ? { verification: { google: googleVerification } }
     : {}),
+  other: {
+    'facebook-domain-verification': 'obr6q7f0psklcy3o8j14vvcbvf4w7k',
+  },
   icons: {
     icon: [
       { url: `/favicon.ico${iconQ}`, sizes: '32x32' },
