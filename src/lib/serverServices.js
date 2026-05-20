@@ -5,16 +5,20 @@ import path from 'path';
  * Fallback menu when API is down (build / offline). IDs are synthetic — booking still uses live API.
  */
 export function loadFallbackSalonServices() {
-  const jsonPath = path.join(process.cwd(), '..', 'shared', 'niceNailsServices.json');
-  const raw = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-  return raw.map((s, i) => ({
-    ...s,
-    id: i + 1,
-    price: Number(s.price),
-    priceCard: s.priceCard != null ? Number(s.priceCard) : null,
-    duration: Number(s.duration) || 0,
-    isActive: s.isActive !== false,
-  }));
+  try {
+    const jsonPath = path.join(process.cwd(), '..', 'shared', 'niceNailsServices.json');
+    const raw = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    return raw.map((s, i) => ({
+      ...s,
+      id: i + 1,
+      price: Number(s.price),
+      priceCard: s.priceCard != null ? Number(s.priceCard) : null,
+      duration: Number(s.duration) || 0,
+      isActive: s.isActive !== false,
+    }));
+  } catch {
+    return [];
+  }
 }
 
 /**
