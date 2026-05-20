@@ -14,8 +14,13 @@ const PAGE = 12;
 
 function srcUrl(url) {
   if (!url) return '';
-  if (url.startsWith('http')) return url;
   const b = getPublicBaseUrl();
+  if (url.startsWith('http')) {
+    if (/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/.test(url)) {
+      return url.replace(/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, b);
+    }
+    return url;
+  }
   return `${b}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 

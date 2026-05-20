@@ -11,8 +11,15 @@ import { unoptimizedRemote } from '@/lib/imageOptimize';
 
 function gallerySrc(url) {
   if (!url) return '';
-  if (url.startsWith('http')) return url;
-  return `${getPublicBaseUrl()}${url.startsWith('/') ? '' : '/'}${url}`;
+  const base = getPublicBaseUrl();
+  if (url.startsWith('http')) {
+    // Rewrite localhost/127.0.0.1 URLs stored in DB to the real API origin
+    if (/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/.test(url)) {
+      return url.replace(/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, base);
+    }
+    return url;
+  }
+  return `${base}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 
 export default function GallerySection() {
