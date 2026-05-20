@@ -45,7 +45,7 @@ export default function HeroSection() {
           sizes="100vw"
           placeholder="blur"
           blurDataURL={HERO_BLUR_DATA_URL}
-          className="origin-center scale-[1.07] object-cover object-right"
+          className="object-cover object-right"
         />
         <div
           className="absolute inset-0 z-[1] bg-hero-gradient"
