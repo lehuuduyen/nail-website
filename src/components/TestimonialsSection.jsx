@@ -3,34 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
-
-const reviews = [
-  {
-    name: 'Maria G.',
-    service: 'Dip powder & pedicure',
-    text: 'I’ve been coming to this area for years — consistent quality and the pedi massage is amazing.',
-  },
-  {
-    name: 'Taylor R.',
-    service: 'Gel manicure',
-    text: 'Super clean setup and my gel lasts forever. Easy to book and everyone is kind.',
-  },
-  {
-    name: 'Priya S.',
-    service: 'Full set & nail art',
-    text: 'They took their time with the design. Best nail salon experience I’ve had in Phoenix.',
-  },
-  {
-    name: 'Jordan M.',
-    service: 'Waxing',
-    text: 'Quick, professional, and comfortable. I always leave feeling put together.',
-  },
-  {
-    name: 'Elena V.',
-    service: 'Spa pedicure',
-    text: 'Walked in on a Saturday and they still accommodated me. Love the atmosphere.',
-  },
-];
+import { SALON_REVIEWS as reviews } from '@/lib/reviews';
 
 export default function TestimonialsSection() {
   const [i, setI] = useState(0);

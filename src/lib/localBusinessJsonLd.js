@@ -3,6 +3,7 @@
  */
 
 import { absoluteUrl, getSiteUrl } from '@/lib/siteUrl';
+import { SALON_REVIEWS } from '@/lib/reviews';
 
 /** Parse "8048 N 19th Ave, Phoenix, AZ 85021" */
 function parseUsAddress(line) {
@@ -118,6 +119,18 @@ export function getLocalBusinessJsonLd() {
       bestRating: '5',
       worstRating: '1',
     },
+    review: SALON_REVIEWS.map((r) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name: r.name },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: String(r.rating),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      reviewBody: r.text,
+      datePublished: r.datePublished,
+    })),
     areaServed: ['North Phoenix', 'Phoenix', 'Glendale', 'Peoria'],
   };
 }
