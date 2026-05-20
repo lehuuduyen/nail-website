@@ -25,7 +25,13 @@ export function loadFallbackSalonServices() {
  * Active services for marketing pages (same rows as GET /api/public/services).
  */
 export async function getSalonServices() {
-  const base = (process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:5001').replace(/\/$/, '');
+  // BACKEND_API_URL is a server-only runtime var (set on Vercel). Falls back to the
+  // public build-time var so local dev still works without extra setup.
+  const base = (
+    process.env.BACKEND_API_URL ||
+    process.env.NEXT_PUBLIC_API_URL ||
+    'http://127.0.0.1:5001'
+  ).replace(/\/$/, '');
   const url = `${base}/api/public/services`;
   try {
     const res = await fetch(url, { next: { revalidate: 120 } });

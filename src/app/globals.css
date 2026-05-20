@@ -184,6 +184,122 @@ h3 {
   opacity: 0;
 }
 
+/* Blog HTML content rendered via dangerouslySetInnerHTML */
+.blog-content {
+  color: #3d3836;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  font-family: var(--font-playfair), Georgia, serif;
+  color: #3d3836;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.blog-content h1 { font-size: 2rem; }
+.blog-content h2 { font-size: 1.5rem; }
+.blog-content h3 { font-size: 1.25rem; }
+.blog-content h4 { font-size: 1.1rem; }
+
+.blog-content p {
+  margin-bottom: 1.25rem;
+}
+
+.blog-content a {
+  color: #9e8b85;
+  text-decoration: underline;
+  text-decoration-color: rgba(158, 139, 133, 0.45);
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.blog-content a:hover {
+  color: #8a7974;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+.blog-content ul { list-style-type: disc; }
+.blog-content ol { list-style-type: decimal; }
+
+.blog-content li {
+  margin-bottom: 0.4rem;
+}
+
+.blog-content blockquote {
+  border-left: 3px solid #9e8b85;
+  margin: 1.5rem 0;
+  padding: 0.75rem 1.25rem;
+  background: #faf8f7;
+  color: #524845;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+.blog-content strong { font-weight: 700; }
+.blog-content em { font-style: italic; }
+
+.blog-content code {
+  background: #f2ebe9;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.88em;
+  color: #3d3836;
+}
+
+.blog-content pre {
+  background: #f2ebe9;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+.blog-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.blog-content img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+
+.blog-content hr {
+  border: none;
+  border-top: 1px solid rgba(158, 139, 133, 0.25);
+  margin: 2rem 0;
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+}
+.blog-content th,
+.blog-content td {
+  border: 1px solid rgba(158, 139, 133, 0.25);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.blog-content th {
+  background: #f2ebe9;
+  font-weight: 600;
+}
+
 /* Hero copy — animate on md+ only; mobile stays static for Speed Index */
 @keyframes heroFadeUp {
   from {
