@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
@@ -81,11 +80,7 @@ export default function Navbar() {
         </button>
       </div>
       {open && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="border-t border-white/10 bg-charcoal px-4 py-4 md:hidden"
-        >
+        <div className="animate-nav-dropdown border-t border-white/10 bg-charcoal px-4 py-4 md:hidden">
           <div className="flex flex-col gap-3">
             {links.map(({ href, label, hashScrollId }) => (
               <Link
@@ -108,7 +103,7 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-        </motion.div>
+        </div>
       )}
     </header>
   );
