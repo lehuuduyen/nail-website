@@ -119,6 +119,18 @@ export default function PrivacyPage() {
             </p>
           </section>
 
+
+          <section>
+            <h2 className="font-display text-xl text-ink md:text-2xl">SMS Communications:</h2>
+            <p className="mt-3">
+              Nice Nails & Spa collects phone numbers solely to send
+              appointment reminders and confirmations via SMS. Customers
+              opt in by checking a consent checkbox during booking.
+              You may opt out at any time by replying STOP. We do not
+              share your phone number or SMS opt-in data with any
+              third parties for marketing purposes.
+            </p>
+          </section>
           <section>
             <h2 className="font-display text-xl text-ink md:text-2xl">Your choices and rights</h2>
             <p className="mt-3">

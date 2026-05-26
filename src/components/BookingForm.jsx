@@ -188,20 +188,18 @@ export default function BookingForm() {
                 <button
                   type="button"
                   onClick={() => done && setStep(n)}
-                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold transition ${
-                    done
-                      ? 'bg-rose-gold text-white cursor-pointer hover:opacity-80'
-                      : active
-                        ? 'bg-charcoal text-cream ring-2 ring-rose-gold ring-offset-2'
-                        : 'bg-rose-gold/10 text-muted cursor-default'
-                  }`}
+                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold transition ${done
+                    ? 'bg-rose-gold text-white cursor-pointer hover:opacity-80'
+                    : active
+                      ? 'bg-charcoal text-cream ring-2 ring-rose-gold ring-offset-2'
+                      : 'bg-rose-gold/10 text-muted cursor-default'
+                    }`}
                 >
                   {done ? '✓' : n}
                 </button>
                 <span
-                  className={`ml-1.5 hidden truncate text-[11px] font-semibold uppercase tracking-wide sm:inline ${
-                    active ? 'text-charcoal' : done ? 'text-rose-gold' : 'text-muted'
-                  }`}
+                  className={`ml-1.5 hidden truncate text-[11px] font-semibold uppercase tracking-wide sm:inline ${active ? 'text-charcoal' : done ? 'text-rose-gold' : 'text-muted'
+                    }`}
                 >
                   {label}
                 </span>
@@ -383,7 +381,11 @@ export default function BookingForm() {
                       className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-rose-gold"
                     />
                     <label htmlFor="sms-consent" className="cursor-pointer text-xs leading-relaxed text-charcoal">
-                      By checking the box and clicking submit, you give NailSolution and NICE NAILS &amp; SPA express written consent to contact you at the number provided for any feedback, reminder, confirmation or promotional purposes. Consent is not required to make a purchase. Reply STOP to stop receiving text messages.
+                      By checking this box, I agree to receive SMS appointment
+                      reminders and confirmations from Nice Nails & Spa at the
+                      number provided. Message & data rates may apply.
+                      Reply STOP to unsubscribe. View Privacy Policy at
+                      nicenailsaz.com/privacy.
                     </label>
                   </div>
                   {formError && <p className="text-sm text-red-600">{formError}</p>}
