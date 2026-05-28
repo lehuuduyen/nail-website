@@ -38,7 +38,7 @@ export default function BookingForm() {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [notes, setNotes] = useState('');
-  const [smsConsent, setSmsConsent] = useState(true);
+  const [smsConsent, setSmsConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
 
@@ -120,6 +120,10 @@ export default function BookingForm() {
     }
     if (!service || !dateVal || !timeStr) {
       setFormError('Missing booking details.');
+      return;
+    }
+    if (!smsConsent) {
+      setFormError('Please check the SMS consent box to complete your booking.');
       return;
     }
     const scheduledAt = parse(`${dateYmd} ${timeStr}`, 'yyyy-MM-dd HH:mm', new Date()).toISOString();
