@@ -16,11 +16,15 @@ export const metadata = {
 async function fetchPosts() {
   try {
     const res = await fetch(`${getApiOrigin()}/api/public/blog`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
-    if (!res.ok) return [];
+    if (!res.ok) {
+      console.error('[blog] API error', res.status, await res.text());
+      return [];
+    }
     return res.json();
-  } catch {
+  } catch (err) {
+    console.error('[blog] fetch failed', err);
     return [];
   }
 }
