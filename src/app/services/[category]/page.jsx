@@ -13,6 +13,18 @@ import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
 import { getSalonServices } from '@/lib/serverServices';
 
+function categoryFaqPageJsonLd(faqs) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  };
+}
+
 const STATIC_CATEGORY_PAGES = new Set([
   'pedicure',
   'nails',
@@ -67,6 +79,12 @@ export default async function ServiceCategoryPage({ params }) {
   return (
     <>
       <ServiceSchema services={list} />
+      {faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(categoryFaqPageJsonLd(faqs)) }}
+        />
+      )}
       <div className="min-h-screen bg-cream pb-24">
         <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 md:py-16">
           <div className="mx-auto max-w-4xl">
