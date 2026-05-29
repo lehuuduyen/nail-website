@@ -126,7 +126,7 @@ export default function BookingForm() {
       setFormError('Please check the SMS consent box to complete your booking.');
       return;
     }
-    const scheduledAt = parse(`${dateYmd} ${timeStr}`, 'yyyy-MM-dd HH:mm', new Date()).toISOString();
+    const scheduledAt = `${dateYmd}T${timeStr}:00.000Z`;
 
     setSubmitting(true);
     try {
