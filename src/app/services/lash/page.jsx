@@ -7,6 +7,7 @@ import {
 } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import LashSeoSchemas, { LASH_SEO_FAQS } from '@/components/LashSeoSchemas';
 import { absoluteUrl } from '@/lib/siteUrl';
 import { getSalonServices } from '@/lib/serverServices';
@@ -47,6 +48,11 @@ export default async function LashServicesPage() {
   return (
     <>
       <ServiceSchema services={list} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: cat.label, path: `/services/${CATEGORY}` },
+      ]} />
       <LashSeoSchemas />
       <div className="min-h-screen bg-cream pb-24">
         <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 md:py-16">

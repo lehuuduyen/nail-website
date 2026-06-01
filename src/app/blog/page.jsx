@@ -10,6 +10,14 @@ export const metadata = {
   openGraph: {
     title: 'Nail salon blog | Nice Nails & Spa Phoenix',
     description: 'Expert tips for healthy, beautiful nails in Phoenix, Arizona.',
+    images: [
+      {
+        url: '/images/salon-interior.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Nice Nails & Spa — Nail care blog Phoenix AZ',
+      },
+    ],
   },
 };
 

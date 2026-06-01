@@ -55,6 +55,14 @@ export const metadata = {
     title: 'Nice Nails & Spa | Nail Salon Phoenix AZ',
     description:
       'Nice Nails & Spa - Manicure, Pedicure, Acrylic & Gel nails in Phoenix AZ. Book online!',
+    images: [
+      {
+        url: '/images/hero-luxury-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Nice Nails & Spa — Nail Salon in Phoenix AZ',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

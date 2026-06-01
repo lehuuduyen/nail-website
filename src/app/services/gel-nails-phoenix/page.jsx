@@ -9,6 +9,18 @@ export const metadata = {
   alternates: {
     canonical: '/services/gel-nails-phoenix',
   },
+  openGraph: {
+    title: 'Gel Nails in Phoenix AZ | Nice Nails & Spa',
+    description: 'Long-lasting gel manicures in North Phoenix — Nice Nails & Spa. Book online; walk-ins welcome.',
+    images: [
+      {
+        url: '/images/popular-manicure.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Gel nails — Nice Nails & Spa Phoenix AZ',
+      },
+    ],
+  },
 };
 
 const FAQ_ITEMS = [

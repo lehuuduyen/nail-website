@@ -4,6 +4,7 @@ import { getApiOrigin } from '@/lib/api';
 import { absoluteUrl } from '@/lib/siteUrl';
 import { salonName } from '@/lib/salon';
 import BlogArticleJsonLd from '@/components/BlogArticleJsonLd';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import BlogArticleBody from '@/components/BlogArticleBody';
 import BlogFaqJsonLd from '@/components/BlogFaqJsonLd';
 
@@ -44,6 +45,14 @@ export async function generateMetadata({ params }) {
       type: 'article',
       publishedTime: post.publishedAt,
       url: absoluteUrl(`/blog/${post.slug}`),
+      images: [
+        {
+          url: post.coverImage || post.image || '/images/salon-interior.webp',
+          width: 1200,
+          height: 630,
+          alt: pageTitle,
+        },
+      ],
     },
   };
 }
@@ -72,6 +81,11 @@ export default async function BlogArticlePage({ params }) {
     <>
       <BlogArticleJsonLd post={post} />
       <BlogFaqJsonLd faqs={faqs} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: post.title, path: `/blog/${post.slug}` },
+      ]} />
       <article className="min-h-screen bg-cream pb-20">
         <div className="border-b border-rose-gold/15 bg-surface/80 px-4 py-8 backdrop-blur-sm md:py-10">
           <div className="mx-auto max-w-3xl">

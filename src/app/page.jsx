@@ -35,6 +35,14 @@ export const metadata = {
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
     url: absoluteUrl('/'),
+    images: [
+      {
+        url: '/images/hero-luxury-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Nice Nails & Spa — Premier Nail Salon in North Phoenix AZ',
+      },
+    ],
   },
 };
 

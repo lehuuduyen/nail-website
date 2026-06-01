@@ -122,10 +122,6 @@ export default function BookingForm() {
       setFormError('Missing booking details.');
       return;
     }
-    if (!smsConsent) {
-      setFormError('Please check the SMS consent box to complete your booking.');
-      return;
-    }
     const scheduledAt = `${dateYmd}T${timeStr}:00.000Z`;
 
     setSubmitting(true);

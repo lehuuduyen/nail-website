@@ -11,6 +11,7 @@ import {
 } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
 import ServiceSchema from '@/components/ServiceSchema';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import { getSalonServices } from '@/lib/serverServices';
 
 function categoryFaqPageJsonLd(faqs) {
@@ -79,6 +80,11 @@ export default async function ServiceCategoryPage({ params }) {
   return (
     <>
       <ServiceSchema services={list} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: cat.label, path: `/services/${category}` },
+      ]} />
       {faqs.length > 0 && (
         <script
           type="application/ld+json"
