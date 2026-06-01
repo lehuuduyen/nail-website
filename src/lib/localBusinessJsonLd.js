@@ -86,8 +86,9 @@ export function getLocalBusinessJsonLd() {
     'https://maps.app.goo.gl/RxXkeYRL63uib95d6';
   const sameAs = [
     mapsUrl,
-    process.env.NEXT_PUBLIC_SALON_FACEBOOK_URL || 'https://www.facebook.com',
-    process.env.NEXT_PUBLIC_SALON_INSTAGRAM_URL || 'https://www.instagram.com',
+    process.env.NEXT_PUBLIC_SALON_FACEBOOK_URL || 'https://www.facebook.com/nicenailsandspaphoenix',
+    process.env.NEXT_PUBLIC_SALON_INSTAGRAM_URL || 'https://www.instagram.com/nicenailsandspaphoenix',
+    process.env.NEXT_PUBLIC_SALON_YOUTUBE_URL || 'https://www.youtube.com/@DailyNailInspoChannel',
   ];
 
   return {

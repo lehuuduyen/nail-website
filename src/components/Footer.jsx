@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Instagram, Facebook, MapPin, Phone, Clock } from 'lucide-react';
+import { Instagram, Facebook, Youtube, MapPin, Phone, Clock } from 'lucide-react';
 import { salonName, salonHours, salonMapsUrl } from '@/lib/salon';
 
 export default function Footer() {
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
           <div className="flex gap-4 pt-2">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/nicenailsandspaphoenix?igsh=MW1ldGJ0aGUzeXFrbA=="
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-white/20 p-2 hover:border-rose-gold hover:text-rose-gold"
@@ -79,13 +79,22 @@ export default function Footer() {
               <Instagram size={18} />
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/nicenailsandspaphoenix"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-white/20 p-2 hover:border-rose-gold hover:text-rose-gold"
               aria-label="Facebook"
             >
               <Facebook size={18} />
+            </a>
+            <a
+              href="https://www.youtube.com/@DailyNailInspoChannel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/20 p-2 hover:border-rose-gold hover:text-rose-gold"
+              aria-label="YouTube"
+            >
+              <Youtube size={18} />
             </a>
             <a
               href="https://yelp.com"
