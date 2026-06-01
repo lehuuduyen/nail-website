@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 function initials(emp) {
   const a = (emp.firstName || '').charAt(0);
   const b = (emp.lastName || '').charAt(0);
@@ -12,6 +14,28 @@ const colors = [
   'bg-charcoal text-cream',
   'bg-amber-200/80 text-amber-950',
 ];
+
+function AvatarCircle({ emp, idx }) {
+  const color = colors[idx % colors.length];
+  if (emp.avatarUrl) {
+    return (
+      <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-cream">
+        <Image
+          src={emp.avatarUrl}
+          alt={`${emp.firstName} ${emp.lastName}`}
+          fill
+          className="object-cover"
+          sizes="64px"
+        />
+      </div>
+    );
+  }
+  return (
+    <div className={`flex h-16 w-16 items-center justify-center rounded-full text-lg font-bold ${color}`}>
+      {initials(emp)}
+    </div>
+  );
+}
 
 export default function StaffPicker({ employees, valueId, onChange }) {
   return (
@@ -30,7 +54,6 @@ export default function StaffPicker({ employees, valueId, onChange }) {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {(employees || []).map((emp, idx) => {
           const selected = valueId === emp.id;
-          const color = colors[idx % colors.length];
           return (
             <button
               key={emp.id}
@@ -42,23 +65,11 @@ export default function StaffPicker({ employees, valueId, onChange }) {
                   : 'border-cream bg-surface hover:border-rose-gold/30'
               }`}
             >
-              <div
-                className={`flex h-16 w-16 items-center justify-center rounded-full text-lg font-bold ${color}`}
-              >
-                {initials(emp)}
-              </div>
+              <AvatarCircle emp={emp} idx={idx} />
               <p className="mt-3 font-display text-lg text-ink">
                 {emp.firstName} {emp.lastName}
               </p>
               <p className="text-xs text-muted">Nail specialist</p>
-              <div className="mt-3 flex flex-wrap justify-center gap-1">
-                <span className="rounded-full bg-cream px-2 py-0.5 text-[10px] font-medium uppercase text-charcoal">
-                  Manicure
-                </span>
-                <span className="rounded-full bg-cream px-2 py-0.5 text-[10px] font-medium uppercase text-charcoal">
-                  Pedicure
-                </span>
-              </div>
             </button>
           );
         })}
