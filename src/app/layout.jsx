@@ -94,10 +94,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`} suppressHydrationWarning>
-      <head>
-        <LocalBusinessJsonLd />
-      </head>
+      <head />
       <body className="min-h-screen bg-cream font-sans antialiased text-ink" suppressHydrationWarning>
+        <LocalBusinessJsonLd />
         <Navbar />
         <main className="pt-[72px]">{children}</main>
         <Footer />
