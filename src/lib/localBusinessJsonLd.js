@@ -101,7 +101,7 @@ export function getLocalBusinessJsonLd() {
     priceRange: '$$',
     description:
       process.env.NEXT_PUBLIC_JSONLD_DESCRIPTION ||
-      'Top-rated nail salon in North Phoenix AZ 85021. Professional manicure, pedicure, acrylic nails, eyelash extensions, head spa & facial. 4.9★ 656+ reviews. Walk-ins welcome.',
+      'Top-rated nail salon in North Phoenix AZ 85021. Professional manicure, pedicure, acrylic nails, eyelash extensions, head spa & facial. 4.9★ 700+ reviews. Walk-ins welcome.',
     currenciesAccepted: 'USD',
     paymentAccepted: 'Cash, Credit Card',
     hasMap: mapsUrl,
@@ -116,7 +116,7 @@ export function getLocalBusinessJsonLd() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '656',
+      reviewCount: '700',
       bestRating: '5',
       worstRating: '1',
     },

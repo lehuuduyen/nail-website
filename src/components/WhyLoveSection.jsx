@@ -83,14 +83,14 @@ export default function WhyLoveSection() {
                 ))}
               </div>
               <p className="mt-3 font-display text-4xl font-normal leading-none text-ink md:text-[2.75rem]">
-                5.0
+                4.9
               </p>
               <div className="mt-2 flex justify-center gap-0.5 text-[#c9a96e]">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} className="h-5 w-5 fill-current md:h-6 md:w-6" strokeWidth={0} aria-hidden />
                 ))}
               </div>
-              <p className="mt-3 font-sans text-sm text-muted">656+ happy clients</p>
+              <p className="mt-3 font-sans text-sm text-muted">700+ happy clients</p>
             </motion.article>
 
             <motion.article

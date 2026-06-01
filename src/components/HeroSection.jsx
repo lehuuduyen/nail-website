@@ -130,11 +130,11 @@ export default function HeroSection() {
                 <span className="text-[#D4AF37]" aria-hidden>
                   ✦
                 </span>
-                <span>5.0 rating</span>
+                <span>4.9 rating</span>
                 <span className="opacity-50" aria-hidden>
                   |
                 </span>
-                <span>656+ happy clients</span>
+                <span>700+ happy clients</span>
               </p>
             </div>
             <div className="hidden min-h-[1px] md:block" aria-hidden />

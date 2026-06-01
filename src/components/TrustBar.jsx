@@ -47,7 +47,7 @@ export default function TrustBar() {
             </div>
           </div>
           <p className="mt-1.5 text-center text-xs text-muted md:text-left">
-            ★ 656+ happy clients
+            ★ 700+ happy clients
           </p>
         </div>
 

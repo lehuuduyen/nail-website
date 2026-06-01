@@ -19,7 +19,7 @@ const GallerySection        = dynamic(() => import('@/components/GallerySection'
 const HOME_TITLE =
   'Nice Nails & Spa | Best Nail Salon in North Phoenix AZ 85021 | Manicure & Pedicure';
 const HOME_DESCRIPTION =
-  'Top-rated nail salon in North Phoenix AZ 85021. Manicure, pedicure, acrylic nails & nail art. 4.9★ 656+ reviews. Book online or walk-ins welcome!';
+  'Top-rated nail salon in North Phoenix AZ 85021. Manicure, pedicure, acrylic nails & nail art. 4.9★ 700+ reviews. Book online or walk-ins welcome!';
 
 export const metadata = {
   title: { absolute: HOME_TITLE },
