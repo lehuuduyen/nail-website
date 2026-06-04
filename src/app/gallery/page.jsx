@@ -60,8 +60,8 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-cream pb-24">
       <section className="border-b border-rose-gold/15 bg-surface/80 px-4 py-14 text-center backdrop-blur-sm">
-        <h1 className="font-display text-4xl text-ink md:text-5xl">Our Gallery</h1>
-        <p className="mt-2 text-charcoal">A glimpse of the looks we create every day.</p>
+        <h1 className="font-display text-4xl text-ink md:text-5xl">Nail Art Gallery — Phoenix AZ</h1>
+        <p className="mt-2 text-charcoal">Real client photos from Nice Nails &amp; Spa in North Phoenix AZ 85021.</p>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 pt-8 md:px-6">
