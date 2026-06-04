@@ -15,6 +15,7 @@ const STATIC_ROUTES = [
   { path: '/booking', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.78 },
   { path: '/privacy', changeFrequency: 'yearly', priority: 0.35 },
+  { path: '/terms', changeFrequency: 'yearly', priority: 0.35 },
   { path: '/services/gel-nails-phoenix', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/services/nail-art-phoenix-az', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/services/acrylic-nails-phoenix-az', changeFrequency: 'monthly', priority: 0.8 },

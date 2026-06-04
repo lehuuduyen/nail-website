@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Instagram, Facebook, Youtube, MapPin, Phone, Clock } from 'lucide-react';
-import { salonName, salonHours, salonMapsUrl } from '@/lib/salon';
+import { salonName, salonHours, salonMapsUrl, salonGoogleReviewUrl } from '@/lib/salon';
 
 export default function Footer() {
   const name = salonName();
@@ -8,6 +8,7 @@ export default function Footer() {
   const address = process.env.NEXT_PUBLIC_SALON_ADDRESS || '';
   const hours = salonHours();
   const maps = salonMapsUrl();
+  const reviewUrl = salonGoogleReviewUrl();
   const tel = phone.replace(/\D/g, '');
 
   return (
@@ -103,6 +104,15 @@ export default function Footer() {
               className="rounded-full border border-white/20 px-3 py-2 text-xs font-bold hover:border-rose-gold hover:text-rose-gold"
             >
               Yelp
+            </a>
+            <a
+              href={reviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/20 px-3 py-2 text-xs font-bold hover:border-rose-gold hover:text-rose-gold"
+              aria-label="Leave a Google review"
+            >
+              ⭐ Google
             </a>
           </div>
         </div>

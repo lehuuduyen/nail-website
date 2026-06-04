@@ -5,6 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { SALON_REVIEWS as reviews } from '@/lib/reviews';
 
+const REVIEW_URL =
+  process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ||
+  process.env.NEXT_PUBLIC_SALON_MAPS_URL ||
+  'https://maps.app.goo.gl/RxXkeYRL63uib95d6';
+
 export default function TestimonialsSection() {
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -54,6 +59,18 @@ export default function TestimonialsSection() {
               aria-label={`Go to review ${idx + 1}`}
             />
           ))}
+        </div>
+
+        <div className="mt-10">
+          <a
+            href={REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-rose-gold px-6 py-3 text-sm font-semibold text-rose-gold transition hover:bg-rose-gold hover:text-charcoal"
+          >
+            <Star size={15} fill="currentColor" />
+            Đánh giá chúng tôi trên Google
+          </a>
         </div>
       </div>
     </section>

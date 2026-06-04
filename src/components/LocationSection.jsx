@@ -1,10 +1,11 @@
-import { salonAddress, salonHours, salonMapsUrl, salonMapsEmbedUrl, salonPhone } from '@/lib/salon';
+import { salonAddress, salonHours, salonMapsUrl, salonMapsEmbedUrl, salonPhone, salonGoogleReviewUrl } from '@/lib/salon';
 
 export default function LocationSection() {
   const address = salonAddress();
   const hours = salonHours();
   const mapsUrl = salonMapsUrl();
   const phone = salonPhone();
+  const reviewUrl = salonGoogleReviewUrl();
   const embedUrl =
     salonMapsEmbedUrl() ||
     `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed&z=15`;
@@ -47,17 +48,27 @@ export default function LocationSection() {
                 Address
               </p>
               <p className="text-charcoal text-base leading-snug">{address}</p>
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-rose-500 hover:text-rose-600 transition-colors"
-              >
-                Get directions
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
-                  <path fillRule="evenodd" d="M4.75 2a.75.75 0 0 0 0 1.5h6.19L2.22 12.22a.75.75 0 1 0 1.06 1.06L12 4.561v6.189a.75.75 0 0 0 1.5 0V2.75A.75.75 0 0 0 12.75 2H4.75Z" clipRule="evenodd" />
-                </svg>
-              </a>
+              <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-rose-500 hover:text-rose-600 transition-colors"
+                >
+                  Get directions
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
+                    <path fillRule="evenodd" d="M4.75 2a.75.75 0 0 0 0 1.5h6.19L2.22 12.22a.75.75 0 1 0 1.06 1.06L12 4.561v6.189a.75.75 0 0 0 1.5 0V2.75A.75.75 0 0 0 12.75 2H4.75Z" clipRule="evenodd" />
+                  </svg>
+                </a>
+                <a
+                  href={reviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-amber-500 hover:text-amber-600 transition-colors"
+                >
+                  ⭐ Đánh giá Google
+                </a>
+              </div>
             </div>
 
             <div>

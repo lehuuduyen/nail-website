@@ -43,3 +43,11 @@ export function salonPhone() {
 export function salonMapsEmbedUrl() {
   return process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED || '';
 }
+
+export function salonGoogleReviewUrl() {
+  return (
+    process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ||
+    process.env.NEXT_PUBLIC_SALON_MAPS_URL ||
+    'https://maps.app.goo.gl/RxXkeYRL63uib95d6'
+  );
+}
