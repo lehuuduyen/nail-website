@@ -8,6 +8,7 @@ import HomeFaqSection from '@/components/HomeFaqSection';
 import LocationSection from '@/components/LocationSection';
 import BookingCtaBanner from '@/components/BookingCtaBanner';
 import { absoluteUrl } from '@/lib/siteUrl';
+import { getDisplayReviews } from '@/lib/googleReviews';
 
 // Sections below-fold dùng framer-motion — lazy load để không chặn LCP
 const WhyLoveSection        = dynamic(() => import('@/components/WhyLoveSection'));
@@ -46,7 +47,8 @@ export const metadata = {
   },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const reviews = await getDisplayReviews();
   return (
     <>
       {/* preconnect for Google Maps iframe — only needed on this page */}
@@ -60,7 +62,7 @@ export default function HomePage() {
       <WhyLoveSection />
       <OurLuxuryServicesSection />
       <ServicesSection />
-      <TestimonialsSection />
+      <TestimonialsSection reviews={reviews} />
       <BookingCtaBanner />
       <GallerySection />
       <HomeServiceAreasSection />
