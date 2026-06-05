@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { SALON_REVIEWS } from '@/lib/reviews';
 
@@ -41,14 +41,7 @@ function ReviewCard({ r }) {
       <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
         {r.photoUri ? (
           <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
-            <Image
-              src={r.photoUri}
-              alt={r.name}
-              fill
-              className="object-cover"
-              sizes="36px"
-              unoptimized
-            />
+            <Image src={r.photoUri} alt={r.name} fill className="object-cover" sizes="36px" unoptimized />
           </div>
         ) : (
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-gold/20 text-xs font-bold text-rose-gold">
@@ -65,38 +58,73 @@ function ReviewCard({ r }) {
 }
 
 export default function TestimonialsSection({ reviews: propReviews }) {
-  const reviews = propReviews?.length ? propReviews : SALON_REVIEWS;
-  const hasGoogle = reviews.some((r) => r.isGoogle === true);
+  const base = propReviews?.length ? propReviews : SALON_REVIEWS;
+  // Triple the array — middle copy is the "real" zone; edges are silent reset buffers
+  const all = [...base, ...base, ...base];
+  const hasGoogle = base.some((r) => r.isGoogle === true);
 
   const trackRef = useRef(null);
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(true);
+  const resetTimer = useRef(null);
 
-  const syncNav = useCallback(() => {
+  /** Jump instantly (no animation) to a new scrollLeft. */
+  const jumpTo = useCallback((left) => {
     const el = trackRef.current;
     if (!el) return;
-    setCanPrev(el.scrollLeft > 4);
-    setCanNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+    el.style.scrollSnapType = 'none';
+    el.style.scrollBehavior = 'auto';
+    el.scrollLeft = left;
+    // Force reflow so the browser applies the jump before re-enabling snap
+    void el.offsetHeight;
+    el.style.scrollBehavior = '';
+    el.style.scrollSnapType = '';
   }, []);
 
+  /** After scroll settles: if we drifted into copy 1 or copy 3, jump back to copy 2. */
+  const checkLoop = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const third = el.scrollWidth / 3; // width of one full copy
+    if (el.scrollLeft >= third * 2) {
+      jumpTo(el.scrollLeft - third);
+    } else if (el.scrollLeft < third) {
+      jumpTo(el.scrollLeft + third);
+    }
+  }, [jumpTo]);
+
+  /** On mount: silent jump to start of middle copy so user can scroll both ways. */
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => {
+      const el = trackRef.current;
+      if (!el) return;
+      jumpTo(el.scrollWidth / 3);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [jumpTo, base.length]);
+
+  /** Attach scroll listener → debounce loop check. */
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
-    syncNav();
-    el.addEventListener('scroll', syncNav, { passive: true });
-    window.addEventListener('resize', syncNav);
-    return () => {
-      el.removeEventListener('scroll', syncNav);
-      window.removeEventListener('resize', syncNav);
-    };
-  }, [syncNav, reviews]);
 
+    const onScroll = () => {
+      clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(checkLoop, 120);
+    };
+
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      el.removeEventListener('scroll', onScroll);
+      clearTimeout(resetTimer.current);
+    };
+  }, [checkLoop]);
+
+  /** Arrow buttons: scroll by 1 card. */
   const scrollBy = (dir) => {
     const el = trackRef.current;
     if (!el) return;
     const card = el.querySelector('li');
-    const gap = 20;
-    const amount = card ? card.offsetWidth + gap : el.clientWidth / 3;
+    const gap = 20; // gap-5
+    const amount = card ? card.offsetWidth + gap : 320;
     el.scrollBy({ left: dir * amount, behavior: 'smooth' });
   };
 
@@ -104,7 +132,7 @@ export default function TestimonialsSection({ reviews: propReviews }) {
     <section className="overflow-hidden bg-charcoal py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
 
-        {/* Header row */}
+        {/* Header */}
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="font-display text-3xl text-cream md:text-4xl">Guest love</h2>
@@ -117,35 +145,33 @@ export default function TestimonialsSection({ reviews: propReviews }) {
             )}
           </div>
 
-          {/* Arrow buttons */}
+          {/* Arrows */}
           <div className="flex gap-2">
             <button
               type="button"
               onClick={() => scrollBy(-1)}
-              disabled={!canPrev}
               aria-label="Previous"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold disabled:opacity-25"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               type="button"
               onClick={() => scrollBy(1)}
-              disabled={!canNext}
               aria-label="Next"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold disabled:opacity-25"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
             >
               <ChevronRight size={20} />
             </button>
           </div>
         </div>
 
-        {/* Scrollable card track */}
+        {/* Card track — tripled for infinite loop */}
         <ul
           ref={trackRef}
-          className="flex gap-5 overflow-x-auto scroll-smooth pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-5 overflow-x-auto pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {reviews.map((r, idx) => (
+          {all.map((r, idx) => (
             <li
               key={idx}
               className="w-[82vw] flex-none [scroll-snap-align:start] md:w-[calc(50%-10px)] lg:w-[calc(33.33%-14px)]"
