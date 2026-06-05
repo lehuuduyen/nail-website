@@ -63,9 +63,28 @@ export async function fetchGoogleReviews() {
   }
 }
 
-/** Trả về reviews để hiển thị — Google nếu có, fallback về hardcoded. */
+const TARGET_COUNT = 15;
+
+/**
+ * Trả về tối đa TARGET_COUNT reviews để hiển thị.
+ * Ưu tiên Google (live) trước, fill thêm từ hardcoded cho đủ.
+ */
 export async function getDisplayReviews() {
+  const hardcoded = SALON_REVIEWS.map((r) => ({
+    ...r,
+    isGoogle: false,
+    photoUri: null,
+    relativeTime: '',
+  }));
+
   const google = await fetchGoogleReviews();
-  if (google) return google;
-  return SALON_REVIEWS.map((r) => ({ ...r, isGoogle: false, photoUri: null, relativeTime: '' }));
+
+  if (!google || google.length === 0) return hardcoded.slice(0, TARGET_COUNT);
+
+  const combined = [...google];
+  for (const r of hardcoded) {
+    if (combined.length >= TARGET_COUNT) break;
+    combined.push(r);
+  }
+  return combined;
 }
