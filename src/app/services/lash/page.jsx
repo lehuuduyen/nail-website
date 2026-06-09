@@ -14,9 +14,9 @@ import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'lash';
 const TITLE =
-  'Eyelash Extensions Phoenix AZ | Classic, Volume, Wispy | Nice Nails & Spa';
+  'Eyelash Extensions in North Phoenix AZ 85021 | Nice Nails & Spa';
 const DESCRIPTION =
-  'Professional eyelash extensions in North Phoenix AZ 85021. Classic from $87, Volume from $120. Wispy, Hybrid & Lash Lift available. Book your lash appointment!';
+  'Natural & volume lash extensions in North Phoenix AZ. Custom full sets & refills. Skip the mascara. Book online or call (602) 759-9184.';
 
 export const metadata = {
   title: { absolute: TITLE },
@@ -78,7 +78,7 @@ export default async function LashServicesPage() {
               {cat.emoji}
             </p>
             <h1 className="mt-2 font-display text-4xl text-ink md:text-5xl">
-              Eyelash Extensions in Phoenix AZ
+              Eyelash Extensions in North Phoenix AZ
             </h1>
             <p className="mt-2 text-sm font-semibold text-rose-gold">
               Classic from $87 · Volume from $120 · North Phoenix, AZ 85021
@@ -105,18 +105,16 @@ export default async function LashServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            Nice Nails &amp; Spa in <strong>North Phoenix</strong> tailors <strong>eyelash extensions
-            Phoenix AZ</strong> clients request for real life—custom mapping, careful weight, and retention
-            you can feel between fills.             Searching for <strong>lash extensions North Phoenix</strong> you can trust? We prioritize
-            lash health, soft drama, and a line that flatters your eye shape without
-            looking heavy. Prefer your naturals with lift? Our <strong>lash lift Phoenix</strong> option
-            delivers a low-maintenance, wake-up-ready curl—lovely with tint. Craving <strong>volume lashes
-            Phoenix AZ</strong> energy? We hand-make lightweight fans for depth; classic sets stay refined
-            when you want mascara-like definition. Visits include prep, aftercare coaching, and a fill plan
-            around your shed cycle. Wispy and hybrid sets blend classic placement with feathery or fan
-            texture when you want dimension without extremes. Stations stay sanitary, adhesives are pro
-            grade, and we quote fill pricing up front. New guests receive a curl-and-length consult first.
-            Book online anytime; walk-ins welcome when we have openings.
+            Wake up to fuller lashes every morning with eyelash extensions at Nice Nails &amp; Spa in
+            North Phoenix. Our lash technicians customize every set to your eye shape and the look you
+            want—soft and natural or full and dramatic. A full set is tailored to you, and gentle refills
+            every two to three weeks keep your lashes looking full as your natural lashes shed. The
+            application is relaxing; most clients rest comfortably and a few even fall asleep. We use
+            quality adhesives and careful lash isolation to keep your natural lashes healthy. Extensions
+            are a favorite for weddings, vacations, and anyone who wants to skip mascara and save time on
+            busy mornings. Find us at 8048 N 19th Ave, Phoenix, AZ 85021, convenient for guests across
+            North Phoenix, Glendale, and Peoria. Book your lash appointment online in under a minute, or
+            call (602) 759-9184 with questions.
           </p>
         </div>
 

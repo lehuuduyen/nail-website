@@ -14,9 +14,9 @@ import { absoluteUrl } from '@/lib/siteUrl';
 import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'pedicure';
-const TITLE = 'Pedicure in Phoenix AZ | Spa Pedicure Services | Nice Nails & Spa';
+const TITLE = 'Spa Pedicure in North Phoenix AZ 85021 | Nice Nails & Spa';
 const DESCRIPTION =
-  'Relaxing pedicure services in North Phoenix AZ 85021. Classic to luxury spa pedicures from $35. Hot stone, paraffin, La Palm & more. Book online today!';
+  'Relaxing spa pedicures from $35 in North Phoenix AZ. Soak, scrub, callus care & hot-stone massage. Book online today. 4.9★ 700+ reviews.';
 
 export const metadata = {
   title: { absolute: TITLE },
@@ -81,7 +81,7 @@ export default async function PedicureServicesPage() {
               {cat.emoji}
             </p>
             <h1 className="mt-2 font-display text-4xl text-ink md:text-5xl">
-              Pedicure Services in Phoenix AZ
+              Spa Pedicure in North Phoenix AZ
             </h1>
             <p className="mt-2 text-sm font-semibold text-rose-gold">
               From ${minP}+ · North Phoenix, AZ 85021
@@ -114,17 +114,16 @@ export default async function PedicureServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            Looking for a <strong>pedicure in Phoenix AZ</strong> that feels like a real break in your
-            day? At Nice Nails &amp; Spa in <strong>North Phoenix</strong>, our menu centers on{' '}
-            <strong>spa pedicure</strong> rituals that soften rough spots, refresh tired feet, and leave
-            polish flawless. Searching for the <strong>best pedicure Phoenix 85021</strong> has to offer?
-            Choose from quick classics to layered luxury soaks, scrubs, and massage. Hygiene comes first:
-            disposable liners, sanitized tools, and spotless stations so you can relax with confidence.
-            We use quality lotions, sugar scrubs, and cooling gels—plus <strong>La Palm</strong> collagen
-            steps on select tiers—and add <strong>hot stone</strong> or <strong>paraffin</strong> when you
-            want extra pampering. Thoughtful cuticle care, shaping, and massage pacing keep each visit
-            feeling personal—not rushed. Slip into our chairs, pick the tier that fits your mood, and let
-            our North Phoenix team welcome you from greeting to glossy finish.
+            Give your feet the reset they deserve with a spa pedicure at Nice Nails &amp; Spa in North
+            Phoenix. Sink into a comfortable chair while we soak, exfoliate, and massage tired
+            feet—our pedicures start at $35 and range from a clean classic finish to deluxe treatments
+            with sugar scrub, callus smoothing, a hydrating mask, and hot-stone massage. Each pedicure
+            includes nail trimming, cuticle care, and your choice of regular or long-lasting gel polish.
+            We sanitize every tool and use a fresh disposable liner for each guest, so you can fully
+            relax. Many clients pair a pedicure with a manicure for a complete refresh before a wedding,
+            vacation, or a well-earned break. Located at 8048 N 19th Ave, Phoenix, AZ 85021, we are an
+            easy stop for guests across North Phoenix, Glendale, Peoria, and Moon Valley. Book online in
+            seconds or walk in when we have an open chair.
           </p>
         </div>
 

@@ -14,9 +14,9 @@ import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'manicure';
 const TITLE =
-  'Manicure in Phoenix AZ | Classic, Deluxe & Deep Manicure | Nice Nails & Spa';
+  'Manicure in North Phoenix AZ 85021 | Gel & Classic | Nice Nails & Spa';
 const DESCRIPTION =
-  'Professional manicure services in North Phoenix AZ 85021. Classic from $30, Deluxe from $50, Deep Manicure from $60. Gel options available. Book online today!';
+  'Classic & gel manicures from $30 in North Phoenix AZ 85021. Nail shaping, cuticle care & hand massage. Book online or walk in. 4.9★ 700+ reviews.';
 
 export const metadata = {
   title: { absolute: TITLE },
@@ -77,7 +77,7 @@ export default async function ManicureServicesPage() {
               {cat.emoji}
             </p>
             <h1 className="mt-2 font-display text-4xl text-ink md:text-5xl">
-              Manicure Services in Phoenix AZ
+              Manicure in North Phoenix AZ
             </h1>
             <p className="mt-2 text-sm font-semibold text-rose-gold">
               Classic from $30 · Deluxe from $50 · Deep from $60 · North Phoenix, AZ 85021
@@ -110,20 +110,17 @@ export default async function ManicureServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            Whether you want a <strong>manicure Phoenix AZ</strong> locals trust, a{' '}
-            <strong>gel manicure North Phoenix</strong> that guests return for, or the{' '}
-            <strong>best manicure Phoenix 85021</strong> experience before a packed week, Nice Nails &amp; Spa
-            focuses on precision and comfort
-            from the first soak to the final top coat. Typing <strong>manicure near me Phoenix</strong>?
-            You will find thoughtful <strong>cuticle care</strong>, custom <strong>nail shaping</strong>,
-            hydrating <strong>massage</strong>, and flawless <strong>polish</strong>—plus{' '}
-            <strong>Classic</strong>, <strong>Deluxe</strong>, and <strong>Deep</strong> tiers so you can
-            match time and pampering to your day. Hygiene is non-negotiable: sanitized tools, fresh files
-            where needed, and stations wiped between guests. We reach for premium lotions, scrubs, and gel
-            systems that wear evenly so your hands look intentional, not rushed. Deluxe adds exfoliation
-            and cooling relief; Deep layers in Jelly spa to soften skin and ease tension—ideal before
-            events or after a dry Arizona week. Ask about gel upgrades on any tier when you want
-            longer-lasting shine.
+            Treat your hands to a manicure at Nice Nails &amp; Spa, a North Phoenix favorite at 8048 N
+            19th Ave. Whether you want a quick classic polish before work or a long-lasting gel finish
+            that survives a busy week, our technicians shape, buff, and care for your nails with an
+            unhurried, detail-first approach. Classic manicures start at $30 and include nail shaping,
+            cuticle care, a relaxing hand massage, and your choice of regular polish. Prefer something
+            that lasts? Our gel manicures resist chips for two weeks or more, and dip powder adds extra
+            strength for clients who are hard on their hands. We keep every station sanitized and use
+            fresh files and buffers for each guest, so hygiene always comes first. Booking online takes
+            under a minute, and walk-ins are welcome whenever a chair is open—evenings and Saturdays fill
+            quickly, so reserving ahead is smart. Proudly serving North Phoenix, Glendale, Peoria, and
+            Deer Valley.
           </p>
         </div>
 

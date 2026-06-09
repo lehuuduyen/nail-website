@@ -1,21 +1,12 @@
 import Link from 'next/link';
 
 const TAGS = [
-  { label: '💅 Nail Salon Near Me', href: '/services' },
-  { label: '✨ Manicure Phoenix AZ', href: '/services/manicure' },
-  { label: '🦶 Pedicure Phoenix AZ', href: '/services/pedicure' },
-  { label: '💎 Acrylic Nails Phoenix', href: '/services/nails' },
-  { label: '🌸 Dip Powder Nails', href: '/services/nails' },
-  { label: '👁️ Lash Extensions Phoenix', href: '/services/lash' },
-  { label: '🧖 Head Spa Phoenix', href: '/services/head_spa' },
-  { label: '✨ Gel Nails Phoenix', href: '/services/nails' },
-  { label: '🌿 Nail Salon 85021', href: '/services' },
-  { label: '💆 Spa Pedicure Near Me', href: '/services/pedicure' },
-  { label: '🎨 Nail Art Phoenix', href: '/services/nails' },
-  { label: '👶 Kids Nail Salon Phoenix', href: '/services/kids' },
-  { label: '🌟 Ombré Nails Phoenix', href: '/services/nails' },
-  { label: '💋 Waxing Near Me Phoenix', href: '/services/waxing' },
-  { label: '✨ Facial Phoenix AZ', href: '/services/facial' },
+  { label: 'Manicure', href: '/services/manicure' },
+  { label: 'Pedicure', href: '/services/pedicure' },
+  { label: 'Acrylic & Gel Nails', href: '/services/nails' },
+  { label: 'Lash Extensions', href: '/services/lash' },
+  { label: 'Waxing', href: '/services/waxing' },
+  { label: 'View All Services', href: '/services' },
 ];
 
 export default function HeroKeywordTags() {

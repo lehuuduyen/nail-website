@@ -166,19 +166,23 @@ export default function TestimonialsSection({ reviews: propReviews }) {
           </div>
         </div>
 
-        {/* Card track — tripled for infinite loop */}
+        {/* Card track — tripled for infinite loop; only middle copy is indexed by crawlers */}
         <ul
           ref={trackRef}
           className="flex gap-5 overflow-x-auto pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {all.map((r, idx) => (
-            <li
-              key={idx}
-              className="w-[82vw] flex-none [scroll-snap-align:start] md:w-[calc(50%-10px)] lg:w-[calc(33.33%-14px)]"
-            >
-              <ReviewCard r={r} />
-            </li>
-          ))}
+          {all.map((r, idx) => {
+            const isGhost = idx < base.length || idx >= base.length * 2;
+            return (
+              <li
+                key={idx}
+                aria-hidden={isGhost ? 'true' : undefined}
+                className="w-[82vw] flex-none [scroll-snap-align:start] md:w-[calc(50%-10px)] lg:w-[calc(33.33%-14px)]"
+              >
+                <ReviewCard r={r} />
+              </li>
+            );
+          })}
         </ul>
 
         {/* CTA */}

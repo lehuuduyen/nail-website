@@ -14,9 +14,9 @@ import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'nails';
 const TITLE =
-  'Acrylic Nails & Gel Nails Phoenix AZ | Dip Powder, Ombré | Nice Nails & Spa';
+  'Acrylic, Gel & Dip Nails in North Phoenix AZ 85021 | Nice Nails & Spa';
 const DESCRIPTION =
-  'Acrylic nails, gel nails, dip powder & ombré in North Phoenix AZ 85021. Full sets from $40, fill-ins from $35. Book your nail appointment today!';
+  'Full sets from $40 in North Phoenix AZ — acrylic, gel-X, dip powder & custom nail art. The shapes & designs you want. Book online. 4.9★ 700+ reviews.';
 
 export const metadata = {
   title: { absolute: TITLE },
@@ -78,7 +78,7 @@ export default async function NailsServicesPage() {
               {cat.emoji}
             </p>
             <h1 className="mt-2 font-display text-4xl text-ink md:text-5xl">
-              Acrylic Nails &amp; Gel Nails in Phoenix AZ
+              Acrylic, Gel &amp; Dip Nails in North Phoenix AZ
             </h1>
             <p className="mt-2 text-sm font-semibold text-rose-gold">
               Full sets from $40 · Fill-ins from $35 · North Phoenix, AZ 85021
@@ -111,22 +111,16 @@ export default async function NailsServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            Whether you are searching for <strong>acrylic nails Phoenix AZ</strong> guests trust for
-            length and durability, or <strong>gel nails Phoenix</strong> lovers want for glossy,
-            flexible wear, Nice Nails &amp; Spa in <strong>North Phoenix</strong> has you covered. We
-            sculpt <strong>nail extensions Phoenix AZ 85021</strong> clients love—from natural overlays
-            to bold lengths—while keeping structure balanced between visits. Curious about <strong>dip powder nails North Phoenix</strong> fans rave about?
-            Dip adds layered color with a lightweight feel and is a great alternative when you want
-            strength without traditional liquid-and-powder acrylic. A <strong>full set</strong> builds
-            your enhancement from scratch with tips or forms, perfect for first-time guests or a full
-            redesign. A <strong>fill-in</strong> maintains your existing set: we blend new product at
-            the growth area, rebalance stress points, and refresh polish or art so you leave with even
-            structure and a polished silhouette—both paths protect natural nails while you enjoy length or
-            color. Style-wise, we offer <strong>ombré</strong> fades,{' '}
-            <strong>marble</strong> veining, classic <strong>pink &amp; white</strong>, crisp{' '}
-            <strong>French tip</strong> and white-tip looks, and <strong>Gel-X</strong> soft extensions
-            when you want a soak-off gel system with a natural taper. We consult on length, shape, and
-            lifestyle so your set photographs beautifully. Book online or walk in anytime.
+            For a full set that turns heads, Nice Nails &amp; Spa offers acrylic, gel, and dip powder
+            nails at our North Phoenix studio. Full sets start at $40 and we build each one around the
+            shape, length, and finish you want—almond, coffin, square, or stiletto, in everything from a
+            clean nude to bold custom nail art. Our technicians take their time on application and
+            structure so your set lasts through daily wear without lifting or cracking. Prefer a lighter
+            feel? Gel-X and dip powder offer strength and shine with less bulk, and refills keep your
+            look fresh between full sets. Nail art starts at $15 and up, and we are happy to recreate a
+            design from a photo you bring in. Every tool is sterilized and we never reuse files or
+            buffers. Book online or walk in—Saturdays and evenings book fast for full sets, so reserving
+            ahead is recommended. Serving North Phoenix, Glendale, Peoria, and Deer Valley.
           </p>
         </div>
 
