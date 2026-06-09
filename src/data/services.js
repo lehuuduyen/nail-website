@@ -64,37 +64,94 @@ export const CATEGORIES = {
 
 /** English titles for website / SEO (POS may use shorter internal names). */
 export const WEBSITE_DISPLAY_NAMES = {
+  // Manicure
   'Manicure 1 Regular': 'Classic Manicure',
-  'Manicure 1 Gel': 'Classic Manicure with Gel',
+  'Manicure 1 Gel':     'Classic Manicure with Gel',
   'Manicure 2 Regular': 'Deluxe Manicure',
-  'Manicure 2 Gel': 'Deluxe Manicure with Gel',
+  'Manicure 2 Gel':     'Deluxe Manicure with Gel',
   'Manicure 3 Regular': 'Deep Manicure',
-  'Manicure 3 Gel': 'Deep Manicure with Gel',
-  'Pedicure 1': 'Classic Pedicure',
+  'Manicure 3 Gel':     'Deep Manicure with Gel',
+
+  // Pedicure
+  'Pedicure 1':     'Classic Pedicure',
   'Pedicure 1 Gel': 'Classic Pedicure with Gel',
-  'Pedicure 2': 'Signature Pedicure',
+  'Pedicure 2':     'Signature Pedicure',
   'Pedicure 2 Gel': 'Signature Pedicure with Gel',
-  'Pedicure 3': 'Deluxe Pedicure',
+  'Pedicure 3':     'Deluxe Pedicure',
   'Pedicure 3 Gel': 'Deluxe Pedicure with Gel',
-  'Pedicure 4': 'Royal Pedicure',
+  'Pedicure 4':     'Royal Pedicure',
   'Pedicure 4 Gel': 'Royal Pedicure with Gel',
-  'Pedicure 5': 'Luxurious Pedicure',
+  'Pedicure 5':     'Luxurious Pedicure',
   'Pedicure 5 Gel': 'Luxurious Pedicure with Gel',
-  'Pedicure 6': 'Herbal La Palm Pedicure',
-  'Pedicure 6 Gel': 'Herbal La Palm Pedicure with Gel',
-  'Pedicure 7': 'Vena Golden Pedicure',
+  'Pedicure 6':     'Gel-Ohh Jelly Spa Pedicure',
+  'Pedicure 6 Gel': 'Gel-Ohh Jelly Spa Pedicure with Gel',
+  'Pedicure 7':     'Vena Golden Pedicure',
   'Pedicure 7 Gel': 'Vena Golden Pedicure with Gel',
-  'Fill In Regular': 'Acrylic Fill-in',
-  'Fill In Gel': 'Gel Fill-in',
-  'Full Set Regular': 'Acrylic Full Set',
-  'Full Set Gel': 'Gel Full Set',
-  'Head Spa Combo 1': 'Basic Head Spa (60 min)',
-  'Head Spa Combo 2': 'Deluxe Head Spa (90 min)',
-  'Head Spa Combo 3': 'Royal Head Spa (110 min)',
+
+  // Nails
+  'Full Set Regular':           'Acrylic Full Set',
+  'Full Set Gel':               'Acrylic Full Set with Gel',
+  'Fill In Regular':            'Acrylic Fill-in',
+  'Fill In Gel':                'Acrylic Fill-in with Gel',
+  'Ombre/ Marble':              'Ombré / Marble Nails',
+  'Fancy Nail (Your Request)':  'Custom Nail Art',
+  'Pink & White':               'Pink & White',
+  'White Tip/ French Tip':      'French / White Tip',
+  'Dipping Nail':               'Dip Powder Nails',
+  'Gel X':                      'Gel-X Extensions',
+
+  // Add-ons
+  'Color Nail':           'Color Change (Nails)',
+  'Color Nail Gel':       'Gel Color Change (Nails)',
+  'Color Feet':           'Color Change (Toenails)',
+  'Take Off Nail':        'Acrylic Removal',
+  'Take Off Gel':         'Gel Removal',
+  'Full Set Toe':         'Full Set (Toenails)',
+  'Full Set Toe Gel':     'Full Set Toenails with Gel',
+  'Acrylic Two Big Toes': 'Acrylic Two Big Toes',
+  'Paraffin Dip':         'Paraffin Wax Treatment',
+  'Callous Removal':      'Callous Removal',
+  'Collagen Socks':       'Collagen Socks',
+  '10 Minutes Massage':   'Extra 10-Min Massage',
+  'Shiny Buffing':        'Shiny Buffing',
+  'Rhinestone':           'Rhinestone Add-on',
+
+  // Kids
+  'Kids Manicure Regular': 'Kids Classic Manicure',
+  'Kids Manicure Gel':     'Kids Gel Manicure',
+  'Kids Pedicure Regular': 'Kids Classic Pedicure',
+  'Kids Pedicure Gel':     'Kids Gel Pedicure',
+  'Kids Color Nail Gel':   'Kids Gel Color (Nails)',
+  'Kids Color Feet Gel':   'Kids Gel Color (Toenails)',
+
+  // Eyelash
+  'Eyelash Classic Full Set': 'Classic Lash Extensions',
+  'Eyelash Classic Fill':     'Classic Lash Refill',
+  'Eyelash Volume Full Set':  'Volume Lash Extensions',
+  'Eyelash Volume Fill':      'Volume Lash Refill',
+  'Eyelash Wispy Full Set':   'Wispy Lash Extensions',
+  'Eyelash Wispy Fill':       'Wispy Lash Refill',
+  'Eyelash Hybrid Full Set':  'Hybrid Lash Extensions',
+  'Eyelash Hybrid Fill':      'Hybrid Lash Refill',
+  'Cluster Lash':             'Cluster Lash',
+  'Lash Lift':                'Lash Lift',
+
+  // Waxing
+  'Eyebrow Wax':          'Eyebrow Waxing',
+  'Face / Chin / Lip Wax':'Face / Chin / Lip Waxing',
+
+  // Head Spa
+  'Head Spa Combo 1':        'Basic Head Spa (60 min)',
+  'Head Spa Combo 2':        'Deluxe Head Spa (90 min)',
+  'Head Spa Combo 3':        'Royal Head Spa (110 min)',
+  'Facial Scrub':            'Facial Scrub',
+  'Scalp Massage':           'Scalp Massage (per min)',
+  'Hand Paraffin Treatment': 'Hand Paraffin Treatment',
+
+  // Facial
   'Facial Combo 1': 'Hydrating Facial (45 min)',
   'Facial Combo 2': 'Deep Clean Facial (60 min)',
-  'Facial Combo 3': 'Detox Facial (80 min)',
-  'Eyelash Classic Full Set': 'Classic Eyelash Extensions',
+  'Facial Combo 3': 'Detox Deep Clean Facial (80 min)',
 };
 
 export function getServiceDisplayName(service) {

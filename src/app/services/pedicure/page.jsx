@@ -127,6 +127,47 @@ export default async function PedicureServicesPage() {
           </p>
         </div>
 
+        <div className="mx-auto max-w-4xl px-4 pb-12 md:px-6">
+          <section
+            className="rounded-2xl border border-rose-gold/20 bg-surface/90 p-6 shadow-sm shadow-rose-gold/5 backdrop-blur-sm md:p-10"
+            aria-labelledby="pedicure-tiers-heading"
+          >
+            <h2
+              id="pedicure-tiers-heading"
+              className="font-display text-2xl text-ink md:text-3xl"
+            >
+              Which pedicure is right for you?
+            </h2>
+            <p className="mt-2 text-sm text-charcoal">
+              Seven tiers from a clean classic finish to a full luxury golden ritual — your technician can help you choose at check-in.
+            </p>
+            <div className="mt-8 space-y-6">
+              {[
+                { tier: 'Classic',     price: '$35',  gel: '$45',  min: '45',  desc: 'Cuticle trim, nail shape, sugar scrub, hot towel, lotion massage, polish.' },
+                { tier: 'Signature',   price: '$45',  gel: '$52',  min: '60',  desc: 'Classic + callous removal, cooling gel — a step up for everyday feet.' },
+                { tier: 'Deluxe',      price: '$52',  gel: '$62',  min: '75',  desc: 'Signature + hot stone massage and paraffin dip for deeper relaxation.' },
+                { tier: 'Royal',       price: '$62',  gel: '$72',  min: '90',  desc: 'Deluxe + vegan pedicure kit with salt soak, mud masque, massage butter (8 min massage).' },
+                { tier: 'Luxurious',   price: '$72',  gel: '$82',  min: '100', desc: 'Royal + FreshMilk whitening, organic fruit vitamin C, collagen socks (10 min massage).' },
+                { tier: 'Gel-Ohh Jelly Spa', price: '$82', gel: '$98', min: '120', desc: 'Luxurious + Gel-Ohh jelly soak that retains water temperature — ultimate muscle relief.' },
+                { tier: 'Vena Golden', price: '$98',  gel: '$110', min: '130', desc: 'Our signature luxury: golden scrub, golden mask, golden serum & lotion, hot towel finale.' },
+              ].map(({ tier, price, gel, min, desc }) => (
+                <div key={tier} className="flex flex-col gap-1 border-b border-rose-gold/10 pb-6 last:border-0 last:pb-0 sm:flex-row sm:items-start sm:gap-6">
+                  <div className="flex w-full shrink-0 items-baseline gap-3 sm:w-48 sm:flex-col sm:gap-0.5">
+                    <p className="font-semibold text-charcoal">{tier}</p>
+                    <p className="text-xs text-muted">{min} min</p>
+                    <div className="ml-auto flex gap-3 sm:ml-0 sm:mt-1 sm:flex-col sm:gap-0.5">
+                      <p className="text-sm font-bold text-charcoal">Cash {price}+</p>
+                      <p className="text-xs text-muted">Gel {gel}+</p>
+                    </div>
+                  </div>
+                  <p className="flex-1 text-sm leading-relaxed text-charcoal">{desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-muted">Add paraffin wax or hot stone: $7+ · Add extra massage time: $10+</p>
+          </section>
+        </div>
+
         <div className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {list.map((s) => (
