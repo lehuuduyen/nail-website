@@ -1,4 +1,4 @@
-import { getLocalBusinessJsonLd } from '@/lib/localBusinessJsonLd';
+import { getBusinessRef } from '@/lib/localBusinessJsonLd';
 import { absoluteUrl } from '@/lib/siteUrl';
 
 const FAQ_ITEMS = [
@@ -36,7 +36,6 @@ export function waxingFaqPageJsonLd() {
 }
 
 export function waxingPrimaryServiceJsonLd() {
-  const salon = getLocalBusinessJsonLd();
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -45,16 +44,12 @@ export function waxingPrimaryServiceJsonLd() {
       'Eyebrow, lip, chin, face, back, and body waxing in North Phoenix AZ 85021. Quick add-on to nail and beauty services.',
     serviceType: 'Waxing',
     url: absoluteUrl('/services/waxing'),
-    provider: {
-      '@type': 'NailSalon',
-      name: salon.name,
-      ...(salon.url ? { url: salon.url } : {}),
-      ...(salon.telephone ? { telephone: salon.telephone } : {}),
-      address: salon.address,
-    },
+    provider: getBusinessRef(),
     areaServed: [
       { '@type': 'City', name: 'Phoenix' },
       { '@type': 'AdministrativeArea', name: 'North Phoenix' },
+      { '@type': 'City', name: 'Glendale' },
+      { '@type': 'City', name: 'Peoria' },
     ],
     offers: {
       '@type': 'AggregateOffer',

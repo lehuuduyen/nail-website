@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import { absoluteUrl } from '@/lib/siteUrl';
-import { getLocalBusinessJsonLd } from '@/lib/localBusinessJsonLd';
+import { getBusinessRef } from '@/lib/localBusinessJsonLd';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 export const metadata = {
   title: 'Gel Nails in Phoenix, AZ | Nice Nails & Spa',
   description:
     'Long-lasting gel manicures in North Phoenix — Nice Nails & Spa. Book gel nails online; walk-ins welcome.',
   alternates: {
-    canonical: '/services/gel-nails-phoenix',
+    canonical: '/services/nails',
   },
   openGraph: {
     title: 'Gel Nails in Phoenix AZ | Nice Nails & Spa',
@@ -55,7 +56,6 @@ function faqPageJsonLd() {
 }
 
 function serviceJsonLd() {
-  const salon = getLocalBusinessJsonLd();
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -64,16 +64,12 @@ function serviceJsonLd() {
       'Long-lasting gel manicures and gel polish upgrades in North Phoenix AZ 85021. UV/LED-cured finish available on Classic, Deluxe, and Deep manicure tiers.',
     serviceType: 'Gel Manicure',
     url: absoluteUrl('/services/gel-nails-phoenix'),
-    provider: {
-      '@type': 'NailSalon',
-      name: salon.name,
-      ...(salon.url ? { url: salon.url } : {}),
-      ...(salon.telephone ? { telephone: salon.telephone } : {}),
-      address: salon.address,
-    },
+    provider: getBusinessRef(),
     areaServed: [
       { '@type': 'City', name: 'Phoenix' },
       { '@type': 'AdministrativeArea', name: 'North Phoenix' },
+      { '@type': 'City', name: 'Glendale' },
+      { '@type': 'City', name: 'Peoria' },
     ],
     offers: {
       '@type': 'AggregateOffer',
@@ -92,6 +88,11 @@ export default function GelNailsPhoenixPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: 'Gel Nails', path: '/services/nails' },
+      ]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd()) }} />
       <div className="min-h-screen bg-cream pb-24">

@@ -27,6 +27,36 @@ function mapGoogleReview(r) {
   };
 }
 
+/**
+ * Fetch aggregate rating stats (rating + userRatingCount) from Places API.
+ * Returns null if env vars missing or API error.
+ * Cache 24h — rating count doesn't change fast enough to need hourly refresh.
+ */
+export async function fetchPlaceStats() {
+  if (!PLACE_ID || !API_KEY) return null;
+  try {
+    const res = await fetch(
+      `https://places.googleapis.com/v1/places/${PLACE_ID}`,
+      {
+        headers: {
+          'X-Goog-Api-Key': API_KEY,
+          'X-Goog-FieldMask': 'rating,userRatingCount',
+          'Accept-Language': 'en',
+        },
+        next: { revalidate: 86400 },
+      }
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    const rating = data.rating ?? null;
+    const count = data.userRatingCount ?? null;
+    if (rating == null || count == null) return null;
+    return { rating: String(rating), reviewCount: String(count) };
+  } catch {
+    return null;
+  }
+}
+
 export async function fetchGoogleReviews() {
   if (!PLACE_ID || !API_KEY) return null;
 

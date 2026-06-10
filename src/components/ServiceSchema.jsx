@@ -1,11 +1,11 @@
-import { getLocalBusinessJsonLd } from '@/lib/localBusinessJsonLd';
+import { getBusinessRef } from '@/lib/localBusinessJsonLd';
 import { getServiceDisplayName } from '@/data/services';
 
 /**
  * ItemList + Service offers for services pages (avoids duplicating full NailSalon vs layout JSON-LD).
  */
 export default function ServiceSchema({ services }) {
-  const salon = getLocalBusinessJsonLd();
+  const providerRef = getBusinessRef();
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -19,17 +19,12 @@ export default function ServiceSchema({ services }) {
         '@type': 'Service',
         name: getServiceDisplayName(s),
         ...(s.description ? { description: s.description } : {}),
-        provider: {
-          '@type': 'NailSalon',
-          name: salon.name,
-          ...(salon.url ? { url: salon.url } : {}),
-          ...(salon.telephone ? { telephone: salon.telephone } : {}),
-          address: salon.address,
-        },
+        provider: providerRef,
         offers: {
           '@type': 'Offer',
           price: s.price,
           priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
         },
       },
     })),

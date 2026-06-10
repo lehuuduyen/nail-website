@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { absoluteUrl } from '@/lib/siteUrl';
-import { getLocalBusinessJsonLd } from '@/lib/localBusinessJsonLd';
+import { getBusinessRef } from '@/lib/localBusinessJsonLd';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const TITLE = 'Nail Art & Custom Designs Phoenix AZ | Nice Nails & Spa';
 const DESCRIPTION =
@@ -9,7 +10,7 @@ const DESCRIPTION =
 export const metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: { canonical: '/services/nail-art-phoenix-az' },
+  alternates: { canonical: '/services/nails' },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -49,7 +50,6 @@ function faqPageJsonLd() {
 }
 
 function serviceJsonLd() {
-  const salon = getLocalBusinessJsonLd();
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -58,16 +58,12 @@ function serviceJsonLd() {
       'Custom nail art, rhinestones, French upgrades, ombre, and seasonal designs at Nice Nails & Spa in North Phoenix AZ 85021. Add-on to any manicure or gel service.',
     serviceType: 'Nail Art',
     url: absoluteUrl('/services/nail-art-phoenix-az'),
-    provider: {
-      '@type': 'NailSalon',
-      name: salon.name,
-      ...(salon.url ? { url: salon.url } : {}),
-      ...(salon.telephone ? { telephone: salon.telephone } : {}),
-      address: salon.address,
-    },
+    provider: getBusinessRef(),
     areaServed: [
       { '@type': 'City', name: 'Phoenix' },
       { '@type': 'AdministrativeArea', name: 'North Phoenix' },
+      { '@type': 'City', name: 'Glendale' },
+      { '@type': 'City', name: 'Peoria' },
     ],
     offers: {
       '@type': 'AggregateOffer',
@@ -86,6 +82,11 @@ export default function NailArtPhoenixAzPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: 'Nail Art & Custom Designs', path: '/services/nails' },
+      ]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd()) }} />
       <div className="min-h-screen bg-cream pb-24">

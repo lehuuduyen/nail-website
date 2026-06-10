@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { absoluteUrl } from '@/lib/siteUrl';
-import { getLocalBusinessJsonLd } from '@/lib/localBusinessJsonLd';
+import { getBusinessRef } from '@/lib/localBusinessJsonLd';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const TITLE = 'Acrylic Nails Phoenix AZ | Full Sets & Fills | Nice Nails & Spa';
 const DESCRIPTION =
@@ -9,7 +10,7 @@ const DESCRIPTION =
 export const metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: { canonical: '/services/acrylic-nails-phoenix-az' },
+  alternates: { canonical: '/services/nails' },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -20,7 +21,7 @@ export const metadata = {
 const FAQ_ITEMS = [
   {
     q: 'How much do acrylic nails cost in Phoenix AZ?',
-    a: 'Acrylic full sets at Nice Nails & Spa start at $50 for a natural look; pink-and-white and sculpted designs are priced higher. Fills start at $45. See our acrylic & gel nails menu for current pricing on every option.',
+    a: 'Acrylic full sets at Nice Nails & Spa start at $40 (regular polish) or $50 with gel finish. Pink-and-white, ombré, and sculpted designs are priced higher. Fills start at $35 (regular) or $45 with gel. See our acrylic & gel nails menu for current pricing on every option.',
   },
   {
     q: 'How long does an acrylic full set take?',
@@ -49,7 +50,6 @@ function faqPageJsonLd() {
 }
 
 function serviceJsonLd() {
-  const salon = getLocalBusinessJsonLd();
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -58,23 +58,19 @@ function serviceJsonLd() {
       'Acrylic nail full sets, fills, and enhancements in North Phoenix AZ 85021. Pink-and-white, sculpted tips, nail art, and gel color add-ons available.',
     serviceType: 'Acrylic Nail Enhancement',
     url: absoluteUrl('/services/acrylic-nails-phoenix-az'),
-    provider: {
-      '@type': 'NailSalon',
-      name: salon.name,
-      ...(salon.url ? { url: salon.url } : {}),
-      ...(salon.telephone ? { telephone: salon.telephone } : {}),
-      address: salon.address,
-    },
+    provider: getBusinessRef(),
     areaServed: [
       { '@type': 'City', name: 'Phoenix' },
       { '@type': 'AdministrativeArea', name: 'North Phoenix' },
+      { '@type': 'City', name: 'Glendale' },
+      { '@type': 'City', name: 'Peoria' },
     ],
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
-      lowPrice: '45',
+      lowPrice: '35',
       highPrice: '120',
-      description: 'Full sets from $50; fills from $45; nail art and gel upgrades priced separately.',
+      description: 'Full sets from $40 (regular) or $50 with gel; fills from $35 (regular) or $45 with gel; nail art priced separately.',
     },
   };
 }
@@ -86,6 +82,11 @@ export default function AcrylicNailsPhoenixAzPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: 'Acrylic & Gel Nails', path: '/services/nails' },
+      ]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd()) }} />
       <div className="min-h-screen bg-cream pb-24">

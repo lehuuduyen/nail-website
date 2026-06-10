@@ -1,5 +1,6 @@
 import ServicesPageClient from './ServicesPageClient';
 import ServiceSchema from '@/components/ServiceSchema';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import { getSalonServices } from '@/lib/serverServices';
 
 export const metadata = {
@@ -24,6 +25,10 @@ export default async function ServicesPage() {
   return (
     <>
       <ServiceSchema services={services} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+      ]} />
       <ServicesPageClient services={services} />
     </>
   );

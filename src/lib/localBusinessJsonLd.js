@@ -93,7 +93,7 @@ export function getLocalBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'NailSalon',
-    '@id': `${url}/#local-business`,
+    '@id': `${url}/#business`,
     name,
     image: [
       absoluteUrl('/images/salon-interior.webp'),
@@ -123,6 +123,11 @@ export function getLocalBusinessJsonLd() {
       bestRating: '5',
       worstRating: '1',
     },
-    areaServed: ['North Phoenix', 'Phoenix', 'Glendale', 'Peoria'],
+    areaServed: ['North Phoenix', 'Phoenix', 'Moon Valley', 'Deer Valley', 'Glendale', 'Peoria', 'Sunnyslope'],
   };
+}
+
+/** Compact @id reference — use in Service / ItemList schemas to avoid duplicating the full business node. */
+export function getBusinessRef() {
+  return { '@id': `${getSiteUrl()}/#business` };
 }

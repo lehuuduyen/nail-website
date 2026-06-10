@@ -1,4 +1,4 @@
-import { getLocalBusinessJsonLd } from '@/lib/localBusinessJsonLd';
+import { getBusinessRef } from '@/lib/localBusinessJsonLd';
 import { absoluteUrl } from '@/lib/siteUrl';
 
 const FAQ_ITEMS = [
@@ -36,7 +36,6 @@ export function facialFaqPageJsonLd() {
 }
 
 export function facialPrimaryServiceJsonLd() {
-  const salon = getLocalBusinessJsonLd();
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -45,16 +44,12 @@ export function facialPrimaryServiceJsonLd() {
       'Hydrating, deep clean, and detox facials in North Phoenix AZ 85021. Cleanse, exfoliate, mask, serum, and moisturizer.',
     serviceType: 'Facial treatment',
     url: absoluteUrl('/services/facial'),
-    provider: {
-      '@type': 'NailSalon',
-      name: salon.name,
-      ...(salon.url ? { url: salon.url } : {}),
-      ...(salon.telephone ? { telephone: salon.telephone } : {}),
-      address: salon.address,
-    },
+    provider: getBusinessRef(),
     areaServed: [
       { '@type': 'City', name: 'Phoenix' },
       { '@type': 'AdministrativeArea', name: 'North Phoenix' },
+      { '@type': 'City', name: 'Glendale' },
+      { '@type': 'City', name: 'Peoria' },
     ],
     offers: {
       '@type': 'AggregateOffer',
