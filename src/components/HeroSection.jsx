@@ -17,7 +17,7 @@ function formatUsPhoneDisplay(raw) {
   return raw.trim() || '(602) 123-4567';
 }
 
-export default function HeroSection() {
+export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
   const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
   const rawPhone = process.env.NEXT_PUBLIC_SALON_PHONE || '(602)1234567';
   const address = process.env.NEXT_PUBLIC_SALON_ADDRESS || '8048 N 19th Ave, Phoenix, AZ 85021';
@@ -130,11 +130,11 @@ export default function HeroSection() {
                 <span className="text-[#D4AF37]" aria-hidden>
                   ✦
                 </span>
-                <span>4.9 rating</span>
+                <span>{rating} rating</span>
                 <span className="opacity-50" aria-hidden>
                   |
                 </span>
-                <span>700+ happy clients</span>
+                <span>{reviewCount}+ happy clients</span>
               </p>
             </div>
             <div className="hidden min-h-[1px] md:block" aria-hidden />

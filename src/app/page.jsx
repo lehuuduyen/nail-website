@@ -8,7 +8,7 @@ import HomeFaqSection from '@/components/HomeFaqSection';
 import LocationSection from '@/components/LocationSection';
 import BookingCtaBanner from '@/components/BookingCtaBanner';
 import { absoluteUrl } from '@/lib/siteUrl';
-import { getDisplayReviews } from '@/lib/googleReviews';
+import { getDisplayReviews, fetchPlaceStats } from '@/lib/googleReviews';
 
 // Sections below-fold dùng framer-motion — lazy load để không chặn LCP
 const WhyLoveSection        = dynamic(() => import('@/components/WhyLoveSection'));
@@ -48,7 +48,9 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const reviews = await getDisplayReviews();
+  const [reviews, placeStats] = await Promise.all([getDisplayReviews(), fetchPlaceStats()]);
+  const reviewCount = placeStats?.reviewCount ?? '700';
+  const ratingValue = placeStats?.rating ?? '4.9';
   return (
     <>
       {/* preconnect for Google Maps iframe — only needed on this page */}
@@ -56,10 +58,10 @@ export default async function HomePage() {
       <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
       <HomeHashScroll />
       <div className="relative bg-[#1a1a1a]">
-        <HeroSection />
+        <HeroSection reviewCount={reviewCount} rating={ratingValue} />
         <HeroKeywordTags />
       </div>
-      <WhyLoveSection />
+      <WhyLoveSection reviewCount={reviewCount} />
       <OurLuxuryServicesSection />
       <ServicesSection />
       <TestimonialsSection reviews={reviews} />
