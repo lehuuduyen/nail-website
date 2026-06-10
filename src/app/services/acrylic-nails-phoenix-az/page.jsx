@@ -128,6 +128,15 @@ export default function AcrylicNailsPhoenixAzPage() {
           </div>
         </article>
 
+        <div className="mx-auto max-w-3xl px-4 pt-6 pb-2">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-rose-gold"
+          >
+            ← View all services
+          </Link>
+        </div>
+
         <div className="mx-auto max-w-3xl px-4 py-14 text-sm leading-relaxed text-charcoal md:text-base">
           <h2 className="font-display text-2xl text-ink md:text-3xl">Why guests choose acrylic here</h2>
           <ul className="mt-4 list-inside list-disc space-y-2 marker:text-rose-gold">

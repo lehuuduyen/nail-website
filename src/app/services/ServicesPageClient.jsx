@@ -56,6 +56,28 @@ export default function ServicesPageClient({ services }) {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+        {/* Service guide links — helps Google index deep SEO pages */}
+        <div className="mb-10 flex flex-wrap gap-3">
+          <Link
+            href="/services/acrylic-nails-phoenix-az"
+            className="rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold text-charcoal ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50"
+          >
+            Acrylic Nails in Phoenix →
+          </Link>
+          <Link
+            href="/services/gel-nails-phoenix"
+            className="rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold text-charcoal ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50"
+          >
+            Gel Nails in Phoenix →
+          </Link>
+          <Link
+            href="/services/nail-art-phoenix-az"
+            className="rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold text-charcoal ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50"
+          >
+            Nail Art &amp; Custom Designs →
+          </Link>
+        </div>
+
         {CATEGORY_NAV.map(({ key }) => {
           const meta = CATEGORIES[key];
           const items = servicesInCategory(services, key);

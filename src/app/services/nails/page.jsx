@@ -232,6 +232,18 @@ export default async function NailsServicesPage() {
               </Link>
             ))}
           </div>
+
+          <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted">
+            <Link href="/services/acrylic-nails-phoenix-az" className="rounded-full bg-surface-soft px-3 py-1 ring-1 ring-lavender/40 hover:bg-cream-dark/40">
+              Acrylic Nails in Phoenix →
+            </Link>
+            <Link href="/services/gel-nails-phoenix" className="rounded-full bg-surface-soft px-3 py-1 ring-1 ring-lavender/40 hover:bg-cream-dark/40">
+              Gel Nails in Phoenix →
+            </Link>
+            <Link href="/services/nail-art-phoenix-az" className="rounded-full bg-surface-soft px-3 py-1 ring-1 ring-lavender/40 hover:bg-cream-dark/40">
+              Nail Art &amp; Custom Designs →
+            </Link>
+          </div>
         </div>
       </div>
     </>

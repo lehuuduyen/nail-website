@@ -235,6 +235,12 @@ export default async function ManicureServicesPage() {
               </Link>
             ))}
           </div>
+
+          <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted">
+            <Link href="/services/gel-nails-phoenix" className="rounded-full bg-surface-soft px-3 py-1 ring-1 ring-lavender/40 hover:bg-cream-dark/40">
+              Gel Nails in Phoenix →
+            </Link>
+          </div>
         </div>
       </div>
     </>
