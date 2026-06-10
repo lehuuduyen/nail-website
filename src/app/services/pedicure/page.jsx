@@ -14,9 +14,9 @@ import { absoluteUrl } from '@/lib/siteUrl';
 import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'pedicure';
-const TITLE = 'Spa Pedicure in North Phoenix AZ 85021 | Nice Nails & Spa';
+const TITLE = 'Spa & Gel Pedicure in North Phoenix AZ 85021 | Nice Nails & Spa';
 const DESCRIPTION =
-  'Relaxing spa pedicures from $35 in North Phoenix AZ. Soak, scrub, callus care & hot-stone massage. Book online today. 4.9★ 700+ reviews.';
+  'Spa & gel pedicures from $35 in North Phoenix AZ 85021. Classic through luxury tiers — callus care, hot-stone massage, soak treatments. Serving Moon Valley, Glendale & Peoria.';
 
 export const metadata = {
   title: { absolute: TITLE },

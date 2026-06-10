@@ -140,20 +140,14 @@ export default async function WaxingServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            Need <strong>waxing Phoenix AZ</strong> that fits between meetings or after your mani? Nice
-            Nails &amp; Spa keeps <strong>eyebrow waxing North Phoenix</strong> guests polished with quick
-            appointments and honest starting prices. Searching for <strong>face waxing Phoenix</strong> on
-            the lip, chin, or cheeks—or a precise <strong>brow wax Phoenix AZ 85021</strong> before
-            photos? We
-            combine <strong>clean technique</strong> with <strong>skin-safe wax</strong> formulas chosen
-            for sensitive desert skin. Whether you are new to waxing or maintaining a standing brow
-            appointment, we walk you through aftercare so Phoenix dryness is less likely to irritate fresh
-            skin. Waxing works beautifully as a <strong>fast, affordable add-on</strong>{' '}
-            to nails, lashes, or facials: slip in for brows, touch up your lip line, or tackle larger{' '}
-            <strong>back and body</strong> zones when you give us a heads-up at booking. Areas we cover
-            include <strong>eyebrow</strong>, <strong>lip</strong>, <strong>chin</strong>, broader{' '}
-            <strong>face</strong> options, and <strong>body</strong> services on request—pricing follows
-            the area so you always know what to expect at check-in.
+            Nice Nails &amp; Spa in North Phoenix AZ 85021 offers clean, precise waxing for eyebrows, lip,
+            chin, and broader face areas — all priced by zone so you always know the cost before you sit
+            down. We use skin-safe wax formulas chosen for sensitive desert skin, and we walk every guest
+            through aftercare because Phoenix dryness can irritate fresh skin if you skip it. Eyebrow
+            waxing is our most-requested service and pairs well with a same-visit manicure or lash
+            appointment — many guests from Moon Valley, Sunnyslope, and Glendale book both without adding
+            much to their overall visit time. Body waxing is available on request; let us know when you
+            book so we can set aside the right amount of time.
           </p>
         </div>
 

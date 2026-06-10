@@ -105,24 +105,16 @@ export default async function HeadSpaServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            <strong>Head spa Phoenix AZ</strong> searches are surging into 2025–2026, yet few local salons
-            invest in real education around the service—so this page is built to answer what you are
-            Googling before you book. Nice Nails &amp; Spa offers a <strong>luxury head spa North Phoenix AZ</strong>{' '}
-            ritual that blends Korean-inspired sequencing with neighborhood warmth: calming{' '}
-            <strong>aroma therapy</strong>, <strong>meridian release</strong> through neck, shoulders, and
-            scalp, double shampoo, masks, steam or oil when indicated, and tea so you decompress fully.
-            Looking for <strong>scalp massage Phoenix</strong> that slows racing thoughts? Pressure is
-            tuned to release desk-and-phone tension while supporting scalp comfort. Curious about{' '}
-            <strong>Korean head spa Phoenix</strong> trends from social feeds? You can experience layered
-            steps—exfoliation, hydration, massage—without leaving zip 85021. We focus on how the scalp
-            breathes after cleansing, how circulation responds to touch, and how roots feel—not only
-            surface shine. New or hooked on head spa, we recommend the right 60–110 minute combo and walk
-            you             through each phase. Deluxe and royal tiers add facial massage, compresses, sheet masks, or hot
-            stone work so relaxation travels beyond the scalp. Read more on our{' '}
-            <Link href="/blog" className="font-semibold text-rose-gold underline decoration-rose-gold/40">
-              blog
-            </Link>{' '}
-            as we publish self-care tips. Book online or call; walk-ins when chairs allow.
+            Nice Nails &amp; Spa brings a Korean-inspired head spa ritual to North Phoenix AZ 85021 — a
+            multi-step treatment that combines scalp exfoliation, deep-cleanse shampoo, targeted masks,
+            hot steam, and a structured neck and shoulder massage to release tension from desk and phone
+            posture. Every session is built around how the scalp actually responds to cleansing and
+            improved circulation, not just surface shine. Packages run 60 to 110 minutes: the basic combo
+            covers the essential cleanse and massage; the deluxe and royal tiers add facial massage,
+            compresses, sheet masks, or hot stone work so relaxation travels well beyond the scalp. We
+            recommend the right tier at check-in based on your goals and how much time you have. Guests
+            from Moon Valley, Glendale, and Peoria book ahead because head spa chairs fill quickly on
+            weekends — reserve online or call to hold your spot.
           </p>
         </div>
 

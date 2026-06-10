@@ -14,9 +14,9 @@ import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'lash';
 const TITLE =
-  'Eyelash Extensions in North Phoenix AZ 85021 | Nice Nails & Spa';
+  'Lash Extensions in North Phoenix AZ 85021 | Classic, Volume & Wispy | Nice Nails & Spa';
 const DESCRIPTION =
-  'Natural & volume lash extensions in North Phoenix AZ. Custom full sets & refills. Skip the mascara. Book online or call (602) 759-9184.';
+  'Classic, volume, wispy & hybrid lash extensions in North Phoenix AZ 85021. Full sets & lash fills available. Lash lift also offered. Book online — walk-ins when available.';
 
 export const metadata = {
   title: { absolute: TITLE },

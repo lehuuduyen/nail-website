@@ -129,19 +129,14 @@ export default async function KidsServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            Looking for a <strong>kids nail salon Phoenix AZ</strong> parents actually trust? Nice Nails
-            &amp; Spa welcomes children with manicures and pedicures sized for little hands and feet—not
-            grown-up timelines. A <strong>children manicure Phoenix</strong> students request before
-            picture day stays quick, colorful, and calm; add a <strong>kids pedicure North Phoenix</strong>{' '}
-            families love for gentle soaking, shaping, and polish without sensory overload. Dreaming up{' '}
-            <strong>mommy daughter nails Phoenix</strong> photos you will cherish? Side-by-side
-            chairs, cheerful polish walls, and <strong>gentle products for children under 10</strong> keep
-            the mood <strong>fun and relaxing</strong>. We hire and train staff who are{' '}
-            <strong>experienced with young children</strong>, explain each step in kid-friendly language,
-            and pace appointments for wiggles and questions—perfect for <strong>birthdays</strong>,{' '}
-            <strong>special occasions</strong>, back-to-school treats, or a standing mother-daughter day.
-            Tools stay sanitized between guests, and we celebrate every tiny milestone. Safety, patience, and
-            a welcoming room matter as much as the final sparkle.
+            Nice Nails &amp; Spa in North Phoenix AZ 85021 welcomes children under 10 for manicures,
+            pedicures, and gel color services sized for little hands and feet. Appointments stay quick,
+            colorful, and calm — staff explain each step in kid-friendly language and pace everything for
+            wiggles and questions. Gel polish upgrades are available for both manicures and pedicures, and
+            kids love picking from the full color wall. Parents and children from Moon Valley, Deer Valley,
+            and Glendale book side-by-side chairs for birthdays, back-to-school treats, and
+            mother-daughter days. All tools are sanitized between guests, and we use gentle products
+            appropriate for young skin — safety and patience matter as much as the final sparkle.
           </p>
         </div>
 

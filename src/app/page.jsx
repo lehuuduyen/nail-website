@@ -20,7 +20,7 @@ const GallerySection        = dynamic(() => import('@/components/GallerySection'
 const HOME_TITLE =
   'Nice Nails & Spa | Best Nail Salon in North Phoenix AZ 85021 | Manicure & Pedicure';
 const HOME_DESCRIPTION =
-  'Top-rated nail salon in North Phoenix AZ 85021. Manicure, pedicure, acrylic nails & nail art. 4.9★ 700+ reviews. Book online or walk-ins welcome!';
+  'Gel manicures, dip powder, acrylic full sets, spa pedicures, lash extensions & more in North Phoenix AZ 85021. Serving Moon Valley, Glendale & Peoria. 4.9★ · 700+ reviews.';
 
 export const metadata = {
   title: { absolute: HOME_TITLE },

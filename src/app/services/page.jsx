@@ -3,9 +3,9 @@ import ServiceSchema from '@/components/ServiceSchema';
 import { getSalonServices } from '@/lib/serverServices';
 
 export const metadata = {
-  title: 'Nail Salon Services & Prices | Nice Nails & Spa Phoenix AZ',
+  title: 'Nail Salon Services & Prices | Nice Nails & Spa North Phoenix AZ 85021',
   description:
-    'View all nail salon services and prices at Nice Nails & Spa in Phoenix, AZ. Manicure $30, Pedicure $35, Acrylic nails $40, eyelash extensions, head spa, facials & more.',
+    'Full menu & prices at Nice Nails & Spa, North Phoenix AZ 85021. Gel manicures from $30, spa pedicures from $35, acrylic full sets from $40, lash extensions, head spa, facials & more.',
   keywords:
     'nail salon phoenix az, manicure phoenix, pedicure phoenix, acrylic nails phoenix, gel nails phoenix, eyelash extensions phoenix, head spa phoenix, nail prices phoenix',
   openGraph: {

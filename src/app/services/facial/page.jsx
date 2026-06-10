@@ -14,9 +14,9 @@ import { getSalonServices } from '@/lib/serverServices';
 
 const CATEGORY = 'facial';
 const TITLE =
-  'Facial in Phoenix AZ | Hydrating & Deep Clean Facials | Nice Nails & Spa';
+  'Facial in North Phoenix AZ 85021 | Hydrating & Deep Clean Facials | Nice Nails & Spa';
 const DESCRIPTION =
-  'Rejuvenating facial treatments in North Phoenix AZ 85021. Hydrating facial from $45, Deep Clean from $60, Detox Facial from $80. Glow skin awaits — book today!';
+  'Hydrating, deep clean & detox facials in North Phoenix AZ 85021. Three tiers from $45 — cleanse, exfoliate, steam, mask & moisturize. Serving Moon Valley, Glendale & Peoria.';
 
 export const metadata = {
   title: { absolute: TITLE },
@@ -116,21 +116,15 @@ export default async function FacialServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            Searching for a <strong>facial Phoenix AZ</strong> studio that understands desert skin? Nice
-            Nails &amp; Spa in <strong>North Phoenix</strong> designs each visit around hydration, clarity,
-            and calm—because Sonoran air pulls moisture faster than most visitors expect. Whether you
-            need a <strong>hydrating facial North Phoenix</strong> neighbors book monthly, a{' '}
-            <strong>deep clean facial Phoenix</strong> clients choose before events, or full{' '}
-            <strong>skin care facial Phoenix AZ 85021</strong> maintenance, we follow a proven flow:{' '}
-            <strong>cleanse</strong>, <strong>exfoliate</strong>, treatment <strong>mask</strong>,{' '}
-            <strong>serum</strong>, and <strong>moisturize</strong> so barrier support never feels like an
-            afterthought. Three combo levels let you scale time and intensity—from quick glow refresh to
-            detox-focused work—while keeping steps gentle enough for <strong>all skin types</strong> when
-            customized at check-in. We layer steam, massage, and targeted actives only where they make
-            sense for your goals, then seal everything with creams or gels that help you leave dewy, not
-            stripped. Book when the heat has your T-zone acting up or when air conditioning leaves cheeks
-            tight; either way you get a treatment plan you can repeat on a realistic at-home schedule with
-            honest timing.
+            Nice Nails &amp; Spa in North Phoenix AZ 85021 offers three facial levels designed for the dry
+            Sonoran climate. The hydrating facial is what neighbors book monthly to keep skin balanced; the
+            deep clean facial is what clients choose before events for clarity and pore refinement; and the
+            detox treatment targets congestion, oil imbalance, and buildup with charcoal- and clay-based
+            steps. Every visit follows the same proven flow — cleanse, exfoliate, steam, mask, serum, and
+            moisturize — scaled to your skin type at check-in so barrier support never feels like an
+            afterthought. We serve guests from Moon Valley, Deer Valley, and Glendale who prefer a
+            full-service appointment without driving across the Valley. Book when Phoenix heat has your
+            skin feeling tight, or schedule a recurring treatment to stay ahead of sun and air-conditioning damage.
           </p>
         </div>
 

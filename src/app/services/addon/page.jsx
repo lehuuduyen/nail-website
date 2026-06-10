@@ -16,7 +16,7 @@ const CATEGORY = 'addon';
 const TITLE =
   'Nail Add-on Services Phoenix AZ | Paraffin, Nail Art & More | Nice Nails & Spa';
 const DESCRIPTION =
-  'Enhance your nail service in Phoenix AZ 85021. Add paraffin dip, rhinestones, nail art, collagen socks, callus removal & more. Starting from $5. Book online!';
+  'Upgrade any nail service at Nice Nails & Spa, North Phoenix AZ 85021. Add paraffin dip, callus removal, gel color change, rhinestones, collagen socks, nail art & more. From $5.';
 
 export const metadata = {
   title: { absolute: TITLE },
@@ -159,16 +159,13 @@ export default async function AddonServicesPage() {
 
         <div className="mx-auto max-w-4xl px-4 py-10 md:px-6">
           <p className="text-base leading-relaxed text-charcoal md:text-lg">
-            Looking for <strong>nail add-ons Phoenix AZ</strong> locals use to level up a standard
-            appointment? Nice Nails &amp; Spa in North Phoenix AZ 85021 makes it simple to bolt extras
-            onto your core service. Add a warm <strong>paraffin dip Phoenix</strong> soak after shaping,
-            request <strong>rhinestone nails Phoenix</strong> accents for events, or book a{' '}
-            <strong>nail art add-on North Phoenix</strong> guests love for French lines and glossy buff
-            finishes. <strong>Customize your manicure or pedicure</strong> with color nails, collagen
-            socks, callus removal, massage, and more—<strong>mix and match</strong> treatments so you{' '}
-            <strong>create your perfect look</strong> without juggling multiple salons.{' '}
-            <strong>Affordable upgrades from $5</strong> keep polish experiments budget-friendly; tell us
-            your combo when you reserve so we pace the clock for nails, toes, and every add-on you choose.
+            Nice Nails &amp; Spa in North Phoenix AZ 85021 makes it easy to build a custom appointment
+            from individual add-ons. Warm paraffin dip softens skin after shaping; callus removal targets
+            rough heels and soles during a pedicure; collagen socks lock in moisture while your nails dry;
+            a gel color change refreshes your polish without a full service; rhinestone accents dress up
+            nails for events; and a 10-minute massage extends your relaxation time before you leave. Mix
+            and match across manicures, pedicures, or standalone visits — tell us your combination when
+            you book so we pace the clock correctly for every step.
           </p>
         </div>
 
