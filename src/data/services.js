@@ -6,45 +6,45 @@
 export const CATEGORIES = {
   manicure: {
     slug: 'manicure',
-    label: 'Manicure - Tay',
+    label: 'Manicure',
     emoji: '💅',
     description:
       'Professional manicure services — classic, deluxe & deep treatments.',
   },
   pedicure: {
     slug: 'pedicure',
-    label: 'Pedicure - Chân',
+    label: 'Pedicure',
     emoji: '🦶',
     description:
       'Relaxing pedicure from classic to luxurious golden spa treatments.',
   },
   nails: {
     slug: 'nails',
-    label: 'Acrylic - Bột',
+    label: 'Acrylic & Gel Nails',
     emoji: '✨',
     description: 'Full sets, fill-ins, gel, dipping, ombré and nail art designs.',
   },
   addon: {
     slug: 'addon',
-    label: 'Additional - Thêm',
+    label: 'Add-ons',
     emoji: '➕',
     description: 'Add-on services to enhance any nail treatment.',
   },
   kids: {
     slug: 'kids',
-    label: 'Kid < 10YO',
+    label: 'Kids (Under 10)',
     emoji: '🌟',
     description: 'Gentle nail services designed specially for children under 10.',
   },
   lash: {
     slug: 'lash',
-    label: 'Eyelash',
+    label: 'Eyelash Extensions',
     emoji: '👁️',
     description: 'Classic and cluster eyelash extensions.',
   },
   waxing: {
     slug: 'waxing',
-    label: 'Wax - Tẩy Lông',
+    label: 'Waxing',
     emoji: '🌿',
     description: 'Eyebrow, body and facial waxing services.',
   },
@@ -160,13 +160,13 @@ export function getServiceDisplayName(service) {
 }
 
 export const CATEGORY_NAV = [
-  { key: 'manicure', navLabel: 'Manicure - Tay' },
-  { key: 'pedicure', navLabel: 'Pedicure - Chân' },
-  { key: 'nails', navLabel: 'Acrylic - Bột' },
-  { key: 'addon', navLabel: 'Additional - Thêm' },
-  { key: 'kids', navLabel: 'Kid < 10YO' },
-  { key: 'lash', navLabel: 'Eyelash' },
-  { key: 'waxing', navLabel: 'Wax - Tẩy Lông' },
+  { key: 'manicure', navLabel: 'Manicure' },
+  { key: 'pedicure', navLabel: 'Pedicure' },
+  { key: 'nails', navLabel: 'Acrylic & Gel Nails' },
+  { key: 'addon', navLabel: 'Add-ons' },
+  { key: 'kids', navLabel: 'Kids (Under 10)' },
+  { key: 'lash', navLabel: 'Eyelash Extensions' },
+  { key: 'waxing', navLabel: 'Waxing' },
   { key: 'head_spa', navLabel: 'Head Spa' },
   { key: 'facial', navLabel: 'Facial' },
 ];

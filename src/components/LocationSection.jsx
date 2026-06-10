@@ -66,7 +66,7 @@ export default function LocationSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-sm font-medium text-amber-500 hover:text-amber-600 transition-colors"
                 >
-                  ⭐ Đánh giá Google
+                  ⭐ Review us on Google
                 </a>
               </div>
             </div>

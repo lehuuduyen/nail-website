@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useCallback, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { useState } from 'react';
+import { Pause, Play, Star } from 'lucide-react';
 import { SALON_REVIEWS } from '@/lib/reviews';
 
 const REVIEW_URL =
@@ -33,11 +33,9 @@ function ReviewCard({ r }) {
         </div>
         {r.isGoogle && <GoogleIcon />}
       </div>
-
       <p className="flex-1 text-sm leading-relaxed text-cream/85">
         &ldquo;{r.text}&rdquo;
       </p>
-
       <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
         {r.photoUri ? (
           <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
@@ -59,80 +57,35 @@ function ReviewCard({ r }) {
 
 export default function TestimonialsSection({ reviews: propReviews }) {
   const base = propReviews?.length ? propReviews : SALON_REVIEWS;
-  // Triple the array — middle copy is the "real" zone; edges are silent reset buffers
-  const all = [...base, ...base, ...base];
   const hasGoogle = base.some((r) => r.isGoogle === true);
-
-  const trackRef = useRef(null);
-  const resetTimer = useRef(null);
-
-  /** Jump instantly (no animation) to a new scrollLeft. */
-  const jumpTo = useCallback((left) => {
-    const el = trackRef.current;
-    if (!el) return;
-    el.style.scrollSnapType = 'none';
-    el.style.scrollBehavior = 'auto';
-    el.scrollLeft = left;
-    // Force reflow so the browser applies the jump before re-enabling snap
-    void el.offsetHeight;
-    el.style.scrollBehavior = '';
-    el.style.scrollSnapType = '';
-  }, []);
-
-  /** After scroll settles: if we drifted into copy 1 or copy 3, jump back to copy 2. */
-  const checkLoop = useCallback(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    const third = el.scrollWidth / 3; // width of one full copy
-    if (el.scrollLeft >= third * 2) {
-      jumpTo(el.scrollLeft - third);
-    } else if (el.scrollLeft < third) {
-      jumpTo(el.scrollLeft + third);
-    }
-  }, [jumpTo]);
-
-  /** On mount: silent jump to start of middle copy so user can scroll both ways. */
-  useEffect(() => {
-    const raf = requestAnimationFrame(() => {
-      const el = trackRef.current;
-      if (!el) return;
-      jumpTo(el.scrollWidth / 3);
-    });
-    return () => cancelAnimationFrame(raf);
-  }, [jumpTo, base.length]);
-
-  /** Attach scroll listener → debounce loop check. */
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-
-    const onScroll = () => {
-      clearTimeout(resetTimer.current);
-      resetTimer.current = setTimeout(checkLoop, 120);
-    };
-
-    el.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      el.removeEventListener('scroll', onScroll);
-      clearTimeout(resetTimer.current);
-    };
-  }, [checkLoop]);
-
-  /** Arrow buttons: scroll by 1 card. */
-  const scrollBy = (dir) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const card = el.querySelector('li');
-    const gap = 20; // gap-5
-    const amount = card ? card.offsetWidth + gap : 320;
-    el.scrollBy({ left: dir * amount, behavior: 'smooth' });
-  };
+  const [paused, setPaused] = useState(false);
 
   return (
     <section className="overflow-hidden bg-charcoal py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
+      {/*
+        CSS marquee: one real copy in DOM (crawlable), one aria-hidden duplicate
+        for seamless visual loop. No JS scroll-position monitoring.
+        Each card uses mr-5 so both copies have equal width → translateX(-50%) is exact.
+      */}
+      <style>{`
+        @keyframes nns-marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .nns-track {
+          animation: nns-marquee 80s linear infinite;
+          will-change: transform;
+        }
+        .nns-track:hover,
+        .nns-track-paused {
+          animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .nns-track { animation: none; }
+        }
+      `}</style>
 
-        {/* Header */}
+      <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="font-display text-3xl text-cream md:text-4xl">Guest love</h2>
@@ -144,60 +97,45 @@ export default function TestimonialsSection({ reviews: propReviews }) {
               </div>
             )}
           </div>
-
-          {/* Arrows */}
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => scrollBy(-1)}
-              aria-label="Previous"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollBy(1)}
-              aria-label="Next"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
-
-        {/* Card track — tripled for infinite loop; only middle copy is indexed by crawlers */}
-        <ul
-          ref={trackRef}
-          className="flex gap-5 overflow-x-auto pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {all.map((r, idx) => {
-            const isGhost = idx < base.length || idx >= base.length * 2;
-            return (
-              <li
-                key={idx}
-                aria-hidden={isGhost ? 'true' : undefined}
-                className="w-[82vw] flex-none [scroll-snap-align:start] md:w-[calc(50%-10px)] lg:w-[calc(33.33%-14px)]"
-              >
-                <ReviewCard r={r} />
-              </li>
-            );
-          })}
-        </ul>
-
-        {/* CTA */}
-        <div className="mt-10 text-center">
-          <a
-            href={REVIEW_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-rose-gold px-6 py-3 text-sm font-semibold text-rose-gold transition hover:bg-rose-gold hover:text-charcoal"
+          <button
+            type="button"
+            onClick={() => setPaused((p) => !p)}
+            aria-label={paused ? 'Resume auto-scroll' : 'Pause auto-scroll'}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
           >
-            <Star size={15} fill="currentColor" />
-            Đánh giá chúng tôi trên Google
-          </a>
+            {paused ? <Play size={18} /> : <Pause size={18} />}
+          </button>
         </div>
+      </div>
 
+      {/* Full-bleed marquee track */}
+      <div className="overflow-hidden pb-2">
+        <ul className={`flex nns-track${paused ? ' nns-track-paused' : ''}`}>
+          {/* Real copy — indexed by search crawlers */}
+          {base.map((r, idx) => (
+            <li key={idx} className="w-[78vw] flex-none mr-5 md:w-[320px] lg:w-[384px]">
+              <ReviewCard r={r} />
+            </li>
+          ))}
+          {/* Visual-only duplicate — hidden from screen readers and crawlers */}
+          {base.map((r, idx) => (
+            <li key={`ghost-${idx}`} aria-hidden="true" className="w-[78vw] flex-none mr-5 md:w-[320px] lg:w-[384px]">
+              <ReviewCard r={r} />
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-7xl px-4 text-center md:px-6">
+        <a
+          href={REVIEW_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-rose-gold px-6 py-3 text-sm font-semibold text-rose-gold transition hover:bg-rose-gold hover:text-charcoal"
+        >
+          <Star size={15} fill="currentColor" />
+          Review us on Google
+        </a>
       </div>
     </section>
   );
