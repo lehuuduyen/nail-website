@@ -21,10 +21,12 @@ export default function HomeServiceAreasSection() {
 
         <div className="mt-10 space-y-8 text-base leading-relaxed text-charcoal md:text-lg">
           <p>
-            <strong className="text-charcoal">North Phoenix.</strong> We are proud to call North Phoenix
-            home and to serve neighbors who want dependable manicures, pedicures, and enhancements without
-            driving across town. Many guests pair a nail visit with errands along 19th Avenue or a quick
-            stop after work.
+            <strong className="text-charcoal">North Phoenix.</strong> Our studio sits on N 19th Ave just
+            north of W Northern Ave — a short walk from the Northern/19th Ave Valley Metro light-rail
+            station (B Line) and near Bookmans Entertainment Exchange, the Albertsons on W Northern Ave,
+            and the Metrocenter corridor. Neighbors from El Caro Villas, Las Pomaritas, and the surrounding
+            blocks pair a nail appointment with errands along 19th Avenue or a quick stop after commuting
+            in on the light rail. Parking is easy and walk-ins are welcome.
           </p>
           <p>
             <strong className="text-charcoal">Glendale AZ.</strong> Just west of our salon, Glendale

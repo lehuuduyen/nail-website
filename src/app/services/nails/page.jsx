@@ -105,6 +105,18 @@ export default async function NailsServicesPage() {
               >
                 Add-ons &amp; extras
               </Link>
+              <Link
+                href="/services/gel-x-nails-phoenix"
+                className="rounded-full border-2 border-rose-gold/35 bg-surface-soft px-4 py-2 text-charcoal transition hover:bg-cream-dark/40"
+              >
+                Gel-X guide →
+              </Link>
+              <Link
+                href="/services/dip-powder-nails-phoenix"
+                className="rounded-full border-2 border-rose-gold/35 bg-surface-soft px-4 py-2 text-charcoal transition hover:bg-cream-dark/40"
+              >
+                Dip Powder guide →
+              </Link>
             </nav>
           </div>
         </section>

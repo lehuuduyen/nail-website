@@ -71,6 +71,18 @@ export default function ServicesPageClient({ services }) {
             Gel Nails in Phoenix →
           </Link>
           <Link
+            href="/services/gel-x-nails-phoenix"
+            className="rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold text-charcoal ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50"
+          >
+            Gel-X Nails in Phoenix →
+          </Link>
+          <Link
+            href="/services/dip-powder-nails-phoenix"
+            className="rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold text-charcoal ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50"
+          >
+            Dip Powder in Phoenix →
+          </Link>
+          <Link
             href="/services/nail-art-phoenix-az"
             className="rounded-full bg-surface-soft px-4 py-2 text-xs font-semibold text-charcoal ring-1 ring-rose-gold/25 transition hover:bg-cream-dark/50"
           >

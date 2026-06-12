@@ -71,22 +71,38 @@ function openingHoursSpecification() {
   ];
 }
 
+function normalizeE164Phone(raw) {
+  if (!raw) return '+16027599184';
+  const digits = String(raw).replace(/\D/g, '');
+  if (digits.length === 10) return `+1${digits}`;
+  if (digits.length === 11 && digits.startsWith('1')) return `+${digits}`;
+  return raw.trim();
+}
+
 export function getLocalBusinessJsonLd() {
   const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
   const addressLine =
     process.env.NEXT_PUBLIC_SALON_ADDRESS ||
     '8048 N 19th Ave, Phoenix, AZ 85021';
-  const telephone = (process.env.NEXT_PUBLIC_SALON_PHONE || '').trim();
+  const telephone = normalizeE164Phone(process.env.NEXT_PUBLIC_SALON_PHONE);
   const url = getSiteUrl();
-  const lat = Number.parseFloat(process.env.NEXT_PUBLIC_SALON_LAT ?? '33.5722');
-  const lng = Number.parseFloat(process.env.NEXT_PUBLIC_SALON_LNG ?? '-112.0901');
+  // Precise coordinates for 8048 N 19th Ave, Phoenix, AZ 85021 — verify in Google Maps if overriding via env
+  const lat = Number.parseFloat(process.env.NEXT_PUBLIC_SALON_LAT ?? '33.5556');
+  const lng = Number.parseFloat(process.env.NEXT_PUBLIC_SALON_LNG ?? '-112.0985');
   const mapsUrl =
     process.env.NEXT_PUBLIC_SALON_MAPS_URL ||
     'https://maps.app.goo.gl/RxXkeYRL63uib95d6';
+  const googleProfileUrl =
+    process.env.NEXT_PUBLIC_SALON_GOOGLE_PROFILE_URL ||
+    'https://g.page/r/CXBOXsUE7X5SEBE/review';
+  const yelpUrl =
+    process.env.NEXT_PUBLIC_SALON_YELP_URL ||
+    'https://www.yelp.com/biz/nice-nails-and-spa-phoenix';
   const sameAs = [
-    mapsUrl,
-    process.env.NEXT_PUBLIC_SALON_FACEBOOK_URL || 'https://www.facebook.com/nicenailsandspaphoenix',
+    googleProfileUrl,
+    yelpUrl,
     process.env.NEXT_PUBLIC_SALON_INSTAGRAM_URL || 'https://www.instagram.com/nicenailsandspaphoenix',
+    process.env.NEXT_PUBLIC_SALON_FACEBOOK_URL || 'https://www.facebook.com/nicenailsandspaphoenix',
     process.env.NEXT_PUBLIC_SALON_YOUTUBE_URL || 'https://www.youtube.com/@DailyNailInspoChannel',
   ];
 
@@ -100,11 +116,11 @@ export function getLocalBusinessJsonLd() {
       absoluteUrl('/images/hero-luxury-banner.webp'),
     ],
     url,
-    ...(telephone ? { telephone } : {}),
+    telephone,
     priceRange: '$$',
     description:
       process.env.NEXT_PUBLIC_JSONLD_DESCRIPTION ||
-      'Top-rated nail salon in North Phoenix AZ 85021. Professional manicure, pedicure, acrylic nails, eyelash extensions, head spa & facial. 4.9★ 700+ reviews. Walk-ins welcome.',
+      'Top-rated nail salon in North Phoenix AZ 85021. Professional manicure, pedicure, acrylic nails, eyelash extensions, head spa & facial. Walk-ins welcome.',
     currenciesAccepted: 'USD',
     paymentAccepted: 'Cash, Credit Card',
     hasMap: mapsUrl,
@@ -116,13 +132,6 @@ export function getLocalBusinessJsonLd() {
       longitude: lng,
     },
     openingHoursSpecification: openingHoursSpecification(),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '700',
-      bestRating: '5',
-      worstRating: '1',
-    },
     areaServed: ['North Phoenix', 'Phoenix', 'Moon Valley', 'Deer Valley', 'Glendale', 'Peoria', 'Sunnyslope'],
   };
 }
