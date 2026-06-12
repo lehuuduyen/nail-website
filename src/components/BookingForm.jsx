@@ -134,6 +134,7 @@ export default function BookingForm() {
         serviceId: service.id,
         scheduledAt,
         notes: notes.trim() || undefined,
+        smsOptIn: smsConsent,
       });
       const assigned = employees.find((x) => x.id === res.employeeId);
       const finalStaff = assigned ? `${assigned.firstName} ${assigned.lastName}` : staffName;
