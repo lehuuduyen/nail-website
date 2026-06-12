@@ -61,7 +61,7 @@ export default async function HomePage() {
         <HeroSection reviewCount={reviewCount} rating={ratingValue} />
         <HeroKeywordTags />
       </div>
-      <WhyLoveSection reviewCount={reviewCount} />
+      <WhyLoveSection reviewCount={reviewCount} rating={ratingValue} />
       <OurLuxuryServicesSection />
       <ServicesSection />
       <TestimonialsSection reviews={reviews} />
