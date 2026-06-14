@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { Pause, Play, Star } from 'lucide-react';
 import { SALON_REVIEWS } from '@/lib/reviews';
 
@@ -59,14 +59,26 @@ export default function TestimonialsSection({ reviews: propReviews }) {
   const base = propReviews?.length ? propReviews : SALON_REVIEWS;
   const hasGoogle = base.some((r) => r.isGoogle === true);
   const [paused, setPaused] = useState(false);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const scrollRef = useRef(null);
+  const rafRef = useRef(null);
+
+  const handleScroll = useCallback(() => {
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const el = scrollRef.current;
+      if (!el) return;
+      const firstCard = el.querySelector('li');
+      if (!firstCard) return;
+      const cardW = firstCard.offsetWidth + 16; // gap-4 = 16px
+      const idx = Math.round(el.scrollLeft / cardW);
+      setActiveIdx(Math.min(Math.max(idx, 0), base.length - 1));
+    });
+  }, [base.length]);
 
   return (
     <section className="overflow-hidden bg-charcoal py-20 md:py-28">
-      {/*
-        CSS marquee: one real copy in DOM (crawlable), one aria-hidden duplicate
-        for seamless visual loop. No JS scroll-position monitoring.
-        Each card uses mr-5 so both copies have equal width → translateX(-50%) is exact.
-      */}
       <style>{`
         @keyframes nns-marquee {
           from { transform: translateX(0); }
@@ -97,29 +109,81 @@ export default function TestimonialsSection({ reviews: propReviews }) {
               </div>
             )}
           </div>
+          {/* Pause button — desktop only */}
           <button
             type="button"
             onClick={() => setPaused((p) => !p)}
             aria-label={paused ? 'Resume auto-scroll' : 'Pause auto-scroll'}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
+            className="hidden md:flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
           >
             {paused ? <Play size={18} /> : <Pause size={18} />}
           </button>
         </div>
       </div>
 
-      {/* Full-bleed marquee track */}
-      <div className="overflow-hidden pb-2">
+      {/* ── Mobile: native swipe carousel ── */}
+      <div className="md:hidden">
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="overflow-x-auto scroll-smooth [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          style={{ scrollSnapType: 'x mandatory' }}
+        >
+          <ul className="flex gap-4 px-4" style={{ width: 'max-content' }}>
+            {base.map((r, idx) => (
+              <li
+                key={idx}
+                style={{ scrollSnapAlign: 'start', width: '82vw' }}
+                className="flex-none"
+              >
+                <ReviewCard r={r} />
+              </li>
+            ))}
+            {/* trailing space so last card snaps flush */}
+            <li aria-hidden="true" style={{ width: '1rem', flexShrink: 0 }} />
+          </ul>
+        </div>
+
+        {/* Dot pagination */}
+        <div className="mt-4 flex justify-center gap-1.5 px-4">
+          {base.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              aria-label={`Review ${idx + 1}`}
+              onClick={() => {
+                const el = scrollRef.current;
+                if (!el) return;
+                const firstCard = el.querySelector('li');
+                if (!firstCard) return;
+                const cardW = firstCard.offsetWidth + 16;
+                el.scrollTo({ left: idx * cardW, behavior: 'smooth' });
+              }}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                idx === activeIdx
+                  ? 'w-5 bg-rose-gold'
+                  : 'w-1.5 bg-white/25 hover:bg-white/50'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Counter */}
+        <p className="mt-2 text-center text-xs text-cream/40">
+          {activeIdx + 1} / {base.length}
+        </p>
+      </div>
+
+      {/* ── Desktop: marquee (unchanged) ── */}
+      <div className="hidden md:block overflow-hidden pb-2">
         <ul className={`flex nns-track${paused ? ' nns-track-paused' : ''}`}>
-          {/* Real copy — indexed by search crawlers */}
           {base.map((r, idx) => (
-            <li key={idx} className="w-[78vw] flex-none mr-5 md:w-[320px] lg:w-[384px]">
+            <li key={idx} className="w-[320px] flex-none mr-5 lg:w-[384px]">
               <ReviewCard r={r} />
             </li>
           ))}
-          {/* Visual-only duplicate — hidden from screen readers and crawlers */}
           {base.map((r, idx) => (
-            <li key={`ghost-${idx}`} aria-hidden="true" className="w-[78vw] flex-none mr-5 md:w-[320px] lg:w-[384px]">
+            <li key={`ghost-${idx}`} aria-hidden="true" className="w-[320px] flex-none mr-5 lg:w-[384px]">
               <ReviewCard r={r} />
             </li>
           ))}
