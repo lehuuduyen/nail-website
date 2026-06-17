@@ -49,12 +49,16 @@ function getTier(name) {
   return null;
 }
 
-export default function ServiceCard({ service, showBookButton = true, compact = false }) {
+export default function ServiceCard({ service, gel = null, showBookButton = true, compact = false }) {
   const accent = CATEGORY_ACCENT[service.category] || 'border-l-rose-gold/50';
   const displayName = getServiceDisplayName(service);
   const tier = getTier(service.name);
   const priceLabel = getPriceLabel(service.name);
   const features = compact ? [] : parseFeatures(service.description);
+  const gelUpcharge =
+    gel && service.price != null && gel.price != null
+      ? Number(gel.price) - Number(service.price)
+      : null;
 
   return (
     <article
@@ -81,9 +85,19 @@ export default function ServiceCard({ service, showBookButton = true, compact = 
         </h3>
 
         {/* Price — shown right under the name */}
-        <p className="mt-2 text-xl font-bold text-charcoal">
-          <span className="text-sm font-semibold text-muted">{priceLabel} </span>
-          {priceFmt(service.price)}
+        <p className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xl font-bold text-charcoal">
+          <span>
+            <span className="text-sm font-semibold text-muted">{priceLabel} </span>
+            {priceFmt(service.price)}
+          </span>
+          {gel && (
+            <span className="rounded-full bg-lavender/15 px-2 py-0.5 text-xs font-semibold text-lavender-deep">
+              Gel {priceFmt(gel.price)}
+              {gelUpcharge > 0 && (
+                <span className="font-normal text-muted"> (+{priceFmt(gelUpcharge)})</span>
+              )}
+            </span>
+          )}
         </p>
 
         {/* Features */}
@@ -109,6 +123,9 @@ export default function ServiceCard({ service, showBookButton = true, compact = 
           {service.priceCard != null && (
             <p className="mb-3 text-xs text-muted">
               Card ${Number(service.priceCard).toFixed(2)}
+              {gel && gel.priceCard != null && (
+                <span> · Gel ${Number(gel.priceCard).toFixed(2)}</span>
+              )}
             </p>
           )}
           {showBookButton && (

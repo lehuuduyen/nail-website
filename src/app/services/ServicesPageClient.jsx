@@ -2,7 +2,7 @@
 
 import { useCallback } from 'react';
 import Link from 'next/link';
-import { CATEGORIES, CATEGORY_NAV, servicesInCategory } from '@/data/services';
+import { CATEGORIES, CATEGORY_NAV, servicesInCategory, mergeGelPairs } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
 
 function scrollToId(id) {
@@ -115,8 +115,8 @@ export default function ServicesPageClient({ services }) {
               </Link>
 
               <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {items.map((s) => (
-                  <ServiceCard key={s.id} service={s} />
+                {mergeGelPairs(items).map(({ service, gel }) => (
+                  <ServiceCard key={service.id} service={service} gel={gel} />
                 ))}
               </div>
             </section>

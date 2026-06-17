@@ -189,6 +189,62 @@ export function servicesInCategory(services, category) {
   return (services || []).filter((s) => s.category === category);
 }
 
+const isGelName = (n) => /\bgel\b/i.test(n || '');
+
+/** Tên các "ứng viên" regular tương ứng với một service gel (để tìm cặp). */
+function regularPartnerNames(gelName) {
+  const base = String(gelName || '');
+  return [
+    base.replace(/\s*Gel\s*$/i, ' Regular'),
+    base.replace(/\s*Gel\s*$/i, ''),
+  ].map((x) => x.replace(/\s+/g, ' ').trim());
+}
+
+/**
+ * Gộp cặp Regular/Gel của CÙNG một dịch vụ thành 1 mục để hiển thị.
+ * Trả về [{ service, gel }] — `gel` là biến thể gel (hoặc null nếu không có cặp).
+ * Quy tắc: gel partner = tên regular thay "Regular"→"Gel" hoặc base + " Gel",
+ * và phải là service KHÁC (khác id). Các gel độc lập (vd "Gel X", "Gel Removal")
+ * không có regular tương ứng → đứng riêng như cũ.
+ */
+export function mergeGelPairs(list) {
+  const items = list || [];
+  const byName = new Map(items.map((s) => [s.name, s]));
+  const result = [];
+
+  for (const s of items) {
+    const name = s.name || '';
+
+    if (isGelName(name)) {
+      // Là service gel: bỏ qua nếu đã có regular partner (sẽ gộp vào partner đó).
+      const hasPartner = regularPartnerNames(name).some((c) => {
+        const r = byName.get(c);
+        return r && r.id !== s.id && !isGelName(r.name);
+      });
+      if (hasPartner) continue;
+      result.push({ service: s, gel: null });
+      continue;
+    }
+
+    // Là service regular: tìm biến thể gel tương ứng.
+    const candidates = [
+      name.replace(/\bRegular\b/i, 'Gel'),
+      `${name} Gel`,
+    ].map((x) => x.replace(/\s+/g, ' ').trim());
+    let gel = null;
+    for (const c of candidates) {
+      const cand = byName.get(c);
+      if (cand && cand.id !== s.id && isGelName(cand.name)) {
+        gel = cand;
+        break;
+      }
+    }
+    result.push({ service: s, gel });
+  }
+
+  return result;
+}
+
 export function minPriceInCategory(services, category) {
   const list = servicesInCategory(services, category);
   if (!list.length) return 0;

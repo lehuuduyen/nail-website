@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {
   CATEGORIES,
   servicesInCategory,
+  mergeGelPairs,
   minPriceInCategory,
   relatedServices,
   CATEGORY_NAV,
@@ -170,8 +171,8 @@ export default async function PedicureServicesPage() {
 
         <div className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {list.map((s) => (
-              <ServiceCard key={s.id} service={s} />
+            {mergeGelPairs(list).map(({ service, gel }) => (
+              <ServiceCard key={service.id} service={service} gel={gel} />
             ))}
           </div>
 

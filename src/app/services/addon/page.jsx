@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {
   CATEGORIES,
   servicesInCategory,
+  mergeGelPairs,
   relatedServices,
   CATEGORY_NAV,
 } from '@/data/services';
@@ -187,8 +188,8 @@ export default async function AddonServicesPage() {
                   {g.title}
                 </h2>
                 <div className="mt-6 flex flex-1 flex-col gap-4">
-                  {g.services.map((s) => (
-                    <ServiceCard key={s.id} service={s} />
+                  {mergeGelPairs(g.services).map(({ service, gel }) => (
+                    <ServiceCard key={service.id} service={service} gel={gel} />
                   ))}
                 </div>
               </section>
