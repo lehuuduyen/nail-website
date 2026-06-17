@@ -7,6 +7,12 @@ function priceFmt(n) {
   return v % 1 === 0 ? `$${v}` : `$${v.toFixed(2)}`;
 }
 
+/** Card price = cash + 3% processing fee, exact (no rounding). */
+function cardPriceFmt(price) {
+  if (price == null || isNaN(Number(price))) return null;
+  return (Number(price) * 1.03).toFixed(2);
+}
+
 function parseFeatures(desc) {
   if (!desc) return [];
   const items = desc
@@ -120,11 +126,11 @@ export default function ServiceCard({ service, gel = null, showBookButton = true
 
         {/* Card price + book button */}
         <div className="mt-4 border-t border-rose-gold/10 pt-4">
-          {service.priceCard != null && (
+          {service.price != null && (
             <p className="mb-3 text-xs text-muted">
-              Card ${Number(service.priceCard).toFixed(2)}
-              {gel && gel.priceCard != null && (
-                <span> · Gel ${Number(gel.priceCard).toFixed(2)}</span>
+              Card ${cardPriceFmt(service.price)}
+              {gel && gel.price != null && (
+                <span> · Gel ${cardPriceFmt(gel.price)}</span>
               )}
             </p>
           )}
