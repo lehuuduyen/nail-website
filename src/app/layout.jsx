@@ -4,6 +4,7 @@ import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingBookBtn from '@/components/FloatingBookBtn';
+import BottomTabBar from '@/components/BottomTabBar';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -99,16 +100,27 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover', // let content extend under the notch; safe-area insets handle padding
+  themeColor: '#3D3836', // matches the charcoal navbar / bottom tab bar → app-like status bar
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`} suppressHydrationWarning>
       <head />
-      <body className="min-h-screen bg-cream font-sans antialiased text-ink" suppressHydrationWarning>
+      <body
+        className="min-h-screen bg-cream font-sans antialiased text-ink pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0"
+        suppressHydrationWarning
+      >
         <LocalBusinessJsonLd />
         <Navbar />
         <main className="pt-[72px]">{children}</main>
         <Footer />
         <FloatingBookBtn />
+        <BottomTabBar />
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { salonPhone, salonMapsUrl } from '@/lib/salon';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -11,7 +12,6 @@ const links = [
   { href: '/services', label: 'Services' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/blog', label: 'Blog' },
-  { href: '/booking', label: 'Book' },
 ];
 
 function scrollToId(id) {
@@ -22,6 +22,25 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
+  const tel = salonPhone().replace(/\D/g, '');
+  const mapsUrl = salonMapsUrl();
+
+  const isActive = (href, hashScrollId) =>
+    href.startsWith('/#') || hashScrollId
+      ? pathname === '/'
+      : href === '/blog'
+        ? pathname === '/blog' || pathname.startsWith('/blog/')
+        : pathname === href;
+
+  const handleHashClick = (e, hashScrollId) => {
+    if (!hashScrollId) return;
+    if (pathname === '/') {
+      e.preventDefault();
+      scrollToId(hashScrollId);
+    } else {
+      sessionStorage.setItem('homeScrollTarget', hashScrollId);
+    }
+  };
 
   return (
     <header
@@ -35,34 +54,30 @@ export default function Navbar() {
         <Link href="/" className="font-display text-xl tracking-tight text-cream md:text-2xl">
           {name}
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map(({ href, label, hashScrollId }) => {
-            const active = href.startsWith('/#')
-              ? pathname === '/'
-              : href === '/blog'
-                ? pathname === '/blog' || pathname.startsWith('/blog/')
-                : pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={`text-sm font-medium transition ${
-                  active ? 'text-rose-gold' : 'text-cream hover:text-rose-gold'
-                }`}
-                onClick={(e) => {
-                  if (!hashScrollId) return;
-                  if (pathname === '/') {
-                    e.preventDefault();
-                    scrollToId(hashScrollId);
-                  } else {
-                    sessionStorage.setItem('homeScrollTarget', hashScrollId);
-                  }
-                }}
-              >
-                {label}
-              </Link>
-            );
-          })}
+        <nav className="hidden items-center gap-7 md:flex">
+          {links.map(({ href, label, hashScrollId }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`text-sm font-medium transition ${
+                isActive(href, hashScrollId) ? 'text-rose-gold' : 'text-cream hover:text-rose-gold'
+              }`}
+              onClick={(e) => handleHashClick(e, hashScrollId)}
+            >
+              {label}
+            </Link>
+          ))}
+          <a href={`tel:${tel}`} className="text-sm font-medium text-cream transition hover:text-rose-gold">
+            Call
+          </a>
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-cream transition hover:text-rose-gold"
+          >
+            Directions
+          </a>
           <Link
             href="/booking"
             className="rounded-full bg-rose-gold px-5 py-2 text-sm font-semibold text-white shadow transition hover:bg-rose-gold-deep"
@@ -87,14 +102,7 @@ export default function Navbar() {
                 key={href}
                 href={href}
                 onClick={(e) => {
-                  if (hashScrollId) {
-                    if (pathname === '/') {
-                      e.preventDefault();
-                      scrollToId(hashScrollId);
-                    } else {
-                      sessionStorage.setItem('homeScrollTarget', hashScrollId);
-                    }
-                  }
+                  handleHashClick(e, hashScrollId);
                   setOpen(false);
                 }}
                 className="text-cream"
@@ -102,6 +110,25 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
+            <Link
+              href="/booking"
+              onClick={() => setOpen(false)}
+              className="font-semibold text-rose-gold"
+            >
+              Book now
+            </Link>
+            <a href={`tel:${tel}`} onClick={() => setOpen(false)} className="text-cream">
+              Call
+            </a>
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="text-cream"
+            >
+              Directions
+            </a>
           </div>
         </div>
       )}

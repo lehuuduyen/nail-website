@@ -1,12 +1,11 @@
 'use client';
 
-import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useEffect, useMemo, useState, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { fetchGallery, getPublicBaseUrl } from '@/lib/api';
-import { GALLERY_TABS } from '@/lib/categories';
 import { galleryImageAlt } from '@/lib/galleryImageAlt';
 import { unoptimizedRemote } from '@/lib/imageOptimize';
 
@@ -25,27 +24,43 @@ function srcUrl(url) {
 }
 
 export default function GalleryPage() {
-  const [tab, setTab] = useState('all');
   const [all, setAll] = useState([]);
   const [visible, setVisible] = useState(PAGE);
   const [lb, setLb] = useState(null);
   const [loading, setLoading] = useState(true);
+  const sentinelRef = useRef(null);
 
   const load = useCallback(async () => {
     setLoading(true);
     try {
-      const params = tab === 'all' ? {} : { category: tab };
-      const data = await fetchGallery(params);
+      const data = await fetchGallery({});
       setAll(data || []);
       setVisible(PAGE);
     } finally {
       setLoading(false);
     }
-  }, [tab]);
+  }, []);
 
   useEffect(() => {
     load();
   }, [load]);
+
+  // Infinite scroll — reveal the next page as the sentinel nears the viewport
+  useEffect(() => {
+    if (visible >= all.length) return undefined;
+    const el = sentinelRef.current;
+    if (!el) return undefined;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisible((v) => Math.min(v + PAGE, all.length));
+        }
+      },
+      { rootMargin: '400px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [all, visible]);
 
   const shown = useMemo(() => all.slice(0, visible), [all, visible]);
   const hasMore = visible < all.length;
@@ -65,23 +80,6 @@ export default function GalleryPage() {
       </section>
 
       <div className="mx-auto max-w-6xl px-4 pt-8 md:px-6">
-        <div className="flex flex-wrap gap-2">
-          {GALLERY_TABS.map((t) => (
-            <button
-              key={t.key}
-              type="button"
-              onClick={() => setTab(t.key)}
-              className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition ${
-                tab === t.key
-                  ? 'bg-charcoal text-cream'
-                  : 'bg-surface-soft text-charcoal ring-1 ring-rose-gold/20 hover:bg-cream-dark/40'
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
-        </div>
-
         {loading ? (
           <p className="mt-12 text-center text-muted">Loading gallery…</p>
         ) : (
@@ -118,16 +116,10 @@ export default function GalleryPage() {
                 </motion.button>
               ))}
             </div>
+            {/* Infinite-scroll sentinel — auto-loads the next page as it nears the viewport */}
+            <div ref={sentinelRef} aria-hidden className="h-px w-full" />
             {hasMore && (
-              <div className="mt-10 text-center">
-                <button
-                  type="button"
-                  onClick={() => setVisible((v) => v + PAGE)}
-                  className="rounded-full border-2 border-rose-gold px-8 py-2.5 text-sm font-semibold text-charcoal hover:bg-rose-gold/10"
-                >
-                  Load more
-                </button>
-              </div>
+              <p className="mt-8 text-center text-sm text-muted">Loading more…</p>
             )}
           </>
         )}

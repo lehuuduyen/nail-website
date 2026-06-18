@@ -20,6 +20,15 @@ body {
   color: var(--foreground);
   background-color: var(--cream);
   font-family: var(--font-lato), system-ui, sans-serif;
+  /* App-like feel on mobile */
+  -webkit-tap-highlight-color: transparent; /* no grey flash on tap */
+  -webkit-text-size-adjust: 100%; /* keep our font sizes on rotate */
+  overscroll-behavior-y: none; /* no rubber-band revealing browser chrome */
+}
+
+/* Smooth momentum scrolling on iOS */
+html {
+  -webkit-overflow-scrolling: touch;
 }
 
 h1,
