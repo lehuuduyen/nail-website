@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import { formatCurrency } from '@/lib/format';
+import { getServiceDisplayName } from '@/data/services';
 
 const ORDER = [
   'manicure',
@@ -37,7 +38,8 @@ export default function ServicePicker({ services, valueId, onChange, search, onS
   const matches = (s) =>
     !q ||
     s.name.toLowerCase().includes(q) ||
-    (s.nameVi && s.nameVi.toLowerCase().includes(q));
+    getServiceDisplayName(s).toLowerCase().includes(q) ||
+    (s.description && s.description.toLowerCase().includes(q));
 
   return (
     <div className="space-y-6">
@@ -73,9 +75,9 @@ export default function ServicePicker({ services, valueId, onChange, search, onS
                         : 'border-cream bg-surface hover:border-rose-gold/40'
                     }`}
                   >
-                    <p className="font-display text-lg text-ink">{s.name}</p>
-                    {s.nameVi && (
-                      <p className="text-sm text-muted">{s.nameVi}</p>
+                    <p className="font-display text-lg text-ink">{getServiceDisplayName(s)}</p>
+                    {s.description && (
+                      <p className="mt-0.5 line-clamp-2 text-sm text-muted">{s.description}</p>
                     )}
                     <p className="mt-2 text-sm text-charcoal">
                       {s.duration} min · {formatCurrency(s.price)}
