@@ -5,7 +5,7 @@ import { getFeaturedVideos } from '@/lib/video';
 
 /**
  * Homepage showcase section. Renders 1–2 featured clips as facades (no iframe on load)
- * plus a "Xem tất cả" link to /videos. Returns null when there are no featured clips.
+ * plus a "View all videos" link to /videos. Returns null when there are no featured clips.
  * Props: { videos: VideoItem[] }
  */
 export default function FeaturedVideos({ videos }) {
@@ -21,10 +21,10 @@ export default function FeaturedVideos({ videos }) {
 
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-12 text-center">
-          <h2 className="font-display text-3xl text-ink md:text-4xl">Xem tay nghề của chúng tôi</h2>
+          <h2 className="font-display text-3xl text-ink md:text-4xl">See our work in action</h2>
           <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-rose-gold" />
           <p className="mx-auto mt-4 max-w-2xl text-sm text-charcoal md:text-base">
-            Một vài khoảnh khắc tại Nice Nails &amp; Spa — bấm để xem.
+            A few moments from Nice Nails &amp; Spa — tap to play.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export default function FeaturedVideos({ videos }) {
             href="/videos"
             className="inline-flex rounded-full bg-charcoal px-8 py-3 text-sm font-semibold text-cream transition hover:bg-charcoal/90"
           >
-            Xem tất cả video
+            View all videos
           </Link>
         </div>
       </div>

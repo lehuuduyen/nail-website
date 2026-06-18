@@ -29,7 +29,7 @@ export default function LiteYouTube({ id, title, eager = false }) {
         <button
           type="button"
           onClick={() => setActivated(true)}
-          aria-label={`Phát video: ${title}`}
+          aria-label={`Play video: ${title}`}
           className="group absolute inset-0 h-full w-full cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-rose-gold/70"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
