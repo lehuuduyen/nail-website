@@ -6,6 +6,7 @@ import {
   CATEGORY_NAV,
 } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
+import RelatedArticles from '@/components/RelatedArticles';
 import ServiceSchema from '@/components/ServiceSchema';
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import LashSeoSchemas, { LASH_SEO_FAQS } from '@/components/LashSeoSchemas';
@@ -183,6 +184,8 @@ export default async function LashServicesPage() {
               ))}
             </ul>
           </section>
+
+          <RelatedArticles category={CATEGORY} />
 
           <section className="mt-16">
             <h2 className="font-display text-2xl text-ink">You may also like</h2>

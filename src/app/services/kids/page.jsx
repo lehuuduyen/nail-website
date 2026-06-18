@@ -7,6 +7,7 @@ import {
   CATEGORY_NAV,
 } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
+import RelatedArticles from '@/components/RelatedArticles';
 import ServiceSchema from '@/components/ServiceSchema';
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import KidsSeoSchemas, { KIDS_SEO_FAQS } from '@/components/KidsSeoSchemas';
@@ -188,6 +189,8 @@ export default async function KidsServicesPage() {
               ))}
             </ul>
           </section>
+
+          <RelatedArticles category={CATEGORY} />
 
           <section className="mt-16">
             <h2 className="font-display text-2xl text-ink">You may also like</h2>

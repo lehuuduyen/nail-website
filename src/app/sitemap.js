@@ -14,6 +14,7 @@ const STATIC_ROUTES = [
   { path: '/blog', changeFrequency: 'weekly', priority: 0.85 },
   { path: '/booking', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.78 },
+  { path: '/videos', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/privacy', changeFrequency: 'yearly', priority: 0.35 },
   { path: '/terms', changeFrequency: 'yearly', priority: 0.35 },
   ...VALID_CATEGORY_SLUGS.map((slug) => ({

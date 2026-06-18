@@ -7,8 +7,10 @@ import HomeServiceAreasSection from '@/components/HomeServiceAreasSection';
 import HomeFaqSection from '@/components/HomeFaqSection';
 import LocationSection from '@/components/LocationSection';
 import BookingCtaBanner from '@/components/BookingCtaBanner';
+import FeaturedVideos from '@/components/FeaturedVideos';
 import { absoluteUrl } from '@/lib/siteUrl';
 import { getDisplayReviews, fetchPlaceStats } from '@/lib/googleReviews';
+import { getVideos } from '@/lib/serverVideos';
 
 // Sections below-fold dùng framer-motion — lazy load để không chặn LCP
 const WhyLoveSection        = dynamic(() => import('@/components/WhyLoveSection'));
@@ -48,7 +50,11 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const [reviews, placeStats] = await Promise.all([getDisplayReviews(), fetchPlaceStats()]);
+  const [reviews, placeStats, videos] = await Promise.all([
+    getDisplayReviews(),
+    fetchPlaceStats(),
+    getVideos(),
+  ]);
   const reviewCount = placeStats?.reviewCount ?? '700';
   const ratingValue = placeStats?.rating ?? '4.9';
   return (
@@ -64,6 +70,7 @@ export default async function HomePage() {
       <WhyLoveSection reviewCount={reviewCount} rating={ratingValue} />
       <OurLuxuryServicesSection />
       <ServicesSection />
+      <FeaturedVideos videos={videos} />
       <TestimonialsSection reviews={reviews} />
       <BookingCtaBanner />
       <GallerySection />
