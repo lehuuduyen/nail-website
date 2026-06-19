@@ -10,6 +10,8 @@ import { getPromos } from '@/lib/serverPromos';
 import { salonAddress } from '@/lib/salon';
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import FeaturedEventHero from '@/components/FeaturedEventHero';
+import TrackedLink from '@/components/analytics/TrackedLink';
+import TrackView from '@/components/analytics/TrackView';
 
 // Re-evaluate hourly so expired promos drop without a rebuild.
 export const revalidate = 3600;
@@ -42,19 +44,27 @@ function PromoCard({ promo }) {
       <p className="mt-2 text-charcoal">{promo.description}</p>
       {promo.details && <p className="mt-2 text-sm text-muted">{promo.details}</p>}
       <div className="mt-auto flex flex-wrap gap-3 pt-6">
-        <Link
+        <TrackedLink
           href={promo.ctaHref}
+          event={
+            Array.isArray(promo.tiers) && promo.tiers.length > 0
+              ? 'giftcard_click'
+              : 'book_click'
+          }
+          eventParams={{ location: 'specials_card', promo: promo.title }}
           className="inline-flex rounded-full bg-rose-gold px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-gold-deep"
         >
           {promo.ctaLabel}
-        </Link>
-        <a
+        </TrackedLink>
+        <TrackedLink
           href={`tel:${PROMO_PHONE_TEL}`}
+          event="call_click"
+          eventParams={{ location: 'specials_card' }}
           className="inline-flex items-center gap-2 rounded-full border-2 border-charcoal/20 px-5 py-2.5 text-sm font-semibold text-charcoal transition hover:border-rose-gold/50"
         >
           <Phone size={16} aria-hidden="true" />
           Call
-        </a>
+        </TrackedLink>
       </div>
     </article>
   );
@@ -68,6 +78,7 @@ export default async function SpecialsPage() {
 
   return (
     <>
+      <TrackView event="specials_view" />
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', path: '/' },
@@ -116,19 +127,23 @@ export default async function SpecialsPage() {
               you can always book online or call us for current pricing.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link
+              <TrackedLink
                 href="/booking"
+                event="book_click"
+                eventParams={{ location: 'specials_empty' }}
                 className="inline-flex rounded-full bg-rose-gold px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-gold-deep"
               >
                 Book online
-              </Link>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href={`tel:${PROMO_PHONE_TEL}`}
+                event="call_click"
+                eventParams={{ location: 'specials_empty' }}
                 className="inline-flex items-center gap-2 rounded-full border-2 border-charcoal/20 px-5 py-2.5 text-sm font-semibold text-charcoal transition hover:border-rose-gold/50"
               >
                 <Phone size={16} aria-hidden="true" />
                 Call {PROMO_PHONE_DISPLAY}
-              </a>
+              </TrackedLink>
             </div>
           </div>
         </div>
@@ -151,25 +166,34 @@ export default async function SpecialsPage() {
             </p>
             <p>
               <span className="font-semibold text-ink">Phone:</span>{' '}
-              <a href={`tel:${PROMO_PHONE_TEL}`} className="text-rose-gold hover:underline">
+              <TrackedLink
+                href={`tel:${PROMO_PHONE_TEL}`}
+                event="call_click"
+                eventParams={{ location: 'specials_nap' }}
+                className="text-rose-gold hover:underline"
+              >
                 {PROMO_PHONE_DISPLAY}
-              </a>
+              </TrackedLink>
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
+            <TrackedLink
               href="/booking"
+              event="book_click"
+              eventParams={{ location: 'specials_nap' }}
               className="inline-flex rounded-full bg-charcoal px-6 py-2.5 text-sm font-semibold text-cream transition hover:bg-charcoal/90"
             >
               Book appointment
-            </Link>
-            <a
+            </TrackedLink>
+            <TrackedLink
               href={`tel:${PROMO_PHONE_TEL}`}
+              event="call_click"
+              eventParams={{ location: 'specials_nap' }}
               className="inline-flex items-center gap-2 rounded-full border-2 border-charcoal/20 px-5 py-2.5 text-sm font-semibold text-charcoal transition hover:border-rose-gold/50"
             >
               <Phone size={16} aria-hidden="true" />
               Call {PROMO_PHONE_DISPLAY}
-            </a>
+            </TrackedLink>
           </div>
         </section>
       </div>

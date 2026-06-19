@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { X } from 'lucide-react';
 import { isPromoLive } from '@/lib/promos';
+import { trackEvent } from '@/lib/analytics';
 
 /**
  * Sticky promo bar shown above the header on every page.
@@ -59,6 +60,7 @@ export default function AnnouncementBar({ promo }) {
           {/* Bar is a teaser → always link to the event detail page, not the action link */}
           <Link
             href="/specials"
+            onClick={() => trackEvent('promo_bar_click', { promo: promo.title })}
             className="shrink-0 font-semibold underline underline-offset-2 hover:text-white/80"
           >
             {promo.ctaLabel}

@@ -1,5 +1,7 @@
 import { Playfair_Display, Lato } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
+import ClarityScript from '@/components/analytics/ClarityScript';
 import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
 import SiteJsonLd from '@/components/SiteJsonLd';
 import Navbar from '@/components/Navbar';
@@ -113,6 +115,7 @@ export const viewport = {
 
 export default async function RootLayout({ children }) {
   const featuredPromo = pickFeatured(await getPromos());
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`} suppressHydrationWarning>
       <head />
@@ -130,6 +133,10 @@ export default async function RootLayout({ children }) {
         <Footer />
         <FloatingBookBtn />
         <BottomTabBar />
+        {/* Analytics — both load after render (no LCP/CLS impact) and only when their ID is set.
+            GA4 via @next/third-parties auto-sends pageviews, so we never fire pageview manually. */}
+        <ClarityScript />
+        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
       </body>
     </html>
   );

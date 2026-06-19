@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Instagram, Facebook, Youtube, MapPin, Phone, Clock } from 'lucide-react';
 import { salonName, salonHours, salonMapsUrl, salonGoogleReviewUrl } from '@/lib/salon';
+import TrackedLink from '@/components/analytics/TrackedLink';
 
 export default function Footer() {
   const name = salonName();
@@ -51,9 +52,16 @@ export default function Footer() {
           <div className="flex gap-2">
             <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-rose-gold" />
             {maps ? (
-              <a href={maps} target="_blank" rel="noopener noreferrer" className="hover:text-rose-gold">
+              <TrackedLink
+                href={maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                event="directions_click"
+                eventParams={{ location: 'footer' }}
+                className="hover:text-rose-gold"
+              >
                 {address}
-              </a>
+              </TrackedLink>
             ) : (
               <span>{address}</span>
             )}
@@ -61,9 +69,14 @@ export default function Footer() {
           <div className="flex gap-2">
             <Phone className="mt-0.5 h-4 w-4 shrink-0 text-rose-gold" />
             {tel ? (
-              <a href={`tel:${tel}`} className="hover:text-rose-gold">
+              <TrackedLink
+                href={`tel:${tel}`}
+                event="call_click"
+                eventParams={{ location: 'footer' }}
+                className="hover:text-rose-gold"
+              >
                 {phone}
-              </a>
+              </TrackedLink>
             ) : (
               <span>{phone}</span>
             )}

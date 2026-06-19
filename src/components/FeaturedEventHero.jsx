@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { Phone } from 'lucide-react';
 import Countdown from '@/components/Countdown';
 import { formatPromoDates, PROMO_PHONE_DISPLAY, PROMO_PHONE_TEL } from '@/lib/promos';
+import TrackedLink from '@/components/analytics/TrackedLink';
 
 /**
  * Big "event" hero for the current featured promo on /specials.
@@ -10,6 +10,9 @@ import { formatPromoDates, PROMO_PHONE_DISPLAY, PROMO_PHONE_TEL } from '@/lib/pr
  */
 export default function FeaturedEventHero({ promo }) {
   if (!promo) return null;
+
+  const isGiftCard = Array.isArray(promo.tiers) && promo.tiers.length > 0;
+  const ctaEvent = isGiftCard ? 'giftcard_click' : 'book_click';
 
   return (
     <section className="px-4 md:px-6">
@@ -77,19 +80,23 @@ export default function FeaturedEventHero({ promo }) {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Link
+          <TrackedLink
             href={promo.ctaHref}
+            event={ctaEvent}
+            eventParams={{ location: 'event_hero', promo: promo.title }}
             className="inline-flex rounded-full bg-rose-gold px-8 py-3 text-sm font-semibold text-white shadow transition hover:bg-rose-gold-deep"
           >
             {promo.ctaLabel}
-          </Link>
-          <a
+          </TrackedLink>
+          <TrackedLink
             href={`tel:${PROMO_PHONE_TEL}`}
+            event="call_click"
+            eventParams={{ location: 'event_hero' }}
             className="inline-flex items-center gap-2 rounded-full border-2 border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition hover:border-rose-gold hover:text-rose-gold"
           >
             <Phone size={16} aria-hidden="true" />
             Call {PROMO_PHONE_DISPLAY}
-          </a>
+          </TrackedLink>
         </div>
       </div>
     </section>

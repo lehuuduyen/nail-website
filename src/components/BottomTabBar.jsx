@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, Images, Phone, CalendarHeart } from 'lucide-react';
 import { salonPhone } from '@/lib/salon';
+import { trackEvent } from '@/lib/analytics';
 
 const TABS = [
   { href: '/', label: 'Home', icon: Home, match: (p) => p === '/' },
@@ -33,7 +34,11 @@ export default function BottomTabBar() {
           if (type === 'tel') {
             return (
               <li key="call" className="flex-1">
-                <a href={`tel:${tel}`} className={`${tabClass} text-cream/70 hover:text-cream`}>
+                <a
+                  href={`tel:${tel}`}
+                  onClick={() => trackEvent('call_click', { location: 'bottom_bar' })}
+                  className={`${tabClass} text-cream/70 hover:text-cream`}
+                >
                   <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
                   {label}
                 </a>
@@ -47,6 +52,11 @@ export default function BottomTabBar() {
               <Link
                 href={href}
                 aria-current={active ? 'page' : undefined}
+                onClick={
+                  href === '/booking'
+                    ? () => trackEvent('book_click', { location: 'bottom_bar' })
+                    : undefined
+                }
                 className={`${tabClass} ${active ? 'text-rose-gold' : 'text-cream/70 hover:text-cream'}`}
               >
                 <Icon size={22} strokeWidth={active ? 2.4 : 1.8} aria-hidden="true" />

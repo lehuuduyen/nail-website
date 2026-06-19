@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { salonPhone, salonMapsUrl } from '@/lib/salon';
+import { trackEvent } from '@/lib/analytics';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -67,19 +68,25 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <a href={`tel:${tel}`} className="text-sm font-medium text-cream transition hover:text-rose-gold">
+          <a
+            href={`tel:${tel}`}
+            onClick={() => trackEvent('call_click', { location: 'nav' })}
+            className="text-sm font-medium text-cream transition hover:text-rose-gold"
+          >
             Call
           </a>
           <a
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('directions_click', { location: 'nav' })}
             className="text-sm font-medium text-cream transition hover:text-rose-gold"
           >
             Directions
           </a>
           <Link
             href="/booking"
+            onClick={() => trackEvent('book_click', { location: 'nav' })}
             className="rounded-full bg-rose-gold px-5 py-2 text-sm font-semibold text-white shadow transition hover:bg-rose-gold-deep"
           >
             Book now
@@ -112,19 +119,32 @@ export default function Navbar() {
             ))}
             <Link
               href="/booking"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackEvent('book_click', { location: 'nav_mobile' });
+                setOpen(false);
+              }}
               className="font-semibold text-rose-gold"
             >
               Book now
             </Link>
-            <a href={`tel:${tel}`} onClick={() => setOpen(false)} className="text-cream">
+            <a
+              href={`tel:${tel}`}
+              onClick={() => {
+                trackEvent('call_click', { location: 'nav_mobile' });
+                setOpen(false);
+              }}
+              className="text-cream"
+            >
               Call
             </a>
             <a
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackEvent('directions_click', { location: 'nav_mobile' });
+                setOpen(false);
+              }}
               className="text-cream"
             >
               Directions

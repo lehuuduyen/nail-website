@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { getThumbnail, getThumbnailFallback, youtubeEmbedUrl } from '@/lib/video';
+import { trackEvent } from '@/lib/analytics';
 
 /**
  * Lazy YouTube facade — NO iframe on load. Renders a static thumbnail + play button;
@@ -28,7 +29,10 @@ export default function LiteYouTube({ id, title, eager = false }) {
       ) : (
         <button
           type="button"
-          onClick={() => setActivated(true)}
+          onClick={() => {
+            trackEvent('video_play', { title, youtubeId: id });
+            setActivated(true);
+          }}
           aria-label={`Play video: ${title}`}
           className="group absolute inset-0 h-full w-full cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-rose-gold/70"
         >

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Phone } from 'lucide-react';
 import { getPromos } from '@/lib/serverPromos';
 import { pickFeatured, formatPromoDates, PROMO_PHONE_DISPLAY, PROMO_PHONE_TEL } from '@/lib/promos';
+import TrackedLink from '@/components/analytics/TrackedLink';
 
 /**
  * Standout promo block on the homepage, right after the hero.
@@ -10,6 +11,9 @@ import { pickFeatured, formatPromoDates, PROMO_PHONE_DISPLAY, PROMO_PHONE_TEL } 
 export default async function HomePromoSection() {
   const promo = pickFeatured(await getPromos());
   if (!promo) return null;
+
+  const isGiftCard = Array.isArray(promo.tiers) && promo.tiers.length > 0;
+  const ctaEvent = isGiftCard ? 'giftcard_click' : 'book_click';
 
   return (
     <section className="bg-cream px-4 py-12 md:py-16">
@@ -28,19 +32,23 @@ export default async function HomePromoSection() {
         {promo.details && <p className="mt-2 max-w-2xl text-sm text-muted">{promo.details}</p>}
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <Link
+          <TrackedLink
             href={promo.ctaHref}
+            event={ctaEvent}
+            eventParams={{ location: 'home_promo', promo: promo.title }}
             className="inline-flex rounded-full bg-rose-gold px-7 py-3 text-sm font-semibold text-white shadow transition hover:bg-rose-gold-deep"
           >
             {promo.ctaLabel}
-          </Link>
-          <a
+          </TrackedLink>
+          <TrackedLink
             href={`tel:${PROMO_PHONE_TEL}`}
+            event="call_click"
+            eventParams={{ location: 'home_promo' }}
             className="inline-flex items-center gap-2 rounded-full border-2 border-charcoal/20 px-6 py-3 text-sm font-semibold text-charcoal transition hover:border-rose-gold/50"
           >
             <Phone size={16} aria-hidden="true" />
             Call {PROMO_PHONE_DISPLAY}
-          </a>
+          </TrackedLink>
           <Link
             href="/specials"
             className="text-sm font-semibold text-rose-gold underline underline-offset-2 hover:text-rose-gold-deep"

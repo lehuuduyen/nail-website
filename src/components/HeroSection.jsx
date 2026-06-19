@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Phone } from 'lucide-react';
+import TrackedLink from '@/components/analytics/TrackedLink';
 import { HERO_BLUR_DATA_URL } from '@/lib/heroLcp';
 import { HERO_IMAGE } from '@/lib/siteImages';
 
@@ -85,8 +85,10 @@ export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
 
               <div className="hero-fade-up-d3 mt-5 w-full min-w-0 max-w-full sm:mt-8 sm:max-w-md">
                 <div className="box-border flex w-full min-w-0 max-w-full flex-col gap-2 overflow-hidden rounded-2xl border border-white/20 bg-white/15 p-1.5 backdrop-blur-md sm:gap-2 sm:p-1.5 sm:flex-row sm:items-stretch">
-                  <Link
+                  <TrackedLink
                     href="/booking"
+                    event="book_click"
+                    eventParams={{ location: 'hero' }}
                     className="relative flex w-full min-w-0 max-w-full min-h-[44px] flex-1 shrink items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-[#C9932A] via-[#E8C547] to-[#B8821E] px-3 py-2 text-center font-sans text-[12px] font-bold uppercase tracking-[0.13em] text-white no-underline shadow-[0_0_10px_rgba(212,175,55,0.34),inset_0_1px_0_rgba(255,255,255,0.20)] transition hover:brightness-110 hover:shadow-[0_0_18px_rgba(212,175,55,0.38)] sm:min-h-0 sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_0_18px_rgba(212,175,55,0.45),inset_0_1px_0_rgba(255,255,255,0.3)] sm:hover:shadow-[0_0_28px_rgba(212,175,55,0.65)]"
                   >
                     <span
@@ -112,9 +114,11 @@ export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
                       ★
                     </span>
                     <span className="relative z-10 px-1 text-xs sm:text-[11px]">BOOK NOW</span>
-                  </Link>
-                  <a
+                  </TrackedLink>
+                  <TrackedLink
                     href={tel}
+                    event="call_click"
+                    eventParams={{ location: 'hero' }}
                     className="flex w-full min-w-0 max-w-full min-h-[40px] flex-1 shrink items-center justify-center gap-1.5 overflow-hidden rounded-full bg-white/45 px-2.5 py-2 font-sans text-[13px] font-semibold tabular-nums leading-none text-[#2D1F0F] no-underline backdrop-blur-sm transition hover:bg-white/65 sm:min-h-0 sm:gap-2 sm:px-5 sm:py-3 sm:text-sm"
                   >
                     <Phone
@@ -123,7 +127,7 @@ export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
                       aria-hidden
                     />
                     <span className="min-w-0 flex-1 truncate text-center">{phoneDisplay}</span>
-                  </a>
+                  </TrackedLink>
                 </div>
               </div>
               <p className="hero-fade-up-d4 mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-[11px] font-normal text-[#E8E6E4] drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)] sm:mt-4 sm:text-xs">
