@@ -5,6 +5,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingBookBtn from '@/components/FloatingBookBtn';
 import BottomTabBar from '@/components/BottomTabBar';
+import AnnouncementBar from '@/components/AnnouncementBar';
+import { getPromos } from '@/lib/serverPromos';
+import { pickFeatured } from '@/lib/promos';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -107,7 +110,8 @@ export const viewport = {
   themeColor: '#3D3836', // matches the charcoal navbar / bottom tab bar → app-like status bar
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const featuredPromo = pickFeatured(await getPromos());
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`} suppressHydrationWarning>
       <head />
@@ -116,8 +120,11 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <LocalBusinessJsonLd />
-        <Navbar />
-        <main className="pt-[72px]">{children}</main>
+        <div className="sticky top-0 z-50">
+          <AnnouncementBar promo={featuredPromo} />
+          <Navbar />
+        </div>
+        <main>{children}</main>
         <Footer />
         <FloatingBookBtn />
         <BottomTabBar />

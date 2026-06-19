@@ -28,6 +28,9 @@ export default function Footer() {
           <Link href="/services" className="hover:text-rose-gold">
             Services
           </Link>
+          <Link href="/specials" className="hover:text-rose-gold">
+            Specials
+          </Link>
           <Link href="/gallery" className="hover:text-rose-gold">
             Gallery
           </Link>

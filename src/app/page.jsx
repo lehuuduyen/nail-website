@@ -8,6 +8,7 @@ import HomeFaqSection from '@/components/HomeFaqSection';
 import LocationSection from '@/components/LocationSection';
 import BookingCtaBanner from '@/components/BookingCtaBanner';
 import FeaturedVideos from '@/components/FeaturedVideos';
+import HomePromoSection from '@/components/HomePromoSection';
 import { absoluteUrl } from '@/lib/siteUrl';
 import { getDisplayReviews, fetchPlaceStats } from '@/lib/googleReviews';
 import { getVideos } from '@/lib/serverVideos';
@@ -67,6 +68,7 @@ export default async function HomePage() {
         <HeroSection reviewCount={reviewCount} rating={ratingValue} />
         <HeroKeywordTags />
       </div>
+      <HomePromoSection />
       <WhyLoveSection reviewCount={reviewCount} rating={ratingValue} />
       <OurLuxuryServicesSection />
       <ServicesSection />

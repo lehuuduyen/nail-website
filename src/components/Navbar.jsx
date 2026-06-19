@@ -44,7 +44,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-charcoal/85 backdrop-blur-md"
+      className="border-b border-white/10 bg-charcoal/85 backdrop-blur-md"
       suppressHydrationWarning
     >
       <div

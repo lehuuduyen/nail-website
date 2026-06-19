@@ -11,6 +11,7 @@ export const revalidate = 3600;
 const STATIC_ROUTES = [
   { path: '/', changeFrequency: 'weekly', priority: 1 },
   { path: '/services', changeFrequency: 'weekly', priority: 0.95 },
+  { path: '/specials', changeFrequency: 'daily', priority: 0.8 },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.85 },
   { path: '/booking', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.78 },
