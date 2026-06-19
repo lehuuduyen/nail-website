@@ -9,7 +9,8 @@ function toVideoObject(v) {
     name: v.title,
     description: v.description || v.title,
     thumbnailUrl: [`https://i.ytimg.com/vi/${v.youtubeId}/maxresdefault.jpg`],
-    ...(v.uploadDate ? { uploadDate: v.uploadDate } : {}),
+    // uploadDate is REQUIRED by Google for VideoObject — always emit it.
+    uploadDate: v.uploadDate || new Date().toISOString().slice(0, 10),
     ...(duration ? { duration } : {}),
     contentUrl: youtubeWatchUrl(v.youtubeId),
     embedUrl: youtubeEmbedUrl(v.youtubeId),

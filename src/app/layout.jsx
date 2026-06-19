@@ -1,6 +1,7 @@
 import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
 import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
+import SiteJsonLd from '@/components/SiteJsonLd';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingBookBtn from '@/components/FloatingBookBtn';
@@ -119,6 +120,7 @@ export default async function RootLayout({ children }) {
         className="min-h-screen bg-cream font-sans antialiased text-ink pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0"
         suppressHydrationWarning
       >
+        <SiteJsonLd />
         <LocalBusinessJsonLd />
         <div className="sticky top-0 z-50">
           <AnnouncementBar promo={featuredPromo} />

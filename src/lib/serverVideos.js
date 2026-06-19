@@ -13,15 +13,19 @@ export async function getVideos() {
     if (!res.ok) return [];
     const data = await res.json();
     if (!Array.isArray(data)) return [];
-    return data.map((v) => ({
-      id: v.id,
-      youtubeId: v.youtubeId,
-      title: v.title,
-      description: v.description || '',
-      uploadDate: v.uploadDate || null,
-      durationSeconds: v.durationSeconds ?? null,
-      featured: !!v.featured,
-    }));
+    return data.map((v) => {
+      // uploadDate is required for VideoObject schema → fall back to when it was added (createdAt).
+      const upload = v.uploadDate || v.createdAt;
+      return {
+        id: v.id,
+        youtubeId: v.youtubeId,
+        title: v.title,
+        description: v.description || '',
+        uploadDate: upload ? String(upload).slice(0, 10) : null,
+        durationSeconds: v.durationSeconds ?? null,
+        featured: !!v.featured,
+      };
+    });
   } catch {
     return [];
   }

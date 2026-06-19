@@ -56,8 +56,9 @@ export default function AnnouncementBar({ promo }) {
             </span>
           )}
           <span className="truncate font-medium">{promo.title}</span>
+          {/* Bar is a teaser → always link to the event detail page, not the action link */}
           <Link
-            href={promo.ctaHref}
+            href="/specials"
             className="shrink-0 font-semibold underline underline-offset-2 hover:text-white/80"
           >
             {promo.ctaLabel}

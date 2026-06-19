@@ -140,3 +140,45 @@ export function getLocalBusinessJsonLd() {
 export function getBusinessRef() {
   return { '@id': `${getSiteUrl()}/#business` };
 }
+
+/**
+ * Site-wide Organization + WebSite nodes (one @graph).
+ * Helps Google understand the brand + canonical site → improves chances of sitelinks.
+ */
+export function getSiteJsonLd() {
+  const url = getSiteUrl();
+  const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
+  const sameAs = [
+    process.env.NEXT_PUBLIC_SALON_GOOGLE_PROFILE_URL || 'https://g.page/r/CXBOXsUE7X5SEBE/review',
+    process.env.NEXT_PUBLIC_SALON_YELP_URL || 'https://www.yelp.com/biz/nice-nails-and-spa-phoenix',
+    process.env.NEXT_PUBLIC_SALON_INSTAGRAM_URL || 'https://www.instagram.com/nicenailsandspaphoenix',
+    process.env.NEXT_PUBLIC_SALON_FACEBOOK_URL || 'https://www.facebook.com/nicenailsandspaphoenix',
+    process.env.NEXT_PUBLIC_SALON_YOUTUBE_URL || 'https://www.youtube.com/@DailyNailInspoChannel',
+  ];
+
+  const organization = {
+    '@type': 'Organization',
+    '@id': `${url}/#organization`,
+    name,
+    url,
+    logo: {
+      '@type': 'ImageObject',
+      url: absoluteUrl('/android-chrome-512x512.png'),
+    },
+    sameAs,
+  };
+
+  const website = {
+    '@type': 'WebSite',
+    '@id': `${url}/#website`,
+    name,
+    url,
+    inLanguage: 'en-US',
+    publisher: { '@id': `${url}/#organization` },
+  };
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [organization, website],
+  };
+}
