@@ -1,5 +1,23 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { CATEGORY_ACCENT, getServiceDisplayName } from '@/data/services';
+import { SERVICE_IMAGE_BY_CATEGORY, SERVICE_IMAGE_FALLBACK } from '@/lib/siteImages';
+import { getPublicBaseUrl } from '@/lib/api';
+import { unoptimizedRemote } from '@/lib/imageOptimize';
+
+/** Resolve a stored service image URL to an absolute, host-correct URL. */
+function resolveImageSrc(url) {
+  if (!url) return null;
+  const b = getPublicBaseUrl();
+  if (url.startsWith('http')) {
+    // Rewrite localhost-baked URLs to the current API origin (dev/prod parity).
+    if (/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/.test(url)) {
+      return url.replace(/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, b);
+    }
+    return url;
+  }
+  return `${b}${url.startsWith('/') ? '' : '/'}${url}`;
+}
 
 function priceFmt(n) {
   if (n == null || isNaN(Number(n))) return '—';
@@ -55,9 +73,20 @@ function getTier(name) {
   return null;
 }
 
-export default function ServiceCard({ service, gel = null, showBookButton = true, compact = false }) {
+export default function ServiceCard({
+  service,
+  gel = null,
+  showBookButton = true,
+  compact = false,
+  showImage = true,
+}) {
   const accent = CATEGORY_ACCENT[service.category] || 'border-l-rose-gold/50';
   const displayName = getServiceDisplayName(service);
+  // Per-service image from DB (admin-managed) → falls back to the category image.
+  const fallbackImg = SERVICE_IMAGE_BY_CATEGORY[service.category] || SERVICE_IMAGE_FALLBACK;
+  const remoteSrc = resolveImageSrc(service.imageUrl);
+  const imgSrc = remoteSrc || fallbackImg.src;
+  const imgAlt = remoteSrc ? displayName : fallbackImg.alt;
   const tier = getTier(service.name);
   const priceLabel = getPriceLabel(service.name);
   const features = compact ? [] : parseFeatures(service.description);
@@ -68,22 +97,51 @@ export default function ServiceCard({ service, gel = null, showBookButton = true
 
   return (
     <article
-      className={`group flex h-full flex-col rounded-xl border border-rose-gold/15 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-rose-gold/40 hover:shadow-md ${accent} border-l-4`}
+      className={`group flex h-full flex-col overflow-hidden rounded-xl border border-rose-gold/15 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-rose-gold/40 hover:shadow-md ${accent} border-l-4`}
     >
-      <div className={`flex flex-1 flex-col ${compact ? 'p-4' : 'p-5 md:p-6'}`}>
-
-        {/* Tier badge + duration */}
-        <div className="mb-3 flex min-h-[22px] items-center justify-between gap-2">
-          {tier ? (
-            <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${tier.cls}`}>
+      {showImage && imgSrc && (
+        <div className={`relative w-full overflow-hidden ${compact ? 'aspect-[16/7]' : 'aspect-[16/10]'}`}>
+          <Image
+            src={imgSrc}
+            alt={imgAlt}
+            fill
+            loading="lazy"
+            quality={80}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            unoptimized={unoptimizedRemote(imgSrc)}
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          />
+          {/* Soft gradient → luxe depth + keeps the tier badge legible */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
+          {tier && (
+            <span
+              className={`absolute left-3 top-3 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide shadow-sm ${tier.cls}`}
+            >
               {tier.label}
             </span>
-          ) : <span />}
-          <span className="flex items-center gap-1 text-xs text-muted">
-            <span aria-hidden className="text-rose-gold/70">⏱</span>
+          )}
+          <span className="absolute bottom-3 right-3 flex items-center gap-1 rounded-full bg-white/85 px-2 py-0.5 text-[11px] font-medium text-charcoal backdrop-blur-sm">
+            <span aria-hidden className="text-rose-gold">⏱</span>
             {service.duration} min
           </span>
         </div>
+      )}
+      <div className={`flex flex-1 flex-col ${compact ? 'p-4' : 'p-5 md:p-6'}`}>
+
+        {/* Tier badge + duration — only when there's no image (image shows them as overlays) */}
+        {!showImage && (
+          <div className="mb-3 flex min-h-[22px] items-center justify-between gap-2">
+            {tier ? (
+              <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${tier.cls}`}>
+                {tier.label}
+              </span>
+            ) : <span />}
+            <span className="flex items-center gap-1 text-xs text-muted">
+              <span aria-hidden className="text-rose-gold/70">⏱</span>
+              {service.duration} min
+            </span>
+          </div>
+        )}
 
         {/* Service name */}
         <h3 className={`font-display font-medium leading-snug text-ink ${compact ? 'text-base' : 'text-lg md:text-xl'}`}>

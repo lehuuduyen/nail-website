@@ -36,6 +36,29 @@ export const SERVICE_CARD_IMAGES = {
   },
 };
 
+/**
+ * Image shown on each service card, keyed by category.
+ * Nail categories use real photos; lash/waxing/facial/head_spa fall back to an
+ * elegant neutral shot until dedicated photos are added (drop a WebP in
+ * /public/images and point the entry here — the cards pick it up automatically).
+ */
+export const SERVICE_IMAGE_BY_CATEGORY = {
+  manicure: { src: '/images/popular-manicure.webp', alt: 'Luxury manicure at Nice Nails & Spa Phoenix' },
+  pedicure: { src: '/images/popular-pedicure.webp', alt: 'Relaxing spa pedicure in Phoenix AZ' },
+  nails: { src: '/images/popular-acrylic-nails.webp', alt: 'Acrylic & gel nail extensions Phoenix AZ' },
+  addon: { src: '/images/popular-nail-art.webp', alt: 'Custom nail art designs Phoenix AZ' },
+  kids: { src: '/images/popular-manicure.webp', alt: 'Kids manicure & pedicure Phoenix AZ' },
+  head_spa: { src: '/images/service-head-spa.webp', alt: 'Japanese head spa scalp treatment Phoenix AZ' },
+  facial: { src: '/images/service-facial.webp', alt: 'Relaxing facial skincare treatment Phoenix AZ' },
+  lash: { src: '/images/service-lash.webp', alt: 'Eyelash extensions Phoenix AZ' },
+  waxing: { src: '/images/service-waxing.webp', alt: 'Smooth leg waxing service Phoenix AZ' },
+};
+
+export const SERVICE_IMAGE_FALLBACK = {
+  src: '/images/popular-nail-art.webp',
+  alt: 'Nice Nails & Spa Phoenix AZ',
+};
+
 export const WHY_LOVE_IMAGES = {
   manicure: {
     src: '/images/why-love-manicure.webp',
