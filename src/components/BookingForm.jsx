@@ -28,6 +28,7 @@ export default function BookingForm() {
   const topRef = useRef(null);
 
   const [step, setStep] = useState(1);
+  const [didPreselect, setDidPreselect] = useState(false);
   const [services, setServices] = useState([]);
   const [employees, setEmployees] = useState([]);
   const [svcSearch, setSvcSearch] = useState('');
@@ -79,7 +80,10 @@ export default function BookingForm() {
     if (!found && preCategory) {
       found = services.find((x) => x.category === preCategory);
     }
-    if (found) setService(found);
+    if (found) {
+      setService(found);
+      setDidPreselect(true); // tells the picker to scroll this service into view
+    }
   }, [preService, preServiceName, preCategory, services, service]);
 
   const staffName = useMemo(() => {
@@ -280,6 +284,7 @@ export default function BookingForm() {
                 onChange={handleServiceChange}
                 search={svcSearch}
                 onSearchChange={setSvcSearch}
+                scrollToSelected={didPreselect}
               />
               {formError && <p className="text-sm text-red-600">{formError}</p>}
             </motion.div>

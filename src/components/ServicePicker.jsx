@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { Search } from 'lucide-react';
 import { formatCurrency } from '@/lib/format';
 import { getServiceDisplayName } from '@/data/services';
@@ -21,7 +21,27 @@ const ORDER = [
   'other',
 ];
 
-export default function ServicePicker({ services, valueId, onChange, search, onSearchChange }) {
+export default function ServicePicker({
+  services,
+  valueId,
+  onChange,
+  search,
+  onSearchChange,
+  scrollToSelected = false,
+}) {
+  const selectedRef = useRef(null);
+
+  // When a service is pre-selected from the URL (e.g. arriving from a service or
+  // homepage card), scroll it into view so the user sees what was chosen.
+  useEffect(() => {
+    if (!scrollToSelected || valueId == null || !selectedRef.current) return;
+    // Delay a tick so it wins over the form's "scroll to top on mount".
+    const t = setTimeout(() => {
+      selectedRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 350);
+    return () => clearTimeout(t);
+  }, [scrollToSelected, valueId]);
+
   const grouped = useMemo(() => {
     const g = {};
     ORDER.forEach((c) => {
@@ -67,6 +87,7 @@ export default function ServicePicker({ services, valueId, onChange, search, onS
                 return (
                   <button
                     key={s.id}
+                    ref={selected ? selectedRef : null}
                     type="button"
                     onClick={() => onChange(s)}
                     className={`rounded-2xl border-2 p-4 text-left transition ${
