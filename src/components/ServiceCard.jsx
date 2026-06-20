@@ -136,7 +136,7 @@ export default function ServiceCard({ service, gel = null, showBookButton = true
           )}
           {showBookButton && (
             <Link
-              href={`/booking?service=${service.id}`}
+              href={`/booking?service=${service.id}&svc=${encodeURIComponent(service.name)}`}
               className="inline-flex w-full items-center justify-center rounded-lg bg-rose-gold px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-gold-deep"
             >
               Book now

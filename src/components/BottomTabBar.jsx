@@ -21,6 +21,10 @@ export default function BottomTabBar() {
   const pathname = usePathname();
   const tel = salonPhone().replace(/\D/g, '');
 
+  // The booking flow has its own fixed action bar (Next / Confirm) — hide the
+  // global tab bar there so it doesn't cover the confirm button on mobile.
+  if (pathname?.startsWith('/booking')) return null;
+
   return (
     <nav
       aria-label="Primary"

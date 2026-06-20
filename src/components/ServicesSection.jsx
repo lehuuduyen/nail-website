@@ -5,31 +5,32 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { SERVICE_CARD_IMAGES } from '@/lib/siteImages';
+import { trackEvent } from '@/lib/analytics';
 
 /** Homepage: only 4 cards — full list at /services */
 const POPULAR = [
   {
     title: 'Manicure',
     priceLine: 'From $30',
-    bookingId: 1,
+    category: 'manicure',
     ...SERVICE_CARD_IMAGES.manicure,
   },
   {
     title: 'Pedicure',
     priceLine: 'From $35',
-    bookingId: 4,
+    category: 'pedicure',
     ...SERVICE_CARD_IMAGES.pedicure,
   },
   {
     title: 'Acrylic Nails',
     priceLine: 'From $40 +',
-    bookingId: 13,
+    category: 'nails',
     ...SERVICE_CARD_IMAGES.acrylic,
   },
   {
     title: 'Nail Art',
     priceLine: 'From $15 +',
-    bookingId: 21,
+    category: 'nails',
     ...SERVICE_CARD_IMAGES.nailArt,
   },
 ];
@@ -72,28 +73,35 @@ export default function ServicesSection() {
               variants={item}
               className="group overflow-hidden rounded-2xl border border-rose-gold/15 bg-surface/70 shadow-md shadow-rose-gold/10 backdrop-blur-sm transition-shadow duration-300 hover:border-rose-gold/25 hover:shadow-lg"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={s.src}
-                  alt={s.alt}
-                  width={s.width}
-                  height={s.height}
-                  loading="lazy"
-                  quality={80}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="px-4 pb-5 pt-4 text-center">
-                <h3 className="font-display text-lg font-medium text-ink">{s.title}</h3>
-                <p className="mt-2 text-base font-medium text-rose-gold">{s.priceLine}</p>
-                <Link
-                  href={`/booking?service=${s.bookingId}`}
-                  className="mt-3 inline-block text-xs font-semibold uppercase tracking-wide text-muted underline decoration-rose-gold/50 underline-offset-4 hover:text-rose-gold"
-                >
-                  Book this service
-                </Link>
-              </div>
+              {/* Whole card is one link → clicking the image or text goes to booking */}
+              <Link
+                href={`/booking?category=${s.category}`}
+                onClick={() =>
+                  trackEvent('book_click', { location: 'popular_services', service: s.title })
+                }
+                className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold/60"
+                aria-label={`Book ${s.title}`}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    width={s.width}
+                    height={s.height}
+                    loading="lazy"
+                    quality={80}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="px-4 pb-5 pt-4 text-center">
+                  <h3 className="font-display text-lg font-medium text-ink">{s.title}</h3>
+                  <p className="mt-2 text-base font-medium text-rose-gold">{s.priceLine}</p>
+                  <span className="mt-3 inline-block text-xs font-semibold uppercase tracking-wide text-muted underline decoration-rose-gold/50 underline-offset-4 group-hover:text-rose-gold">
+                    Book this service
+                  </span>
+                </div>
+              </Link>
             </motion.article>
           ))}
         </motion.div>

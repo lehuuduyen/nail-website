@@ -23,6 +23,8 @@ export default function BookingForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const preService = searchParams.get('service');
+  const preServiceName = searchParams.get('svc');
+  const preCategory = searchParams.get('category');
   const topRef = useRef(null);
 
   const [step, setStep] = useState(1);
@@ -64,11 +66,21 @@ export default function BookingForm() {
   }, []);
 
   useEffect(() => {
-    if (!preService || !services.length || service) return;
+    if (service || !services.length) return;
+    // Prefer the live DB id; fall back to matching by name (stable even when the
+    // service page was statically built with synthetic/fallback ids).
     const id = parseInt(preService, 10);
-    const found = services.find((x) => x.id === id);
+    let found = Number.isNaN(id) ? null : services.find((x) => x.id === id);
+    if (!found && preServiceName) {
+      const target = preServiceName.trim().toLowerCase();
+      found = services.find((x) => (x.name || '').trim().toLowerCase() === target);
+    }
+    // Homepage "popular" cards land on a whole category → select its first service.
+    if (!found && preCategory) {
+      found = services.find((x) => x.category === preCategory);
+    }
     if (found) setService(found);
-  }, [preService, services, service]);
+  }, [preService, preServiceName, preCategory, services, service]);
 
   const staffName = useMemo(() => {
     if (staffId == null) return 'Anyone available';
@@ -419,7 +431,7 @@ export default function BookingForm() {
       </div>
 
       {/* ── Fixed bottom action bar — always visible, no scrolling needed ── */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-rose-gold/15 bg-cream/95 backdrop-blur-md">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-rose-gold/15 bg-cream/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 md:px-6">
 
           {/* Left: step label */}
