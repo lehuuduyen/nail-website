@@ -116,7 +116,12 @@ export default function ServicesPageClient({ services }) {
 
               <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {mergeGelPairs(items).map(({ service, gel }) => (
-                  <ServiceCard key={service.id} service={service} gel={gel} />
+                  <ServiceCard
+                    key={service.id}
+                    service={service}
+                    gel={gel}
+                    priceSuffix={key === 'nails' ? '& Up' : null}
+                  />
                 ))}
               </div>
             </section>

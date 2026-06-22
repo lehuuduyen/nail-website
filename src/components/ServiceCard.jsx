@@ -79,6 +79,9 @@ export default function ServiceCard({
   showBookButton = true,
   compact = false,
   showImage = true,
+  // Optional suffix appended after the cash/gel prices — e.g. '& Up' for "starting at" pricing.
+  // When set, hides the card-fee sub-line (range pricing has no exact card total).
+  priceSuffix = null,
 }) {
   const accent = CATEGORY_ACCENT[service.category] || 'border-l-rose-gold/50';
   const displayName = getServiceDisplayName(service);
@@ -153,12 +156,17 @@ export default function ServiceCard({
           <span>
             <span className="text-sm font-semibold text-muted">{priceLabel} </span>
             {priceFmt(service.price)}
+            {priceSuffix && <span className="text-sm font-semibold text-muted"> {priceSuffix}</span>}
           </span>
           {gel && (
             <span className="rounded-full bg-lavender/15 px-2 py-0.5 text-xs font-semibold text-lavender-deep">
               Gel {priceFmt(gel.price)}
-              {gelUpcharge > 0 && (
-                <span className="font-normal text-muted"> (+{priceFmt(gelUpcharge)})</span>
+              {priceSuffix ? (
+                <span className="font-normal"> {priceSuffix}</span>
+              ) : (
+                gelUpcharge > 0 && (
+                  <span className="font-normal text-muted"> </span>
+                )
               )}
             </span>
           )}
@@ -184,7 +192,7 @@ export default function ServiceCard({
 
         {/* Card price + book button */}
         <div className="mt-4 border-t border-rose-gold/10 pt-4">
-          {service.price != null && (
+          {!priceSuffix && service.price != null && (
             <p className="mb-3 text-xs text-muted">
               Card ${cardPriceFmt(service.price)}
               {gel && gel.price != null && (
