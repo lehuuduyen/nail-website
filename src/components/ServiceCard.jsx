@@ -192,11 +192,12 @@ export default function ServiceCard({
 
         {/* Card price + book button */}
         <div className="mt-4 border-t border-rose-gold/10 pt-4">
-          {!priceSuffix && service.price != null && (
+          {service.price != null && (
             <p className="mb-3 text-xs text-muted">
               Card ${cardPriceFmt(service.price)}
+              {priceSuffix && <span> {priceSuffix}</span>}
               {gel && gel.price != null && (
-                <span> · Gel ${cardPriceFmt(gel.price)}</span>
+                <span> · Gel ${cardPriceFmt(gel.price)}{priceSuffix && ` ${priceSuffix}`}</span>
               )}
             </p>
           )}
