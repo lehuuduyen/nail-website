@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { CATEGORIES, CATEGORY_NAV, servicesInCategory, mergeGelPairs } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
@@ -14,6 +14,26 @@ function scrollToId(id) {
 }
 
 export default function ServicesPageClient({ services }) {
+  // The site header (announcement bar + navbar) is `sticky top-0`, but its height
+  // varies: the announcement bar is optional/dismissible and the navbar wraps on
+  // narrow screens. Measure it live so the category bar sticks right below it on
+  // every device instead of behind it (a hard-coded offset hid it on some phones).
+  const [headerH, setHeaderH] = useState(0);
+
+  useEffect(() => {
+    const el = document.getElementById('site-header');
+    if (!el) return;
+    const update = () => setHeaderH(el.getBoundingClientRect().height);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    window.addEventListener('resize', update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', update);
+    };
+  }, []);
+
   const onNav = useCallback((key) => {
     scrollToId(key === 'all' ? 'top' : key);
   }, []);
@@ -33,7 +53,10 @@ export default function ServicesPageClient({ services }) {
         </p>
       </section>
 
-      <div className="sticky top-[72px] z-30 border-b border-rose-gold/10 bg-cream/95 px-4 py-3 backdrop-blur md:px-6">
+      <div
+        style={{ top: headerH }}
+        className="sticky z-30 border-b border-rose-gold/10 bg-cream/95 px-4 py-3 backdrop-blur md:px-6"
+      >
         <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto pb-1 scrollbar-thin">
           <button
             type="button"

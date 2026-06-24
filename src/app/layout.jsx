@@ -125,7 +125,7 @@ export default async function RootLayout({ children }) {
       >
         <SiteJsonLd />
         <LocalBusinessJsonLd />
-        <div className="sticky top-0 z-50">
+        <div id="site-header" className="sticky top-0 z-50">
           <AnnouncementBar promo={featuredPromo} />
           <Navbar />
         </div>
