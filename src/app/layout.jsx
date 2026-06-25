@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingBookBtn from '@/components/FloatingBookBtn';
 import BottomTabBar from '@/components/BottomTabBar';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import { getPromos } from '@/lib/serverPromos';
 import { pickFeatured } from '@/lib/promos';
@@ -132,6 +133,7 @@ export default async function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <FloatingBookBtn />
+        <ScrollToTopButton />
         <BottomTabBar />
         {/* Analytics — both load after render (no LCP/CLS impact) and only when their ID is set.
             GA4 via @next/third-parties auto-sends pageviews, so we never fire pageview manually. */}
