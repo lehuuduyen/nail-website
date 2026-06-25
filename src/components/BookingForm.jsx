@@ -25,10 +25,14 @@ export default function BookingForm() {
   const preService = searchParams.get('service');
   const preServiceName = searchParams.get('svc');
   const preCategory = searchParams.get('category');
+  const hasPreselectParam = !!(preService || preServiceName || preCategory);
   const topRef = useRef(null);
 
   const [step, setStep] = useState(1);
   const [didPreselect, setDidPreselect] = useState(false);
+  // Đến từ link có sẵn dịch vụ → giữ màn chờ tới khi resolve xong rồi mới render,
+  // tránh "nháy" Step 1 trước khi tự nhảy sang Step 2.
+  const [preselecting, setPreselecting] = useState(hasPreselectParam);
   const [services, setServices] = useState([]);
   const [employees, setEmployees] = useState([]);
   const [svcSearch, setSvcSearch] = useState('');
@@ -60,10 +64,20 @@ export default function BookingForm() {
   );
 
   useEffect(() => {
-    Promise.all([fetchServices(), fetchEmployees()]).then(([s, e]) => {
-      setServices(s || []);
-      setEmployees(e || []);
-    });
+    let alive = true;
+    Promise.all([fetchServices(), fetchEmployees()])
+      .then(([s, e]) => {
+        if (!alive) return;
+        setServices(s || []);
+        setEmployees(e || []);
+        // Không có dịch vụ để preselect → gỡ màn chờ, hiện Step 1 như bình thường.
+        if (!(s && s.length)) setPreselecting(false);
+      })
+      .catch(() => {
+        // Fetch lỗi → không thể preselect, đừng kẹt spinner.
+        if (alive) setPreselecting(false);
+      });
+    return () => { alive = false; };
   }, []);
 
   useEffect(() => {
@@ -83,7 +97,12 @@ export default function BookingForm() {
     if (found) {
       setService(found);
       setDidPreselect(true); // tells the picker to scroll this service into view
+      // Đến từ "Book now"/"Book this service" → dịch vụ đã chọn sẵn, nhảy thẳng
+      // sang bước chọn kỹ thuật viên, không bắt khách chọn lại dịch vụ.
+      setStep(2);
     }
+    // Đã resolve xong (dù khớp hay không) → gỡ màn chờ.
+    setPreselecting(false);
   }, [preService, preServiceName, preCategory, services, service]);
 
   const staffName = useMemo(() => {
@@ -179,6 +198,19 @@ export default function BookingForm() {
     : '';
 
   const canProceed = step === 1 ? !!service : step === 3 ? !!(dateVal && timeStr) : true;
+
+  // Màn chờ khi đang preselect dịch vụ từ link — render thay cho form để không lóe Step 1.
+  if (preselecting) {
+    return (
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-center px-4 py-24 text-center">
+        <span
+          className="h-10 w-10 animate-spin rounded-full border-2 border-rose-gold/25 border-t-rose-gold"
+          aria-hidden="true"
+        />
+        <p className="mt-4 text-sm text-muted">Preparing your booking…</p>
+      </div>
+    );
+  }
 
   return (
     <>
