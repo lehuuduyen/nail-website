@@ -1,38 +1,19 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Sparkles } from 'lucide-react';
 import { SERVICE_CARD_IMAGES } from '@/lib/siteImages';
 import { trackEvent } from '@/lib/analytics';
 
-/** Homepage: only 4 cards — full list at /services */
+/** Homepage: only 4 cards — full list at /services. Tên dịch vụ giữ thuật ngữ ngành. */
 const POPULAR = [
-  {
-    title: 'Manicure',
-    priceLine: 'From $30',
-    category: 'manicure',
-    ...SERVICE_CARD_IMAGES.manicure,
-  },
-  {
-    title: 'Pedicure',
-    priceLine: 'From $35',
-    category: 'pedicure',
-    ...SERVICE_CARD_IMAGES.pedicure,
-  },
-  {
-    title: 'Acrylic Nails',
-    priceLine: 'From $40 +',
-    category: 'nails',
-    ...SERVICE_CARD_IMAGES.acrylic,
-  },
-  {
-    title: 'Nail Art',
-    priceLine: 'From $15 +',
-    category: 'nails',
-    ...SERVICE_CARD_IMAGES.nailArt,
-  },
+  { title: 'Manicure', price: '$30', plus: false, category: 'manicure', ...SERVICE_CARD_IMAGES.manicure },
+  { title: 'Pedicure', price: '$35', plus: false, category: 'pedicure', ...SERVICE_CARD_IMAGES.pedicure },
+  { title: 'Acrylic Nails', price: '$40', plus: true, category: 'nails', ...SERVICE_CARD_IMAGES.acrylic },
+  { title: 'Nail Art', price: '$15', plus: true, category: 'nails', ...SERVICE_CARD_IMAGES.nailArt },
 ];
 
 const container = {
@@ -45,11 +26,12 @@ const item = {
 };
 
 export default function ServicesSection() {
+  const t = useTranslations('home');
   return (
     <section id="popular-services" className="marble-bg pb-20 pt-4 md:pb-28 md:pt-2">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <h2 className="flex flex-wrap items-center justify-center gap-2 text-center font-display text-3xl font-normal text-ink md:text-4xl">
-          Our Most Popular Services
+          {t('popular.heading')}
           <span className="inline-flex items-center gap-0.5 text-rose-gold" aria-hidden>
             <Sparkles className="h-6 w-6" strokeWidth={1.25} />
             <Sparkles className="h-5 w-5 opacity-85" strokeWidth={1.25} />
@@ -57,7 +39,7 @@ export default function ServicesSection() {
           </span>
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-center text-sm italic text-muted md:text-base">
-          We perfect our stunning nail designs
+          {t('popular.subtitle')}
         </p>
 
         <motion.div
@@ -80,7 +62,7 @@ export default function ServicesSection() {
                   trackEvent('book_click', { location: 'popular_services', service: s.title })
                 }
                 className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold/60"
-                aria-label={`Book ${s.title}`}
+                aria-label={t('popular.bookAria', { title: s.title })}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -96,9 +78,11 @@ export default function ServicesSection() {
                 </div>
                 <div className="px-4 pb-5 pt-4 text-center">
                   <h3 className="font-display text-lg font-medium text-ink">{s.title}</h3>
-                  <p className="mt-2 text-base font-medium text-rose-gold">{s.priceLine}</p>
+                  <p className="mt-2 text-base font-medium text-rose-gold">
+                    {t('popular.fromPrice', { price: s.price })}{s.plus ? ' +' : ''}
+                  </p>
                   <span className="mt-3 inline-block text-xs font-semibold uppercase tracking-wide text-muted underline decoration-rose-gold/50 underline-offset-4 group-hover:text-rose-gold">
-                    Book this service
+                    {t('popular.bookThis')}
                   </span>
                 </div>
               </Link>
@@ -116,13 +100,13 @@ export default function ServicesSection() {
             href="/booking"
             className="btn-gold inline-flex min-w-[280px] items-center justify-center no-underline"
           >
-            Book your appointment
+            {t('popular.bookAppointment')}
           </Link>
           <Link
             href="/services"
             className="text-sm font-medium text-muted underline decoration-rose-gold/40 underline-offset-4 hover:text-ink"
           >
-            View all services &amp; prices
+            {t('popular.viewAll')}
           </Link>
         </motion.div>
       </div>

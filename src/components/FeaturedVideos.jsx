@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import VideoCard from '@/components/VideoCard';
 import VideoObjectJsonLd from '@/components/VideoObjectJsonLd';
 import { getFeaturedVideos } from '@/lib/video';
@@ -9,6 +10,7 @@ import { getFeaturedVideos } from '@/lib/video';
  * Props: { videos: VideoItem[] }
  */
 export default function FeaturedVideos({ videos }) {
+  const t = useTranslations('home.videos');
   const featured = getFeaturedVideos(videos, 2);
   if (featured.length === 0) return null;
 
@@ -21,10 +23,10 @@ export default function FeaturedVideos({ videos }) {
 
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-12 text-center">
-          <h2 className="font-display text-3xl text-ink md:text-4xl">See our work in action</h2>
+          <h2 className="font-display text-3xl text-ink md:text-4xl">{t('heading')}</h2>
           <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-rose-gold" />
           <p className="mx-auto mt-4 max-w-2xl text-sm text-charcoal md:text-base">
-            A few moments from Nice Nails &amp; Spa — tap to play.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -39,7 +41,7 @@ export default function FeaturedVideos({ videos }) {
             href="/videos"
             className="inline-flex rounded-full bg-charcoal px-8 py-3 text-sm font-semibold text-cream transition hover:bg-charcoal/90"
           >
-            View all videos
+            {t('viewAll')}
           </Link>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useRef, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { Pause, Play, Star } from 'lucide-react';
 import { SALON_REVIEWS } from '@/lib/reviews';
 
@@ -56,6 +57,7 @@ function ReviewCard({ r }) {
 }
 
 export default function TestimonialsSection({ reviews: propReviews }) {
+  const t = useTranslations('home.testimonials');
   const base = propReviews?.length ? propReviews : SALON_REVIEWS;
   const hasGoogle = base.some((r) => r.isGoogle === true);
   const [paused, setPaused] = useState(false);
@@ -100,12 +102,12 @@ export default function TestimonialsSection({ reviews: propReviews }) {
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h2 className="font-display text-3xl text-cream md:text-4xl">Guest love</h2>
+            <h2 className="font-display text-3xl text-cream md:text-4xl">{t('heading')}</h2>
             <div className="mt-3 h-1 w-20 rounded-full bg-rose-gold" />
             {hasGoogle && (
               <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-cream/70">
                 <GoogleIcon />
-                Live from Google Maps
+                {t('liveGoogle')}
               </div>
             )}
           </div>
@@ -113,7 +115,7 @@ export default function TestimonialsSection({ reviews: propReviews }) {
           <button
             type="button"
             onClick={() => setPaused((p) => !p)}
-            aria-label={paused ? 'Resume auto-scroll' : 'Pause auto-scroll'}
+            aria-label={paused ? t('resume') : t('pause')}
             className="hidden md:flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
           >
             {paused ? <Play size={18} /> : <Pause size={18} />}
@@ -150,7 +152,7 @@ export default function TestimonialsSection({ reviews: propReviews }) {
             <button
               key={idx}
               type="button"
-              aria-label={`Review ${idx + 1}`}
+              aria-label={t('reviewNum', { num: idx + 1 })}
               onClick={() => {
                 const el = scrollRef.current;
                 if (!el) return;
@@ -198,7 +200,7 @@ export default function TestimonialsSection({ reviews: propReviews }) {
           className="inline-flex items-center gap-2 rounded-full border border-rose-gold px-6 py-3 text-sm font-semibold text-rose-gold transition hover:bg-rose-gold hover:text-charcoal"
         >
           <Star size={15} fill="currentColor" />
-          Review us on Google
+          {t('reviewUs')}
         </a>
       </div>
     </section>

@@ -1,18 +1,19 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { salonPhone, salonMapsUrl } from '@/lib/salon';
 import { trackEvent } from '@/lib/analytics';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/#about', label: 'About', hashScrollId: 'about' },
-  { href: '/services', label: 'Services' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/', key: 'home' },
+  { href: '/#about', key: 'about', hashScrollId: 'about' },
+  { href: '/services', key: 'services' },
+  { href: '/gallery', key: 'gallery' },
+  { href: '/blog', key: 'blog' },
 ];
 
 function scrollToId(id) {
@@ -21,6 +22,7 @@ function scrollToId(id) {
 
 export default function Navbar() {
   const pathname = usePathname();
+  const t = useTranslations('nav');
   const [open, setOpen] = useState(false);
   const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
   const tel = salonPhone().replace(/\D/g, '');
@@ -55,8 +57,8 @@ export default function Navbar() {
         <Link href="/" className="font-display text-xl tracking-tight text-cream md:text-2xl">
           {name}
         </Link>
-        <nav className="hidden items-center gap-7 md:flex">
-          {links.map(({ href, label, hashScrollId }) => (
+        <nav className="hidden items-center gap-4 md:flex lg:gap-7">
+          {links.map(({ href, key, hashScrollId }) => (
             <Link
               key={href}
               href={href}
@@ -65,7 +67,7 @@ export default function Navbar() {
               }`}
               onClick={(e) => handleHashClick(e, hashScrollId)}
             >
-              {label}
+              {t(key)}
             </Link>
           ))}
           <a
@@ -73,7 +75,7 @@ export default function Navbar() {
             onClick={() => trackEvent('call_click', { location: 'nav' })}
             className="text-sm font-medium text-cream transition hover:text-rose-gold"
           >
-            Call
+            {t('call')}
           </a>
           <a
             href={mapsUrl}
@@ -82,14 +84,15 @@ export default function Navbar() {
             onClick={() => trackEvent('directions_click', { location: 'nav' })}
             className="text-sm font-medium text-cream transition hover:text-rose-gold"
           >
-            Directions
+            {t('directions')}
           </a>
+          <LanguageSwitcher />
           <Link
             href="/booking"
             onClick={() => trackEvent('book_click', { location: 'nav' })}
             className="rounded-full bg-rose-gold px-5 py-2 text-sm font-semibold text-white shadow transition hover:bg-rose-gold-deep"
           >
-            Book now
+            {t('book')}
           </Link>
         </nav>
         <button
@@ -104,7 +107,7 @@ export default function Navbar() {
       {open && (
         <div className="animate-nav-dropdown border-t border-white/10 bg-charcoal px-4 py-4 md:hidden">
           <div className="flex flex-col gap-3">
-            {links.map(({ href, label, hashScrollId }) => (
+            {links.map(({ href, key, hashScrollId }) => (
               <Link
                 key={href}
                 href={href}
@@ -114,7 +117,7 @@ export default function Navbar() {
                 }}
                 className="text-cream"
               >
-                {label}
+                {t(key)}
               </Link>
             ))}
             <Link
@@ -125,7 +128,7 @@ export default function Navbar() {
               }}
               className="font-semibold text-rose-gold"
             >
-              Book now
+              {t('book')}
             </Link>
             <a
               href={`tel:${tel}`}
@@ -135,7 +138,7 @@ export default function Navbar() {
               }}
               className="text-cream"
             >
-              Call
+              {t('call')}
             </a>
             <a
               href={mapsUrl}
@@ -147,8 +150,11 @@ export default function Navbar() {
               }}
               className="text-cream"
             >
-              Directions
+              {t('directions')}
             </a>
+            <div className="pt-2">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       )}

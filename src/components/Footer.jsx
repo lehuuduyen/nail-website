@@ -1,9 +1,11 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { Instagram, Facebook, Youtube, MapPin, Phone, Clock } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { salonName, salonHours, salonMapsUrl, salonGoogleReviewUrl } from '@/lib/salon';
 import TrackedLink from '@/components/analytics/TrackedLink';
 
 export default function Footer() {
+  const t = useTranslations('footer');
   const name = salonName();
   const phone = process.env.NEXT_PUBLIC_SALON_PHONE || '';
   const address = process.env.NEXT_PUBLIC_SALON_ADDRESS || '';
@@ -18,34 +20,31 @@ export default function Footer() {
         <div>
           <p className="font-display text-2xl text-cream">{name}</p>
           <p className="mt-2 text-sm leading-relaxed text-cream">
-            Quality products, skilled hands, and a relaxing space — appointments & walk-ins welcome.
+            {t('tagline')}
           </p>
         </div>
         <div className="flex flex-col gap-2 text-sm">
-          <p className="font-semibold text-rose-gold">Explore</p>
-          {/* <Link href="/#about" className="hover:text-rose-gold">
-            About
-          </Link> */}
+          <p className="font-semibold text-rose-gold">{t('explore')}</p>
           <Link href="/services" className="hover:text-rose-gold">
-            Services
+            {t('services')}
           </Link>
           <Link href="/specials" className="hover:text-rose-gold">
-            Specials
+            {t('specials')}
           </Link>
           <Link href="/gallery" className="hover:text-rose-gold">
-            Gallery
+            {t('gallery')}
           </Link>
           <Link href="/blog" className="hover:text-rose-gold">
-            Blog
+            {t('blog')}
           </Link>
           <Link href="/booking" className="hover:text-rose-gold">
-            Book online
+            {t('bookOnline')}
           </Link>
           <Link href="/privacy" className="hover:text-rose-gold">
-            Privacy Policy
+            {t('privacy')}
           </Link>
           <Link href="/terms" className="hover:text-rose-gold">
-            Terms & Conditions
+            {t('terms')}
           </Link>
         </div>
         <div className="space-y-3 text-sm">
@@ -134,7 +133,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-cream/85">
-        © {new Date().getFullYear()} {name}. All rights reserved.
+        © {new Date().getFullYear()} {name}. {t('rights')}
       </div>
     </footer>
   );

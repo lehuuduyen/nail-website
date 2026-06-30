@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import DatePicker from 'react-datepicker';
 import { format, parse, isBefore, startOfDay } from 'date-fns';
@@ -13,13 +15,15 @@ import { useAvailability } from '@/hooks/useAvailability';
 import { formatCurrency, formatPhoneDisplay } from '@/lib/format';
 import { Clock, ChevronRight } from 'lucide-react';
 
-const STEPS = ['Service', 'Staff', 'Date & time', 'Your details'];
+const STEP_KEYS = ['service', 'staff', 'datetime', 'details'];
 
 function stripPhone(s) {
   return s.replace(/\D/g, '');
 }
 
 export default function BookingForm() {
+  const tb = useTranslations('booking');
+  const STEPS = STEP_KEYS.map((k) => tb(`steps.${k}`));
   const router = useRouter();
   const searchParams = useSearchParams();
   const preService = searchParams.get('service');
@@ -106,7 +110,7 @@ export default function BookingForm() {
   }, [preService, preServiceName, preCategory, services, service]);
 
   const staffName = useMemo(() => {
-    if (staffId == null) return 'Anyone available';
+    if (staffId == null) return tb('anyStaff');
     const e = employees.find((x) => x.id === staffId);
     return e ? `${e.firstName} ${e.lastName}` : '—';
   }, [staffId, employees]);
@@ -115,10 +119,10 @@ export default function BookingForm() {
 
   const goNext = () => {
     setFormError('');
-    if (step === 1 && !service) { setFormError('Please select a service.'); return; }
+    if (step === 1 && !service) { setFormError(tb('errService')); return; }
     if (step === 3) {
-      if (!dateVal) { setFormError('Please choose a date.'); return; }
-      if (!timeStr) { setFormError('Please choose a time slot.'); return; }
+      if (!dateVal) { setFormError(tb('errDate')); return; }
+      if (!timeStr) { setFormError(tb('errTime')); return; }
     }
     setStep((s) => Math.min(4, s + 1));
   };
@@ -146,15 +150,15 @@ export default function BookingForm() {
   const handleConfirm = async () => {
     setFormError('');
     if (!firstName.trim() || !lastName.trim()) {
-      setFormError('First and last name are required.');
+      setFormError(tb('errName'));
       return;
     }
     if (stripPhone(phone).length !== 10) {
-      setFormError('Please enter a valid 10-digit phone number.');
+      setFormError(tb('errPhone'));
       return;
     }
     if (!service || !dateVal || !timeStr) {
-      setFormError('Missing booking details.');
+      setFormError(tb('errMissing'));
       return;
     }
     const scheduledAt = `${dateYmd}T${timeStr}:00.000Z`;
@@ -185,7 +189,7 @@ export default function BookingForm() {
       }));
       router.push('/booking/confirmation');
     } catch (e) {
-      setFormError(e.response?.data?.error || e.message || 'Booking failed.');
+      setFormError(e.response?.data?.error || e.message || tb('errFailed'));
     } finally {
       setSubmitting(false);
     }
@@ -307,8 +311,8 @@ export default function BookingForm() {
           {step === 1 && (
             <motion.div key="s1" {...slide} transition={{ duration: 0.3 }} className="space-y-5">
               <div>
-                <h2 className="font-display text-2xl text-ink">Select a service</h2>
-                <p className="mt-1 text-sm text-muted">Tap a service to continue.</p>
+                <h2 className="font-display text-2xl text-ink">{tb('selectService')}</h2>
+                <p className="mt-1 text-sm text-muted">{tb('selectServiceHint')}</p>
               </div>
               <ServicePicker
                 services={services}
@@ -325,8 +329,8 @@ export default function BookingForm() {
           {step === 2 && (
             <motion.div key="s2" {...slide} transition={{ duration: 0.3 }} className="space-y-5">
               <div>
-                <h2 className="font-display text-2xl text-ink">Choose your technician</h2>
-                <p className="mt-1 text-sm text-muted">Tap a technician to continue.</p>
+                <h2 className="font-display text-2xl text-ink">{tb('chooseTech')}</h2>
+                <p className="mt-1 text-sm text-muted">{tb('chooseTechHint')}</p>
               </div>
               <StaffPicker employees={employees} valueId={staffId} onChange={handleStaffChange} />
             </motion.div>
@@ -335,12 +339,12 @@ export default function BookingForm() {
           {step === 3 && (
             <motion.div key="s3" {...slide} transition={{ duration: 0.3 }} className="space-y-6">
               <div>
-                <h2 className="font-display text-2xl text-ink">Pick date & time</h2>
-                <p className="mt-1 text-sm text-muted">Choose a date, then tap an available time.</p>
+                <h2 className="font-display text-2xl text-ink">{tb('pickDateTime')}</h2>
+                <p className="mt-1 text-sm text-muted">{tb('pickDateTimeHint')}</p>
               </div>
               <div className="grid gap-8 lg:grid-cols-[auto_1fr]">
                 <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-charcoal">Date</p>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-charcoal">{tb('date')}</p>
                   <DatePicker
                     selected={dateVal}
                     onChange={(d) => { setDateVal(d); setTimeStr(''); }}
@@ -351,7 +355,7 @@ export default function BookingForm() {
                 </div>
                 <div>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-charcoal">
-                    {dateVal ? `Available times — ${format(dateVal, 'EEE, MMM d')}` : 'Select a date first'}
+                    {dateVal ? tb('availableTimes', { date: format(dateVal, 'EEE, MMM d') }) : tb('selectDateFirst')}
                   </p>
                   {slotsError && <p className="mb-2 text-sm text-red-600">{slotsError}</p>}
                   <TimeSlotPicker
@@ -371,12 +375,12 @@ export default function BookingForm() {
               <div className="grid gap-8 lg:grid-cols-[1fr_300px]">
                 <div className="space-y-4">
                   <div>
-                    <h2 className="font-display text-2xl text-ink">Your information</h2>
-                    <p className="mt-1 text-sm text-muted">Almost done! Fill in your details below.</p>
+                    <h2 className="font-display text-2xl text-ink">{tb('yourInfo')}</h2>
+                    <p className="mt-1 text-sm text-muted">{tb('yourInfoHint')}</p>
                   </div>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="text-xs font-semibold text-charcoal">First name *</label>
+                      <label className="text-xs font-semibold text-charcoal">{tb('firstName')}</label>
                       <input
                         required
                         className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm transition focus:border-rose-gold focus:outline-none focus:ring-1 focus:ring-rose-gold"
@@ -385,7 +389,7 @@ export default function BookingForm() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-semibold text-charcoal">Last name *</label>
+                      <label className="text-xs font-semibold text-charcoal">{tb('lastName')}</label>
                       <input
                         required
                         className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm transition focus:border-rose-gold focus:outline-none focus:ring-1 focus:ring-rose-gold"
@@ -395,7 +399,7 @@ export default function BookingForm() {
                     </div>
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-charcoal">Phone *</label>
+                    <label className="text-xs font-semibold text-charcoal">{tb('phone')}</label>
                     <input
                       required
                       className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm transition focus:border-rose-gold focus:outline-none focus:ring-1 focus:ring-rose-gold"
@@ -405,7 +409,7 @@ export default function BookingForm() {
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-charcoal">Email (optional)</label>
+                    <label className="text-xs font-semibold text-charcoal">{tb('email')}</label>
                     <input
                       type="email"
                       className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm transition focus:border-rose-gold focus:outline-none focus:ring-1 focus:ring-rose-gold"
@@ -414,7 +418,7 @@ export default function BookingForm() {
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-charcoal">Special requests</label>
+                    <label className="text-xs font-semibold text-charcoal">{tb('notes')}</label>
                     <textarea
                       rows={3}
                       className="mt-1 w-full rounded-xl border border-rose-gold/25 px-3 py-2.5 text-sm transition focus:border-rose-gold focus:outline-none focus:ring-1 focus:ring-rose-gold"
@@ -431,11 +435,7 @@ export default function BookingForm() {
                       className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-rose-gold"
                     />
                     <label htmlFor="sms-consent" className="cursor-pointer text-xs leading-relaxed text-charcoal">
-                      By checking this box, I agree to receive SMS appointment
-                      reminders and confirmations from Nice Nails & Spa at the
-                      number provided. Message & data rates may apply.
-                      Reply STOP to unsubscribe. View Privacy Policy at
-                      nicenailsaz.com/privacy.
+                      {tb('smsConsent')}
                     </label>
                   </div>
                   {formError && <p className="text-sm text-red-600">{formError}</p>}
@@ -443,7 +443,7 @@ export default function BookingForm() {
 
                 {/* Booking summary sidebar */}
                 <aside className="h-fit rounded-2xl border border-rose-gold/20 bg-surface p-6 shadow-sm shadow-rose-gold/5">
-                  <h3 className="font-display text-lg text-ink">Summary</h3>
+                  <h3 className="font-display text-lg text-ink">{tb('summary')}</h3>
                   <ul className="mt-4 space-y-3 text-sm text-charcoal">
                     <li>
                       <span className="font-semibold text-charcoal">{service?.name}</span>
@@ -451,9 +451,9 @@ export default function BookingForm() {
                     </li>
                     <li className="flex items-center gap-2">
                       <Clock size={15} className="text-rose-gold" />
-                      {service?.duration} minutes
+                      {tb('minutes', { count: service?.duration })}
                     </li>
-                    <li>Staff: {staffName}</li>
+                    <li>{tb('staffLabel', { name: staffName })}</li>
                     <li>
                       {dateVal && format(dateVal, 'MMM d, yyyy')}
                       {timeLabel && ` · ${timeLabel}`}
@@ -473,7 +473,7 @@ export default function BookingForm() {
 
           {/* Left: step label */}
           <span className="text-xs font-medium text-muted">
-            Step {step} of {STEPS.length}
+            {tb('stepOf', { step, total: STEPS.length })}
           </span>
 
           {/* Right: Back + Next/Confirm */}
@@ -484,7 +484,7 @@ export default function BookingForm() {
                 onClick={goBack}
                 className="rounded-full border border-charcoal/20 px-5 py-2 text-sm font-medium text-charcoal transition hover:bg-charcoal/5"
               >
-                ← Back
+                ← {tb('back')}
               </button>
             )}
             {step < 4 ? (
@@ -494,7 +494,7 @@ export default function BookingForm() {
                 disabled={!canProceed}
                 className="rounded-full bg-rose-gold px-7 py-2.5 text-sm font-semibold text-white shadow transition hover:opacity-90 disabled:opacity-35"
               >
-                Next →
+                {tb('next')} →
               </button>
             ) : (
               <button
@@ -503,7 +503,7 @@ export default function BookingForm() {
                 onClick={handleConfirm}
                 className="rounded-full bg-rose-gold px-8 py-2.5 text-sm font-bold text-white shadow-lg transition hover:opacity-90 disabled:opacity-60"
               >
-                {submitting ? 'Booking…' : 'Confirm booking'}
+                {submitting ? tb('booking') : tb('confirm')}
               </button>
             )}
           </div>

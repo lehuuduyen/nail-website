@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { Phone, Star, StarHalf } from 'lucide-react';
 
 function GoogleLogo({ className = 'h-6 w-6' }) {

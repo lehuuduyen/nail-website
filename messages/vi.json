@@ -1,0 +1,377 @@
+{
+  "meta": {
+    "defaultTitle": "Nice Nails & Spa | Tiệm Nail ở Phoenix AZ",
+    "titleTemplate": "%s | Nice Nails & Spa Phoenix",
+    "description": "Tiệm nail hàng đầu tại Phoenix, AZ. Làm móng tay, móng chân, móng bột & gel, nối mi, head spa & chăm sóc da mặt. Đặt lịch online!",
+    "keywords": "tiệm nail Phoenix|làm móng phoenix az|móng chân phoenix|móng bột phoenix|móng gel phoenix az|nối mi phoenix|head spa phoenix|tiệm nail gần đây",
+    "ogTitle": "Nice Nails & Spa | Tiệm Nail ở Phoenix AZ",
+    "ogDescription": "Nice Nails & Spa - Làm móng tay, móng chân, móng bột & gel tại Phoenix AZ. Đặt lịch online!",
+    "ogImageAlt": "Nice Nails & Spa — Tiệm Nail ở Phoenix AZ",
+    "twTitle": "Nice Nails & Spa | Phoenix AZ",
+    "twDescription": "Làm móng tay, móng chân, gel, nối mi, head spa & nhiều hơn — đặt lịch online.",
+    "home": {
+      "title": "Nice Nails & Spa | Tiệm Nail Tốt Nhất ở North Phoenix AZ 85021 | Móng Tay & Móng Chân",
+      "description": "Làm móng gel, móng bột nhúng, bộ móng acrylic, móng chân spa, nối mi & nhiều hơn tại North Phoenix AZ 85021. Phục vụ Moon Valley, Glendale & Peoria. 4.9★ · 700+ đánh giá."
+    },
+    "services": {
+      "title": "Dịch Vụ & Bảng Giá Tiệm Nail | Nice Nails & Spa North Phoenix AZ 85021",
+      "description": "Toàn bộ dịch vụ & bảng giá tại Nice Nails & Spa, North Phoenix AZ 85021. Móng gel từ $30, móng chân spa từ $35, bộ móng acrylic từ $40, nối mi, head spa, chăm sóc da mặt & nhiều hơn."
+    },
+    "specials": {
+      "title": "Ưu Đãi & Khuyến Mãi Tiệm Nail ở North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "description": "Ưu đãi & khuyến mãi hiện tại tại Nice Nails & Spa ở North Phoenix, AZ 85021 — móng chân giá tốt, ưu đãi làm móng và khuyến mãi theo mùa. Đặt lịch online hoặc gọi (602) 759-9184."
+    }
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "services": "Dịch vụ",
+    "gallery": "Thư viện",
+    "blog": "Blog",
+    "call": "Gọi",
+    "directions": "Chỉ đường",
+    "book": "Đặt lịch"
+  },
+  "footer": {
+    "tagline": "Sản phẩm chất lượng, tay nghề khéo léo và không gian thư giãn — nhận khách đặt lịch & khách vãng lai.",
+    "explore": "Khám phá",
+    "services": "Dịch vụ",
+    "specials": "Ưu đãi",
+    "gallery": "Thư viện",
+    "blog": "Blog",
+    "bookOnline": "Đặt lịch online",
+    "privacy": "Chính sách Bảo mật",
+    "terms": "Điều khoản & Điều kiện",
+    "rights": "Bảo lưu mọi quyền."
+  },
+  "hero": {
+    "headline": "Bộ Móng Sang Trọng Gây Ấn Tượng",
+    "subline": "Tiệm nail được đánh giá cao nhất Phoenix • Đặt lịch trong 60 giây",
+    "imageAlt": "{name} — tiệm nail sang trọng ở Phoenix AZ",
+    "imageTitle": "Làm móng và nail art sang trọng ở Phoenix AZ",
+    "bookNow": "ĐẶT LỊCH",
+    "ratingLabel": "{rating} đánh giá",
+    "clientsLabel": "{count}+ khách hài lòng"
+  },
+  "cta": {
+    "heading": "Sẵn sàng cho bộ móng đẹp?",
+    "subheading": "Phục vụ trong ngày khi có thể — hoặc đặt lịch online trước khi đến với chúng tôi ở {area}.",
+    "button": "Đặt Lịch Hẹn Ngay Hôm Nay"
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "description": "Trang bạn tìm không tồn tại hoặc đã được chuyển.",
+    "backHome": "Về trang chủ"
+  },
+  "services": {
+    "heading": "Dịch vụ & bảng giá",
+    "pricingNote": "Giá hiển thị là giá tiền mặt. Thanh toán thẻ cộng thêm 3% phí xử lý. Đặt lịch online bất cứ lúc nào — nhận cả khách vãng lai.",
+    "all": "Tất cả",
+    "viewPage": "Xem trang {label} →"
+  },
+  "booking": {
+    "pageTitle": "Đặt lịch hẹn",
+    "pageSubtitle": "Vài bước tới khoảnh khắc thư giãn của bạn.",
+    "loading": "Đang tải…",
+    "steps": {
+      "service": "Dịch vụ",
+      "staff": "Kỹ thuật viên",
+      "datetime": "Ngày & giờ",
+      "details": "Thông tin của bạn"
+    },
+    "anyStaff": "Bất kỳ ai có sẵn",
+    "searchServices": "Tìm dịch vụ…",
+    "minShort": "{count} phút",
+    "noPreference": "Không yêu cầu — bất kỳ ai có sẵn",
+    "nailSpecialist": "Chuyên viên làm móng",
+    "loadingTimes": "Đang tải khung giờ trống…",
+    "noSlots": "Không có khung giờ cho ngày này.",
+    "slotsRemaining": "Còn <b>{count}</b> khung giờ",
+    "selectService": "Chọn dịch vụ",
+    "selectServiceHint": "Chạm vào một dịch vụ để tiếp tục.",
+    "chooseTech": "Chọn kỹ thuật viên",
+    "chooseTechHint": "Chạm vào một kỹ thuật viên để tiếp tục.",
+    "pickDateTime": "Chọn ngày & giờ",
+    "pickDateTimeHint": "Chọn một ngày rồi chạm vào khung giờ còn trống.",
+    "date": "Ngày",
+    "availableTimes": "Khung giờ còn trống — {date}",
+    "selectDateFirst": "Hãy chọn ngày trước",
+    "yourInfo": "Thông tin của bạn",
+    "yourInfoHint": "Sắp xong! Điền thông tin của bạn bên dưới.",
+    "firstName": "Tên *",
+    "lastName": "Họ *",
+    "phone": "Số điện thoại *",
+    "email": "Email (không bắt buộc)",
+    "notes": "Yêu cầu đặc biệt",
+    "smsConsent": "Khi đánh dấu ô này, tôi đồng ý nhận tin nhắn SMS nhắc lịch và xác nhận hẹn từ Nice Nails & Spa tới số đã cung cấp. Có thể áp dụng cước tin nhắn & dữ liệu. Trả lời STOP để hủy đăng ký. Xem Chính sách Bảo mật tại nicenailsaz.com/privacy.",
+    "summary": "Tóm tắt",
+    "minutes": "{count} phút",
+    "staffLabel": "Kỹ thuật viên: {name}",
+    "stepOf": "Bước {step} / {total}",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "booking": "Đang đặt…",
+    "confirm": "Xác nhận đặt lịch",
+    "errService": "Vui lòng chọn một dịch vụ.",
+    "errDate": "Vui lòng chọn một ngày.",
+    "errTime": "Vui lòng chọn một khung giờ.",
+    "errName": "Bắt buộc nhập họ và tên.",
+    "errPhone": "Vui lòng nhập số điện thoại hợp lệ gồm 10 chữ số.",
+    "errMissing": "Thiếu thông tin đặt lịch.",
+    "errFailed": "Đặt lịch không thành công."
+  },
+  "confirmation": {
+    "loading": "Đang tải…",
+    "title": "Đã đặt lịch xong!",
+    "reference": "Mã tham chiếu",
+    "service": "Dịch vụ",
+    "with": "Với",
+    "when": "Khi nào",
+    "addToCalendar": "Thêm vào lịch",
+    "bookAnother": "Đặt lịch hẹn khác",
+    "backHome": "Về trang chủ"
+  },
+  "specialsPage": {
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbSpecials": "Ưu đãi",
+    "h1": "Ưu đãi & Khuyến mãi — Nice Nails & Spa, Phoenix 85021",
+    "intro": "Đang tìm móng chân giá tốt hay ưu đãi làm móng ở North Phoenix? Đây là nơi chúng tôi đăng các ưu đãi hiện tại. Một lựa chọn thay thế Groupon tuyệt vời cho ưu đãi tiệm nail ở khu 85021 — đặt lịch online hoặc gọi cho chúng tôi để giữ chỗ.",
+    "moreOffers": "Thêm ưu đãi",
+    "noneTitle": "Hiện chưa có ưu đãi nào",
+    "noneBody": "Hãy ghé lại sớm — chúng tôi đăng các ưu đãi móng chân và móng tay theo mùa ở đây. Trong lúc đó, bạn luôn có thể đặt lịch online hoặc gọi cho chúng tôi để biết giá hiện tại.",
+    "bookOnline": "Đặt lịch online",
+    "call": "Gọi {phone}",
+    "seoH2": "Ưu đãi tiệm nail giá tốt ở North Phoenix",
+    "seoBody": "Nice Nails & Spa là tiệm nail trọn gói ở North Phoenix, AZ 85021, cung cấp các lựa chọn làm móng và móng chân spa giá tốt mà không cắt giảm chất lượng hay vệ sinh. Dù bạn tìm 'pedicure giá tốt gần đây' hay 'ưu đãi móng chân ở Phoenix', các ưu đãi phía trên cho thấy chương trình đang chạy. Nhận khách vãng lai và đặt lịch online mở 24/7.",
+    "addressLabel": "Địa chỉ:",
+    "phoneLabel": "Điện thoại:",
+    "bookAppointment": "Đặt lịch hẹn"
+  },
+  "home": {
+    "luxury": {
+      "heading": "Dịch Vụ Cao Cấp Của Chúng Tôi",
+      "subtitle": "Lấy cảm hứng từ những mẫu móng đẹp của chúng tôi",
+      "pillars": {
+        "premium": "Chỉ Dùng Sản Phẩm Cao Cấp",
+        "fastBooking": "Không Chờ Đợi – Đặt Lịch Nhanh",
+        "instagram": "Bộ Móng Đẹp Chuẩn Instagram",
+        "hygiene": "Vệ Sinh Đảm Bảo 100%"
+      }
+    },
+    "popular": {
+      "heading": "Dịch Vụ Được Yêu Thích Nhất",
+      "subtitle": "Chúng tôi hoàn thiện những mẫu móng tuyệt đẹp",
+      "fromPrice": "Từ {price}",
+      "bookThis": "Đặt dịch vụ này",
+      "bookAppointment": "Đặt lịch hẹn của bạn",
+      "viewAll": "Xem tất cả dịch vụ & bảng giá",
+      "bookAria": "Đặt {title}"
+    },
+    "whyLove": {
+      "heading": "Vì Sao Khách Yêu Thích Nice Nails & Spa",
+      "happyClients": "{count}+ khách hài lòng",
+      "bookThis": "Đặt dịch vụ này",
+      "quote1": "Bộ móng đẹp nhất mình từng làm!",
+      "quote2": "Tiệm đẹp tuyệt vời và phục vụ xuất sắc. Mình sẽ không đi nơi nào khác.",
+      "imgAltManicure": "Dịch vụ làm móng chuyên nghiệp tại Nice Nails & Spa Phoenix AZ",
+      "imgAltInterior": "Không gian sang trọng bên trong tiệm nail Nice Nails & Spa ở North Phoenix AZ",
+      "imgTitleInterior": "Tiệm nail tốt nhất ở North Phoenix AZ 85021"
+    },
+    "videos": {
+      "heading": "Xem tác phẩm của chúng tôi",
+      "subtitle": "Vài khoảnh khắc tại Nice Nails & Spa — chạm để xem.",
+      "viewAll": "Xem tất cả video"
+    },
+    "testimonials": {
+      "heading": "Khách hàng yêu thích",
+      "liveGoogle": "Trực tiếp từ Google Maps",
+      "reviewUs": "Đánh giá chúng tôi trên Google",
+      "pause": "Tạm dừng tự cuộn",
+      "resume": "Tiếp tục tự cuộn",
+      "reviewNum": "Đánh giá {num}"
+    },
+    "gallery": {
+      "heading": "Tác Phẩm Của Chúng Tôi",
+      "viewFull": "Xem toàn bộ thư viện",
+      "close": "Đóng"
+    },
+    "serviceAreas": {
+      "heading": "Phục Vụ North Phoenix & Khu Vực Lân Cận",
+      "intro": "{name} đón khách từ khắp Valley—dưới đây là vài cộng đồng chúng tôi thường gặp.",
+      "northPhoenix": "<b>North Phoenix.</b> Tiệm của chúng tôi nằm trên N 19th Ave, ngay phía bắc W Northern Ave — đi bộ một đoạn ngắn từ ga tàu điện nhẹ Valley Metro ở Northern/19th Ave (B Line) và gần Bookmans Entertainment Exchange, siêu thị Albertsons trên W Northern Ave, cùng khu Metrocenter. Khách từ El Caro Villas, Las Pomaritas và các khu lân cận thường kết hợp lịch làm móng với việc đi việc dọc 19th Avenue hoặc ghé nhanh sau khi đi tàu điện. Chỗ đậu xe dễ dàng và nhận khách vãng lai.",
+      "glendale": "<b>Glendale AZ.</b> Ngay phía tây tiệm, khách Glendale đặt làm mới gel, đắp thêm acrylic và làm móng chân thư giãn tại {name} khi muốn kỹ thuật viên có kinh nghiệm và lịch hẹn đơn giản.",
+      "peoria": "<b>Peoria AZ.</b> Khách Peoria thường chọn chúng tôi cho nail art, móng bột nhúng và bộ móng đầy đủ trước sự kiện hay kỳ nghỉ—quãng đường ngắn tới North Phoenix rất đáng cho một không gian yên tĩnh và kết quả ổn định.",
+      "deerValley": "<b>Deer Valley AZ.</b> Nếu bạn sống hoặc làm việc quanh khu Deer Valley, {name} là lựa chọn dễ dàng cho việc làm móng giờ nghỉ trưa và đổi màu sơn với không gian thư giãn.",
+      "moonValley": "<b>Moon Valley AZ.</b> Khách Moon Valley thường ghé làm móng chân, bảo dưỡng acrylic và dịch vụ cho bé khi cả nhà cần làm đẹp—đặt lịch online hoặc gọi trước và chúng tôi sẽ cố gắng sắp xếp cho bạn."
+    },
+    "about": {
+      "heading": "Về {name}",
+      "p1": "Chào mừng đến với {name}, một <b>tiệm nail ở North Phoenix AZ</b> mà khách quanh vùng chọn vì sự tỉ mỉ, nhịp độ thư thái và đội ngũ chào đón bạn như khách quen ngay từ ngày đầu. Tiệm nằm ở <b>{address}</b>, một điểm dừng tiện lợi dù bạn đến từ sâu trong <b>North Phoenix</b>, đi từ <b>Glendale</b>, hay ghé qua từ <b>Peoria</b> để thư giãn buổi chiều.",
+      "p2": "Từ <b>làm móng tay</b> chỉn chu hay <b>làm móng chân</b> kiểu spa đến bộ <b>móng acrylic</b> đầy đủ, đắp gel và <b>móng bột nhúng</b>, chúng tôi điều chỉnh từng dịch vụ theo phong cách của bạn. Thích chút lấp lánh? Các lựa chọn <b>nail art</b> của chúng tôi khiến sinh nhật, đám cưới và sự tự tin mỗi ngày trở nên dễ dàng. Chúng tôi giữ bàn làm sạch sẽ, hướng dẫn chăm sóc bằng lời dễ hiểu và không bao giờ làm vội—vì bộ móng đẹp phải đẹp cả khi nhìn lẫn khi cảm nhận.",
+      "p3": "Ghé bất cứ khi nào bạn cần làm mới, sửa móng hay làm nguyên bộ mới; chúng tôi ở đây để giúp bạn ra về gọn gàng, được lắng nghe và sẵn sàng cho mọi việc tiếp theo trong lịch của bạn."
+    },
+    "faq": {
+      "heading": "Câu Hỏi Thường Gặp",
+      "q1": "Tiệm nail ở Phoenix của bạn có nhận khách vãng lai không?",
+      "a1": "Có. Nice Nails & Spa nhận khách vãng lai bất cứ khi nào còn ghế trống, nhất là các ngày trong tuần vắng hơn. Buổi tối và thứ Bảy dễ kín chỗ, nên đặt lịch online sẽ giữ giờ cho bạn và giúp chúng tôi chuẩn bị cho nail art hoặc dịch vụ lâu hơn.",
+      "q2": "Làm móng tay ở Nice Nails & Spa giá bao nhiêu?",
+      "a2": "Làm móng cổ điển bắt đầu từ $30; các gói deluxe và deep cao hơn, sơn gel có ở mức nâng cấp. Giá cuối tùy vào dịch vụ cụ thể và các phần thêm bạn chọn—xem menu làm móng online hoặc hỏi khi đến.",
+      "q3": "Nice Nails & Spa ở đâu tại Phoenix AZ?",
+      "a3": "{name} tọa lạc tại {address}, thuộc North Phoenix ZIP 85021. Chạm Chỉ đường trên trang của chúng tôi hoặc tìm tiệm trên Google Maps để có chỉ dẫn từng chặng và mẹo đậu xe.",
+      "q4": "Bạn cung cấp những dịch vụ nail nào?",
+      "a4": "Chúng tôi làm móng tay và móng chân, móng acrylic và gel, móng bột nhúng, nail art và các phần thêm, cùng nối mi, waxing, chăm sóc da mặt, head spa và dịch vụ cho bé. Xem menu đầy đủ theo từng nhóm ở trang Dịch vụ.",
+      "q5": "Giờ mở cửa của bạn thế nào?",
+      "a5": "Giờ làm việc thường lệ của chúng tôi là {hours}. Giờ ngày lễ có thể thay đổi—hãy gọi trước hoặc xem Google trước khi đến vào dịp lễ lớn."
+    },
+    "location": {
+      "heading": "Tìm Chúng Tôi",
+      "address": "Địa chỉ",
+      "hours": "Giờ mở cửa",
+      "phone": "Điện thoại",
+      "getDirections": "Chỉ đường",
+      "reviewGoogle": "Đánh giá chúng tôi trên Google"
+    }
+  },
+  "landing": {
+    "common": {
+      "viewAllServices": "← Xem tất cả dịch vụ",
+      "faqHeading": "Câu hỏi thường gặp",
+      "call": "Gọi {phone}"
+    },
+    "acrylic": {
+      "metaTitle": "Móng Acrylic Phoenix AZ | Bộ Đầy Đủ & Đắp Thêm | Nice Nails & Spa",
+      "metaDesc": "Bộ móng acrylic đầy đủ, đắp thêm & tăng cường móng ở North Phoenix AZ 85021. Kỹ thuật viên giàu kinh nghiệm, giá rõ ràng—đặt móng acrylic online tại Nice Nails & Spa.",
+      "h1": "Móng acrylic ở Phoenix, AZ",
+      "intro": "Độ dài đắp tạo hình, kiểu pink-and-white cổ điển và lịch đắp thêm đều đặn cho khách bận rộn ở Valley. Xem mọi dịch vụ tăng cường chúng tôi có trong menu <menulink>móng acrylic & gel</menulink>, rồi đặt dịch vụ hợp dáng móng và phong cách của bạn.",
+      "ctaBook": "Đặt móng acrylic",
+      "ctaMenu": "Xem menu móng",
+      "whyHeading": "Vì sao khách chọn acrylic ở đây",
+      "why1": "Độ dài và dáng móng tùy chỉnh, đa số khách đắp thêm mỗi hai đến ba tuần.",
+      "why2": "Sửa và cân chỉnh lại khi cần—nhắn tin hoặc gọi để được hướng dẫn nhanh.",
+      "why3": "Thêm màu gel hoặc nail art; hỏi thời gian thay đổi thế nào khi gộp nhiều dịch vụ.",
+      "faq": {
+        "q1": "Móng acrylic ở Phoenix AZ giá bao nhiêu?",
+        "a1": "Bộ móng acrylic đầy đủ tại Nice Nails & Spa bắt đầu từ $40 (sơn thường) hoặc $50 với lớp hoàn thiện gel. Kiểu pink-and-white, ombré và đắp tạo hình có giá cao hơn. Đắp thêm từ $35 (thường) hoặc $45 với gel. Xem menu móng acrylic & gel của chúng tôi để biết giá hiện tại của từng lựa chọn.",
+        "q2": "Bộ móng acrylic đầy đủ mất bao lâu?",
+        "a2": "Một bộ móng acrylic đầy đủ tiêu chuẩn mất khoảng 60–90 phút. Dáng dài hơn, nail art chi tiết, hoặc thêm màu gel có thể cần thêm thời gian — báo mẫu của bạn khi đặt lịch để chúng tôi giữ đúng khung giờ.",
+        "q3": "Bao lâu thì móng acrylic cần đắp thêm?",
+        "a3": "Đa số khách quay lại mỗi 2–3 tuần để đắp thêm khi móng thật dài ra. Để quá ba tuần có thể ảnh hưởng độ bám và có khi phải làm bộ mới thay vì đắp thêm.",
+        "q4": "Tôi có thể đến không hẹn để làm móng acrylic ở Phoenix không?",
+        "a4": "Chúng tôi nhận khách vãng lai khi còn ghế trống, nhưng dịch vụ acrylic — nhất là bộ đầy đủ có nail art hoặc dáng dài — nên đặt trước để đủ thời gian. Đặt online hoặc gọi để xác nhận lịch trong ngày."
+      }
+    },
+    "gel": {
+      "metaTitle": "Móng Gel ở Phoenix, AZ | Nice Nails & Spa",
+      "metaDesc": "Làm móng gel bền lâu ở North Phoenix — Nice Nails & Spa. Đặt móng gel online; nhận khách vãng lai.",
+      "ogAlt": "Móng gel — Nice Nails & Spa Phoenix AZ",
+      "h1": "Móng gel ở Phoenix, AZ",
+      "intro": "Độ bóng bền, chống mẻ và lớp hoàn thiện mịn — dịch vụ làm móng gel và liên quan đến gel của chúng tôi thực hiện tại North Phoenix. Kết hợp với làm móng chân hoặc xem toàn bộ <menulink>menu dịch vụ</menulink> của chúng tôi.",
+      "ctaBook": "Đặt online",
+      "ctaMenu": "Tất cả dịch vụ",
+      "whyHeading": "Vì sao khách chọn gel",
+      "why1": "Độ bền dẻo và lớp bóng mượt giữ lâu hơn sơn thường.",
+      "why2": "Lý tưởng trước sự kiện, đi du lịch, hoặc khi bạn muốn màu ít phải chăm sóc.",
+      "why3": "Hỏi đội ngũ của chúng tôi về làm móng gel, overlay và kết hợp với dịch vụ spa.",
+      "faq": {
+        "q1": "Móng gel ở Phoenix AZ giá bao nhiêu?",
+        "a1": "Nâng cấp sơn gel bắt đầu từ $10 cộng vào bất kỳ dịch vụ làm móng nào. Gói làm móng gel riêng bắt đầu từ $35. Giá thay đổi theo cấp dịch vụ — xem menu làm móng của chúng tôi để biết chi phí chính xác của các gói Classic, Deluxe và Deep có gel.",
+        "q2": "Móng gel giữ được bao lâu?",
+        "a2": "Sơn gel thường giữ 2–3 tuần không bị mẻ. Builder gel và overlay gel-x có thể lâu hơn nếu chăm sóc đúng. Tránh cạy hoặc bóc để giữ được lâu nhất.",
+        "q3": "Khác biệt giữa gel và sơn thường là gì?",
+        "a3": "Gel được hơ dưới đèn UV/LED cho lớp hoàn thiện cứng hơn, chống mẻ và giữ lâu hơn nhiều so với sơn thường khô tự nhiên. Sơn thường dễ tẩy ở nhà; gel nên được tháo tại tiệm để bảo vệ móng.",
+        "q4": "Tôi có thể đến không hẹn để làm móng gel ở Phoenix không?",
+        "a4": "Chúng tôi nhận khách vãng lai tùy ghế trống. Đặt online đảm bảo đúng giờ bạn muốn, nhất là buổi tối và cuối tuần khi đông khách nhất."
+      }
+    },
+    "gelx": {
+      "metaTitle": "Móng Gel-X ở North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "metaDesc": "Nối móng Gel-X ở North Phoenix AZ 85021 — nhẹ, tháo soak-off, không cần monomer. Bộ đầy đủ từ $40. Đặt tại Nice Nails & Spa hôm nay.",
+      "ogAlt": "Nối móng Gel-X — Nice Nails & Spa North Phoenix AZ",
+      "h1": "Móng Gel-X ở North Phoenix, AZ",
+      "intro": "Nối móng gel nhẹ, tháo soak-off, không mùi monomer và cảm giác mềm hơn acrylic truyền thống. Đặt Gel-X tại tiệm North Phoenix hoặc xem toàn bộ <menulink>menu nối móng</menulink>.",
+      "ctaBook": "Đặt móng Gel-X",
+      "ctaMenu": "Xem menu móng",
+      "imageAlt": "Nối móng gel mềm Gel-X tại Nice Nails & Spa, North Phoenix AZ 85021",
+      "whatIsHeading": "Gel-X là gì?",
+      "whatIsBody": "Gel-X là hệ nối móng bằng gel mềm, trong đó các tip phủ toàn phần được tạo hình sẵn, gắn vào móng thật bằng keo gel và hơ dưới đèn LED — không monomer lỏng, không mài bề mặt móng thật và không mùi acrylic nồng. Kết quả là bộ móng dẻo, nhẹ, trông và cảm giác như móng thật được tăng cường thay vì bộ đắp nặng. Tại tiệm North Phoenix AZ 85021 trên N 19th Ave, Gel-X là lựa chọn phổ biến cho khách muốn dài và chắc mà không cồng kềnh như acrylic truyền thống, hoặc cho người nhạy cảm với sản phẩm chứa monomer. Đa số bộ giữ được ba đến bốn tuần, và việc tháo soak-off đơn giản, nhẹ nhàng với móng thật hơn là mài cơ học.",
+      "whoHeading": "Gel-X hợp với ai?",
+      "who1": "Khách thích cảm giác nhẹ, dẻo hơn acrylic truyền thống.",
+      "who2": "Người nhạy cảm với mùi monomer hoặc bụi khi mài acrylic.",
+      "who3": "Người để móng thật muốn dài thêm mà không đắp nặng.",
+      "who4": "Khách muốn cách tháo soak-off nhẹ nhàng hơn cho móng thật.",
+      "aftercareHeading": "Mẹo chăm sóc sau khi làm",
+      "after1": "Thoa dầu dưỡng biểu bì mỗi ngày để giữ gel dẻo và móng thật đủ ẩm.",
+      "after2": "Đeo găng khi tiếp xúc lâu với nước, chất tẩy rửa hoặc đất.",
+      "after3": "Tránh dùng móng làm dụng cụ — Gel-X chắc nhưng cạy sẽ bong.",
+      "after4": "Quay lại mỗi ba đến bốn tuần để làm bộ mới hoặc bàn về lựa chọn đắp thêm.",
+      "viewMenuArrow": "Xem menu móng →",
+      "compareDip": "So sánh: Dip Powder →",
+      "faq": {
+        "q1": "Móng Gel-X giữ được bao lâu?",
+        "a1": "Nối Gel-X thường giữ ba đến bốn tuần với sinh hoạt hằng ngày bình thường. Độ bền tùy vào khâu chuẩn bị móng, cách chăm sóc và cách bạn dùng tay. Thoa dầu dưỡng biểu bì mỗi ngày và tránh ngâm nước lâu giúp kéo dài thời gian giữ đáng kể.",
+        "q2": "Khác biệt giữa Gel-X và móng acrylic là gì?",
+        "a2": "Gel-X dùng tip gel mềm tạo hình sẵn, gắn bằng keo gel và hơ dưới đèn LED — không monomer lỏng, không mùi nồng và cảm giác mềm, dẻo hơn acrylic truyền thống. Acrylic được đắp từ chất lỏng và bột cho bộ cứng hơn, tùy biến cao. Cả hai đều bền; kỹ thuật viên sẽ giúp bạn chọn dựa trên tình trạng móng thật và lối sống.",
+        "q3": "Móng Gel-X ở Phoenix AZ giá bao nhiêu?",
+        "a3": "Bộ Gel-X tại Nice Nails & Spa khởi điểm bằng cùng mức giá bộ đầy đủ trong menu nối móng — từ $40 cho bộ tiêu chuẩn. Các phần thêm như nail art, ombré hay nâng cấp màu gel tính riêng. Xem menu móng hiện tại để biết con số chính xác hoặc gọi (602) 759-9184.",
+        "q4": "Móng Gel-X có đắp thêm được không hay phải tháo ra?",
+        "a4": "Tip Gel-X là hệ tháo soak-off, nên đa số kỹ thuật viên khuyên làm bộ mới mỗi ba đến bốn tuần thay vì đắp thêm kiểu truyền thống. Tại tiệm North Phoenix, chúng tôi sẽ trao đổi cách tốt nhất cho bộ hiện tại của bạn ngay tại buổi hẹn — có khách đắp thêm, có khách thích tháo và làm lại cho mới nhất."
+      }
+    },
+    "dip": {
+      "metaTitle": "Móng Dip Powder ở North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "metaDesc": "Làm móng dip powder ở North Phoenix AZ 85021 — không mùi, nhẹ, màu bền không cần hơ UV. Bộ đầy đủ từ $40. Đặt tại Nice Nails & Spa.",
+      "ogAlt": "Móng dip powder — Nice Nails & Spa North Phoenix AZ",
+      "h1": "Móng dip powder ở North Phoenix, AZ",
+      "intro": "Nhẹ, không mùi và bền — dip powder tạo liên kết màu chắc mà không cần monomer lỏng hay đèn UV. Đặt tại tiệm North Phoenix hoặc xem toàn bộ <menulink>menu nối móng</menulink>.",
+      "ctaBook": "Đặt dip powder",
+      "ctaMenu": "Xem menu móng",
+      "imageAlt": "Móng dip powder tại Nice Nails & Spa, North Phoenix AZ 85021 — màu đậm, nhẹ, không mùi",
+      "whatIsHeading": "Dip powder hoạt động thế nào",
+      "whatIsBody": "Dip powder dùng lớp lót nhựa resin — không monomer lỏng, không cần đèn UV hay LED. Sau khi quét lớp lót, móng được nhúng vào bột màu mịn (hoặc quét bột lên), rồi khóa lại bằng chất kích hoạt và lớp phủ trên cho bề mặt mịn, cứng. Bột nhiều lớp bám chặt cho màu chắc, chống mẻ, giữ ba đến bốn tuần. Việc tháo cần ngâm acetone với giấy bạc, nhẹ nhàng với móng thật hơn là mài cơ học mạnh. Tại tiệm North Phoenix AZ 85021 trên N 19th Ave, chúng tôi có nhiều tông màu dip powder — từ màu trung tính hằng ngày đến màu theo mùa nổi bật và kiểu French cổ điển.",
+      "whoHeading": "Vì sao khách chọn dip",
+      "who1": "Không cần đèn UV — chất kích hoạt làm cứng bột bằng phản ứng hóa học.",
+      "who2": "Không mùi, khác với monomer lỏng của acrylic truyền thống.",
+      "who3": "Màu đậm, che phủ tốt với lớp phủ trên bóng tự nhiên.",
+      "who4": "Tháo soak-off bằng acetone đơn giản và giữ lại nhiều móng thật hơn.",
+      "aftercareHeading": "Mẹo chăm sóc sau khi làm",
+      "after1": "Dùng dầu dưỡng biểu bì mỗi ngày — bộ dip có thể làm khô vùng da quanh móng theo thời gian.",
+      "after2": "Đeo găng khi rửa chén hoặc dùng chất tẩy rửa.",
+      "after3": "Đừng cạy hay bóc — hãy tháo đúng cách bằng giấy bạc và acetone.",
+      "after4": "Quay lại mỗi ba đến bốn tuần để làm bộ mới hoặc dặm lại.",
+      "viewMenuArrow": "Xem menu móng →",
+      "compareGelx": "So sánh: Gel-X →",
+      "faq": {
+        "q1": "Dip powder giữ được bao lâu?",
+        "a1": "Dip powder thường giữ ba đến bốn tuần — thường lâu hơn sơn gel thường — vì bột nhiều lớp tạo liên kết cứng, bền. Dầu dưỡng biểu bì hằng ngày và tránh tiếp xúc quá nhiều với nước hay hóa chất giúp giữ lâu nhất.",
+        "q2": "Dip powder có tốt hơn móng acrylic không?",
+        "a2": "Tùy bạn cần gì. Dip powder không mùi, không cần hơ UV, và thường được mô tả là nhẹ trên móng hơn so với đắp acrylic truyền thống. Acrylic linh hoạt hơn cho độ dài ấn tượng và dáng đắp tạo hình. Cả hai đều bền; kỹ thuật viên sẽ tư vấn lựa chọn tốt nhất theo móng và lối sống của bạn.",
+        "q3": "Dip powder ở Phoenix AZ giá bao nhiêu?",
+        "a3": "Bộ dip powder tại Nice Nails & Spa khởi điểm từ $40 cho bộ tiêu chuẩn. Giá có thể thay đổi theo độ dài móng, chi tiết thiết kế và phần thêm. Xem menu móng để biết giá hiện tại hoặc gọi (602) 759-9184.",
+        "q4": "Dip powder có an toàn cho móng thật không?",
+        "a4": "Dip powder nhìn chung được xem là nhẹ nhàng so với đắp acrylic nặng vì không cần monomer. Việc tháo — ngâm acetone với giấy bạc — là quy trình đã quen thuộc. Giữ móng thật đủ ẩm bằng dầu dưỡng và tránh cạo mạnh khi tháo rất quan trọng cho sức khỏe móng. Đội ngũ của chúng tôi dùng kỹ thuật chuẩn bị và tháo đúng cách để giảm tối đa tác động lên móng thật."
+      }
+    },
+    "nailart": {
+      "metaTitle": "Nail Art & Thiết Kế Riêng Phoenix AZ | Nice Nails & Spa",
+      "metaDesc": "Nail art, đá đính, phần thêm French & thiết kế riêng ở North Phoenix. Đặt nail art cùng buổi làm móng hoặc gel tại Nice Nails & Spa.",
+      "h1": "Nail art & thiết kế riêng ở Phoenix, AZ",
+      "intro": "Từ đá đính và nâng cấp French đến line art và họa tiết theo mùa — đội ngũ North Phoenix của chúng tôi tạo nail art hợp lịch sự kiện của bạn. Kết hợp nghệ thuật với làm móng, gel hoặc dịch vụ tăng cường từ <menulink>menu dịch vụ</menulink> đầy đủ, hoặc xem <addonlink>phần thêm</addonlink> như đá đính và đánh bóng.",
+      "ctaBook": "Đặt online",
+      "ctaMenu": "Menu làm móng",
+      "whyHeading": "Lên kế hoạch cho buổi nail art của bạn",
+      "why1": "Mang ảnh mẫu để chúng tôi báo thời gian và giá trước khi bắt đầu.",
+      "why2": "Lựa chọn gel và builder thường giúp nghệ thuật chi tiết giữ lâu hơn dưới cái nóng Arizona.",
+      "why3": "Kết hợp nail art với dip, acrylic hoặc móng thật — hỏi cái nào hợp nhất với độ dài của bạn.",
+      "faq": {
+        "q1": "Nail art ở Phoenix AZ giá bao nhiêu?",
+        "a1": "Họa tiết điểm nhấn đơn giản và nâng cấp French bắt đầu từ $5 mỗi móng hoặc mỗi điểm nhấn. Đá đính, chi tiết 3D và nghệ thuật vẽ tay phức tạp tính theo độ khó. Mang ảnh mẫu để chúng tôi báo giá chính xác trước khi bắt đầu.",
+        "q2": "Tôi có cần đặt trước cho nail art không?",
+        "a2": "Có — nail art riêng cần thêm thời gian và vật liệu. Đặt trước giúp chúng tôi sắp đúng khung giờ và chuẩn bị sẵn đồ. Nail art không hẹn trong ngày tùy chỗ trống và chỉ cho mẫu đơn giản.",
+        "q3": "Nail art mất bao lâu?",
+        "a3": "Họa tiết đơn giản cộng thêm 15–30 phút trên dịch vụ nền. Bộ riêng đầy đủ — line art tinh xảo, hoa lá, hoặc thiết kế nhiều móng — có thể thêm 45–60 phút. Chúng tôi sắp đủ thời gian khi bạn đặt kèm ảnh mẫu.",
+        "q4": "Bạn có những kiểu nail art nào?",
+        "a4": "Chúng tôi có French tips, ombre, đá đính, fine-line art, mẫu theo mùa, hoa lá, họa tiết hình học và nhiều hơn. Mang ảnh mẫu để khớp gần nhất — kỹ thuật viên sẽ cho biết cái nào khả thi trên dáng móng của bạn."
+      }
+    }
+  }
+}

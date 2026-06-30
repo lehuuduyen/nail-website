@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Star } from 'lucide-react';
 import { SERVICE_CARD_IMAGES } from '@/lib/siteImages';
 import { WHY_LOVE_IMAGES } from '@/lib/siteImages';
@@ -44,6 +45,7 @@ const motionArticle = {
 };
 
 export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) {
+  const t = useTranslations('home.whyLove');
   const manicureImg = SERVICE_CARD_IMAGES.manicure;
 
   return (
@@ -61,7 +63,7 @@ export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) 
       />
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <h2 className="text-center font-display text-3xl font-normal text-ink md:text-4xl">
-          Why Ladies Love Nice Nails &amp; Spa
+          {t('heading')}
         </h2>
         <div className="section-divider" aria-hidden>
           <span className="section-divider-diamond" />
@@ -90,7 +92,7 @@ export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) 
                   <Star key={i} className="h-5 w-5 fill-current md:h-6 md:w-6" strokeWidth={0} aria-hidden />
                 ))}
               </div>
-              <p className="mt-3 font-sans text-sm text-muted">{reviewCount}+ happy clients</p>
+              <p className="mt-3 font-sans text-sm text-muted">{t('happyClients', { count: reviewCount })}</p>
             </motion.article>
 
             <motion.article
@@ -114,7 +116,7 @@ export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) 
                   href="/booking"
                   className="font-sans text-sm font-semibold text-ink underline decoration-[#c9a96e]/50 decoration-1 underline-offset-[6px] transition hover:text-[#8B6914]"
                 >
-                  Book this service
+                  {t('bookThis')}
                 </Link>
               </div>
             </motion.article>
@@ -129,7 +131,7 @@ export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) 
             <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#e8ddd9]">
               <Image
                 src={WHY_LOVE_IMAGES.manicure.src}
-                alt="Professional manicure service at Nice Nails Spa Phoenix AZ"
+                alt={t('imgAltManicure')}
                 fill
                 loading="lazy"
                 quality={65}
@@ -139,7 +141,7 @@ export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) 
             </div>
             <div className={quotePanel}>
               <p className="font-display text-lg italic leading-relaxed text-ink md:text-xl">
-                &ldquo;Best nails I&apos;ve ever had!&rdquo;
+                &ldquo;{t('quote1')}&rdquo;
               </p>
               <p className="mt-5 flex items-center justify-center gap-2 font-sans text-sm font-semibold text-ink">
                 <span className="text-[#D4AF37]" aria-hidden>
@@ -151,7 +153,7 @@ export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) 
                 href="/booking"
                 className="mt-6 inline-flex items-center justify-center self-center rounded-full bg-gradient-to-r from-[#C9932A] via-[#E8C547] to-[#B8821E] px-10 py-3.5 font-sans text-sm font-semibold text-white no-underline shadow-[0_0_20px_rgba(212,175,55,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] transition hover:brightness-105"
               >
-                Book this service
+                {t('bookThis')}
               </Link>
             </div>
           </motion.article>
@@ -165,8 +167,8 @@ export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) 
             <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#e8ddd9]">
               <Image
                 src={WHY_LOVE_IMAGES.salonInterior.src}
-                alt="Nice Nails & Spa luxury nail salon interior North Phoenix AZ"
-                title="Best Nail Salon in North Phoenix AZ 85021"
+                alt={t('imgAltInterior')}
+                title={t('imgTitleInterior')}
                 fill
                 loading="lazy"
                 quality={65}
@@ -176,8 +178,7 @@ export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) 
             </div>
             <div className={`${quotePanel} justify-center`}>
               <p className="font-display text-base italic leading-relaxed text-ink md:text-lg">
-                &ldquo;Absolutely beautiful salon and excellent service. I won&apos;t go anywhere
-                else.&rdquo;
+                &ldquo;{t('quote2')}&rdquo;
               </p>
               <p className="mt-6 flex items-center justify-center gap-2 font-sans text-sm font-semibold text-ink">
                 <span className="text-[#D4AF37]" aria-hidden>

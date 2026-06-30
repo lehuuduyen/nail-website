@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.js');
+
 const raw = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
 let apiHost = 'localhost';
 let apiPort = '5001';
@@ -88,4 +92,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

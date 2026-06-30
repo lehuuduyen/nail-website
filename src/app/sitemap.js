@@ -1,17 +1,24 @@
 import { absoluteUrl } from '@/lib/siteUrl';
 import { VALID_CATEGORY_SLUGS } from '@/data/services';
 import { getApiOrigin } from '@/lib/api';
+import { routing } from '@/i18n/routing';
+import { localizedUrl } from '@/lib/i18nMeta';
 
 export const revalidate = 3600;
 
 /**
- * Trang index được — không đưa: /booking/confirmation, /api/*, /_next/*.
- * Blog: slug từ GET /api/public/blog (lastModified = updatedAt nếu có).
+ * Chỉ liệt kê URL INDEX ĐƯỢC. Trang đã dịch (translated:true) → có hreflang en/es/vi.
+ * Trang chưa dịch → chỉ URL en (bản /es /vi đang noindex nên không đưa vào).
+ * Không đưa: /booking/confirmation, /api/*, /_next/*.
  */
+/** Category slug đã dịch ES (en + es). Các slug còn lại: en-only (es/vi noindex). */
+const ES_TRANSLATED_CATEGORIES = new Set(['nails']);
+
 const STATIC_ROUTES = [
-  { path: '/', changeFrequency: 'weekly', priority: 1 },
-  { path: '/services', changeFrequency: 'weekly', priority: 0.95 },
-  { path: '/specials', changeFrequency: 'daily', priority: 0.8 },
+  // langs = danh sách locale đã dịch & index được cho route đó (để sinh <url> + hreflang).
+  { path: '/', changeFrequency: 'weekly', priority: 1, langs: routing.locales },
+  { path: '/services', changeFrequency: 'weekly', priority: 0.95, langs: routing.locales },
+  { path: '/specials', changeFrequency: 'daily', priority: 0.8, langs: routing.locales },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.85 },
   { path: '/booking', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.78 },
@@ -22,16 +29,27 @@ const STATIC_ROUTES = [
     path: `/services/${slug}`,
     changeFrequency: 'monthly',
     priority: 0.85,
+    ...(ES_TRANSLATED_CATEGORIES.has(slug) ? { langs: ['en', 'es'] } : {}),
   })),
 ];
 
 function buildStaticEntries(fallbackDate) {
-  return STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
-    url: absoluteUrl(path),
-    lastModified: fallbackDate,
-    changeFrequency,
-    priority,
-  }));
+  return STATIC_ROUTES.flatMap(({ path, changeFrequency, priority, langs }) => {
+    // Chưa dịch (không có langs) → 1 entry URL en; bản locale khác đang noindex.
+    if (!langs || langs.length <= 1) {
+      return [{ url: absoluteUrl(path), lastModified: fallbackDate, changeFrequency, priority }];
+    }
+    // Đã dịch → MỖI locale đã dịch 1 <url> riêng, cùng chia sẻ cụm hreflang của các locale đó.
+    const languages = {};
+    for (const l of langs) languages[l] = localizedUrl(l, path);
+    return langs.map((locale) => ({
+      url: localizedUrl(locale, path),
+      lastModified: fallbackDate,
+      changeFrequency,
+      priority,
+      alternates: { languages },
+    }));
+  });
 }
 
 async function fetchBlogSitemapEntries(fallbackDate) {

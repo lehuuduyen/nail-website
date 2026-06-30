@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 function initials(emp) {
   const a = (emp.firstName || '').charAt(0);
@@ -38,6 +39,7 @@ function AvatarCircle({ emp, idx }) {
 }
 
 export default function StaffPicker({ employees, valueId, onChange }) {
+  const t = useTranslations('booking');
   return (
     <div className="space-y-4">
       <button
@@ -49,7 +51,7 @@ export default function StaffPicker({ employees, valueId, onChange }) {
             : 'border-cream bg-surface hover:border-rose-gold/30'
         }`}
       >
-        No preference — anyone available
+        {t('noPreference')}
       </button>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {(employees || []).map((emp, idx) => {
@@ -69,7 +71,7 @@ export default function StaffPicker({ employees, valueId, onChange }) {
               <p className="mt-3 font-display text-lg text-ink">
                 {emp.firstName} {emp.lastName}
               </p>
-              <p className="text-xs text-muted">Nail specialist</p>
+              <p className="text-xs text-muted">{t('nailSpecialist')}</p>
             </button>
           );
         })}

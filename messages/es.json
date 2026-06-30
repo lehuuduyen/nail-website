@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "defaultTitle": "Nice Nails & Spa | Salón de Uñas en Phoenix AZ",
+    "titleTemplate": "%s | Nice Nails & Spa Phoenix",
+    "description": "Salón de uñas de primer nivel en Phoenix, AZ. Manicura, pedicura, uñas acrílicas y de gel, extensiones de pestañas, head spa y faciales. ¡Reserva en línea!",
+    "keywords": "salón de uñas Phoenix|manicura phoenix az|pedicura phoenix|uñas acrílicas phoenix|uñas de gel phoenix az|extensiones de pestañas phoenix|head spa phoenix|salón de uñas cerca de mí",
+    "ogTitle": "Nice Nails & Spa | Salón de Uñas en Phoenix AZ",
+    "ogDescription": "Nice Nails & Spa - Manicura, pedicura, uñas acrílicas y de gel en Phoenix AZ. ¡Reserva en línea!",
+    "ogImageAlt": "Nice Nails & Spa — Salón de Uñas en Phoenix AZ",
+    "twTitle": "Nice Nails & Spa | Phoenix AZ",
+    "twDescription": "Manicura, pedicura, gel, pestañas, head spa y más — reserva en línea.",
+    "home": {
+      "title": "Nice Nails & Spa | El Mejor Salón de Uñas en North Phoenix AZ 85021 | Manicura y Pedicura",
+      "description": "Manicuras de gel, dip powder, sets completos de acrílico, pedicuras spa, extensiones de pestañas y más en North Phoenix AZ 85021. Servimos Moon Valley, Glendale y Peoria. 4.9★ · 700+ reseñas."
+    },
+    "services": {
+      "title": "Servicios y Precios del Salón de Uñas | Nice Nails & Spa North Phoenix AZ 85021",
+      "description": "Menú completo y precios en Nice Nails & Spa, North Phoenix AZ 85021. Manicuras de gel desde $30, pedicuras spa desde $35, sets completos de acrílico desde $40, extensiones de pestañas, head spa, faciales y más."
+    },
+    "specials": {
+      "title": "Ofertas y Promociones del Salón de Uñas en North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "description": "Ofertas y promociones actuales en Nice Nails & Spa en North Phoenix, AZ 85021 — pedicuras a buen precio, ofertas de manicura y promociones de temporada. Reserva en línea o llama al (602) 759-9184."
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "gallery": "Galería",
+    "blog": "Blog",
+    "call": "Llamar",
+    "directions": "Cómo llegar",
+    "book": "Reservar"
+  },
+  "footer": {
+    "tagline": "Productos de calidad, manos expertas y un espacio relajante — con cita o sin cita previa.",
+    "explore": "Explorar",
+    "services": "Servicios",
+    "specials": "Ofertas",
+    "gallery": "Galería",
+    "blog": "Blog",
+    "bookOnline": "Reservar en línea",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos y Condiciones",
+    "rights": "Todos los derechos reservados."
+  },
+  "hero": {
+    "headline": "Uñas de Lujo Que Enamoran",
+    "subline": "Salón de uñas mejor valorado en Phoenix • Reserva en 60 segundos",
+    "imageAlt": "{name} — salón de uñas de lujo en Phoenix AZ",
+    "imageTitle": "Manicura de lujo y nail art en Phoenix AZ",
+    "bookNow": "RESERVAR",
+    "ratingLabel": "{rating} de calificación",
+    "clientsLabel": "{count}+ clientas felices"
+  },
+  "cta": {
+    "heading": "¿Lista para unas uñas hermosas?",
+    "subheading": "Atención el mismo día cuando es posible — o reserva en línea antes de visitarnos en {area}.",
+    "button": "Reserva Tu Cita Hoy"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o ha cambiado de dirección.",
+    "backHome": "Volver al inicio"
+  },
+  "services": {
+    "heading": "Nuestros servicios y precios",
+    "pricingNote": "Precio en efectivo mostrado. El precio con tarjeta incluye un 3% de comisión de procesamiento. Reserva en línea cuando quieras — también atendemos sin cita.",
+    "all": "Todos",
+    "viewPage": "Ver página de {label} →"
+  },
+  "booking": {
+    "pageTitle": "Reserva tu visita",
+    "pageSubtitle": "Unos pasos hacia tu momento de calma.",
+    "loading": "Cargando…",
+    "steps": {
+      "service": "Servicio",
+      "staff": "Técnica",
+      "datetime": "Fecha y hora",
+      "details": "Tus datos"
+    },
+    "anyStaff": "Cualquiera disponible",
+    "searchServices": "Buscar servicios…",
+    "minShort": "{count} min",
+    "noPreference": "Sin preferencia — cualquiera disponible",
+    "nailSpecialist": "Especialista en uñas",
+    "loadingTimes": "Cargando horarios disponibles…",
+    "noSlots": "No hay horarios para esta fecha.",
+    "slotsRemaining": "<b>{count}</b> horarios disponibles",
+    "selectService": "Elige un servicio",
+    "selectServiceHint": "Toca un servicio para continuar.",
+    "chooseTech": "Elige tu técnica",
+    "chooseTechHint": "Toca una técnica para continuar.",
+    "pickDateTime": "Elige fecha y hora",
+    "pickDateTimeHint": "Elige una fecha y luego toca un horario disponible.",
+    "date": "Fecha",
+    "availableTimes": "Horarios disponibles — {date}",
+    "selectDateFirst": "Elige una fecha primero",
+    "yourInfo": "Tu información",
+    "yourInfoHint": "¡Casi listo! Completa tus datos a continuación.",
+    "firstName": "Nombre *",
+    "lastName": "Apellido *",
+    "phone": "Teléfono *",
+    "email": "Correo electrónico (opcional)",
+    "notes": "Solicitudes especiales",
+    "smsConsent": "Al marcar esta casilla, acepto recibir recordatorios y confirmaciones de cita por SMS de Nice Nails & Spa al número proporcionado. Pueden aplicarse tarifas de mensajes y datos. Responde STOP para cancelar la suscripción. Consulta la Política de Privacidad en nicenailsaz.com/privacy.",
+    "summary": "Resumen",
+    "minutes": "{count} minutos",
+    "staffLabel": "Técnica: {name}",
+    "stepOf": "Paso {step} de {total}",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "booking": "Reservando…",
+    "confirm": "Confirmar reserva",
+    "errService": "Por favor elige un servicio.",
+    "errDate": "Por favor elige una fecha.",
+    "errTime": "Por favor elige un horario.",
+    "errName": "El nombre y el apellido son obligatorios.",
+    "errPhone": "Por favor ingresa un número de teléfono válido de 10 dígitos.",
+    "errMissing": "Faltan datos de la reserva.",
+    "errFailed": "No se pudo completar la reserva."
+  },
+  "confirmation": {
+    "loading": "Cargando…",
+    "title": "¡Todo listo!",
+    "reference": "Referencia",
+    "service": "Servicio",
+    "with": "Con",
+    "when": "Cuándo",
+    "addToCalendar": "Agregar al calendario",
+    "bookAnother": "Reservar otra cita",
+    "backHome": "Volver al inicio"
+  },
+  "specialsPage": {
+    "breadcrumbHome": "Inicio",
+    "breadcrumbSpecials": "Ofertas",
+    "h1": "Ofertas y Promociones — Nice Nails & Spa, Phoenix 85021",
+    "intro": "¿Buscas pedicuras a buen precio u ofertas de manicura en North Phoenix? Aquí publicamos nuestras promociones actuales. Una excelente alternativa a Groupon para ofertas de salón de uñas en la zona 85021 — reserva en línea o llámanos para apartar tu hora.",
+    "moreOffers": "Más ofertas",
+    "noneTitle": "No hay promociones activas en este momento",
+    "noneBody": "Vuelve pronto — aquí publicamos ofertas de temporada de pedicura y manicura. Mientras tanto, siempre puedes reservar en línea o llamarnos para conocer los precios actuales.",
+    "bookOnline": "Reservar en línea",
+    "call": "Llamar al {phone}",
+    "seoH2": "Ofertas de salón de uñas a buen precio en North Phoenix",
+    "seoBody": "Nice Nails & Spa es un salón de uñas de servicio completo en North Phoenix, AZ 85021, que ofrece opciones económicas de manicura y pedicura spa sin sacrificar la calidad ni la higiene. Ya sea que hayas buscado una pedicura económica cerca de mí u ofertas de pedicura en Phoenix, nuestras promociones de arriba muestran lo que está vigente ahora. Atendemos sin cita y la reserva en línea está abierta 24/7.",
+    "addressLabel": "Dirección:",
+    "phoneLabel": "Teléfono:",
+    "bookAppointment": "Reservar cita"
+  },
+  "home": {
+    "luxury": {
+      "heading": "Nuestros Servicios de Lujo",
+      "subtitle": "Inspírate con nuestros hermosos diseños de uñas",
+      "pillars": {
+        "premium": "Solo Productos Premium",
+        "fastBooking": "Sin Esperas – Reserva Rápida",
+        "instagram": "Uñas Dignas de Instagram",
+        "hygiene": "Higiene 100% Garantizada"
+      }
+    },
+    "popular": {
+      "heading": "Nuestros Servicios Más Populares",
+      "subtitle": "Perfeccionamos nuestros impresionantes diseños de uñas",
+      "fromPrice": "Desde {price}",
+      "bookThis": "Reservar este servicio",
+      "bookAppointment": "Reserva tu cita",
+      "viewAll": "Ver todos los servicios y precios",
+      "bookAria": "Reservar {title}"
+    },
+    "whyLove": {
+      "heading": "Por Qué las Clientas Aman Nice Nails & Spa",
+      "happyClients": "{count}+ clientas felices",
+      "bookThis": "Reservar este servicio",
+      "quote1": "¡Las mejores uñas que me he hecho!",
+      "quote2": "Un salón absolutamente hermoso y un servicio excelente. No voy a ningún otro lugar.",
+      "imgAltManicure": "Servicio profesional de manicura en Nice Nails & Spa Phoenix AZ",
+      "imgAltInterior": "Interior del lujoso salón de uñas Nice Nails & Spa en North Phoenix AZ",
+      "imgTitleInterior": "El mejor salón de uñas en North Phoenix AZ 85021"
+    },
+    "videos": {
+      "heading": "Mira nuestro trabajo en acción",
+      "subtitle": "Algunos momentos de Nice Nails & Spa — toca para reproducir.",
+      "viewAll": "Ver todos los videos"
+    },
+    "testimonials": {
+      "heading": "Clientas encantadas",
+      "liveGoogle": "En vivo desde Google Maps",
+      "reviewUs": "Déjanos una reseña en Google",
+      "pause": "Pausar desplazamiento automático",
+      "resume": "Reanudar desplazamiento automático",
+      "reviewNum": "Reseña {num}"
+    },
+    "gallery": {
+      "heading": "Nuestro Trabajo",
+      "viewFull": "Ver galería completa",
+      "close": "Cerrar"
+    },
+    "serviceAreas": {
+      "heading": "Atendiendo North Phoenix y Áreas Cercanas",
+      "intro": "{name} recibe a clientas de todo el Valley—aquí algunas comunidades que vemos con frecuencia.",
+      "northPhoenix": "<b>North Phoenix.</b> Nuestro estudio está en N 19th Ave, justo al norte de W Northern Ave — a poca distancia a pie de la estación de tren ligero Valley Metro de Northern/19th Ave (B Line) y cerca de Bookmans Entertainment Exchange, el Albertsons de W Northern Ave y el corredor de Metrocenter. Las vecinas de El Caro Villas, Las Pomaritas y las cuadras cercanas combinan su cita de uñas con mandados por la 19th Avenue o una parada rápida después de llegar en el tren ligero. El estacionamiento es fácil y atendemos sin cita.",
+      "glendale": "<b>Glendale AZ.</b> Justo al oeste de nuestro salón, las clientas de Glendale reservan retoques de gel, rellenos de acrílico y pedicuras relajantes en {name} cuando quieren técnicas con experiencia y una agenda sencilla.",
+      "peoria": "<b>Peoria AZ.</b> Las residentes de Peoria suelen elegirnos para nail art, dip powder y sets completos antes de eventos o vacaciones—el corto viaje a nuestra ubicación en North Phoenix vale la pena por un ambiente tranquilo y resultados consistentes.",
+      "deerValley": "<b>Deer Valley AZ.</b> Si vives o trabajas por el corredor de Deer Valley, {name} es una opción fácil para manicuras en la hora de almuerzo y cambios de esmalte con espacio para relajarte.",
+      "moonValley": "<b>Moon Valley AZ.</b> Las clientas de Moon Valley nos visitan con frecuencia para pedicuras, mantenimiento de acrílico y servicios para niños cuando toda la familia necesita un arreglo—reserva en línea o llama con anticipación y haremos lo posible por atenderte."
+    },
+    "about": {
+      "heading": "Acerca de {name}",
+      "p1": "Bienvenida a {name}, un <b>salón de uñas en North Phoenix AZ</b> que las vecinas eligen por su trabajo cuidadoso, un ritmo relajado y un equipo que te recibe como a una clienta de siempre desde el primer día. Nuestro estudio está en <b>{address}</b>, una parada conveniente ya sea que vengas desde más adentro de <b>North Phoenix</b>, viajando desde <b>Glendale</b> o pasando desde <b>Peoria</b> para un respiro por la tarde.",
+      "p2": "Desde una <b>manicura</b> impecable o una <b>pedicura</b> estilo spa hasta <b>uñas acrílicas</b> completas, refuerzos de gel y <b>dip powder</b>, adaptamos cada servicio a tu estilo de vida. ¿Te gusta un poco de brillo? Nuestras opciones de <b>nail art</b> hacen que los cumpleaños, las bodas y la confianza de cada día se sientan sin esfuerzo. Mantenemos las estaciones impecables, explicamos el cuidado posterior con palabras claras y nunca apuramos los detalles—porque unas buenas uñas deben sentirse tan bien como se ven.",
+      "p3": "Pasa cuando necesites un retoque, una reparación o un set completamente nuevo; estamos aquí para ayudarte a salir sintiéndote arreglada, escuchada y lista para lo que sigue en tu agenda."
+    },
+    "faq": {
+      "heading": "Preguntas Frecuentes",
+      "q1": "¿Aceptan clientas sin cita en su salón de uñas de Phoenix?",
+      "a1": "Sí. En Nice Nails & Spa recibimos clientas sin cita siempre que tengamos una silla libre, especialmente en los días de semana más tranquilos. Las tardes y los sábados se llenan rápido, así que reservar en línea asegura tu hora y nos ayuda a prepararnos para nail art o servicios más largos.",
+      "q2": "¿Cuánto cuesta una manicura en Nice Nails & Spa?",
+      "a2": "Las manicuras clásicas comienzan en $30; las opciones deluxe y deep cuestan más, y el esmalte de gel está disponible con un cargo adicional. El precio final depende del servicio exacto y los complementos que elijas—consulta nuestro menú de manicura en línea o pregunta al registrarte.",
+      "q3": "¿Dónde está ubicado Nice Nails & Spa en Phoenix AZ?",
+      "a3": "{name} está ubicado en {address}, en North Phoenix ZIP 85021. Toca Cómo llegar en nuestro sitio o busca el salón en Google Maps para indicaciones paso a paso y consejos de estacionamiento.",
+      "q4": "¿Qué servicios de uñas ofrecen?",
+      "a4": "Ofrecemos manicuras y pedicuras, uñas acrílicas y de gel, dip powder, nail art y complementos, además de pestañas, depilación con cera, facial, head spa y servicios para niños. Explora los menús completos por categoría en nuestra página de Servicios.",
+      "q5": "¿Cuál es su horario?",
+      "a5": "Nuestro horario habitual es {hours}. El horario de días festivos puede variar—llama con anticipación o consulta Google antes de visitarnos en un feriado importante."
+    },
+    "location": {
+      "heading": "Encuéntranos",
+      "address": "Dirección",
+      "hours": "Horario",
+      "phone": "Teléfono",
+      "getDirections": "Cómo llegar",
+      "reviewGoogle": "Déjanos una reseña en Google"
+    }
+  },
+  "landing": {
+    "common": {
+      "viewAllServices": "← Ver todos los servicios",
+      "faqHeading": "Preguntas frecuentes",
+      "call": "Llamar al {phone}"
+    },
+    "acrylic": {
+      "metaTitle": "Uñas Acrílicas Phoenix AZ | Sets Completos y Rellenos | Nice Nails & Spa",
+      "metaDesc": "Sets completos de acrílico, rellenos y realces de uñas en North Phoenix AZ 85021. Técnicas con experiencia, precios claros—reserva uñas acrílicas en línea en Nice Nails & Spa.",
+      "h1": "Uñas acrílicas en Phoenix, AZ",
+      "intro": "Largo esculpido, el clásico pink-and-white y horarios de relleno confiables para clientas ocupadas del Valley. Mira cada realce que ofrecemos en el menú de <menulink>uñas acrílicas y de gel</menulink>, y luego reserva el servicio que va con tu forma y estilo de vida.",
+      "ctaBook": "Reservar uñas acrílicas",
+      "ctaMenu": "Ver menú de uñas",
+      "whyHeading": "Por qué las clientas eligen acrílico aquí",
+      "why1": "Largo y forma personalizables, con rellenos cada dos o tres semanas para la mayoría de las clientas.",
+      "why2": "Reparaciones y citas de rebalanceo cuando la vida pasa—escríbenos o llama para una orientación rápida.",
+      "why3": "Agrega color en gel o nail art; pregunta cómo cambia el tiempo cuando combinas servicios.",
+      "faq": {
+        "q1": "¿Cuánto cuestan las uñas acrílicas en Phoenix AZ?",
+        "a1": "Los sets completos de acrílico en Nice Nails & Spa comienzan en $40 (esmalte regular) o $50 con acabado en gel. Los diseños pink-and-white, ombré y esculpidos cuestan más. Los rellenos comienzan en $35 (regular) o $45 con gel. Consulta nuestro menú de uñas acrílicas y de gel para los precios actuales de cada opción.",
+        "q2": "¿Cuánto tarda un set completo de acrílico?",
+        "a2": "Un set completo de acrílico estándar toma unos 60–90 minutos. Las formas más largas, el nail art detallado o agregar color en gel pueden requerir tiempo adicional — dinos tu diseño al reservar para apartar el espacio adecuado.",
+        "q3": "¿Cada cuánto necesitan relleno las uñas acrílicas?",
+        "a3": "La mayoría de las clientas regresan cada 2–3 semanas para un relleno a medida que crece la uña natural. Esperar más de tres semanas puede afectar la adherencia y podría requerir un set completamente nuevo en lugar de un relleno.",
+        "q4": "¿Puedo llegar sin cita para uñas acrílicas en Phoenix?",
+        "a4": "Atendemos sin cita cuando hay una estación libre, pero los servicios de acrílico — especialmente los sets completos con arte o formas largas — conviene reservarlos con anticipación para asegurar el tiempo suficiente. Reserva en línea o llama para confirmar disponibilidad el mismo día."
+      }
+    },
+    "gel": {
+      "metaTitle": "Uñas de Gel en Phoenix, AZ | Nice Nails & Spa",
+      "metaDesc": "Manicuras de gel duraderas en North Phoenix — Nice Nails & Spa. Reserva uñas de gel en línea; atendemos sin cita.",
+      "ogAlt": "Uñas de gel — Nice Nails & Spa Phoenix AZ",
+      "h1": "Uñas de gel en Phoenix, AZ",
+      "intro": "Brillo duradero, resistencia a las astillas y acabados pulidos — nuestras manicuras de gel y servicios relacionados se realizan en nuestra ubicación de North Phoenix. Combínalas con una pedicura o explora nuestro <menulink>menú de servicios</menulink> completo.",
+      "ctaBook": "Reservar en línea",
+      "ctaMenu": "Todos los servicios",
+      "whyHeading": "Por qué las clientas eligen gel",
+      "why1": "Resistencia flexible y acabado brillante que dura más que el esmalte regular.",
+      "why2": "Ideal antes de eventos, viajes o cuando quieres color de bajo mantenimiento.",
+      "why3": "Pregunta a nuestro equipo sobre manicuras de gel, overlays y combinaciones con servicios de spa.",
+      "faq": {
+        "q1": "¿Cuánto cuestan las uñas de gel en Phoenix AZ?",
+        "a1": "Las mejoras de esmalte en gel comienzan en $10 agregados a cualquier servicio de manicura. Las manicuras de gel dedicadas comienzan en $35. El precio varía según el nivel del servicio — consulta nuestro menú de manicura para los costos exactos de las opciones Classic, Deluxe y Deep con gel.",
+        "q2": "¿Cuánto duran las uñas de gel?",
+        "a2": "El esmalte de gel suele durar 2–3 semanas sin astillarse. Los overlays de builder gel y gel-x pueden durar más con el cuidado adecuado. Evita picar o pelar para aprovechar al máximo la duración.",
+        "q3": "¿Cuál es la diferencia entre gel y esmalte regular?",
+        "a3": "El gel se cura bajo luz UV/LED para un acabado más duro y resistente a las astillas que dura mucho más que el esmalte regular que seca al aire. El esmalte regular es más fácil de quitar en casa; el gel se retira mejor en el salón para proteger la uña.",
+        "q4": "¿Puedo llegar sin cita para uñas de gel en Phoenix?",
+        "a4": "Atendemos sin cita según la disponibilidad de estaciones. Reservar en línea garantiza tu horario preferido, especialmente en las tardes y los fines de semana cuando hay más demanda."
+      }
+    },
+    "gelx": {
+      "metaTitle": "Uñas Gel-X en North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "metaDesc": "Extensiones de uñas Gel-X en North Phoenix AZ 85021 — ligeras, soak-off, sin monómero. Sets completos desde $40. Reserva hoy en Nice Nails & Spa.",
+      "ogAlt": "Extensiones de uñas Gel-X — Nice Nails & Spa North Phoenix AZ",
+      "h1": "Uñas Gel-X en North Phoenix, AZ",
+      "intro": "Extensiones de gel ligeras y soak-off, sin olor a monómero y con un tacto más suave que el acrílico tradicional. Reserva Gel-X en nuestro estudio de North Phoenix o explora el <menulink>menú de extensiones de uñas</menulink> completo.",
+      "ctaBook": "Reservar uñas Gel-X",
+      "ctaMenu": "Ver menú de uñas",
+      "imageAlt": "Extensiones de uñas de gel suave Gel-X en Nice Nails & Spa, North Phoenix AZ 85021",
+      "whatIsHeading": "¿Qué es Gel-X?",
+      "whatIsBody": "Gel-X es un sistema de extensión de gel suave en el que se adhieren tips pre-formados de cobertura completa a las uñas naturales con adhesivo de gel y se curan bajo una lámpara LED — sin monómero líquido, sin limar la superficie de la uña natural y sin olor fuerte a acrílico. El resultado es un set flexible y ligero que se ve y se siente como un realce natural en lugar de una extensión esculpida pesada. En nuestro estudio de North Phoenix AZ 85021 en N 19th Ave, Gel-X es una opción popular para quienes quieren largo y resistencia sin el volumen del acrílico tradicional, o para quienes tienen sensibilidad a los productos con monómero. La mayoría de los sets duran de tres a cuatro semanas, y la remoción soak-off es sencilla y más suave para la uña natural que el limado mecánico.",
+      "whoHeading": "¿Para quién es Gel-X?",
+      "who1": "Clientas que prefieren un tacto más ligero y flexible que el acrílico tradicional.",
+      "who2": "Cualquiera sensible a los olores de monómero o al polvo del limado de acrílico.",
+      "who3": "Quienes usan uña natural y quieren largo adicional sin esculpido pesado.",
+      "who4": "Clientas que buscan una remoción soak-off más suave para la uña natural.",
+      "aftercareHeading": "Consejos de cuidado posterior",
+      "after1": "Aplica aceite de cutícula a diario para mantener el gel flexible y la uña natural hidratada.",
+      "after2": "Usa guantes para el contacto prolongado con agua, productos de limpieza o tierra.",
+      "after3": "Evita usar las uñas como herramientas — Gel-X es fuerte, pero hacer palanca causa levantamiento.",
+      "after4": "Regresa cada tres o cuatro semanas para un set nuevo o para hablar de opciones de relleno.",
+      "viewMenuArrow": "Ver menú de uñas →",
+      "compareDip": "Comparar: Dip Powder →",
+      "faq": {
+        "q1": "¿Cuánto duran las uñas Gel-X?",
+        "a1": "Las extensiones Gel-X suelen durar de tres a cuatro semanas con la actividad diaria normal. La duración depende de la preparación de la uña, el cuidado posterior y cómo usas las manos. Aplicar aceite de cutícula a diario y evitar la exposición prolongada al agua ayuda a alargar bastante la duración.",
+        "q2": "¿Cuál es la diferencia entre Gel-X y las uñas acrílicas?",
+        "a2": "Gel-X usa un tip de gel suave pre-formado adherido con adhesivo de gel y curado bajo una lámpara LED — sin monómero líquido, sin olores fuertes y con un tacto más suave y flexible que el acrílico tradicional. El acrílico se esculpe a partir de líquido y polvo para un realce más duro y altamente personalizable. Ambos son duraderos; tu técnica puede ayudarte a elegir según la condición de tu uña natural y tu estilo de vida.",
+        "q3": "¿Cuánto cuestan las uñas Gel-X en Phoenix AZ?",
+        "a3": "Los sets Gel-X en Nice Nails & Spa parten del mismo precio de set completo de nuestro menú de extensiones — desde $40 por un set estándar. Los complementos como nail art, ombré o mejoras de color en gel se cobran por separado. Consulta nuestro menú de uñas actual para cifras exactas o llama al (602) 759-9184.",
+        "q4": "¿Las uñas Gel-X se pueden rellenar o hay que removerlas?",
+        "a4": "Los tips Gel-X son un sistema soak-off, así que la mayoría de las técnicas recomiendan un set nuevo cada tres o cuatro semanas en lugar de un relleno tradicional. En nuestro salón de North Phoenix conversamos el mejor enfoque para tu set actual en tu cita — algunas clientas hacen un infill, otras prefieren remoción y reaplicación para el resultado más fresco."
+      }
+    },
+    "dip": {
+      "metaTitle": "Uñas de Dip Powder en North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "metaDesc": "Manicuras de dip powder en North Phoenix AZ 85021 — sin olor, ligeras, color duradero sin curado UV. Sets completos desde $40. Reserva en Nice Nails & Spa.",
+      "ogAlt": "Uñas de dip powder — Nice Nails & Spa North Phoenix AZ",
+      "h1": "Uñas de dip powder en North Phoenix, AZ",
+      "intro": "Ligero, sin olor y duradero — el dip powder crea una fuerte unión de color sin monómero líquido ni lámparas UV. Reserva en nuestro estudio de North Phoenix o consulta el <menulink>menú de extensiones de uñas</menulink> completo.",
+      "ctaBook": "Reservar dip powder",
+      "ctaMenu": "Ver menú de uñas",
+      "imageAlt": "Uñas de dip powder en Nice Nails & Spa, North Phoenix AZ 85021 — color intenso, ligeras, sin olor",
+      "whatIsHeading": "Cómo funciona el dip powder",
+      "whatIsBody": "El dip powder usa una base de resina — sin monómero líquido, sin lámpara UV o LED. Después de aplicar la base, las uñas se sumergen en un polvo pigmentado fino (o el polvo se aplica con brocha), y luego se sellan con un activador y un top coat para un acabado liso y duro. El polvo en capas se adhiere firmemente para un color fuerte y resistente a las astillas que dura de tres a cuatro semanas. La remoción requiere remojar en acetona con envoltura de papel aluminio, lo cual es más suave para la uña natural que el limado mecánico fuerte. En nuestro estudio de North Phoenix AZ 85021 en N 19th Ave tenemos una amplia gama de tonos de dip powder — desde neutros de todos los días hasta colores de temporada llamativos y los clásicos acabados French.",
+      "whoHeading": "Por qué las clientas eligen dip",
+      "who1": "No se necesita lámpara UV — el activador cura el polvo químicamente.",
+      "who2": "Sin olor, a diferencia del monómero líquido del acrílico tradicional.",
+      "who3": "Color intenso y opaco con un acabado top coat naturalmente brillante.",
+      "who4": "La remoción soak-off con acetona es sencilla y preserva más uña natural.",
+      "aftercareHeading": "Consejos de cuidado posterior",
+      "after1": "Usa aceite de cutícula a diario — los sets de dip pueden resecar la piel de alrededor con el tiempo.",
+      "after2": "Usa guantes al lavar platos o usar productos de limpieza.",
+      "after3": "No piques ni peles — retira correctamente con envoltura de aluminio y acetona.",
+      "after4": "Regresa cada tres o cuatro semanas para un set nuevo o retoque.",
+      "viewMenuArrow": "Ver menú de uñas →",
+      "compareGelx": "Comparar: Gel-X →",
+      "faq": {
+        "q1": "¿Cuánto dura el dip powder?",
+        "a1": "El dip powder suele durar de tres a cuatro semanas — a menudo más que el esmalte de gel regular — porque el polvo en capas crea una unión dura y duradera. El aceite de cutícula diario y evitar la exposición excesiva al agua o a químicos ayuda a maximizar la duración.",
+        "q2": "¿El dip powder es mejor que las uñas acrílicas?",
+        "a2": "Depende de lo que busques. El dip powder no tiene olor, no requiere curado UV y suele describirse como más ligero sobre la uña que el esculpido de acrílico tradicional. El acrílico es más versátil para largos dramáticos y formas esculpidas. Ambos son duraderos; nuestras técnicas te recomendarán la mejor opción según tus uñas y tu estilo de vida.",
+        "q3": "¿Cuánto cuesta el dip powder en Phoenix AZ?",
+        "a3": "Los sets de dip powder en Nice Nails & Spa parten de $40 por un set estándar. El precio puede variar según el largo de la uña, los detalles del diseño y los complementos. Consulta nuestro menú de uñas para los precios actuales o llámanos al (602) 759-9184.",
+        "q4": "¿El dip powder es seguro para las uñas naturales?",
+        "a4": "El dip powder se considera generalmente suave en comparación con el esculpido pesado de acrílico porque no requiere monómero. La remoción — remojar en acetona con envoltura de aluminio — es un proceso bien establecido. Mantener las uñas naturales hidratadas con aceite y evitar el raspado agresivo durante la remoción es importante para la salud de la uña. Nuestro equipo usa técnicas adecuadas de preparación y remoción para minimizar el estrés sobre la uña natural."
+      }
+    },
+    "nailart": {
+      "metaTitle": "Nail Art y Diseños Personalizados Phoenix AZ | Nice Nails & Spa",
+      "metaDesc": "Nail art, pedrería, complementos French y diseños personalizados en North Phoenix. Reserva nail art con tu manicura o servicio de gel en Nice Nails & Spa.",
+      "h1": "Nail art y diseños personalizados en Phoenix, AZ",
+      "intro": "Desde pedrería y mejoras French hasta line art y acentos de temporada — nuestro equipo de North Phoenix crea nail art que va con tu calendario de eventos. Combina el arte con manicuras, gel o realces de nuestro <menulink>menú de servicios</menulink> completo, o explora <addonlink>complementos</addonlink> como pedrería y buffing brillante.",
+      "ctaBook": "Reservar en línea",
+      "ctaMenu": "Menú de manicura",
+      "whyHeading": "Planifica tu visita de nail art",
+      "why1": "Trae fotos de inspiración para que podamos cotizar tiempo y precio antes de empezar.",
+      "why2": "Las opciones de gel y builder suelen ayudar a que el arte intrincado dure más con el calor de Arizona.",
+      "why3": "Combina nail art con dip, acrílico o uña natural — pregunta qué funciona mejor para tu largo.",
+      "faq": {
+        "q1": "¿Cuánto cuesta el nail art en Phoenix AZ?",
+        "a1": "Los diseños de acento simples y las mejoras French comienzan en $5 por uña o por acento. La pedrería, los elementos 3D y el arte pintado a mano complejo se cobran según la complejidad. Trae fotos de inspiración y podemos darte una cotización precisa antes de empezar.",
+        "q2": "¿Necesito reservar con anticipación para el nail art?",
+        "a2": "Sí — el nail art personalizado toma tiempo y materiales adicionales. Reservar con anticipación nos permite planear el espacio adecuado y tener los insumos listos. El nail art sin cita el mismo día depende de la disponibilidad y solo para diseños más simples.",
+        "q3": "¿Cuánto tarda el nail art?",
+        "a3": "Los acentos simples agregan 15–30 minutos sobre tu servicio base. Los sets personalizados completos — line art intrincado, floral o diseños en varias uñas — pueden tomar de 45–60 minutos extra. Reservamos el tiempo adecuado cuando agendas con una foto del diseño.",
+        "q4": "¿Qué estilos de nail art ofrecen?",
+        "a4": "Ofrecemos French tips, ombre, pedrería, fine-line art, diseños de temporada, floral, patrones geométricos y más. Trae una foto de tu inspiración para el resultado más parecido — nuestras técnicas te dirán qué es posible según la forma de tu uña."
+      }
+    }
+  },
+  "category": {
+    "common": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "viewAllServices": "Ver todos los servicios",
+      "viewAllServicesArrow": "← Ver todos los servicios",
+      "bookAppointment": "Reserva tu cita",
+      "faqHeading": "Preguntas frecuentes"
+    },
+    "nails": {
+      "metaTitle": "Uñas Acrílicas, de Gel y Dip en North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "metaDesc": "Sets completos desde $40 en North Phoenix AZ — uñas acrílicas, gel-X, dip powder y nail art personalizado. Las formas y diseños que quieres. Reserva en línea. 4.9★ 700+ reseñas.",
+      "h1": "Uñas acrílicas, de gel y dip en North Phoenix, AZ",
+      "priceLine": "Sets completos desde $40 · Rellenos desde $35 · North Phoenix, AZ 85021",
+      "addonsExtras": "Complementos y extras",
+      "gelxGuide": "Guía Gel-X →",
+      "dipGuide": "Guía Dip Powder →",
+      "intro": "Para un set completo que llame la atención, Nice Nails & Spa ofrece uñas acrílicas, de gel y de dip powder en nuestro salón de North Phoenix. Los sets completos comienzan en $40 y armamos cada uno según la forma, el largo y el acabado que quieres—almendra, coffin, cuadrada o stiletto, desde un nude limpio hasta un nail art personalizado y llamativo. Nuestras técnicas se toman su tiempo en la aplicación y la estructura para que tu set dure el uso diario sin levantarse ni quebrarse. ¿Prefieres algo más ligero? Gel-X y dip powder ofrecen resistencia y brillo con menos volumen, y los rellenos mantienen tu look fresco entre sets completos. El nail art comienza en $15 en adelante, y con gusto recreamos un diseño a partir de una foto que traigas. Cada herramienta se esteriliza y nunca reutilizamos limas ni pulidores. Reserva en línea o llega sin cita—los sábados y las tardes se llenan rápido para sets completos, así que se recomienda reservar con anticipación. Servimos North Phoenix, Glendale, Peoria y Deer Valley.",
+      "compareHeading": "¿Qué servicio de uñas es ideal para ti?",
+      "compareSubtitle": "Guía rápida para las búsquedas comunes—tu técnica personalizará la recomendación al registrarte.",
+      "acrylicH3": "Uñas acrílicas",
+      "acrylicBody": "El monómero líquido y el polvo de polímero crean un realce duro y personalizable, ideal para largos dramáticos, formas esculpidas y nail art intrincado. El acrílico es muy versátil y sigue siendo el favorito del salón cuando quieres la máxima estructura y larga duración entre rellenos.",
+      "gelH3": "Uñas de gel",
+      "gelBody": "Los sistemas de gel se curan bajo luz UV o LED para un acabado flexible y de alto brillo que resiste las astillas en uñas naturales o extensiones. Muchas clientas eligen mejoras de esmalte en gel sobre acrílico o dip, o extensiones tipo Gel-X cuando prefieren una opción más suave y soak-off con un perfil más fino.",
+      "dipH3": "Uñas de dip powder",
+      "dipBody": "El polvo de color se aplica en capas sobre una base adhesiva para un color duradero sin acrílico de brocha—a menudo descrito como ligero y rápido de aplicar. El dip puede ser una gran opción si quieres resistencia y pigmento intenso con una sensación diferente al esculpido de acrílico tradicional.",
+      "alsoLike": "También te puede gustar",
+      "alsoLikeSub": "Opciones populares de otras categorías",
+      "browseAddons": "Ver complementos →",
+      "faq": {
+        "q1": "¿Cuánto cuestan las uñas acrílicas en Phoenix AZ?",
+        "a1": "Los sets completos comienzan en $40 y los rellenos en $35; el esmalte de gel y los diseños especiales se cobran por separado. Ombré, mármol, pink & white, French o white tips, nail art personalizado, dip powder y Gel-X tienen cada uno su propio precio inicial—consulta nuestro menú abajo para más detalles.",
+        "q2": "¿Cuánto duran las uñas acrílicas?",
+        "a2": "La mayoría de las clientas regresan para un relleno cada 2–3 semanas a medida que crece la uña natural. La duración depende de cómo usas las manos, la salud de tus uñas y el cuidado posterior—tu técnica puede sugerir un calendario de mantenimiento.",
+        "q3": "¿Cuál es la diferencia entre uñas acrílicas y de dip powder?",
+        "a3": "El acrílico combina monómero líquido con polvo de polímero para esculpir una extensión u overlay duro y personalizable. El dip powder usa una base de resina con polvos finos pigmentados en capas para dar resistencia y una sensación ligera. Ambos son duraderos; te asignaremos el sistema que se ajuste a tus uñas, tu estilo de vida y el look que quieres.",
+        "q4": "¿Hacen rellenos de uñas en Phoenix?",
+        "a4": "Sí. Reserva un relleno para atender el crecimiento nuevo, rebalancear el ápice y refrescar el color o el diseño sin quitar todo el set—ideal para mantener tus realces de acrílico o gel en nuestro salón de North Phoenix."
+      }
+    }
+  }
+}

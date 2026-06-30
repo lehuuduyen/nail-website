@@ -1,6 +1,8 @@
+import { useTranslations } from 'next-intl';
 import { salonAddress, salonHours, salonMapsUrl, salonMapsEmbedUrl, salonPhone, salonGoogleReviewUrl } from '@/lib/salon';
 
 export default function LocationSection() {
+  const t = useTranslations('home.location');
   const address = salonAddress();
   const hours = salonHours();
   const mapsUrl = salonMapsUrl();
@@ -23,7 +25,7 @@ export default function LocationSection() {
           id="location-heading"
           className="font-display text-3xl text-ink md:text-4xl text-center mb-10"
         >
-          Find Us
+          {t('heading')}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
@@ -45,7 +47,7 @@ export default function LocationSection() {
           <div className="flex flex-col justify-center space-y-8 py-2">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-rose-400 mb-1">
-                Address
+                {t('address')}
               </p>
               <p className="text-charcoal text-base leading-snug">{address}</p>
               <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
@@ -55,7 +57,7 @@ export default function LocationSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-sm font-medium text-rose-500 hover:text-rose-600 transition-colors"
                 >
-                  Get directions
+                  {t('getDirections')}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
                     <path fillRule="evenodd" d="M4.75 2a.75.75 0 0 0 0 1.5h6.19L2.22 12.22a.75.75 0 1 0 1.06 1.06L12 4.561v6.189a.75.75 0 0 0 1.5 0V2.75A.75.75 0 0 0 12.75 2H4.75Z" clipRule="evenodd" />
                   </svg>
@@ -66,14 +68,14 @@ export default function LocationSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-sm font-medium text-amber-500 hover:text-amber-600 transition-colors"
                 >
-                  ⭐ Review us on Google
+                  ⭐ {t('reviewGoogle')}
                 </a>
               </div>
             </div>
 
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-rose-400 mb-1">
-                Hours
+                {t('hours')}
               </p>
               {hourLines.map((line) => (
                 <p key={line} className="text-charcoal text-base">{line}</p>
@@ -82,7 +84,7 @@ export default function LocationSection() {
 
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-rose-400 mb-1">
-                Phone
+                {t('phone')}
               </p>
               <a
                 href={`tel:${phone.replace(/\D/g, '')}`}

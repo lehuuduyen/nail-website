@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef } from 'react';
 import { Search } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { formatCurrency } from '@/lib/format';
 import { getServiceDisplayName } from '@/data/services';
 
@@ -29,6 +30,7 @@ export default function ServicePicker({
   onSearchChange,
   scrollToSelected = false,
 }) {
+  const t = useTranslations('booking');
   const selectedRef = useRef(null);
 
   // When a service is pre-selected from the URL (e.g. arriving from a service or
@@ -67,7 +69,7 @@ export default function ServicePicker({
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
         <input
           type="search"
-          placeholder="Search services…"
+          placeholder={t('searchServices')}
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           className="w-full rounded-xl border border-rose-gold/25 bg-surface py-3 pl-10 pr-4 text-sm outline-none ring-rose-gold/30 focus:ring-2"
@@ -101,7 +103,7 @@ export default function ServicePicker({
                       <p className="mt-0.5 line-clamp-2 text-sm text-muted">{s.description}</p>
                     )}
                     <p className="mt-2 text-sm text-charcoal">
-                      {s.duration} min · {formatCurrency(s.price)}
+                      {t('minShort', { count: s.duration })} · {formatCurrency(s.price)}
                     </p>
                   </button>
                 );

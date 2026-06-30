@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Phone } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import TrackedLink from '@/components/analytics/TrackedLink';
 import { HERO_BLUR_DATA_URL } from '@/lib/heroLcp';
 import { HERO_IMAGE } from '@/lib/siteImages';
@@ -18,14 +19,15 @@ function formatUsPhoneDisplay(raw) {
 }
 
 export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
+  const t = useTranslations('hero');
   const name = process.env.NEXT_PUBLIC_SALON_NAME || 'Nice Nails & Spa';
   const rawPhone = process.env.NEXT_PUBLIC_SALON_PHONE || '(602)1234567';
   const address = process.env.NEXT_PUBLIC_SALON_ADDRESS || '8048 N 19th Ave, Phoenix, AZ 85021';
   const phoneDisplay = formatUsPhoneDisplay(rawPhone);
   const tel = `tel:${rawPhone.replace(/\D/g, '')}`;
 
-  const headline = 'Luxury Nails That Turn Heads';
-  const subline = 'Top-rated nail salon in Phoenix • Book in 60 seconds';
+  const headline = t('headline');
+  const subline = t('subline');
 
   return (
     <section className="relative w-full overflow-hidden" suppressHydrationWarning>
@@ -35,8 +37,8 @@ export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
       >
         <Image
           src={HERO_IMAGE.src}
-          alt={`${name} — luxury nail salon Phoenix AZ`}
-          title="Luxury manicure and nail art in Phoenix AZ"
+          alt={t('imageAlt', { name })}
+          title={t('imageTitle')}
           fill
           priority
           fetchPriority="high"
@@ -113,7 +115,7 @@ export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
                     >
                       ★
                     </span>
-                    <span className="relative z-10 px-1 text-xs sm:text-[11px]">BOOK NOW</span>
+                    <span className="relative z-10 px-1 text-xs sm:text-[11px]">{t('bookNow')}</span>
                   </TrackedLink>
                   <TrackedLink
                     href={tel}
@@ -134,11 +136,11 @@ export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
                 <span className="text-[#D4AF37]" aria-hidden>
                   ✦
                 </span>
-                <span>{rating} rating</span>
+                <span>{t('ratingLabel', { rating })}</span>
                 <span className="opacity-50" aria-hidden>
                   |
                 </span>
-                <span>{reviewCount}+ happy clients</span>
+                <span>{t('clientsLabel', { count: reviewCount })}</span>
               </p>
             </div>
             <div className="hidden min-h-[1px] md:block" aria-hidden />

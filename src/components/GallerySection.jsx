@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ZoomIn, X } from 'lucide-react';
@@ -23,6 +24,7 @@ function gallerySrc(url) {
 }
 
 export default function GallerySection() {
+  const t = useTranslations('home.gallery');
   const [items, setItems] = useState([]);
   const [lightbox, setLightbox] = useState(null);
 
@@ -37,7 +39,7 @@ export default function GallerySection() {
     <section className="marble-bg py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-12 text-center">
-          <h2 className="font-display text-3xl text-ink md:text-4xl">Our Work</h2>
+          <h2 className="font-display text-3xl text-ink md:text-4xl">{t('heading')}</h2>
           <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-rose-gold" />
         </div>
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
@@ -81,7 +83,7 @@ export default function GallerySection() {
             href="/gallery"
             className="inline-flex rounded-full bg-charcoal px-8 py-3 text-sm font-semibold text-cream transition hover:bg-charcoal/90"
           >
-            View Full Gallery
+            {t('viewFull')}
           </Link>
         </div>
       </div>
@@ -98,7 +100,7 @@ export default function GallerySection() {
             <button
               type="button"
               className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white"
-              aria-label="Close"
+              aria-label={t('close')}
               onClick={() => setLightbox(null)}
             >
               <X size={24} />

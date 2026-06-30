@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { CATEGORY_ACCENT, getServiceDisplayName } from '@/data/services';
 import { SERVICE_IMAGE_BY_CATEGORY, SERVICE_IMAGE_FALLBACK } from '@/lib/siteImages';
 import { getPublicBaseUrl } from '@/lib/api';

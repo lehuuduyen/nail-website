@@ -1,33 +1,5 @@
+import { useTranslations } from 'next-intl';
 import { salonName, salonAddress, salonHours } from '@/lib/salon';
-
-function homeFaqItems() {
-  const name = salonName();
-  const address = salonAddress();
-  const hours = salonHours();
-
-  return [
-    {
-      q: 'Do you accept walk-ins at your Phoenix nail salon?',
-      a: 'Yes. We welcome walk-ins at Nice Nails & Spa whenever we have an open chair, especially on quieter weekdays. Evenings and Saturdays can fill up quickly, so booking online secures your time and helps us prepare for nail art or longer services.',
-    },
-    {
-      q: 'How much does a manicure cost at Nice Nails & Spa?',
-      a: 'Classic manicures start at $30; deluxe and deep options are priced higher and gel polish is available at an upgraded rate. Final price depends on the exact service and add-ons you choose—see our manicure menu online or ask at check-in.',
-    },
-    {
-      q: 'Where is Nice Nails & Spa located in Phoenix AZ?',
-      a: `${name} is located at ${address}, in North Phoenix ZIP 85021. Tap Directions on our site or search the salon on Google Maps for turn-by-turn routing and parking tips.`,
-    },
-    {
-      q: 'What nail services do you offer?',
-      a: 'We offer manicures and pedicures, acrylic and gel nails, dipping powder, nail art and add-ons, plus lash, waxing, facial, head spa, and kids services. Browse full menus by category on our Services page.',
-    },
-    {
-      q: 'What are your hours?',
-      a: `Our regular hours are ${hours}. Holiday hours may vary—call ahead or check Google before you visit on a major holiday.`,
-    },
-  ];
-}
 
 function faqPageJsonLd(items) {
   return {
@@ -45,7 +17,18 @@ function faqPageJsonLd(items) {
 }
 
 export default function HomeFaqSection() {
-  const items = homeFaqItems();
+  const t = useTranslations('home.faq');
+  const name = salonName();
+  const address = salonAddress();
+  const hours = salonHours();
+
+  const items = [
+    { q: t('q1'), a: t('a1') },
+    { q: t('q2'), a: t('a2') },
+    { q: t('q3'), a: t('a3', { name, address }) },
+    { q: t('q4'), a: t('a4') },
+    { q: t('q5'), a: t('a5', { hours }) },
+  ];
   const jsonLd = faqPageJsonLd(items);
 
   return (
@@ -62,7 +45,7 @@ export default function HomeFaqSection() {
           id="home-faq-heading"
           className="font-display text-3xl text-ink md:text-4xl"
         >
-          Frequently Asked Questions
+          {t('heading')}
         </h2>
         <ul className="mt-10 space-y-8">
           {items.map((item) => (

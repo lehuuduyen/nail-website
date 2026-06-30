@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "defaultTitle": "Nice Nails & Spa | Nail Salon Phoenix AZ",
+    "titleTemplate": "%s | Nice Nails & Spa Phoenix",
+    "description": "Premier nail salon in Phoenix, AZ. Manicure, pedicure, acrylic & gel nails, eyelash extensions, head spa & facial. Book online!",
+    "keywords": "nail salon Phoenix|manicure phoenix az|pedicure phoenix|acrylic nails phoenix|gel nails phoenix az|eyelash extensions phoenix|head spa phoenix|nail salon near me",
+    "ogTitle": "Nice Nails & Spa | Nail Salon Phoenix AZ",
+    "ogDescription": "Nice Nails & Spa - Manicure, Pedicure, Acrylic & Gel nails in Phoenix AZ. Book online!",
+    "ogImageAlt": "Nice Nails & Spa — Nail Salon in Phoenix AZ",
+    "twTitle": "Nice Nails & Spa | Phoenix AZ",
+    "twDescription": "Manicure, pedicure, gel, lashes, head spa & more — book online.",
+    "home": {
+      "title": "Nice Nails & Spa | Best Nail Salon in North Phoenix AZ 85021 | Manicure & Pedicure",
+      "description": "Gel manicures, dip powder, acrylic full sets, spa pedicures, lash extensions & more in North Phoenix AZ 85021. Serving Moon Valley, Glendale & Peoria. 4.9★ · 700+ reviews."
+    },
+    "services": {
+      "title": "Nail Salon Services & Prices | Nice Nails & Spa North Phoenix AZ 85021",
+      "description": "Full menu & prices at Nice Nails & Spa, North Phoenix AZ 85021. Gel manicures from $30, spa pedicures from $35, acrylic full sets from $40, lash extensions, head spa, facials & more."
+    },
+    "specials": {
+      "title": "Nail Salon Specials & Deals in North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "description": "Current specials & deals at Nice Nails & Spa in North Phoenix, AZ 85021 — affordable pedicures, manicure deals, and seasonal offers. Book online or call (602) 759-9184."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "call": "Call",
+    "directions": "Directions",
+    "book": "Book now"
+  },
+  "footer": {
+    "tagline": "Quality products, skilled hands, and a relaxing space — appointments & walk-ins welcome.",
+    "explore": "Explore",
+    "services": "Services",
+    "specials": "Specials",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "bookOnline": "Book online",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "rights": "All rights reserved."
+  },
+  "hero": {
+    "headline": "Luxury Nails That Turn Heads",
+    "subline": "Top-rated nail salon in Phoenix • Book in 60 seconds",
+    "imageAlt": "{name} — luxury nail salon Phoenix AZ",
+    "imageTitle": "Luxury manicure and nail art in Phoenix AZ",
+    "bookNow": "BOOK NOW",
+    "ratingLabel": "{rating} rating",
+    "clientsLabel": "{count}+ happy clients"
+  },
+  "cta": {
+    "heading": "Ready for beautiful nails?",
+    "subheading": "Same-day visits when we can — or book online before you visit us in {area}.",
+    "button": "Book Your Appointment Today"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you’re looking for doesn’t exist or has moved.",
+    "backHome": "Back to home"
+  },
+  "services": {
+    "heading": "Our services & pricing",
+    "pricingNote": "Cash price shown. Card price includes a 3% processing fee. Book online anytime — walk-ins welcome.",
+    "all": "All",
+    "viewPage": "View {label} page →"
+  },
+  "booking": {
+    "pageTitle": "Book your visit",
+    "pageSubtitle": "A few steps to your moment of calm.",
+    "loading": "Loading…",
+    "steps": {
+      "service": "Service",
+      "staff": "Staff",
+      "datetime": "Date & time",
+      "details": "Your details"
+    },
+    "anyStaff": "Anyone available",
+    "searchServices": "Search services…",
+    "minShort": "{count} min",
+    "noPreference": "No preference — anyone available",
+    "nailSpecialist": "Nail specialist",
+    "loadingTimes": "Loading available times…",
+    "noSlots": "No slots for this date.",
+    "slotsRemaining": "<b>{count}</b> slots remaining",
+    "selectService": "Select a service",
+    "selectServiceHint": "Tap a service to continue.",
+    "chooseTech": "Choose your technician",
+    "chooseTechHint": "Tap a technician to continue.",
+    "pickDateTime": "Pick date & time",
+    "pickDateTimeHint": "Choose a date, then tap an available time.",
+    "date": "Date",
+    "availableTimes": "Available times — {date}",
+    "selectDateFirst": "Select a date first",
+    "yourInfo": "Your information",
+    "yourInfoHint": "Almost done! Fill in your details below.",
+    "firstName": "First name *",
+    "lastName": "Last name *",
+    "phone": "Phone *",
+    "email": "Email (optional)",
+    "notes": "Special requests",
+    "smsConsent": "By checking this box, I agree to receive SMS appointment reminders and confirmations from Nice Nails & Spa at the number provided. Message & data rates may apply. Reply STOP to unsubscribe. View Privacy Policy at nicenailsaz.com/privacy.",
+    "summary": "Summary",
+    "minutes": "{count} minutes",
+    "staffLabel": "Staff: {name}",
+    "stepOf": "Step {step} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "booking": "Booking…",
+    "confirm": "Confirm booking",
+    "errService": "Please select a service.",
+    "errDate": "Please choose a date.",
+    "errTime": "Please choose a time slot.",
+    "errName": "First and last name are required.",
+    "errPhone": "Please enter a valid 10-digit phone number.",
+    "errMissing": "Missing booking details.",
+    "errFailed": "Booking failed."
+  },
+  "confirmation": {
+    "loading": "Loading…",
+    "title": "You're all set",
+    "reference": "Reference",
+    "service": "Service",
+    "with": "With",
+    "when": "When",
+    "addToCalendar": "Add to calendar",
+    "bookAnother": "Book another appointment",
+    "backHome": "Back to home"
+  },
+  "specialsPage": {
+    "breadcrumbHome": "Home",
+    "breadcrumbSpecials": "Specials",
+    "h1": "Specials & Deals — Nice Nails & Spa, Phoenix 85021",
+    "intro": "Looking for affordable pedicures or manicure deals in North Phoenix? This is where we post our current offers. A great Groupon alternative for nail salon deals in the 85021 area — book online or call us to lock in a time.",
+    "moreOffers": "More offers",
+    "noneTitle": "No active specials right now",
+    "noneBody": "Check back soon — we post seasonal pedicure and manicure deals here. In the meantime, you can always book online or call us for current pricing.",
+    "bookOnline": "Book online",
+    "call": "Call {phone}",
+    "seoH2": "Affordable nail salon deals in North Phoenix",
+    "seoBody": "Nice Nails & Spa is a full-service nail salon in North Phoenix, AZ 85021, offering cheap manicure and spa pedicure options without cutting corners on quality or hygiene. Whether you searched for an affordable pedicure near me or pedicure deals in Phoenix, our specials above show what's currently running. Walk-ins are welcome and online booking is open 24/7.",
+    "addressLabel": "Address:",
+    "phoneLabel": "Phone:",
+    "bookAppointment": "Book appointment"
+  },
+  "home": {
+    "luxury": {
+      "heading": "Our Luxury Services",
+      "subtitle": "Get inspired by our beautiful nail designs",
+      "pillars": {
+        "premium": "Premium Products Only",
+        "fastBooking": "No Waiting – Fast Booking",
+        "instagram": "Instagram-Worthy Nails",
+        "hygiene": "100% Hygiene Guaranteed"
+      }
+    },
+    "popular": {
+      "heading": "Our Most Popular Services",
+      "subtitle": "We perfect our stunning nail designs",
+      "fromPrice": "From {price}",
+      "bookThis": "Book this service",
+      "bookAppointment": "Book your appointment",
+      "viewAll": "View all services & prices",
+      "bookAria": "Book {title}"
+    },
+    "whyLove": {
+      "heading": "Why Ladies Love Nice Nails & Spa",
+      "happyClients": "{count}+ happy clients",
+      "bookThis": "Book this service",
+      "quote1": "Best nails I've ever had!",
+      "quote2": "Absolutely beautiful salon and excellent service. I won't go anywhere else.",
+      "imgAltManicure": "Professional manicure service at Nice Nails & Spa Phoenix AZ",
+      "imgAltInterior": "Nice Nails & Spa luxury nail salon interior North Phoenix AZ",
+      "imgTitleInterior": "Best Nail Salon in North Phoenix AZ 85021"
+    },
+    "videos": {
+      "heading": "See our work in action",
+      "subtitle": "A few moments from Nice Nails & Spa — tap to play.",
+      "viewAll": "View all videos"
+    },
+    "testimonials": {
+      "heading": "Guest love",
+      "liveGoogle": "Live from Google Maps",
+      "reviewUs": "Review us on Google",
+      "pause": "Pause auto-scroll",
+      "resume": "Resume auto-scroll",
+      "reviewNum": "Review {num}"
+    },
+    "gallery": {
+      "heading": "Our Work",
+      "viewFull": "View Full Gallery",
+      "close": "Close"
+    },
+    "serviceAreas": {
+      "heading": "Serving North Phoenix & Surrounding Areas",
+      "intro": "{name} welcomes guests from across the Valley—here are a few communities we see often.",
+      "northPhoenix": "<b>North Phoenix.</b> Our studio sits on N 19th Ave just north of W Northern Ave — a short walk from the Northern/19th Ave Valley Metro light-rail station (B Line) and near Bookmans Entertainment Exchange, the Albertsons on W Northern Ave, and the Metrocenter corridor. Neighbors from El Caro Villas, Las Pomaritas, and the surrounding blocks pair a nail appointment with errands along 19th Avenue or a quick stop after commuting in on the light rail. Parking is easy and walk-ins are welcome.",
+      "glendale": "<b>Glendale AZ.</b> Just west of our salon, Glendale clients book gel refreshes, acrylic fills, and relaxing pedicures at {name} when they want experienced technicians and straightforward scheduling.",
+      "peoria": "<b>Peoria AZ.</b> Peoria residents often choose us for nail art, dip powder, and full sets before events or vacations—the short trip to our North Phoenix location is worth it for a calm room and consistent results.",
+      "deerValley": "<b>Deer Valley AZ.</b> If you live or work around the Deer Valley corridor, {name} is an easy option for lunch-break manicures and polish changes with room to unwind.",
+      "moonValley": "<b>Moon Valley AZ.</b> Moon Valley guests regularly visit for pedicures, acrylic maintenance, and kid-friendly services when the whole family needs polish—book online or call ahead and we will do our best to fit you in."
+    },
+    "about": {
+      "heading": "About {name}",
+      "p1": "Welcome to {name}, a <b>nail salon North Phoenix AZ</b> neighbors choose for careful work, a relaxed pace, and a team that greets you like a regular from day one. Our studio sits at <b>{address}</b>, a convenient stop whether you are coming from deeper in <b>North Phoenix</b>, commuting from <b>Glendale</b>, or heading over from <b>Peoria</b> for an afternoon reset.",
+      "p2": "From a polished <b>manicure</b> or spa-style <b>pedicure</b> to full <b>acrylic nails</b>, gel enhancements, and <b>dip powder</b>, we shape every service around your lifestyle. Love a little sparkle? Our <b>nail art</b> options make birthdays, weddings, and everyday confidence feel effortless. We keep stations tidy, explain aftercare in plain language, and never rush the details—because great nails should feel as good as they look.",
+      "p3": "Step in when you need a refresh, a repair, or a full new set; we are here to help you leave feeling put-together, listened to, and ready for whatever is next on your calendar."
+    },
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "q1": "Do you accept walk-ins at your Phoenix nail salon?",
+      "a1": "Yes. We welcome walk-ins at Nice Nails & Spa whenever we have an open chair, especially on quieter weekdays. Evenings and Saturdays can fill up quickly, so booking online secures your time and helps us prepare for nail art or longer services.",
+      "q2": "How much does a manicure cost at Nice Nails & Spa?",
+      "a2": "Classic manicures start at $30; deluxe and deep options are priced higher and gel polish is available at an upgraded rate. Final price depends on the exact service and add-ons you choose—see our manicure menu online or ask at check-in.",
+      "q3": "Where is Nice Nails & Spa located in Phoenix AZ?",
+      "a3": "{name} is located at {address}, in North Phoenix ZIP 85021. Tap Directions on our site or search the salon on Google Maps for turn-by-turn routing and parking tips.",
+      "q4": "What nail services do you offer?",
+      "a4": "We offer manicures and pedicures, acrylic and gel nails, dipping powder, nail art and add-ons, plus lash, waxing, facial, head spa, and kids services. Browse full menus by category on our Services page.",
+      "q5": "What are your hours?",
+      "a5": "Our regular hours are {hours}. Holiday hours may vary—call ahead or check Google before you visit on a major holiday."
+    },
+    "location": {
+      "heading": "Find Us",
+      "address": "Address",
+      "hours": "Hours",
+      "phone": "Phone",
+      "getDirections": "Get directions",
+      "reviewGoogle": "Review us on Google"
+    }
+  },
+  "landing": {
+    "common": {
+      "viewAllServices": "← View all services",
+      "faqHeading": "Frequently asked questions",
+      "call": "Call {phone}"
+    },
+    "acrylic": {
+      "metaTitle": "Acrylic Nails Phoenix AZ | Full Sets & Fills | Nice Nails & Spa",
+      "metaDesc": "Acrylic full sets, fill-ins & nail enhancements in North Phoenix AZ 85021. Experienced techs, clear pricing—book acrylic nails online at Nice Nails & Spa.",
+      "h1": "Acrylic nails in Phoenix, AZ",
+      "intro": "Sculpted length, classic pink-and-white, and dependable fill schedules for busy Valley clients. See every enhancement we offer on the <menulink>acrylic & gel nails</menulink> menu, then book the service that matches your shape and lifestyle.",
+      "ctaBook": "Book acrylic nails",
+      "ctaMenu": "View nail menu",
+      "whyHeading": "Why guests choose acrylic here",
+      "why1": "Customizable length and shape with fills every two to three weeks for most clients.",
+      "why2": "Repairs and rebalance appointments when life happens—text or call for quick guidance.",
+      "why3": "Add gel color or nail art; ask how timing changes when you stack services.",
+      "faq": {
+        "q1": "How much do acrylic nails cost in Phoenix AZ?",
+        "a1": "Acrylic full sets at Nice Nails & Spa start at $40 (regular polish) or $50 with gel finish. Pink-and-white, ombré, and sculpted designs are priced higher. Fills start at $35 (regular) or $45 with gel. See our acrylic & gel nails menu for current pricing on every option.",
+        "q2": "How long does an acrylic full set take?",
+        "a2": "A standard acrylic full set takes about 60–90 minutes. Longer shapes, detailed nail art, or adding gel color may require extra time — let us know your design when booking so we can reserve the right slot.",
+        "q3": "How often do acrylic nails need a fill?",
+        "a3": "Most clients return every 2–3 weeks for a fill as the natural nail grows. Waiting longer than three weeks can affect adhesion and may require a full new set instead of a fill.",
+        "q4": "Can I walk in for acrylic nails in Phoenix?",
+        "a4": "Walk-ins are welcome when we have an open station, but acrylic services — especially full sets with art or long shapes — are best booked ahead to ensure enough time. Book online or call to confirm same-day availability."
+      }
+    },
+    "gel": {
+      "metaTitle": "Gel Nails in Phoenix, AZ | Nice Nails & Spa",
+      "metaDesc": "Long-lasting gel manicures in North Phoenix — Nice Nails & Spa. Book gel nails online; walk-ins welcome.",
+      "ogAlt": "Gel nails — Nice Nails & Spa Phoenix AZ",
+      "h1": "Gel nails in Phoenix, AZ",
+      "intro": "Durable shine, chip-resistant wear, and polished finishes — our gel manicures and gel-related services are performed at our North Phoenix location. Pair with a pedicure or browse our full <menulink>services menu</menulink>.",
+      "ctaBook": "Book online",
+      "ctaMenu": "All services",
+      "whyHeading": "Why clients choose gel",
+      "why1": "Flexible strength and glossy finish that lasts longer than regular polish.",
+      "why2": "Ideal before events, travel, or whenever you want low-maintenance color.",
+      "why3": "Ask our team about gel manicures, overlays, and combinations with spa services.",
+      "faq": {
+        "q1": "How much do gel nails cost in Phoenix AZ?",
+        "a1": "Gel polish upgrades start at $10 added to any manicure service. Dedicated gel manicures begin at $35. Pricing varies by service tier — see our manicure menu for exact costs on Classic, Deluxe, and Deep options with gel.",
+        "q2": "How long do gel nails last?",
+        "a2": "Gel polish typically lasts 2–3 weeks without chipping. Builder gel and gel-x overlays can last longer with proper aftercare. Avoid picking or peeling to get the most out of your wear.",
+        "q3": "What is the difference between gel and regular polish?",
+        "a3": "Gel is cured under UV/LED light for a harder, chip-resistant finish that lasts much longer than regular air-dry polish. Regular polish is easier to remove at home; gel removal is best done in the salon to protect the nail.",
+        "q4": "Can I walk in for gel nails in Phoenix?",
+        "a4": "Walk-ins are welcome based on station availability. Booking online guarantees your preferred time, especially on evenings and weekends when demand is highest."
+      }
+    },
+    "gelx": {
+      "metaTitle": "Gel-X Nails in North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "metaDesc": "Gel-X nail extensions in North Phoenix AZ 85021 — lightweight, soak-off, no monomer needed. Full sets from $40. Book at Nice Nails & Spa today.",
+      "ogAlt": "Gel-X nail extensions — Nice Nails & Spa North Phoenix AZ",
+      "h1": "Gel-X nails in North Phoenix, AZ",
+      "intro": "Lightweight, soak-off gel extensions with no monomer odor and a softer feel than traditional acrylic. Book Gel-X at our North Phoenix studio or browse the full <menulink>nail extensions menu</menulink>.",
+      "ctaBook": "Book Gel-X nails",
+      "ctaMenu": "View nail menu",
+      "imageAlt": "Gel-X soft gel nail extensions at Nice Nails & Spa, North Phoenix AZ 85021",
+      "whatIsHeading": "What is Gel-X?",
+      "whatIsBody": "Gel-X is a soft-gel extension system where pre-shaped, full-coverage tips are bonded to natural nails using gel adhesive and cured under an LED lamp — no liquid monomer, no filing down the natural nail surface, and no strong acrylic odor. The result is a flexible, lightweight set that looks and feels like a natural nail enhancement rather than a heavy sculptured extension. At our North Phoenix AZ 85021 studio on N 19th Ave, Gel-X is a popular choice for guests who want length and strength without the bulk of traditional acrylic, or for those with sensitivities to monomer products. Most sets last three to four weeks, and soak-off removal is straightforward and gentler on the natural nail than mechanical filing.",
+      "whoHeading": "Who is Gel-X for?",
+      "who1": "Guests who prefer a lighter, more flexible feel than traditional acrylic.",
+      "who2": "Anyone sensitive to monomer odors or dust from acrylic filing.",
+      "who3": "Natural nail wearers who want added length without heavy sculpting.",
+      "who4": "Clients looking for soak-off removal that is gentler on the natural nail.",
+      "aftercareHeading": "Aftercare tips",
+      "after1": "Apply cuticle oil daily to keep the gel flexible and the natural nail hydrated.",
+      "after2": "Wear gloves for prolonged contact with water, cleaning products, or soil.",
+      "after3": "Avoid using nails as tools — Gel-X is strong but prying causes lifting.",
+      "after4": "Return every three to four weeks for a fresh set or to discuss infill options.",
+      "viewMenuArrow": "View nail menu →",
+      "compareDip": "Compare: Dip Powder →",
+      "faq": {
+        "q1": "How long do Gel-X nails last?",
+        "a1": "Gel-X extensions typically last three to four weeks with normal daily activity. Longevity depends on nail prep, aftercare, and how you use your hands. Applying cuticle oil daily and avoiding prolonged water exposure helps extend wear time significantly.",
+        "q2": "What is the difference between Gel-X and acrylic nails?",
+        "a2": "Gel-X uses a pre-shaped soft gel tip bonded with gel adhesive and cured under an LED lamp — no liquid monomer, no strong odors, and a softer, more flexible feel than traditional acrylic. Acrylic is sculpted from liquid and powder for a harder, highly customizable enhancement. Both are durable; your nail tech can help you choose based on your natural nail condition and lifestyle.",
+        "q3": "How much do Gel-X nails cost in Phoenix AZ?",
+        "a3": "Gel-X sets at Nice Nails & Spa start with the same full-set pricing as our nail extension menu — from $40 for a standard set. Add-ons like nail art, ombré, or gel color upgrades are priced separately. See our current nail menu for exact figures or call (602) 759-9184.",
+        "q4": "Can Gel-X nails be filled, or do they need to be removed?",
+        "a4": "Gel-X tips are a soak-off system, so most technicians recommend a fresh set every three to four weeks rather than a traditional fill. At our North Phoenix salon we discuss the best approach for your current set at your appointment — some clients do an infill, others prefer removal and reapplication for the freshest result."
+      }
+    },
+    "dip": {
+      "metaTitle": "Dip Powder Nails in North Phoenix, AZ 85021 | Nice Nails & Spa",
+      "metaDesc": "Dip powder manicures in North Phoenix AZ 85021 — odorless, lightweight, durable color without UV curing. Full sets from $40. Book at Nice Nails & Spa.",
+      "ogAlt": "Dip powder nails — Nice Nails & Spa North Phoenix AZ",
+      "h1": "Dip powder nails in North Phoenix, AZ",
+      "intro": "Lightweight, odorless, and durable — dip powder builds a strong color bond without liquid monomer or UV lamps. Book at our North Phoenix studio or see the full <menulink>nail extensions menu</menulink>.",
+      "ctaBook": "Book dip powder",
+      "ctaMenu": "View nail menu",
+      "imageAlt": "Dip powder nails at Nice Nails & Spa, North Phoenix AZ 85021 — rich color, lightweight, odorless",
+      "whatIsHeading": "How dip powder works",
+      "whatIsBody": "Dip powder uses a resin base coat — no liquid monomer, no UV or LED lamp required. After the base is applied, nails are dipped into fine pigmented powder (or the powder is brushed on), then sealed with an activator and topcoat for a smooth, hard finish. The layered powder bonds tightly for strong, chip-resistant color that lasts three to four weeks. Removal requires soaking in acetone with foil wraps, which is gentler on the natural nail than heavy mechanical filing. At our North Phoenix AZ 85021 studio on N 19th Ave we carry a wide range of dip powder shades — from everyday neutrals to bold seasonal colors and classic French finishes.",
+      "whoHeading": "Why guests choose dip",
+      "who1": "No UV lamp needed — the activator cures the powder chemically.",
+      "who2": "Odorless compared to traditional liquid acrylic monomer.",
+      "who3": "Rich, opaque color with a naturally glossy topcoat finish.",
+      "who4": "Soak-off removal with acetone is straightforward and preserves more natural nail.",
+      "aftercareHeading": "Aftercare tips",
+      "after1": "Use cuticle oil daily — dip sets can dry the surrounding skin over time.",
+      "after2": "Wear gloves when washing dishes or using cleaning products.",
+      "after3": "Do not pick or peel — soak off properly using foil wraps and acetone.",
+      "after4": "Return every three to four weeks for a fresh set or touch-up.",
+      "viewMenuArrow": "View nail menu →",
+      "compareGelx": "Compare: Gel-X →",
+      "faq": {
+        "q1": "How long does dip powder last?",
+        "a1": "Dip powder typically lasts three to four weeks — often longer than regular gel polish — because the layered powder creates a hard, durable bond. Daily cuticle oil and avoiding excessive water or chemical exposure helps maximize wear time.",
+        "q2": "Is dip powder better than acrylic nails?",
+        "a2": "It depends on what you are looking for. Dip powder is odorless, does not require UV curing, and is often described as lighter on the nail than traditional acrylic sculpting. Acrylic is more versatile for dramatic length and sculpted shapes. Both are durable; our technicians will recommend the best option based on your nails and lifestyle.",
+        "q3": "How much does dip powder cost in Phoenix AZ?",
+        "a3": "Dip powder sets at Nice Nails & Spa start from $40 for a standard set. Pricing can vary with nail length, design details, and add-ons. See our nail menu for current prices or call us at (602) 759-9184.",
+        "q4": "Is dip powder safe for natural nails?",
+        "a4": "Dip powder is generally considered gentle relative to heavy acrylic sculpting because it does not require monomer. Removal — soaking in acetone with foil wraps — is a well-established process. Keeping natural nails hydrated with oil and avoiding aggressive scraping during removal is important for nail health. Our team uses proper prep and removal techniques to minimize stress on the natural nail."
+      }
+    },
+    "nailart": {
+      "metaTitle": "Nail Art & Custom Designs Phoenix AZ | Nice Nails & Spa",
+      "metaDesc": "Nail art, rhinestones, French add-ons & custom designs in North Phoenix. Book nail art with your manicure or gel service at Nice Nails & Spa.",
+      "h1": "Nail art & custom designs in Phoenix, AZ",
+      "intro": "From rhinestones and French upgrades to line art and seasonal accents — our North Phoenix team builds nail art that fits your event calendar. Pair art with manicures, gel, or enhancements from our full <menulink>services menu</menulink>, or browse <addonlink>add-ons</addonlink> like rhinestones and shiny buffing.",
+      "ctaBook": "Book online",
+      "ctaMenu": "Manicure menu",
+      "whyHeading": "Plan your nail art visit",
+      "why1": "Bring inspiration photos so we can quote time and pricing before we start.",
+      "why2": "Gel and builder options often help intricate art last longer in Arizona heat.",
+      "why3": "Combine nail art with dip, acrylic, or natural nails — ask what works best for your length.",
+      "faq": {
+        "q1": "How much does nail art cost in Phoenix AZ?",
+        "a1": "Simple accent designs and French upgrades start at $5 per nail or per accent. Rhinestones, 3D elements, and complex hand-painted art are priced by complexity. Bring inspiration photos and we can give you an accurate quote before starting.",
+        "q2": "Do I need to book in advance for nail art?",
+        "a2": "Yes — custom nail art takes extra time and materials. Booking ahead lets us plan the right slot and have supplies ready. Same-day walk-in nail art is based on availability and simpler designs only.",
+        "q3": "How long does nail art take?",
+        "a3": "Simple accents add 15–30 minutes on top of your base service. Full custom sets — intricate line art, floral, or multi-nail designs — can run 45–60 minutes extra. We build in the right time when you book with a design photo.",
+        "q4": "What nail art styles do you offer?",
+        "a4": "We offer French tips, ombre, rhinestones, fine-line art, seasonal designs, floral, geometric patterns, and more. Bring a photo of your inspiration for the closest match — our techs will let you know what is achievable on your nail shape."
+      }
+    }
+  },
+  "category": {
+    "common": {
+      "home": "Home",
+      "services": "Services",
+      "viewAllServices": "View all services",
+      "viewAllServicesArrow": "← View all services",
+      "bookAppointment": "Book your appointment",
+      "faqHeading": "Frequently asked questions"
+    },
+    "nails": {
+      "metaTitle": "Acrylic, Gel & Dip Nails in North Phoenix AZ 85021 | Nice Nails & Spa",
+      "metaDesc": "Full sets from $40 in North Phoenix AZ — acrylic, gel-X, dip powder & custom nail art. The shapes & designs you want. Book online. 4.9★ 700+ reviews.",
+      "h1": "Acrylic, Gel & Dip Nails in North Phoenix AZ",
+      "priceLine": "Full sets from $40 · Fill-ins from $35 · North Phoenix, AZ 85021",
+      "addonsExtras": "Add-ons & extras",
+      "gelxGuide": "Gel-X guide →",
+      "dipGuide": "Dip Powder guide →",
+      "intro": "For a full set that turns heads, Nice Nails & Spa offers acrylic, gel, and dip powder nails at our North Phoenix studio. Full sets start at $40 and we build each one around the shape, length, and finish you want—almond, coffin, square, or stiletto, in everything from a clean nude to bold custom nail art. Our technicians take their time on application and structure so your set lasts through daily wear without lifting or cracking. Prefer a lighter feel? Gel-X and dip powder offer strength and shine with less bulk, and refills keep your look fresh between full sets. Nail art starts at $15 and up, and we are happy to recreate a design from a photo you bring in. Every tool is sterilized and we never reuse files or buffers. Book online or walk in—Saturdays and evenings book fast for full sets, so reserving ahead is recommended. Serving North Phoenix, Glendale, Peoria, and Deer Valley.",
+      "compareHeading": "Which nail service is right for you?",
+      "compareSubtitle": "Quick guide for common searches—your nail tech will personalize the recommendation at check-in.",
+      "acrylicH3": "Acrylic nails",
+      "acrylicBody": "Liquid monomer and polymer powder create a hard, customizable enhancement ideal for dramatic length, sculpted shapes, and intricate nail art. Acrylic is extremely versatile and stays a salon favorite when you want maximum structure and long wear between fill-ins.",
+      "gelH3": "Gel nails",
+      "gelBody": "Gel systems cure under UV or LED light for a flexible, high-gloss finish that resists chips on natural nails or extensions. Many guests choose gel polish upgrades on acrylic or dip, or Gel-X-style extensions when they prefer a softer, soak-off option with a refined profile.",
+      "dipH3": "Dip powder nails",
+      "dipBody": "Colored powder is layered over a bonding base for durable color without brush-in acrylic—often described as lightweight and quick to apply. Dip can be a great match if you want strength and rich pigment with a different feel than traditional acrylic sculpting.",
+      "alsoLike": "You may also like",
+      "alsoLikeSub": "Popular picks from other categories",
+      "browseAddons": "Browse add-ons →",
+      "faq": {
+        "q1": "How much do acrylic nails cost in Phoenix AZ?",
+        "a1": "Full sets start at $40 and fill-ins start at $35; gel polish and specialty designs are priced separately. Ombré, marble, pink & white, French or white tips, custom nail art, dip powder, and Gel-X each have their own starting prices—see our menu below for details.",
+        "q2": "How long do acrylic nails last?",
+        "a2": "Most guests return for fill-ins every 2–3 weeks as natural nails grow. Longevity depends on how you use your hands, your nail health, and aftercare—your nail tech can suggest a maintenance schedule.",
+        "q3": "What is the difference between acrylic and dip powder nails?",
+        "a3": "Acrylic combines liquid monomer with polymer powder to sculpt a hard, customizable extension or overlay. Dip powder uses a resin base with fine pigmented powders layered for strength and a lightweight feel. Both are durable; we will match you to the system that fits your nails, lifestyle, and the look you want.",
+        "q4": "Do you do nail fills in Phoenix?",
+        "a4": "Yes. Book a fill-in to address new growth, rebalance the apex, and refresh color or design without removing the entire set—ideal for maintaining acrylic or gel enhancements at our North Phoenix salon."
+      }
+    }
+  }
+}

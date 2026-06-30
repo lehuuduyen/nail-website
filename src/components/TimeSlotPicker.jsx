@@ -1,6 +1,7 @@
 'use client';
 
 import { format } from 'date-fns';
+import { useTranslations } from 'next-intl';
 
 function toLabel(time) {
   const [h, m] = time.split(':').map(Number);
@@ -9,11 +10,12 @@ function toLabel(time) {
 }
 
 export default function TimeSlotPicker({ slots, value, onChange, loading }) {
+  const t = useTranslations('booking');
   if (loading) {
-    return <p className="text-sm text-muted">Loading available times…</p>;
+    return <p className="text-sm text-muted">{t('loadingTimes')}</p>;
   }
   if (!slots.length) {
-    return <p className="text-sm text-muted">No slots for this date.</p>;
+    return <p className="text-sm text-muted">{t('noSlots')}</p>;
   }
 
   const available = slots.filter((s) => s.available);
@@ -21,7 +23,10 @@ export default function TimeSlotPicker({ slots, value, onChange, loading }) {
   return (
     <div>
       <p className="mb-3 text-sm text-charcoal">
-        <span className="font-semibold text-rose-gold">{available.length}</span> slots remaining
+        {t.rich('slotsRemaining', {
+          count: available.length,
+          b: (chunks) => <span className="font-semibold text-rose-gold">{chunks}</span>,
+        })}
       </p>
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5">
         {slots.map((s) => {

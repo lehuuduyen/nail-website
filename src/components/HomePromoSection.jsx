@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { Phone } from 'lucide-react';
 import { getPromos } from '@/lib/serverPromos';
 import { pickFeatured, formatPromoDates, PROMO_PHONE_DISPLAY, PROMO_PHONE_TEL } from '@/lib/promos';
