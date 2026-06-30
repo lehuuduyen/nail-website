@@ -9,6 +9,8 @@ import LocationSection from '@/components/LocationSection';
 import BookingCtaBanner from '@/components/BookingCtaBanner';
 import FeaturedVideos from '@/components/FeaturedVideos';
 import HomePromoSection from '@/components/HomePromoSection';
+import NewCustomerPromo from '@/components/NewCustomerPromo';
+import { getNewCustomerOfferEnabled } from '@/lib/serverSettings';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { absoluteUrl } from '@/lib/siteUrl';
 import { translatedMeta, ogLocale } from '@/lib/i18nMeta';
@@ -61,6 +63,7 @@ export default async function HomePage({ params: { locale } }) {
   ]);
   const reviewCount = placeStats?.reviewCount ?? '700';
   const ratingValue = placeStats?.rating ?? '4.9';
+  const newCustomerOfferOn = await getNewCustomerOfferEnabled();
   return (
     <>
       {/* preconnect for Google Maps iframe — only needed on this page */}
@@ -72,6 +75,11 @@ export default async function HomePage({ params: { locale } }) {
         <HeroKeywordTags />
       </div>
       <HomePromoSection />
+      {newCustomerOfferOn && (
+        <section className="bg-cream px-0 py-12 md:py-16">
+          <NewCustomerPromo />
+        </section>
+      )}
       <WhyLoveSection reviewCount={reviewCount} rating={ratingValue} />
       <OurLuxuryServicesSection />
       <ServicesSection />

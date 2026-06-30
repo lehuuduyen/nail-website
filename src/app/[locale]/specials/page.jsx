@@ -7,11 +7,13 @@ import {
   PROMO_PHONE_TEL,
 } from '@/lib/promos';
 import { getPromos } from '@/lib/serverPromos';
+import { getNewCustomerOfferEnabled } from '@/lib/serverSettings';
 import { salonAddress } from '@/lib/salon';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { translatedMeta, ogLocale } from '@/lib/i18nMeta';
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import FeaturedEventHero from '@/components/FeaturedEventHero';
+import NewCustomerPromo from '@/components/NewCustomerPromo';
 import TrackedLink from '@/components/analytics/TrackedLink';
 import TrackView from '@/components/analytics/TrackView';
 
@@ -78,6 +80,7 @@ export default async function SpecialsPage({ params: { locale } }) {
   setRequestLocale(locale);
   const t = await getTranslations('specialsPage');
   const promos = filterLivePromos(await getPromos());
+  const newCustomerOfferOn = await getNewCustomerOfferEnabled();
   const featured = promos[0] || null;
   const rest = promos.slice(1);
   const address = salonAddress();
@@ -107,6 +110,13 @@ export default async function SpecialsPage({ params: { locale } }) {
           {t('intro')}
         </p>
       </section>
+
+      {/* New-customer offer — toggled from admin SMS Settings, separate from gift card promos */}
+      {newCustomerOfferOn && (
+        <div className="pt-12 md:pt-16">
+          <NewCustomerPromo />
+        </div>
+      )}
 
       {promos.length > 0 ? (
         <div className="py-12 md:py-16">

@@ -104,6 +104,11 @@
     "email": "Email (optional)",
     "notes": "Special requests",
     "smsConsent": "By checking this box, I agree to receive SMS appointment reminders and confirmations from Nice Nails & Spa at the number provided. Message & data rates may apply. Reply STOP to unsubscribe. View Privacy Policy at nicenailsaz.com/privacy.",
+    "newCustomerCallout": {
+      "badge": "New Customer",
+      "title": "First visit? Save $5",
+      "body": "New guests get $5 off their first visit automatically. Your confirmation text will include the offer — just show it to our staff when you check out."
+    },
     "summary": "Summary",
     "minutes": "{count} minutes",
     "staffLabel": "Staff: {name}",
@@ -145,7 +150,16 @@
     "seoBody": "Nice Nails & Spa is a full-service nail salon in North Phoenix, AZ 85021, offering cheap manicure and spa pedicure options without cutting corners on quality or hygiene. Whether you searched for an affordable pedicure near me or pedicure deals in Phoenix, our specials above show what's currently running. Walk-ins are welcome and online booking is open 24/7.",
     "addressLabel": "Address:",
     "phoneLabel": "Phone:",
-    "bookAppointment": "Book appointment"
+    "bookAppointment": "Book appointment",
+    "newCustomer": {
+      "badgeNew": "New Customer",
+      "badgeOff": "$5 Off",
+      "title": "New Customer? Get $5 Off Your First Visit",
+      "body": "First-time guests get $5 off automatically on their first visit. Just book online and your confirmation text will include a message to show our staff at checkout — no coupon code needed.",
+      "fine": "First visit only. Discount applied in-salon by our staff when you show your confirmation text.",
+      "book": "Book Now",
+      "call": "Call"
+    }
   },
   "home": {
     "luxury": {

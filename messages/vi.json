@@ -104,6 +104,11 @@
     "email": "Email (không bắt buộc)",
     "notes": "Yêu cầu đặc biệt",
     "smsConsent": "Khi đánh dấu ô này, tôi đồng ý nhận tin nhắn SMS nhắc lịch và xác nhận hẹn từ Nice Nails & Spa tới số đã cung cấp. Có thể áp dụng cước tin nhắn & dữ liệu. Trả lời STOP để hủy đăng ký. Xem Chính sách Bảo mật tại nicenailsaz.com/privacy.",
+    "newCustomerCallout": {
+      "badge": "Khách mới",
+      "title": "Lần đầu ghé? Giảm $5",
+      "body": "Khách mới được giảm $5 cho lần đầu một cách tự động. Tin nhắn xác nhận sẽ kèm ưu đãi — chỉ cần đưa cho nhân viên khi thanh toán."
+    },
     "summary": "Tóm tắt",
     "minutes": "{count} phút",
     "staffLabel": "Kỹ thuật viên: {name}",
@@ -145,7 +150,16 @@
     "seoBody": "Nice Nails & Spa là tiệm nail trọn gói ở North Phoenix, AZ 85021, cung cấp các lựa chọn làm móng và móng chân spa giá tốt mà không cắt giảm chất lượng hay vệ sinh. Dù bạn tìm 'pedicure giá tốt gần đây' hay 'ưu đãi móng chân ở Phoenix', các ưu đãi phía trên cho thấy chương trình đang chạy. Nhận khách vãng lai và đặt lịch online mở 24/7.",
     "addressLabel": "Địa chỉ:",
     "phoneLabel": "Điện thoại:",
-    "bookAppointment": "Đặt lịch hẹn"
+    "bookAppointment": "Đặt lịch hẹn",
+    "newCustomer": {
+      "badgeNew": "Khách mới",
+      "badgeOff": "Giảm $5",
+      "title": "Khách mới? Giảm $5 cho lần đầu ghé thăm",
+      "body": "Khách lần đầu được giảm $5 tự động cho lần ghé đầu tiên. Chỉ cần đặt lịch online, tin nhắn xác nhận sẽ kèm nội dung để bạn đưa cho nhân viên khi thanh toán — không cần mã giảm giá.",
+      "fine": "Chỉ áp dụng lần đầu. Nhân viên sẽ trừ giảm giá tại tiệm khi bạn cho xem tin nhắn xác nhận.",
+      "book": "Đặt lịch ngay",
+      "call": "Gọi"
+    }
   },
   "home": {
     "luxury": {

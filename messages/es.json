@@ -104,6 +104,11 @@
     "email": "Correo electrónico (opcional)",
     "notes": "Solicitudes especiales",
     "smsConsent": "Al marcar esta casilla, acepto recibir recordatorios y confirmaciones de cita por SMS de Nice Nails & Spa al número proporcionado. Pueden aplicarse tarifas de mensajes y datos. Responde STOP para cancelar la suscripción. Consulta la Política de Privacidad en nicenailsaz.com/privacy.",
+    "newCustomerCallout": {
+      "badge": "Cliente Nuevo",
+      "title": "¿Primera visita? Ahorra $5",
+      "body": "Los clientes nuevos reciben $5 de descuento en su primera visita automáticamente. Tu mensaje de confirmación incluirá la oferta — solo muéstralo a nuestro personal al pagar."
+    },
     "summary": "Resumen",
     "minutes": "{count} minutos",
     "staffLabel": "Técnica: {name}",
@@ -145,7 +150,16 @@
     "seoBody": "Nice Nails & Spa es un salón de uñas de servicio completo en North Phoenix, AZ 85021, que ofrece opciones económicas de manicura y pedicura spa sin sacrificar la calidad ni la higiene. Ya sea que hayas buscado una pedicura económica cerca de mí u ofertas de pedicura en Phoenix, nuestras promociones de arriba muestran lo que está vigente ahora. Atendemos sin cita y la reserva en línea está abierta 24/7.",
     "addressLabel": "Dirección:",
     "phoneLabel": "Teléfono:",
-    "bookAppointment": "Reservar cita"
+    "bookAppointment": "Reservar cita",
+    "newCustomer": {
+      "badgeNew": "Cliente Nuevo",
+      "badgeOff": "$5 de Descuento",
+      "title": "¿Cliente nuevo? Obtén $5 de descuento en tu primera visita",
+      "body": "Los clientes que vienen por primera vez reciben $5 de descuento automáticamente en su primera visita. Solo reserva en línea y tu mensaje de confirmación incluirá un texto para mostrar a nuestro personal al pagar — sin código de cupón.",
+      "fine": "Solo primera visita. El descuento lo aplica nuestro personal en el salón cuando muestras tu mensaje de confirmación.",
+      "book": "Reservar ahora",
+      "call": "Llamar"
+    }
   },
   "home": {
     "luxury": {

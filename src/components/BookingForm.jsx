@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import DatePicker from 'react-datepicker';
 import { format, parse, isBefore, startOfDay } from 'date-fns';
@@ -23,6 +23,7 @@ function stripPhone(s) {
 
 export default function BookingForm() {
   const tb = useTranslations('booking');
+  const locale = useLocale();
   const STEPS = STEP_KEYS.map((k) => tb(`steps.${k}`));
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -174,6 +175,7 @@ export default function BookingForm() {
         scheduledAt,
         notes: notes.trim() || undefined,
         smsOptIn: smsConsent,
+        locale, // drives the language of the SMS confirmation (incl. new-customer offer)
       });
       const assigned = employees.find((x) => x.id === res.employeeId);
       const finalStaff = assigned ? `${assigned.firstName} ${assigned.lastName}` : staffName;
