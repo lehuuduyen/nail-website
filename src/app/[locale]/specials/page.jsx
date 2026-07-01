@@ -14,6 +14,7 @@ import { translatedMeta, ogLocale } from '@/lib/i18nMeta';
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import FeaturedEventHero from '@/components/FeaturedEventHero';
 import NewCustomerPromo from '@/components/NewCustomerPromo';
+import SpecialsOfferJsonLd from '@/components/SpecialsOfferJsonLd';
 import TrackedLink from '@/components/analytics/TrackedLink';
 import TrackView from '@/components/analytics/TrackView';
 
@@ -113,9 +114,15 @@ export default async function SpecialsPage({ params: { locale } }) {
 
       {/* New-customer offer — toggled from admin SMS Settings, separate from gift card promos */}
       {newCustomerOfferOn && (
-        <div className="pt-12 md:pt-16">
-          <NewCustomerPromo />
-        </div>
+        <>
+          <SpecialsOfferJsonLd
+            name={t('newCustomer.title')}
+            description={t('newCustomer.body')}
+          />
+          <div className="pt-12 md:pt-16">
+            <NewCustomerPromo />
+          </div>
+        </>
       )}
 
       {promos.length > 0 ? (
