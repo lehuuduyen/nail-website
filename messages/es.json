@@ -19,7 +19,7 @@
     },
     "specials": {
       "title": "$5 de Descuento Cliente Nuevo + Ofertas del Salón de Uñas — North Phoenix, AZ 85021 | Nice Nails & Spa",
-      "description": "Los clientes nuevos obtienen $5 de descuento en su primera visita en Nice Nails & Spa en North Phoenix, AZ 85021. Además, pedicuras a buen precio, ofertas de manicura y promociones de temporada. Reserva en línea o llama al (602) 759-9184."
+      "description": "Los clientes nuevos obtienen $5 de descuento en su primera visita al reservar en línea en Nice Nails & Spa en North Phoenix, AZ 85021. Además, pedicuras a buen precio, ofertas de manicura y promociones de temporada. Reserva en línea o llama al (602) 759-9184."
     }
   },
   "nav": {
@@ -107,7 +107,7 @@
     "newCustomerCallout": {
       "badge": "Cliente Nuevo",
       "title": "¿Primera visita? Ahorra $5",
-      "body": "Los clientes nuevos reciben $5 de descuento en su primera visita automáticamente. Tu mensaje de confirmación incluirá la oferta — solo muéstralo a nuestro personal al pagar."
+      "body": "¿Primera vez? Completa tu reserva en línea y te enviaremos una confirmación con $5 de descuento para mostrar a nuestro personal al pagar."
     },
     "summary": "Resumen",
     "minutes": "{count} minutos",
@@ -154,9 +154,9 @@
     "newCustomer": {
       "badgeNew": "Cliente Nuevo",
       "badgeOff": "$5 de Descuento",
-      "title": "¿Cliente nuevo? Obtén $5 de descuento en tu primera visita",
-      "body": "Los clientes que vienen por primera vez reciben $5 de descuento automáticamente en su primera visita. Solo reserva en línea y tu mensaje de confirmación incluirá un texto para mostrar a nuestro personal al pagar — sin código de cupón.",
-      "fine": "Solo primera visita. El descuento lo aplica nuestro personal en el salón cuando muestras tu mensaje de confirmación.",
+      "title": "¿Cliente nuevo? Reserva en línea y obtén $5 de descuento",
+      "body": "Reserva tu primera visita en línea y te enviaremos un mensaje de confirmación con $5 de descuento. Muéstralo a nuestro personal al pagar — sin código de cupón.",
+      "fine": "Para clientes nuevos que reservan en línea. El personal aplica los $5 en el salón cuando muestras tu mensaje de confirmación.",
       "book": "Reservar ahora",
       "call": "Llamar"
     }

@@ -19,7 +19,7 @@
     },
     "specials": {
       "title": "Giảm $5 Khách Mới + Ưu Đãi Tiệm Nail ở North Phoenix, AZ 85021 | Nice Nails & Spa",
-      "description": "Khách mới được giảm $5 cho lần đầu tại Nice Nails & Spa ở North Phoenix, AZ 85021. Ngoài ra còn móng chân giá tốt, ưu đãi làm móng và khuyến mãi theo mùa. Đặt lịch online hoặc gọi (602) 759-9184."
+      "description": "Khách mới được giảm $5 cho lần đầu khi đặt lịch online tại Nice Nails & Spa ở North Phoenix, AZ 85021. Ngoài ra còn móng chân giá tốt, ưu đãi làm móng và khuyến mãi theo mùa. Đặt lịch online hoặc gọi (602) 759-9184."
     }
   },
   "nav": {
@@ -107,7 +107,7 @@
     "newCustomerCallout": {
       "badge": "Khách mới",
       "title": "Lần đầu ghé? Giảm $5",
-      "body": "Khách mới được giảm $5 cho lần đầu một cách tự động. Tin nhắn xác nhận sẽ kèm ưu đãi — chỉ cần đưa cho nhân viên khi thanh toán."
+      "body": "Khách lần đầu? Hoàn tất đặt lịch online, chúng tôi sẽ nhắn tin xác nhận kèm giảm $5 để bạn đưa nhân viên khi thanh toán."
     },
     "summary": "Tóm tắt",
     "minutes": "{count} phút",
@@ -154,9 +154,9 @@
     "newCustomer": {
       "badgeNew": "Khách mới",
       "badgeOff": "Giảm $5",
-      "title": "Khách mới? Giảm $5 cho lần đầu ghé thăm",
-      "body": "Khách lần đầu được giảm $5 tự động cho lần ghé đầu tiên. Chỉ cần đặt lịch online, tin nhắn xác nhận sẽ kèm nội dung để bạn đưa cho nhân viên khi thanh toán — không cần mã giảm giá.",
-      "fine": "Chỉ áp dụng lần đầu. Nhân viên sẽ trừ giảm giá tại tiệm khi bạn cho xem tin nhắn xác nhận.",
+      "title": "Khách mới? Đặt online & giảm $5",
+      "body": "Đặt lịch lần đầu online, chúng tôi sẽ nhắn cho bạn tin xác nhận kèm ưu đãi giảm $5. Đưa tin nhắn đó cho nhân viên khi thanh toán — không cần mã giảm giá.",
+      "fine": "Dành cho khách lần đầu đặt online. Nhân viên trừ $5 tại tiệm khi bạn cho xem tin nhắn xác nhận.",
       "book": "Đặt lịch ngay",
       "call": "Gọi"
     }
