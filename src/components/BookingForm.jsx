@@ -461,6 +461,17 @@ export default function BookingForm() {
                       {timeLabel && ` · ${timeLabel}`}
                     </li>
                   </ul>
+
+                  {/* Inline confirm — mobile only, so khách không phải tìm nút ở thanh dưới */}
+                  {formError && <p className="mt-4 text-sm text-red-600 lg:hidden">{formError}</p>}
+                  <button
+                    type="button"
+                    disabled={submitting}
+                    onClick={handleConfirm}
+                    className="mt-5 w-full rounded-full bg-rose-gold px-8 py-3 text-sm font-bold text-white shadow-lg transition hover:opacity-90 disabled:opacity-60 lg:hidden"
+                  >
+                    {submitting ? tb('booking') : tb('confirm')}
+                  </button>
                 </aside>
               </div>
             </motion.div>
