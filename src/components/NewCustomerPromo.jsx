@@ -11,7 +11,7 @@ import PromoCountdown from '@/components/PromoCountdown';
  * confirmation they receive after a first-time booking (see backend bookPublic).
  *
  * `showCountdown` (admin toggle, SmsSettings.promoCountdownEnabled) adds a
- * weekly FOMO countdown — see PromoCountdown for the rollover logic.
+ * daily FOMO countdown — see PromoCountdown for the rollover logic.
  */
 export default async function NewCustomerPromo({ showCountdown = false }) {
   const t = await getTranslations('specialsPage.newCustomer');
@@ -63,7 +63,6 @@ export default async function NewCustomerPromo({ showCountdown = false }) {
               <PromoCountdown
                 labels={{
                   endsIn: t('countdown.endsIn'),
-                  days: t('countdown.days'),
                   hours: t('countdown.hours'),
                   mins: t('countdown.mins'),
                   secs: t('countdown.secs'),

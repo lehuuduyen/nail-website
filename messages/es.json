@@ -160,8 +160,7 @@
       "book": "Reservar ahora",
       "call": "Llamar",
       "countdown": {
-        "endsIn": "Apúrate — la oferta termina en",
-        "days": "Días",
+        "endsIn": "Solo hoy — la oferta termina en",
         "hours": "Hrs",
         "mins": "Min",
         "secs": "Seg"

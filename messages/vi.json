@@ -160,8 +160,7 @@
       "book": "Đặt lịch ngay",
       "call": "Gọi",
       "countdown": {
-        "endsIn": "Nhanh tay — ưu đãi kết thúc sau",
-        "days": "Ngày",
+        "endsIn": "Chỉ hôm nay — ưu đãi kết thúc sau",
         "hours": "Giờ",
         "mins": "Phút",
         "secs": "Giây"

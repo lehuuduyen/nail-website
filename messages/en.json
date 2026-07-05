@@ -160,8 +160,7 @@
       "book": "Book Now",
       "call": "Call",
       "countdown": {
-        "endsIn": "Hurry — offer ends in",
-        "days": "Days",
+        "endsIn": "Today only — offer ends in",
         "hours": "Hrs",
         "mins": "Min",
         "secs": "Sec"

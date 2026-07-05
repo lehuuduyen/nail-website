@@ -4,29 +4,26 @@ import { useEffect, useState } from 'react';
 
 /**
  * FOMO countdown for the new-customer promo. Counts down to the end of the
- * current week (Sunday 23:59:59 salon time) and rolls over automatically each
- * Monday — the admin only toggles it on/off, no dates to maintain.
+ * current day (23:59:59 salon time) and rolls over automatically at midnight —
+ * the admin only toggles it on/off, no dates to maintain.
  *
  * Arizona (America/Phoenix) never observes DST, so a fixed UTC-7 offset is
  * safe and avoids Intl timezone parsing on every tick.
  */
 const PHX_OFFSET_MS = 7 * 60 * 60 * 1000;
 
-/** ms from `nowMs` until next Monday 00:00 Phoenix time (= end of Sunday). */
-function msUntilWeekEnd(nowMs) {
+/** ms from `nowMs` until next midnight Phoenix time (= end of today). */
+function msUntilDayEnd(nowMs) {
   const phx = new Date(nowMs - PHX_OFFSET_MS); // read UTC fields as Phoenix local
-  const daysToMonday = ((7 - phx.getUTCDay()) % 7) + 1;
   const target =
-    Date.UTC(phx.getUTCFullYear(), phx.getUTCMonth(), phx.getUTCDate() + daysToMonday) +
-    PHX_OFFSET_MS;
+    Date.UTC(phx.getUTCFullYear(), phx.getUTCMonth(), phx.getUTCDate() + 1) + PHX_OFFSET_MS;
   return Math.max(0, target - nowMs);
 }
 
 function splitParts(ms) {
   const totalSecs = Math.floor(ms / 1000);
   return {
-    days: Math.floor(totalSecs / 86400),
-    hours: Math.floor((totalSecs % 86400) / 3600),
+    hours: Math.floor(totalSecs / 3600),
     mins: Math.floor((totalSecs % 3600) / 60),
     secs: totalSecs % 60,
   };
@@ -54,7 +51,7 @@ const VARIANTS = {
 
 /**
  * @param {{
- *   labels: { endsIn: string, days: string, hours: string, mins: string, secs: string },
+ *   labels: { endsIn: string, hours: string, mins: string, secs: string },
  *   variant?: 'dark' | 'light',
  *   compact?: boolean,
  * }} props
@@ -67,7 +64,7 @@ export default function PromoCountdown({ labels, variant = 'dark', compact = fal
   const [remaining, setRemaining] = useState(null);
 
   useEffect(() => {
-    const tick = () => setRemaining(msUntilWeekEnd(Date.now()));
+    const tick = () => setRemaining(msUntilDayEnd(Date.now()));
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
@@ -75,7 +72,6 @@ export default function PromoCountdown({ labels, variant = 'dark', compact = fal
 
   const parts = remaining == null ? null : splitParts(remaining);
   const cells = [
-    { value: parts ? String(parts.days) : '--', label: labels.days },
     { value: parts ? pad(parts.hours) : '--', label: labels.hours },
     { value: parts ? pad(parts.mins) : '--', label: labels.mins },
     { value: parts ? pad(parts.secs) : '--', label: labels.secs },
