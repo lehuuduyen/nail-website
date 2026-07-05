@@ -63,6 +63,7 @@ export default async function NewCustomerPromo({ showCountdown = false }) {
               <PromoCountdown
                 labels={{
                   endsIn: t('countdown.endsIn'),
+                  note: t('countdown.note'),
                   hours: t('countdown.hours'),
                   mins: t('countdown.mins'),
                   secs: t('countdown.secs'),

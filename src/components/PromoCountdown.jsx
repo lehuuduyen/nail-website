@@ -39,6 +39,7 @@ const VARIANTS = {
     box: 'border-rose-gold/40 bg-cream/10 backdrop-blur-sm',
     digit: 'text-cream',
     unit: 'text-cream/60',
+    note: 'text-cream/75',
   },
   light: {
     endsIn: 'text-rose-gold-deep',
@@ -46,15 +47,17 @@ const VARIANTS = {
     box: 'border-rose-gold/40 bg-white',
     digit: 'text-ink',
     unit: 'text-muted',
+    note: 'text-charcoal',
   },
 };
 
 /**
  * @param {{
- *   labels: { endsIn: string, hours: string, mins: string, secs: string },
+ *   labels: { endsIn: string, note?: string, hours: string, mins: string, secs: string },
  *   variant?: 'dark' | 'light',
  *   compact?: boolean,
  * }} props
+ * `note` clarifies that booking today (not visiting today) locks the offer.
  * Labels come from the server parent so this stays a tiny client island
  * without pulling next-intl into the bundle.
  */
@@ -124,6 +127,15 @@ export default function PromoCountdown({ labels, variant = 'dark', compact = fal
           </div>
         ))}
       </div>
+      {labels.note && (
+        <p
+          className={`font-semibold ${v.note} ${
+            compact ? 'mt-2 text-[11px]' : 'mt-2.5 text-xs md:text-sm'
+          }`}
+        >
+          {labels.note}
+        </p>
+      )}
     </div>
   );
 }

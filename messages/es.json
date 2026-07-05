@@ -161,6 +161,7 @@
       "call": "Llamar",
       "countdown": {
         "endsIn": "Solo hoy — la oferta termina en",
+        "note": "Reserva hoy y asegura tus $5 de descuento — tu cita puede ser cualquier día.",
         "hours": "Hrs",
         "mins": "Min",
         "secs": "Seg"

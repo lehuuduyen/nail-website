@@ -161,6 +161,7 @@
       "call": "Call",
       "countdown": {
         "endsIn": "Today only — offer ends in",
+        "note": "Book today to lock in your $5 off — your visit can be any day.",
         "hours": "Hrs",
         "mins": "Min",
         "secs": "Sec"

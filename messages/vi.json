@@ -161,6 +161,7 @@
       "call": "Gọi",
       "countdown": {
         "endsIn": "Chỉ hôm nay — ưu đãi kết thúc sau",
+        "note": "Đặt hôm nay — giữ ưu đãi $5. Chỉ cần đặt lịch trước nửa đêm, đến làm ngày nào cũng được.",
         "hours": "Giờ",
         "mins": "Phút",
         "secs": "Giây"

@@ -35,6 +35,7 @@ export default async function BookingPage({ params: { locale } }) {
                 compact
                 labels={{
                   endsIn: tc('endsIn'),
+                  note: tc('note'),
                   hours: tc('hours'),
                   mins: tc('mins'),
                   secs: tc('secs'),
