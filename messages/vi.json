@@ -158,7 +158,14 @@
       "body": "Đặt lịch lần đầu online, chúng tôi sẽ nhắn cho bạn tin xác nhận kèm ưu đãi giảm $5. Đưa tin nhắn đó cho nhân viên khi thanh toán — không cần mã giảm giá.",
       "fine": "Dành cho khách lần đầu đặt online. Nhân viên trừ $5 tại tiệm khi bạn cho xem tin nhắn xác nhận.",
       "book": "Đặt lịch ngay",
-      "call": "Gọi"
+      "call": "Gọi",
+      "countdown": {
+        "endsIn": "Nhanh tay — ưu đãi kết thúc sau",
+        "days": "Ngày",
+        "hours": "Giờ",
+        "mins": "Phút",
+        "secs": "Giây"
+      }
     }
   },
   "home": {

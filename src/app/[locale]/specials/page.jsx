@@ -7,7 +7,7 @@ import {
   PROMO_PHONE_TEL,
 } from '@/lib/promos';
 import { getPromos } from '@/lib/serverPromos';
-import { getNewCustomerOfferEnabled } from '@/lib/serverSettings';
+import { getNewCustomerOffer } from '@/lib/serverSettings';
 import { salonAddress } from '@/lib/salon';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { translatedMeta, ogLocale } from '@/lib/i18nMeta';
@@ -81,7 +81,7 @@ export default async function SpecialsPage({ params: { locale } }) {
   setRequestLocale(locale);
   const t = await getTranslations('specialsPage');
   const promos = filterLivePromos(await getPromos());
-  const newCustomerOfferOn = await getNewCustomerOfferEnabled();
+  const { enabled: newCustomerOfferOn, countdownEnabled } = await getNewCustomerOffer();
   const featured = promos[0] || null;
   const rest = promos.slice(1);
   const address = salonAddress();
@@ -120,7 +120,7 @@ export default async function SpecialsPage({ params: { locale } }) {
             description={t('newCustomer.body')}
           />
           <div className="pt-12 md:pt-16">
-            <NewCustomerPromo />
+            <NewCustomerPromo showCountdown={countdownEnabled} />
           </div>
         </>
       )}

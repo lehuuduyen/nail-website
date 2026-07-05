@@ -158,7 +158,14 @@
       "body": "Book your first visit online and we'll text you a confirmation with a $5-off message. Show that text to our staff at checkout — no coupon code needed.",
       "fine": "For first-time guests who book online. Staff apply the $5 in-salon when you show your confirmation text.",
       "book": "Book Now",
-      "call": "Call"
+      "call": "Call",
+      "countdown": {
+        "endsIn": "Hurry — offer ends in",
+        "days": "Days",
+        "hours": "Hrs",
+        "mins": "Min",
+        "secs": "Sec"
+      }
     }
   },
   "home": {

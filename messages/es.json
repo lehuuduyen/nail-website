@@ -158,7 +158,14 @@
       "body": "Reserva tu primera visita en línea y te enviaremos un mensaje de confirmación con $5 de descuento. Muéstralo a nuestro personal al pagar — sin código de cupón.",
       "fine": "Para clientes nuevos que reservan en línea. El personal aplica los $5 en el salón cuando muestras tu mensaje de confirmación.",
       "book": "Reservar ahora",
-      "call": "Llamar"
+      "call": "Llamar",
+      "countdown": {
+        "endsIn": "Apúrate — la oferta termina en",
+        "days": "Días",
+        "hours": "Hrs",
+        "mins": "Min",
+        "secs": "Seg"
+      }
     }
   },
   "home": {

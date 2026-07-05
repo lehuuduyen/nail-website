@@ -10,18 +10,22 @@ const API_BASE = (
 ).replace(/\/$/, '');
 
 /**
- * Is the new-customer $5-off offer currently on? Controls the /specials promo and
- * the booking callout. Defaults to true when the API is unreachable.
+ * New-customer $5-off offer state. `enabled` controls the /specials promo and the
+ * booking callout; `countdownEnabled` shows the weekly FOMO countdown on the promo.
+ * Defaults to enabled + no countdown when the API is unreachable.
  */
-export async function getNewCustomerOfferEnabled() {
+export async function getNewCustomerOffer() {
   try {
     const res = await fetch(`${API_BASE}/api/public/new-customer-offer`, {
       next: { revalidate: 600 },
     });
-    if (!res.ok) return true;
+    if (!res.ok) return { enabled: true, countdownEnabled: false };
     const data = await res.json();
-    return data?.enabled !== false;
+    return {
+      enabled: data?.enabled !== false,
+      countdownEnabled: data?.countdownEnabled === true,
+    };
   } catch {
-    return true;
+    return { enabled: true, countdownEnabled: false };
   }
 }

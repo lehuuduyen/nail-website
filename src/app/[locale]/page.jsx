@@ -10,7 +10,7 @@ import BookingCtaBanner from '@/components/BookingCtaBanner';
 import FeaturedVideos from '@/components/FeaturedVideos';
 import HomePromoSection from '@/components/HomePromoSection';
 import NewCustomerPromo from '@/components/NewCustomerPromo';
-import { getNewCustomerOfferEnabled } from '@/lib/serverSettings';
+import { getNewCustomerOffer } from '@/lib/serverSettings';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { absoluteUrl } from '@/lib/siteUrl';
 import { translatedMeta, ogLocale } from '@/lib/i18nMeta';
@@ -63,7 +63,7 @@ export default async function HomePage({ params: { locale } }) {
   ]);
   const reviewCount = placeStats?.reviewCount ?? '700';
   const ratingValue = placeStats?.rating ?? '4.9';
-  const newCustomerOfferOn = await getNewCustomerOfferEnabled();
+  const { enabled: newCustomerOfferOn, countdownEnabled } = await getNewCustomerOffer();
   return (
     <>
       {/* preconnect for Google Maps iframe — only needed on this page */}
@@ -77,7 +77,7 @@ export default async function HomePage({ params: { locale } }) {
       <HomePromoSection />
       {newCustomerOfferOn && (
         <section className="bg-cream px-0 py-12 md:py-16">
-          <NewCustomerPromo />
+          <NewCustomerPromo showCountdown={countdownEnabled} />
         </section>
       )}
       <WhyLoveSection reviewCount={reviewCount} rating={ratingValue} />

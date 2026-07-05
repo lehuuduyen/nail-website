@@ -45,6 +45,22 @@ module.exports = {
         'luxury-gold':
           'linear-gradient(135deg, #e8dcc4 0%, #c9a96e 38%, #a67c3d 72%, #8a6530 100%)',
       },
+      keyframes: {
+        /** Vệt sáng quét ngang badge promo */
+        'promo-shine': {
+          '0%': { transform: 'translateX(-150%) skewX(-20deg)' },
+          '60%, 100%': { transform: 'translateX(250%) skewX(-20deg)' },
+        },
+        /** Vòng glow lan ra từ nút CTA promo */
+        'promo-glow': {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(158, 139, 133, 0.55)' },
+          '55%': { boxShadow: '0 0 0 12px rgba(158, 139, 133, 0)' },
+        },
+      },
+      animation: {
+        'promo-shine': 'promo-shine 3s ease-in-out infinite',
+        'promo-glow': 'promo-glow 2.2s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
