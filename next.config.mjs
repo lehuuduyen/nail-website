@@ -22,6 +22,11 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   images: {
+    // Vercel Hobby hit its Image Optimization quota (402 OPTIMIZED_IMAGE_REQUEST_
+    // PAYMENT_REQUIRED → broken images). Serve originals directly — uploads are
+    // already compressed (~100KB). Remove to re-enable the optimizer (paid plan
+    // or after trimming formats/sizes below so the quota isn't exhausted again).
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
