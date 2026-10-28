@@ -1,0 +1,17 @@
+[
+  {
+    "date": "2026-10-05",
+    "scope": "app",
+    "genre": "editorial",
+    "macrostructure": "Split Studio (marketing) / Catalogue (services) / Long Document (content) / Portfolio Grid (media)",
+    "theme": "Atelier",
+    "theme_axes": "light / high-contrast-serif / warm",
+    "nav": "N12 banner + retracting bar",
+    "footer": "Ft1 mast-headed",
+    "sectionHead": "S2 hanging",
+    "enrichment": "none (real salon photography only)",
+    "designSystem": "design.md",
+    "brief": "nicenailsaz.com — luxury nail salon, North Phoenix AZ; redesign for SEO + appeal",
+    "note": "designed-as-app: catalog rotation is suspended for this project. Subsequent runs read design.md and keep the system rather than rotating away from it."
+  }
+]

@@ -15,32 +15,27 @@ export default function FeaturedVideos({ videos }) {
   if (featured.length === 0) return null;
 
   return (
-    <section className="bg-surface-soft py-20 md:py-28">
+    <section className="bg-paper-2 py-2xl md:py-3xl">
       {/* Resource hints — only emitted when the page actually has videos */}
       <link rel="preconnect" href="https://www.youtube-nocookie.com" />
       <link rel="preconnect" href="https://i.ytimg.com" />
       <VideoObjectJsonLd videos={featured} />
 
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="mb-12 text-center">
-          <h2 className="font-display text-3xl text-ink md:text-4xl">{t('heading')}</h2>
-          <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-rose-gold" />
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-charcoal md:text-base">
-            {t('subtitle')}
-          </p>
-        </div>
+        <header className="head-hang">
+          <h2>{t('heading')}</h2>
+          <p>{t('subtitle')}</p>
+        </header>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        {/* minmax(0, …) — the tracks hold video thumbnails (gate 50) */}
+        <div className="grid gap-xl md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           {featured.map((v) => (
             <VideoCard key={v.youtubeId} video={v} />
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Link
-            href="/videos"
-            className="inline-flex rounded-full bg-charcoal px-8 py-3 text-sm font-semibold text-cream transition hover:bg-charcoal/90"
-          >
+        <div className="mt-2xl">
+          <Link href="/videos" className="btn-quiet">
             {t('viewAll')}
           </Link>
         </div>

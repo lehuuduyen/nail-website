@@ -32,8 +32,11 @@ export default function HomeFaqSection() {
   const jsonLd = faqPageJsonLd(items);
 
   return (
+    /* Conversational-FAQ voice on hairlines: each Q/A is a ruled row rather than a
+       gap in a list. Hairlines over cards is the editorial rule, and the FAQPage
+       JSON-LD below is untouched — it is a ranking asset. */
     <section
-      className="bg-cream px-4 py-14 md:py-20"
+      className="bg-paper px-4 py-2xl md:py-3xl"
       aria-labelledby="home-faq-heading"
     >
       <script
@@ -41,17 +44,14 @@ export default function HomeFaqSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="mx-auto max-w-3xl">
-        <h2
-          id="home-faq-heading"
-          className="font-display text-3xl text-ink md:text-4xl"
-        >
-          {t('heading')}
-        </h2>
-        <ul className="mt-10 space-y-8">
+        <header className="head-hang !pt-0">
+          <h2 id="home-faq-heading">{t('heading')}</h2>
+        </header>
+        <ul>
           {items.map((item) => (
-            <li key={item.q}>
-              <h3 className="text-lg font-semibold text-charcoal">{item.q}</h3>
-              <p className="mt-2 text-base leading-relaxed text-charcoal">{item.a}</p>
+            <li key={item.q} className="border-t border-rule-soft py-lg">
+              <h3 className="text-step-md font-semibold text-ink">{item.q}</h3>
+              <p className="measure mt-sm text-step-base leading-[1.65] text-ink-2">{item.a}</p>
             </li>
           ))}
         </ul>

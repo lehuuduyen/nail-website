@@ -42,6 +42,7 @@
     "bookOnline": "Book online",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
+    "reviewUs": "Review us on Google",
     "rights": "All rights reserved."
   },
   "hero": {
@@ -141,7 +142,9 @@
     "breadcrumbSpecials": "Specials",
     "h1": "Specials & Deals — Nice Nails & Spa, Phoenix 85021",
     "intro": "Looking for affordable pedicures or manicure deals in North Phoenix? This is where we post our current offers. A great Groupon alternative for nail salon deals in the 85021 area — book online or call us to lock in a time.",
-    "moreOffers": "More offers",
+        "callWithNumber": "Call {phone}",
+    "viewAllSpecials": "View all specials",
+"moreOffers": "More offers",
     "noneTitle": "No active specials right now",
     "noneBody": "Check back soon — we post seasonal pedicure and manicure deals here. In the meantime, you can always book online or call us for current pricing.",
     "bookOnline": "Book online",
@@ -170,7 +173,7 @@
   },
   "home": {
     "luxury": {
-      "heading": "Our Luxury Services",
+      "heading": "Our Luxury Nail & Spa Services in Phoenix",
       "subtitle": "Get inspired by our beautiful nail designs",
       "pillars": {
         "premium": "Premium Products Only",
@@ -180,7 +183,7 @@
       }
     },
     "popular": {
-      "heading": "Our Most Popular Services",
+      "heading": "Our Most Popular Nail Services in Phoenix",
       "subtitle": "We perfect our stunning nail designs",
       "fromPrice": "From {price}",
       "bookThis": "Book this service",
@@ -204,7 +207,7 @@
       "viewAll": "View all videos"
     },
     "testimonials": {
-      "heading": "Guest love",
+      "heading": "Guest Reviews",
       "liveGoogle": "Live from Google Maps",
       "reviewUs": "Review us on Google",
       "pause": "Pause auto-scroll",
@@ -212,7 +215,7 @@
       "reviewNum": "Review {num}"
     },
     "gallery": {
-      "heading": "Our Work",
+      "heading": "Our Nail Art Gallery",
       "viewFull": "View Full Gallery",
       "close": "Close"
     },
@@ -232,7 +235,7 @@
       "p3": "Step in when you need a refresh, a repair, or a full new set; we are here to help you leave feeling put-together, listened to, and ready for whatever is next on your calendar."
     },
     "faq": {
-      "heading": "Frequently Asked Questions",
+      "heading": "Nail Salon FAQs",
       "q1": "Do you accept walk-ins at your Phoenix nail salon?",
       "a1": "Yes. We welcome walk-ins at Nice Nails & Spa whenever we have an open chair, especially on quieter weekdays. Evenings and Saturdays can fill up quickly, so booking online secures your time and helps us prepare for nail art or longer services.",
       "q2": "How much does a manicure cost at Nice Nails & Spa?",
@@ -245,7 +248,7 @@
       "a5": "Our regular hours are {hours}. Holiday hours may vary—call ahead or check Google before you visit on a major holiday."
     },
     "location": {
-      "heading": "Find Us",
+      "heading": "Find Our North Phoenix Nail Salon",
       "address": "Address",
       "hours": "Hours",
       "phone": "Phone",

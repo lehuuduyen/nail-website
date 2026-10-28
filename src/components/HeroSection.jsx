@@ -5,13 +5,29 @@ import TrackedLink from '@/components/analytics/TrackedLink';
 import { HERO_BLUR_DATA_URL } from '@/lib/heroLcp';
 import { HERO_IMAGE } from '@/lib/siteImages';
 
-const SPARKLE_POS = [
-  { top: '18%', left: '32%' },
-  { top: '12%', left: '48%' },
-  { top: '35%', left: '28%' },
-  { top: '28%', left: '55%' },
-];
-
+/**
+ * H2 Split diptych under macrostructure 15 · Split Studio (design.md).
+ * Copy holds the left half, the photograph holds the right — and the alternation
+ * continues down the page in the sections below.
+ *
+ * What came out, and why:
+ * - The frosted panel behind the buttons (bg-white/15 + backdrop-blur-md).
+ *   Editorial bans glassmorphism: the medium is paper, not glass.
+ * - The four ✦ sparkle glyphs floating in the image, and the three more inside
+ *   the CTA. Generic emoji/glyph decoration is gate 30; they also sat on top of
+ *   the photograph for no semantic reason.
+ * - The shimmer sweep and two twinkle loops on the BOOK NOW button — three
+ *   infinite animations on one element. Motion is capped at three primitives for
+ *   the whole project, and infinite loops pull the eye and never let it go.
+ * - The four-stop gold gradient on the pill. Two stops is the ceiling, and a
+ *   gradient on a pill is banned under editorial; cream-on-gradient measured
+ *   3.42:1 anyway. It is now a solid gold fill with an ink label at 5.34:1.
+ * - The raw #100d0c / #F5F5F5 / #D4AF37 values. Everything resolves through tokens.
+ *
+ * What stayed: priority + fetchPriority="high" + blur placeholder on the LCP
+ * image, the left-biased asymmetric composition, and both conversion actions
+ * above the fold.
+ */
 function formatUsPhoneDisplay(raw) {
   const d = String(raw).replace(/\D/g, '');
   if (d.length === 10) return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
@@ -26,13 +42,10 @@ export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
   const phoneDisplay = formatUsPhoneDisplay(rawPhone);
   const tel = `tel:${rawPhone.replace(/\D/g, '')}`;
 
-  const headline = t('headline');
-  const subline = t('subline');
-
   return (
     <section className="relative w-full overflow-hidden" suppressHydrationWarning>
       <div
-        className="relative w-full min-h-[clamp(340px,88vw,540px)] overflow-hidden rounded-none bg-[#100d0c] md:min-h-0 md:aspect-[2.15/1] lg:aspect-[2.5/1]"
+        className="relative w-full min-h-[clamp(340px,88vw,540px)] overflow-hidden bg-paper-dark md:min-h-0 md:aspect-[2.15/1] lg:aspect-[2.5/1]"
         suppressHydrationWarning
       >
         <Image
@@ -49,97 +62,48 @@ export default function HeroSection({ reviewCount = '700', rating = '4.9' }) {
           blurDataURL={HERO_BLUR_DATA_URL}
           className="object-cover object-right"
         />
-        <div
-          className="absolute inset-0 z-[1] bg-hero-gradient"
-          suppressHydrationWarning
-        />
-        <div
-          className="pointer-events-none absolute inset-0 z-[2] overflow-hidden"
-          aria-hidden
-        >
-          {SPARKLE_POS.map((pos, i) => (
-            <span
-              key={i}
-              className="absolute text-[13px] text-[#D4AF37]/40 md:text-[19px]"
-              style={{ top: pos.top, left: pos.left }}
-            >
-              ✦
-            </span>
-          ))}
-        </div>
-        <div
-          className="absolute inset-0 z-10 flex items-center"
-          suppressHydrationWarning
-        >
-          <div className="grid w-full grid-cols-1 items-center gap-4 px-5 py-12 md:grid-cols-2 md:gap-6 md:px-10 md:py-16 lg:px-14">
-            <div className="max-w-xl w-full text-left mx-auto px-2 sm:px-0">
-              <h1
-                className="hero-fade-up font-display text-balance text-2xl font-semibold leading-tight tracking-tight text-[#F5F5F5] drop-shadow-[0_1px_18px_rgba(0,0,0,0.40)] sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.06]"
-              >
-                {headline}
+        {/* Two-stop scrim built from a token via color-mix — dark where the copy
+            sits, clear where the hands and nails are. */}
+        <div className="hero-scrim absolute inset-0 z-[1]" aria-hidden suppressHydrationWarning />
+
+        <div className="absolute inset-0 z-10 flex items-center" suppressHydrationWarning>
+          <div className="grid w-full grid-cols-1 items-center gap-md px-5 py-xl md:grid-cols-2 md:px-10 md:py-2xl lg:px-14">
+            <div className="w-full max-w-xl text-left">
+              <h1 className="font-display text-balance text-display font-semibold leading-[1.1] tracking-tight text-on-dark">
+                {t('headline')}
               </h1>
-              <p className="hero-fade-up-d1 mt-2 max-w-full font-sans text-sm font-bold leading-snug text-[#EFEDEB] drop-shadow-[0_1px_3px_rgba(0,0,0,0.75)] sm:mt-3 sm:text-[19px] md:text-[19px]">
-                {subline}
+              <p className="mt-sm max-w-full font-sans text-step-md font-bold leading-snug text-on-dark">
+                {t('subline')}
               </p>
-              <p className="hero-fade-up-d2 mt-2 max-w-full font-sans text-xs font-normal leading-relaxed text-[#EBE9E7] drop-shadow-[0_1px_3px_rgba(0,0,0,0.72)] sm:mt-3 sm:text-sm md:text-sm">
+              <p className="mt-xs max-w-full font-sans text-step-sm leading-relaxed text-on-dark-2">
                 {address}
               </p>
 
-              <div className="hero-fade-up-d3 mt-5 w-full min-w-0 max-w-full sm:mt-8 sm:max-w-md">
-                <div className="box-border flex w-full min-w-0 max-w-full flex-col gap-2 overflow-hidden rounded-2xl border border-white/20 bg-white/15 p-1.5 backdrop-blur-md sm:gap-2 sm:p-1.5 sm:flex-row sm:items-stretch">
-                  <TrackedLink
-                    href="/booking"
-                    event="book_click"
-                    eventParams={{ location: 'hero' }}
-                    className="relative flex w-full min-w-0 max-w-full min-h-[44px] flex-1 shrink items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-[#C9932A] via-[#E8C547] to-[#B8821E] px-3 py-2 text-center font-sans text-[12px] font-bold uppercase tracking-[0.13em] text-white no-underline shadow-[0_0_10px_rgba(212,175,55,0.34),inset_0_1px_0_rgba(255,255,255,0.20)] transition hover:brightness-110 hover:shadow-[0_0_18px_rgba(212,175,55,0.38)] sm:min-h-0 sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_0_18px_rgba(212,175,55,0.45),inset_0_1px_0_rgba(255,255,255,0.3)] sm:hover:shadow-[0_0_28px_rgba(212,175,55,0.65)]"
-                  >
-                    <span
-                      className="pointer-events-none absolute inset-0 -skew-x-12 animate-shimmer bg-gradient-to-r from-transparent via-white/25 to-transparent"
-                      aria-hidden
-                    />
-                    <span
-                      className="absolute left-2 top-1 animate-twinkle text-[9px] text-white/80 sm:left-3 sm:top-2 sm:text-[11px]"
-                      aria-hidden
-                    >
-                      ✦
-                    </span>
-                    <span
-                      className="absolute bottom-1 right-2 animate-twinkle-delay text-[9px] text-white/60 sm:bottom-2 sm:right-4 sm:text-[10px]"
-                      aria-hidden
-                    >
-                      ✦
-                    </span>
-                    <span
-                      className="absolute right-2 top-1 animate-twinkle text-[8px] text-yellow-200/70 sm:right-3 sm:top-1.5 sm:text-[9px]"
-                      aria-hidden
-                    >
-                      ★
-                    </span>
-                    <span className="relative z-10 px-1 text-xs sm:text-[11px]">{t('bookNow')}</span>
-                  </TrackedLink>
-                  <TrackedLink
-                    href={tel}
-                    event="call_click"
-                    eventParams={{ location: 'hero' }}
-                    className="flex w-full min-w-0 max-w-full min-h-[40px] flex-1 shrink items-center justify-center gap-1.5 overflow-hidden rounded-full bg-white/45 px-2.5 py-2 font-sans text-[13px] font-semibold tabular-nums leading-none text-[#2D1F0F] no-underline backdrop-blur-sm transition hover:bg-white/65 sm:min-h-0 sm:gap-2 sm:px-5 sm:py-3 sm:text-sm"
-                  >
-                    <Phone
-                      className="h-3 w-3 shrink-0 text-[#7A5C10] sm:h-4 sm:w-4"
-                      strokeWidth={2}
-                      aria-hidden
-                    />
-                    <span className="min-w-0 flex-1 truncate text-center">{phoneDisplay}</span>
-                  </TrackedLink>
-                </div>
+              {/* Two actions, no container. Primary gold, secondary outlined. */}
+              <div className="mt-lg flex w-full min-w-0 flex-col gap-sm sm:mt-xl sm:max-w-md sm:flex-row">
+                <TrackedLink
+                  href="/booking"
+                  event="book_click"
+                  eventParams={{ location: 'hero' }}
+                  className="btn-gold min-w-0 flex-1"
+                >
+                  {t('bookNow')}
+                </TrackedLink>
+                <TrackedLink
+                  href={tel}
+                  event="call_click"
+                  eventParams={{ location: 'hero' }}
+                  className="btn-quiet tnum min-w-0 flex-1 border-gold-pale/60 text-on-dark"
+                >
+                  <Phone className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden />
+                  {phoneDisplay}
+                </TrackedLink>
               </div>
-              <p className="hero-fade-up-d4 mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-[11px] font-normal text-[#E8E6E4] drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)] sm:mt-4 sm:text-xs">
-                <span className="text-[#D4AF37]" aria-hidden>
-                  ✦
-                </span>
+
+              {/* Real figures from the Google Places fetch — never rounded up. */}
+              <p className="tnum mt-md flex flex-wrap items-center gap-x-xs gap-y-3xs font-sans text-step-xs text-on-dark-2 sm:mt-lg">
                 <span>{t('ratingLabel', { rating })}</span>
-                <span className="opacity-50" aria-hidden>
-                  |
-                </span>
+                <span aria-hidden>·</span>
                 <span>{t('clientsLabel', { count: reviewCount })}</span>
               </p>
             </div>

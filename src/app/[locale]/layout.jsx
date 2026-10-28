@@ -9,12 +9,10 @@ import '../globals.css';
 import ClarityScript from '@/components/analytics/ClarityScript';
 import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
 import SiteJsonLd from '@/components/SiteJsonLd';
-import Navbar from '@/components/Navbar';
+import SiteHeader from '@/components/SiteHeader';
 import Footer from '@/components/Footer';
-import FloatingBookBtn from '@/components/FloatingBookBtn';
 import BottomTabBar from '@/components/BottomTabBar';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import AnnouncementBar from '@/components/AnnouncementBar';
 import { getPromos } from '@/lib/serverPromos';
 import { pickFeatured } from '@/lib/promos';
 
@@ -116,7 +114,7 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover', // let content extend under the notch; safe-area insets handle padding
-  themeColor: '#3D3836', // matches the charcoal navbar / bottom tab bar → app-like status bar
+  themeColor: '#27201D', // --color-paper-dark: matches the N12 nav fill → seamless status bar
 };
 
 export default async function LocaleLayout({ children, params: { locale } }) {
@@ -138,13 +136,15 @@ export default async function LocaleLayout({ children, params: { locale } }) {
         <NextIntlClientProvider messages={messages}>
           <SiteJsonLd />
           <LocalBusinessJsonLd />
-          <div id="site-header" className="sticky top-0 z-50">
-            <AnnouncementBar promo={featuredPromo} />
-            <Navbar />
-          </div>
+          {/* N12 — banner + retracting bar, coupled in one sticky shell */}
+          <SiteHeader promo={featuredPromo} />
           <main>{children}</main>
           <Footer />
-          <FloatingBookBtn />
+          {/* FloatingBookBtn is intentionally not rendered. It is desktop-only, and
+              the N12 bar is sticky — so a Book button was already on screen at all
+              times directly above it. Two identical actions in one viewport is
+              noise, not conversion. The component file is kept: restore this line
+              to bring it back. */}
           <ScrollToTopButton />
           <BottomTabBar />
           {/* Analytics — both load after render (no LCP/CLS impact) and only when their ID is set.

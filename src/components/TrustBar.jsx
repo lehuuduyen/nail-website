@@ -54,7 +54,10 @@ export default function TrustBar() {
         <div className="flex min-w-0 flex-1 flex-col items-center justify-center md:border-r md:border-charcoal/10 md:px-6">
           <Link
             href="/booking"
-            className="inline-flex w-auto shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-luxury-gold px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-sm no-underline transition hover:opacity-95 sm:px-4 sm:py-2 sm:text-[11px] md:w-full md:max-w-[220px] md:px-6 md:py-3 md:text-xs md:tracking-[0.12em] md:shadow-md"
+            /* Was a four-stop gold gradient pill with a white label at 3.42:1.
+               .btn-gold is the one sanctioned primary CTA: solid fill, ink label,
+               5.34:1 (design.md § CTA voice). */
+            className="btn-gold w-auto shrink-0 md:w-full md:max-w-[220px]"
           >
             Book now
           </Link>

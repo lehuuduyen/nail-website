@@ -42,6 +42,7 @@
     "bookOnline": "Reservar en línea",
     "privacy": "Política de Privacidad",
     "terms": "Términos y Condiciones",
+    "reviewUs": "Danos tu opinión en Google",
     "rights": "Todos los derechos reservados."
   },
   "hero": {
@@ -141,7 +142,9 @@
     "breadcrumbSpecials": "Ofertas",
     "h1": "Ofertas y Promociones — Nice Nails & Spa, Phoenix 85021",
     "intro": "¿Buscas pedicuras a buen precio u ofertas de manicura en North Phoenix? Aquí publicamos nuestras promociones actuales. Una excelente alternativa a Groupon para ofertas de salón de uñas en la zona 85021 — reserva en línea o llámanos para apartar tu hora.",
-    "moreOffers": "Más ofertas",
+        "callWithNumber": "Llama al {phone}",
+    "viewAllSpecials": "Ver todas las ofertas",
+"moreOffers": "Más ofertas",
     "noneTitle": "No hay promociones activas en este momento",
     "noneBody": "Vuelve pronto — aquí publicamos ofertas de temporada de pedicura y manicura. Mientras tanto, siempre puedes reservar en línea o llamarnos para conocer los precios actuales.",
     "bookOnline": "Reservar en línea",
@@ -170,7 +173,7 @@
   },
   "home": {
     "luxury": {
-      "heading": "Nuestros Servicios de Lujo",
+      "heading": "Nuestros Servicios de Uñas y Spa de Lujo en Phoenix",
       "subtitle": "Inspírate con nuestros hermosos diseños de uñas",
       "pillars": {
         "premium": "Solo Productos Premium",
@@ -180,7 +183,7 @@
       }
     },
     "popular": {
-      "heading": "Nuestros Servicios Más Populares",
+      "heading": "Nuestros Servicios de Uñas Más Populares en Phoenix",
       "subtitle": "Perfeccionamos nuestros impresionantes diseños de uñas",
       "fromPrice": "Desde {price}",
       "bookThis": "Reservar este servicio",
@@ -204,7 +207,7 @@
       "viewAll": "Ver todos los videos"
     },
     "testimonials": {
-      "heading": "Clientas encantadas",
+      "heading": "Opiniones de Clientas",
       "liveGoogle": "En vivo desde Google Maps",
       "reviewUs": "Déjanos una reseña en Google",
       "pause": "Pausar desplazamiento automático",
@@ -212,7 +215,7 @@
       "reviewNum": "Reseña {num}"
     },
     "gallery": {
-      "heading": "Nuestro Trabajo",
+      "heading": "Nuestra Galería de Arte de Uñas",
       "viewFull": "Ver galería completa",
       "close": "Cerrar"
     },
@@ -232,7 +235,7 @@
       "p3": "Pasa cuando necesites un retoque, una reparación o un set completamente nuevo; estamos aquí para ayudarte a salir sintiéndote arreglada, escuchada y lista para lo que sigue en tu agenda."
     },
     "faq": {
-      "heading": "Preguntas Frecuentes",
+      "heading": "Preguntas Frecuentes del Salón de Uñas",
       "q1": "¿Aceptan clientas sin cita en su salón de uñas de Phoenix?",
       "a1": "Sí. En Nice Nails & Spa recibimos clientas sin cita siempre que tengamos una silla libre, especialmente en los días de semana más tranquilos. Las tardes y los sábados se llenan rápido, así que reservar en línea asegura tu hora y nos ayuda a prepararnos para nail art o servicios más largos.",
       "q2": "¿Cuánto cuesta una manicura en Nice Nails & Spa?",
@@ -245,7 +248,7 @@
       "a5": "Nuestro horario habitual es {hours}. El horario de días festivos puede variar—llama con anticipación o consulta Google antes de visitarnos en un feriado importante."
     },
     "location": {
-      "heading": "Encuéntranos",
+      "heading": "Encuentra Nuestro Salón de Uñas en North Phoenix",
       "address": "Dirección",
       "hours": "Horario",
       "phone": "Teléfono",

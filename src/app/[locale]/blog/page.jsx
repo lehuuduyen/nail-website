@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import { untranslatedMeta } from '@/lib/i18nMeta';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import { getApiOrigin } from '@/lib/api';
 import { salonName } from '@/lib/salon';
 
@@ -56,6 +57,12 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen bg-cream">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+        ]}
+      />
       <section className="border-b border-rose-gold/15 bg-gradient-to-b from-cream-dark/90 via-cream to-cream px-4 py-12 text-center md:py-16">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
           {name}

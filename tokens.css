@@ -1,0 +1,120 @@
+/* Hallmark · genre: editorial · theme: Atelier (brand-anchored)
+ * axes: light paper · high-contrast-serif · warm accent (hue ~38)
+ *
+ * The ONLY file in this project allowed to hold raw colour values.
+ * Every rule elsewhere references these by name — var(--color-ink), never #3D3836.
+ * Hex comments are the pre-Hallmark brand values the OKLCH token reproduces.
+ *
+ * Contrast measured against WCAG 2.1, computed not guessed:
+ *   ink on paper          10.49:1   body text        ✓ target 7:1
+ *   ink-2 on paper         8.04:1   secondary text   ✓
+ *   accent-ink on paper    6.07:1   links            ✓ (brand vein was 2.94:1 — failed)
+ *   ink on gold            5.34:1   primary CTA      ✓ (cream-on-gold was 3.42:1 — failed)
+ *   ink on gold-hover      4.64:1   CTA hover        ✓
+ *   focus on paper         3.43:1   focus ring       ✓
+ *   focus on paper-dark    3.05:1   focus ring       ✓ one ring works on both bands
+ *   paper on paper-dark   14.54:1   hero/footer copy ✓
+ */
+
+:root {
+  /* ---- Paper: light band ---- */
+  --ch-paper: 96.7% 0.005 34; /* #F7F3F2 cream */
+  --color-paper: oklch(var(--ch-paper));
+  --ch-paper-2: 94.5% 0.008 37; /* #F2EBE9 cream-dark */
+  --color-paper-2: oklch(var(--ch-paper-2));
+  --ch-paper-3: 85.9% 0.017 37; /* #DBCDC9 dusty rose */
+  --color-paper-3: oklch(var(--ch-paper-3));
+  --ch-surface: 98% 0.003 49; /* #FAF8F7 raised panel */
+  --color-surface: oklch(var(--ch-surface));
+
+  /* ---- Paper: dark band (nav, hero scrim, footer). Tinted warm — never #000 ---- */
+  --ch-paper-dark: 25% 0.012 40; /* #27201D */
+  --color-paper-dark: oklch(var(--ch-paper-dark));
+  --ch-paper-dark-2: 30% 0.014 40; /* #342C29 raised on dark */
+  --color-paper-dark-2: oklch(var(--ch-paper-dark-2));
+
+  /* ---- Rules. Hairlines, not card borders ---- */
+  --ch-rule: 79.5% 0.015 39; /* #C5B9B5 lavender */
+  --color-rule: oklch(var(--ch-rule));
+  --ch-rule-soft: 89% 0.012 38; /* #E3D8D4 */
+  --color-rule-soft: oklch(var(--ch-rule-soft));
+  --ch-rule-dark: 38% 0.014 40; /* #463C38 on the dark band */
+  --color-rule-dark: oklch(var(--ch-rule-dark));
+
+  /* ---- Ink ---- */
+  --ch-ink: 34.5% 0.008 43; /* #3D3836 charcoal */
+  --color-ink: oklch(var(--ch-ink));
+  --ch-ink-2: 41.1% 0.014 37; /* #524845 muted */
+  --color-ink-2: oklch(var(--ch-ink-2));
+  --ch-ink-on-dark: 96.7% 0.005 34;
+  --color-ink-on-dark: oklch(var(--ch-ink-on-dark));
+  --ch-ink-on-dark-2: 85.9% 0.017 37;
+  --color-ink-on-dark-2: oklch(var(--ch-ink-on-dark-2));
+
+  /* ---- Accent. Highlighter, never a colour block. Target <=3% of viewport ---- */
+  --ch-accent: 65.2% 0.025 38; /* #9E8B85 vein — rules + marks ONLY, not text */
+  --color-accent: oklch(var(--ch-accent));
+  --ch-accent-deep: 59% 0.022 37; /* #8A7974 */
+  --color-accent-deep: oklch(var(--ch-accent-deep));
+  --ch-accent-ink: 48% 0.055 38; /* #795347 accent as TEXT — the only readable one */
+  --color-accent-ink: oklch(var(--ch-accent-ink));
+
+  /* ---- Gold. Reserved for the single primary CTA. Solid fill, never a gradient ---- */
+  --ch-gold: 76% 0.085 82; /* #CCAC71 */
+  --color-gold: oklch(var(--ch-gold));
+  --ch-gold-hover: 72% 0.085 82; /* #BFA065 */
+  --color-gold-hover: oklch(var(--ch-gold-hover));
+  --ch-gold-pale: 89.8% 0.035 85; /* #E8DCC4 hairline on dark */
+  --color-gold-pale: oklch(var(--ch-gold-pale));
+
+  --ch-focus: 62% 0.12 48; /* #C06E41 passes on both paper bands */
+  --color-focus: oklch(var(--ch-focus));
+
+  /* ---- Type ---- */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-lato), system-ui, sans-serif;
+  --font-wordmark: var(--font-playfair), Georgia, serif;
+
+  /* 1.25 major third, 16px base. Five sizes max per page. */
+  --text-xs: 0.8rem; /* 12.8px — labels only, never body */
+  --text-sm: 0.875rem; /* 14px  */
+  --text-base: 1rem; /* 16px  — body floor */
+  --text-md: 1.125rem; /* 18px  */
+  --text-lg: 1.375rem; /* 22px  */
+  --text-xl: 1.75rem; /* 28px  */
+  --text-2xl: 2.25rem; /* 36px  */
+  --text-3xl: 2.75rem; /* 44px  */
+  --text-display: clamp(2rem, 4vw + 0.75rem, 3.5rem);
+  --text-display-s: clamp(1.75rem, 3vw + 0.5rem, 2.75rem);
+
+  /* ---- Space. 4pt scale, named by role. Mix the steps — flat rhythm reads templated ---- */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+
+  /* ---- Rules + radii ---- */
+  --rule-hair: 1px;
+  --rule-thick: 2px;
+  --radius-card: 2px; /* Atelier is paper, not glass — corners stay nearly square */
+  --radius-pill: 999px; /* the primary CTA only */
+  --radius-input: 4px;
+
+  /* ---- Motion. Three easings, three durations. Atelier runs 1.3x — generous, gentle ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 240ms;
+  --dur-long: 480ms;
+
+  /* ---- N12 nav geometry. Dismiss zeroes --banner-h so calc() reflows with no gap ---- */
+  --banner-h: 40px;
+  --bar-h: 60px;
+}

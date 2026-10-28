@@ -29,12 +29,12 @@ export default function BottomTabBar() {
   return (
     <nav
       aria-label="Primary"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-charcoal/95 backdrop-blur-md pb-[env(safe-area-inset-bottom)] md:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-rule-dark bg-paper-dark pb-[env(safe-area-inset-bottom)] md:hidden"
     >
       <ul className="mx-auto flex max-w-md items-stretch justify-around">
         {TABS.map(({ href, key, icon: Icon, match, type }) => {
           const tabClass =
-            'flex h-14 flex-col items-center justify-center gap-0.5 text-[10px] font-medium transition';
+            'flex h-14 flex-col items-center justify-center gap-0.5 text-step-xs font-medium transition-colors duration-short ease-out';
 
           if (type === 'tel') {
             return (
@@ -42,7 +42,7 @@ export default function BottomTabBar() {
                 <a
                   href={`tel:${tel}`}
                   onClick={() => trackEvent('call_click', { location: 'bottom_bar' })}
-                  className={`${tabClass} text-cream/70 hover:text-cream`}
+                  className={`${tabClass} text-on-dark-2 hover:text-on-dark`}
                 >
                   <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
                   <span className="text-center leading-tight">{t(key)}</span>
@@ -62,7 +62,8 @@ export default function BottomTabBar() {
                     ? () => trackEvent('book_click', { location: 'bottom_bar' })
                     : undefined
                 }
-                className={`${tabClass} ${active ? 'text-rose-gold' : 'text-cream/70 hover:text-cream'}`}
+                /* The vein is only 3.57:1 on this dark band — gold is 7.42:1. */
+                className={`${tabClass} ${active ? 'text-gold' : 'text-on-dark-2 hover:text-on-dark'}`}
               >
                 <Icon size={22} strokeWidth={active ? 2.4 : 1.8} aria-hidden="true" />
                 <span className="text-center leading-tight">{t(key)}</span>

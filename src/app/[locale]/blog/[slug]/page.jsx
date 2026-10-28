@@ -160,7 +160,9 @@ export default async function BlogArticlePage({ params }) {
             </p>
             <Link
               href="/booking"
-              className="mt-5 inline-flex rounded-full bg-luxury-gold px-8 py-3 text-sm font-semibold text-white shadow-md no-underline transition hover:opacity-95"
+              /* Same swap as TrustBar: gradient pill + white label (3.42:1) → the
+                 one sanctioned primary CTA, solid gold with an ink label. */
+              className="btn-gold mt-5"
             >
               Book appointment
             </Link>

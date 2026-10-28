@@ -10,7 +10,8 @@ import { trackEvent } from '@/lib/analytics';
  *
  * Vị trí được xếp chồng phía trên các thành phần cố định sẵn có để không che nhau:
  * - Mobile: nằm trên BottomTabBar (h-14 + safe-area).
- * - Desktop (md+): nằm trên FloatingBookBtn (bottom-8 right-8).
+ * - Desktop (md+): bottom-24 right-8 — FloatingBookBtn không còn được render
+ *   (xem [locale]/layout.jsx), nên khoảng này giờ trống.
  */
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
@@ -34,7 +35,10 @@ export default function ScrollToTopButton() {
       onClick={scrollToTop}
       aria-label="Scroll to top"
       title="Back to top"
-      className={`fixed right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-rose-gold text-white shadow-lg shadow-charcoal/20 ring-2 ring-cream/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-gold-deep bottom-[calc(4.5rem+env(safe-area-inset-bottom))] md:bottom-24 md:right-8 ${
+      /* transition-all is banned (it animates properties that should be instant);
+         the fill was white-on-vein at 3.08:1 and carried shadow + ring + colour
+         swap on hover — three signals where one will do. */
+      className={`fixed right-4 z-40 flex h-11 w-11 items-center justify-center rounded-pill border border-rule-dark bg-paper-dark text-on-dark transition-[opacity,transform] duration-short ease-out hover:-translate-y-0.5 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] md:bottom-24 md:right-8 ${
         visible ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
       }`}
     >

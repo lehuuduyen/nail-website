@@ -8,19 +8,20 @@ export default function HomeAboutSection() {
   const rich = { b: (chunks) => <strong>{chunks}</strong>, name, address };
 
   return (
+    /* Long Document voice inside the marketing page: single column, 65ch measure,
+       1.65 leading, negative space as the divider (design.md § Macrostructure
+       families). Already left-aligned before the redesign — this only moves it
+       onto the tokens and the measure. */
     <section
       id="about"
-      className="scroll-mt-24 border-b border-rose-gold/10 bg-cream px-4 py-14 md:py-20"
+      className="scroll-mt-24 border-b border-rule-soft bg-paper px-4 py-2xl md:py-3xl"
       aria-labelledby="home-about-heading"
     >
       <div className="mx-auto max-w-3xl">
-        <h2
-          id="home-about-heading"
-          className="font-display text-3xl text-ink md:text-4xl"
-        >
-          {t('heading', { name })}
-        </h2>
-        <div className="mt-6 space-y-4 text-base leading-relaxed text-charcoal md:text-lg">
+        <header className="head-hang !pt-0">
+          <h2 id="home-about-heading">{t('heading', { name })}</h2>
+        </header>
+        <div className="measure space-y-lg text-step-md leading-[1.65] text-ink">
           <p>{t.rich('p1', rich)}</p>
           <p>{t.rich('p2', rich)}</p>
           <p>{t.rich('p3', rich)}</p>

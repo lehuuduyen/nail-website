@@ -42,6 +42,7 @@
     "bookOnline": "Đặt lịch online",
     "privacy": "Chính sách Bảo mật",
     "terms": "Điều khoản & Điều kiện",
+    "reviewUs": "Đánh giá chúng tôi trên Google",
     "rights": "Bảo lưu mọi quyền."
   },
   "hero": {
@@ -141,7 +142,9 @@
     "breadcrumbSpecials": "Ưu đãi",
     "h1": "Ưu đãi & Khuyến mãi — Nice Nails & Spa, Phoenix 85021",
     "intro": "Đang tìm móng chân giá tốt hay ưu đãi làm móng ở North Phoenix? Đây là nơi chúng tôi đăng các ưu đãi hiện tại. Một lựa chọn thay thế Groupon tuyệt vời cho ưu đãi tiệm nail ở khu 85021 — đặt lịch online hoặc gọi cho chúng tôi để giữ chỗ.",
-    "moreOffers": "Thêm ưu đãi",
+        "callWithNumber": "Gọi {phone}",
+    "viewAllSpecials": "Xem tất cả ưu đãi",
+"moreOffers": "Thêm ưu đãi",
     "noneTitle": "Hiện chưa có ưu đãi nào",
     "noneBody": "Hãy ghé lại sớm — chúng tôi đăng các ưu đãi móng chân và móng tay theo mùa ở đây. Trong lúc đó, bạn luôn có thể đặt lịch online hoặc gọi cho chúng tôi để biết giá hiện tại.",
     "bookOnline": "Đặt lịch online",
@@ -170,7 +173,7 @@
   },
   "home": {
     "luxury": {
-      "heading": "Dịch Vụ Cao Cấp Của Chúng Tôi",
+      "heading": "Dịch Vụ Nail & Spa Cao Cấp Tại Phoenix",
       "subtitle": "Lấy cảm hứng từ những mẫu móng đẹp của chúng tôi",
       "pillars": {
         "premium": "Chỉ Dùng Sản Phẩm Cao Cấp",
@@ -180,7 +183,7 @@
       }
     },
     "popular": {
-      "heading": "Dịch Vụ Được Yêu Thích Nhất",
+      "heading": "Dịch Vụ Nail Được Yêu Thích Nhất Tại Phoenix",
       "subtitle": "Chúng tôi hoàn thiện những mẫu móng tuyệt đẹp",
       "fromPrice": "Từ {price}",
       "bookThis": "Đặt dịch vụ này",
@@ -204,7 +207,7 @@
       "viewAll": "Xem tất cả video"
     },
     "testimonials": {
-      "heading": "Khách hàng yêu thích",
+      "heading": "Đánh Giá Của Khách",
       "liveGoogle": "Trực tiếp từ Google Maps",
       "reviewUs": "Đánh giá chúng tôi trên Google",
       "pause": "Tạm dừng tự cuộn",
@@ -212,7 +215,7 @@
       "reviewNum": "Đánh giá {num}"
     },
     "gallery": {
-      "heading": "Tác Phẩm Của Chúng Tôi",
+      "heading": "Thư Viện Nail Art Của Chúng Tôi",
       "viewFull": "Xem toàn bộ thư viện",
       "close": "Đóng"
     },
@@ -232,7 +235,7 @@
       "p3": "Ghé bất cứ khi nào bạn cần làm mới, sửa móng hay làm nguyên bộ mới; chúng tôi ở đây để giúp bạn ra về gọn gàng, được lắng nghe và sẵn sàng cho mọi việc tiếp theo trong lịch của bạn."
     },
     "faq": {
-      "heading": "Câu Hỏi Thường Gặp",
+      "heading": "Câu Hỏi Thường Gặp Về Tiệm Nail",
       "q1": "Tiệm nail ở Phoenix của bạn có nhận khách vãng lai không?",
       "a1": "Có. Nice Nails & Spa nhận khách vãng lai bất cứ khi nào còn ghế trống, nhất là các ngày trong tuần vắng hơn. Buổi tối và thứ Bảy dễ kín chỗ, nên đặt lịch online sẽ giữ giờ cho bạn và giúp chúng tôi chuẩn bị cho nail art hoặc dịch vụ lâu hơn.",
       "q2": "Làm móng tay ở Nice Nails & Spa giá bao nhiêu?",
@@ -245,7 +248,7 @@
       "a5": "Giờ làm việc thường lệ của chúng tôi là {hours}. Giờ ngày lễ có thể thay đổi—hãy gọi trước hoặc xem Google trước khi đến vào dịp lễ lớn."
     },
     "location": {
-      "heading": "Tìm Chúng Tôi",
+      "heading": "Tìm Tiệm Nail Của Chúng Tôi Ở North Phoenix",
       "address": "Địa chỉ",
       "hours": "Giờ mở cửa",
       "phone": "Điện thoại",

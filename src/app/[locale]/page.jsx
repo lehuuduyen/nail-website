@@ -70,7 +70,7 @@ export default async function HomePage({ params: { locale } }) {
       <link rel="preconnect" href="https://maps.google.com" />
       <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
       <HomeHashScroll />
-      <div className="relative bg-[#1a1a1a]">
+      <div className="relative bg-paper-dark">
         <HeroSection reviewCount={reviewCount} rating={ratingValue} />
         <HeroKeywordTags />
       </div>

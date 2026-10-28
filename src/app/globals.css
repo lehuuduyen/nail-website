@@ -1,166 +1,402 @@
+/* Hallmark · genre: editorial · theme: Atelier (brand-anchored) · design-system: design.md · designed-as-app
+ * macrostructure families: Split Studio (marketing) · Catalogue (services) · Long Document (content) · Portfolio Grid (media)
+ * nav: N12 banner + retracting bar · footer: Ft1 mast-headed · section head: S2 hanging
+ * enrichment: none (real salon photography only)
+ * motion: 3 primitives — reveal · lift · nav-retract (+ marquee, scoped to the
+ *   review strip; modal open/close is an interaction recipe, not a primitive)
+ * pre-emit critique: P5 H4 E4 S5 R5 V4
+ *
+ * Colour and font values live ONLY in tokens.css. Nothing below this line may
+ * declare a hex, an rgb(), a bare oklch(), or a font-family string.
+ */
+
+@import '../../tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --vein: #9e8b85;
-  --vein-deep: #8a7974;
-  --cream: #f7f3f2;
-  --cream-dark: #f2ebe9;
-  --surface: #faf8f7;
-  --lavender: #c5b9b5;
-  --dusty: #dbcdc9;
-  --charcoal: #3d3836;
-  --text-muted: #524845;
-  --background: var(--cream);
-  --foreground: var(--charcoal);
-}
+/* ---------------------------------------------------------------------------
+   Base
+   --------------------------------------------------------------------------- */
 
+/* clip, not hidden — hidden creates a scroll container and kills position: sticky */
+html,
 body {
-  color: var(--foreground);
-  background-color: var(--cream);
-  font-family: var(--font-lato), system-ui, sans-serif;
-  /* App-like feel on mobile */
-  -webkit-tap-highlight-color: transparent; /* no grey flash on tap */
-  -webkit-text-size-adjust: 100%; /* keep our font sizes on rotate */
-  overscroll-behavior-y: none; /* no rubber-band revealing browser chrome */
+  overflow-x: clip;
 }
 
-/* Smooth momentum scrolling on iOS */
 html {
   -webkit-overflow-scrolling: touch;
 }
 
+body {
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+}
+
 h1,
 h2,
-h3 {
-  font-family: var(--font-playfair), Georgia, serif;
+h3,
+h4 {
+  font-family: var(--font-display);
+  /* Roman only. An italicised word inside a roman head is the most reliable AI tell. */
+  font-style: normal;
+  letter-spacing: -0.02em;
+  /* gate 51 — long words must break inside a display head, not push the viewport */
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
+
+/* Prices, ratings, phone numbers, durations — figures must align in a column */
+.tnum,
+table,
+time {
+  font-variant-numeric: tabular-nums;
+}
+
+/* One ring, both paper bands, never animated in */
+:where(a, button, [role='button'], input, select, textarea, summary):focus-visible {
+  outline: var(--rule-thick) solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-input);
+}
+
+::selection {
+  background: var(--color-paper-3);
+  color: var(--color-ink);
+}
+
+/* ---------------------------------------------------------------------------
+   Section head — S2 Hanging
+   Heading floats above the section in negative space. No rule, no ornament,
+   no eyebrow, left-aligned. This replaces the centred-head + diamond-divider
+   pattern that ran on every section before the redesign.
+   --------------------------------------------------------------------------- */
 
 @layer components {
-  /** Nút chính — tông dusty/lavender marble, chữ ink; hover đậm hơn */
+  .head-hang {
+    display: block;
+    padding-block: var(--space-2xl) var(--space-lg);
+    max-width: 34ch;
+  }
+
+  .head-hang > h2,
+  .head-hang > h1 {
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .head-hang > p {
+    margin-top: var(--space-sm);
+    max-width: 52ch;
+    font-size: var(--text-md);
+    line-height: 1.6;
+    color: var(--color-ink-2);
+  }
+
+  /* gate 52 — the head is single-column at every width; nothing to collapse */
+  @media (min-width: 48rem) {
+    .head-hang > h2,
+    .head-hang > h1 {
+      font-size: var(--text-3xl);
+    }
+  }
+
+  /* Retired: .section-divider / .section-divider-diamond.
+     The negative space above a hanging head is the divider. */
+
+  /* ---- CTA voice (design.md § CTA voice) ---- */
+
+  /* Primary — solid gold, ink label. A gradient on a pill is banned under editorial. */
   .btn-gold {
-    background: linear-gradient(135deg, #dbcdc9, #c5b9b5);
-    color: #2e2a28;
-    border-radius: 50px;
-    padding: 14px 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px; /* touch floor */
+    background: var(--color-gold);
+    color: var(--color-ink);
+    border: var(--rule-hair) solid var(--color-gold-pale);
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-xl);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 700;
     letter-spacing: 0.12em;
-    font-size: 13px;
-    font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid rgba(197, 185, 181, 0.6);
+    white-space: nowrap; /* gate 49 — a CTA label never wraps to two lines */
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 18px rgba(158, 139, 133, 0.22);
+    text-decoration: none;
+    transition:
+      background-color var(--dur-short) var(--ease-out),
+      transform var(--dur-micro) var(--ease-out);
   }
 
-  .btn-gold:hover {
-    background: linear-gradient(135deg, #c5b9b5, #9e8b85);
-    color: #fff;
-    border-color: rgba(158, 139, 133, 0.45);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 22px rgba(138, 121, 116, 0.28);
+  .btn-gold:hover,
+  .btn-gold:focus-visible {
+    background: var(--color-gold-hover);
+    transform: translateY(-1.5px); /* `lift` — one signal, no scale, no shadow */
+  }
+
+  .btn-gold:active {
+    transform: translateY(0);
+    transition-duration: 60ms;
+  }
+
+  /* Secondary — Call, Directions */
+  .btn-quiet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    min-height: 44px;
+    background: transparent;
+    color: var(--color-ink);
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    transition:
+      border-color var(--dur-short) var(--ease-out),
+      transform var(--dur-micro) var(--ease-out);
+  }
+
+  .btn-quiet:hover,
+  .btn-quiet:focus-visible {
+    border-color: var(--color-accent);
+    transform: translateY(-1.5px);
+  }
+
+  .btn-quiet:active {
+    transform: translateY(0);
+    transition-duration: 60ms;
+  }
+
+  /* Tertiary — C3 typographic link. The default for in-card actions. */
+  .link-type {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    color: var(--color-accent-ink);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: var(--rule-hair);
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 4px;
+    transition: text-decoration-color var(--dur-short) var(--ease-out);
+  }
+
+  .link-type:hover {
+    text-decoration-color: var(--color-accent-ink);
+  }
+
+  /* ---- Hairline rule. Atelier uses rules, not card borders. ---- */
+  .rule-hair {
+    border: 0;
+    border-top: var(--rule-hair) solid var(--color-rule-soft);
   }
 }
 
-.section-divider::before,
-.section-divider::after {
-  content: '';
-  height: 1px;
-  width: 80px;
-  max-width: 28vw;
-  background: var(--vein);
-}
+/* ---------------------------------------------------------------------------
+   Surfaces
+   --------------------------------------------------------------------------- */
 
-.section-divider-diamond {
-  width: 8px;
-  height: 8px;
-  background: var(--vein);
-  transform: rotate(45deg);
-  flex-shrink: 0;
-}
-
-.section-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 12px auto 32px;
-}
-
-/**
- * Nền marble: texture + lớp kem mờ + vân radial dusty/lavender
- */
+/* Was a stacked composite with marble-texture.webp repeated on five sections.
+   Now a two-stop gradient on paper — same warmth, no image request per section. */
 .marble-bg {
-  background-color: #f7f3f2;
-  background-image:
-    linear-gradient(180deg, rgba(247, 243, 242, 0.88) 0%, rgba(247, 243, 242, 0.82) 100%),
-    url('/images/marble-texture.webp'),
-    radial-gradient(ellipse 120% 90% at 15% 25%, rgba(219, 205, 201, 0.45) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 70% at 88% 12%, rgba(197, 185, 181, 0.35) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 55% at 65% 88%, rgba(189, 178, 175, 0.2) 0%, transparent 48%),
-    linear-gradient(168deg, #f7f3f2 0%, #f2ebe9 42%, #ede6e3 100%);
-  background-size:
-    auto,
-    cover,
-    auto,
-    auto,
-    auto,
-    auto;
-  background-position: center;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-color: var(--color-paper);
+  background-image: linear-gradient(168deg, var(--color-paper) 0%, var(--color-paper-2) 100%);
 }
+
+.band-dark {
+  background-color: var(--color-paper-dark);
+  color: var(--color-ink-on-dark);
+}
+
+/* Hero scrim. Two stops, built from a token via color-mix so no raw rgba() leaks
+   in — opaque where the copy sits, clear where the hands and nails are. Alpha is
+   a modifier for an overlay here, not a palette entry. */
+.hero-scrim {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--color-paper-dark) 92%, transparent) 0%,
+    color-mix(in oklab, var(--color-paper-dark) 0%, transparent) 100%
+  );
+}
+
+/* color-mix shipped in every evergreen browser in 2023, but a miss here would
+   leave light copy on a bright photograph — so the fallback is a flat scrim. */
+@supports not (color: color-mix(in oklab, red 50%, transparent)) {
+  .hero-scrim {
+    background-image: none;
+    background-color: var(--color-paper-dark);
+    opacity: 0.72;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Motion — exactly three primitives (design.md § Motion)
+   1. reveal       one-shot stagger on viewport entry
+   2. lift         CTA + card hover, defined inline with each component above
+   3. nav-retract  N12 header, defined in the nav block below
+   --------------------------------------------------------------------------- */
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Fail-open: the hidden start state only applies where scripting is actually on.
+   If JS is disabled or the observer never runs, .reveal content renders visible —
+   an invisible section would cost real users and real crawl signal. */
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .reveal.is-in {
+    animation: reveal var(--dur-long) var(--ease-out) forwards;
+    animation-delay: calc(var(--i, 0) * 60ms); /* capped at 500ms → --i max 8 */
+  }
+}
+
+/* ---- N12 · announcement banner + retracting bar ---- */
+
+.nav-shell {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transform: translateY(0);
+  transition: transform var(--dur-short) var(--ease-out);
+}
+
+/* scrolling down past the threshold: the banner slides out of view, bar docks to top */
+.nav-shell.is-compact {
+  transform: translateY(calc(var(--banner-h) * -1));
+}
+
+/* dismissed for good: --banner-h is zeroed on :root, so calc() reflows with no gap */
+.nav-shell.is-dismissed {
+  transform: none;
+}
+
+.nav-shell.is-dismissed .nav-banner {
+  display: none;
+}
+
+/* No min-height here: SiteHeader measures this element and feeds the result back
+   as --banner-h, so a min-height sourced from that var would be circular. The
+   banner's own content is the height. */
+
+/* `marquee` — the scoped fourth primitive (design.md § Motion). Content in
+   motion: the Google-review strip. `linear` is correct here; it is one of the two
+   cases the easing ban exempts. Pauses on hover, on .is-paused, and entirely
+   under reduced motion. Moved out of an inline <style> tag in the component so
+   the duration and the pause rules live with the rest of the system. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 80s linear infinite;
+}
+
+.marquee-track:hover,
+.marquee-track.is-paused {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Mobile nav sheet — a state toggle, so --ease-in-out */
+@keyframes nav-sheet {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-nav-dropdown {
+  animation: nav-sheet var(--dur-short) var(--ease-in-out) both;
+}
+
+/* FloatingBookBtn — was an overshoot curve, cubic-bezier(0.34, 1.56, 0.64, 1).
+   Bounce on UI is a dated tell; this is the `reveal` primitive reused. */
+.animate-float-in {
+  animation: reveal var(--dur-long) var(--ease-out) 0.4s both;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 150ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
+  }
+
+  /* spatial motion collapses to an opacity crossfade */
+  .reveal,
+  .reveal.is-in,
+  .animate-float-in,
+  .animate-nav-dropdown {
+    transform: none !important;
+  }
+
+  .btn-gold:hover,
+  .btn-gold:focus-visible,
+  .btn-quiet:hover,
+  .btn-quiet:focus-visible {
+    transform: none;
+  }
+
+  .nav-shell {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Utilities
+   --------------------------------------------------------------------------- */
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
 
-/* Hero BOOK NOW — shimmer + twinkle */
-@keyframes shimmer {
-  0% {
-    transform: translateX(-120%) skewX(-12deg);
+  .measure {
+    max-width: 65ch;
   }
-  100% {
-    transform: translateX(220%) skewX(-12deg);
-  }
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0.6) rotate(0deg);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2) rotate(20deg);
-  }
-}
-
-@keyframes twinkle-delay {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0.5) rotate(0deg);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1) rotate(-15deg);
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer 2.4s ease-in-out infinite;
-}
-
-.animate-twinkle {
-  animation: twinkle 1.8s ease-in-out infinite;
-}
-
-.animate-twinkle-delay {
-  animation: twinkle-delay 2.2s ease-in-out infinite 0.6s;
 }
 
 .scrollbar-none {
@@ -172,218 +408,149 @@ h3 {
   display: none;
 }
 
-/* Optional section fade-ins (lighter than Framer on main thread) */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* ---------------------------------------------------------------------------
+   Content pages — 02 Long Document
+   Single column, 65ch measure, 1.65 leading, heads emerging from the prose.
+   No reveals here: reading is not a cinematic experience.
+   --------------------------------------------------------------------------- */
 
-.animate-fadeIn {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.animate-fadeIn-delay {
-  animation: fadeIn 0.6s ease-out 0.2s forwards;
-  opacity: 0;
-}
-
-/* Blog HTML content rendered via dangerouslySetInnerHTML */
 .blog-content {
-  color: #3d3836;
-  font-size: 1.0625rem;
-  line-height: 1.8;
+  color: var(--color-ink);
+  font-size: var(--text-md);
+  line-height: 1.65;
+  max-width: 65ch;
 }
 
-.blog-content h1,
 .blog-content h2,
 .blog-content h3,
 .blog-content h4,
 .blog-content h5,
 .blog-content h6 {
-  font-family: var(--font-playfair), Georgia, serif;
-  color: #3d3836;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.35;
+  font-family: var(--font-display);
+  font-style: normal;
+  color: var(--color-ink);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
 }
 
-.blog-content h1 { font-size: 2rem; }
-.blog-content h2 { font-size: 1.5rem; }
-.blog-content h3 { font-size: 1.25rem; }
-.blog-content h4 { font-size: 1.1rem; }
+.blog-content h2 {
+  font-size: var(--text-xl);
+}
+
+.blog-content h3 {
+  font-size: var(--text-lg);
+}
+
+.blog-content h4 {
+  font-size: var(--text-md);
+  font-weight: 600;
+}
 
 .blog-content p {
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-lg);
 }
 
+/* Was the brand vein at 2.94:1 on cream — a WCAG fail on body links. */
 .blog-content a {
-  color: #9e8b85;
+  color: var(--color-accent-ink);
   text-decoration: underline;
-  text-decoration-color: rgba(158, 139, 133, 0.45);
+  text-decoration-thickness: var(--rule-hair);
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 3px;
-  font-weight: 500;
-  transition: color 0.2s;
+  font-weight: 600;
+  transition: text-decoration-color var(--dur-short) var(--ease-out);
 }
+
 .blog-content a:hover {
-  color: #8a7974;
+  text-decoration-color: var(--color-accent-ink);
 }
 
 .blog-content ul,
 .blog-content ol {
-  margin-bottom: 1.25rem;
-  padding-left: 1.5rem;
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-lg);
 }
-.blog-content ul { list-style-type: disc; }
-.blog-content ol { list-style-type: decimal; }
+
+.blog-content ul {
+  list-style-type: disc;
+}
+
+.blog-content ol {
+  list-style-type: decimal;
+}
 
 .blog-content li {
-  margin-bottom: 0.4rem;
+  margin-bottom: var(--space-xs);
 }
 
+/* Hairline + indent, not a thick coloured side-stripe (the side-stripe card tell) */
 .blog-content blockquote {
-  border-left: 3px solid #9e8b85;
-  margin: 1.5rem 0;
-  padding: 0.75rem 1.25rem;
-  background: #faf8f7;
-  color: #524845;
-  font-style: italic;
-  border-radius: 0 8px 8px 0;
+  margin: var(--space-xl) 0;
+  padding-left: var(--space-lg);
+  border-left: var(--rule-hair) solid var(--color-accent);
+  color: var(--color-ink-2);
+  font-style: italic; /* italic survives as body emphasis only, never in a head */
 }
 
-.blog-content strong { font-weight: 700; }
-.blog-content em { font-style: italic; }
+.blog-content strong {
+  font-weight: 700;
+}
 
 .blog-content code {
-  background: #f2ebe9;
+  background: var(--color-paper-2);
   padding: 0.15em 0.4em;
-  border-radius: 4px;
+  border-radius: var(--radius-input);
   font-size: 0.88em;
-  color: #3d3836;
+  color: var(--color-ink);
 }
 
 .blog-content pre {
-  background: #f2ebe9;
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
+  background: var(--color-paper-2);
+  border-radius: var(--radius-card);
+  padding: var(--space-md) var(--space-lg);
   overflow-x: auto;
-  margin-bottom: 1.25rem;
-  font-size: 0.9rem;
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-sm);
 }
+
 .blog-content pre code {
   background: none;
   padding: 0;
 }
 
+/* Inline, sized to the measure — never full-bleed inside prose */
 .blog-content img {
   max-width: 100%;
-  border-radius: 12px;
-  margin: 1.5rem 0;
+  height: auto;
+  border-radius: var(--radius-card);
+  margin: var(--space-xl) 0;
 }
 
 .blog-content hr {
   border: none;
-  border-top: 1px solid rgba(158, 139, 133, 0.25);
-  margin: 2rem 0;
+  border-top: var(--rule-hair) solid var(--color-rule-soft);
+  margin: var(--space-xl) 0;
 }
 
 .blog-content table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 1.25rem;
-  font-size: 0.95rem;
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-sm);
 }
+
 .blog-content th,
 .blog-content td {
-  border: 1px solid rgba(158, 139, 133, 0.25);
-  padding: 0.5rem 0.75rem;
+  border-bottom: var(--rule-hair) solid var(--color-rule-soft);
+  padding: var(--space-sm);
   text-align: left;
 }
+
 .blog-content th {
-  background: #f2ebe9;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
+  color: var(--color-ink-2);
 }
-
-/* FloatingBookBtn scale-in */
-@keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: scale(0.6);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-float-in {
-  animation: floatIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
-}
-
-/* Navbar mobile dropdown */
-@keyframes navDropdown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-nav-dropdown {
-  animation: navDropdown 0.2s ease-out both;
-}
-
-/* Hero copy — animate on md+ only; mobile stays static for Speed Index */
-@keyframes heroFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 767px) {
-  .hero-fade-up,
-  .hero-fade-up-d1,
-  .hero-fade-up-d2,
-  .hero-fade-up-d3,
-  .hero-fade-up-d4 {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-fade-up {
-    opacity: 0;
-    animation: heroFadeUp 0.4s ease-out forwards;
-  }
-  .hero-fade-up-d1 {
-    opacity: 0;
-    animation: heroFadeUp 0.4s ease-out 0.05s forwards;
-  }
-  .hero-fade-up-d2 {
-    opacity: 0;
-    animation: heroFadeUp 0.4s ease-out 0.1s forwards;
-  }
-  .hero-fade-up-d3 {
-    opacity: 0;
-    animation: heroFadeUp 0.4s ease-out 0.14s forwards;
-  }
-  .hero-fade-up-d4 {
-    opacity: 0;
-    animation: heroFadeUp 0.4s ease-out 0.18s forwards;
-  }
-}
-

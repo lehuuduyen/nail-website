@@ -1,5 +1,6 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import { untranslatedMeta } from '@/lib/i18nMeta';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import './datepicker.css';
 
 const metadata = {
@@ -8,7 +9,17 @@ const metadata = {
 };
 
 export default function BookingLayout({ children }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Book Online', path: '/booking' },
+        ]}
+      />
+      {children}
+    </>
+  );
 }
 
 export async function generateMetadata({ params: { locale } }) {

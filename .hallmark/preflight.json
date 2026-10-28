@@ -1,0 +1,20 @@
+{
+  "scannedAt": "2026-10-05",
+  "framework": "Next.js 14.2.35 (app router) + next-intl en/es/vi",
+  "fontStack": {
+    "display": "Playfair Display (next/font/google)",
+    "body": "Lato (next/font/google)",
+    "source": "src/app/[locale]/layout.jsx L1,L20,L26",
+    "note": "Lato is on Hallmark's banned-defaults list and Playfair is display-only. Both preserved under the pre-flight rule; the upgrade path is recorded in design.md § Typography."
+  },
+  "palette": {
+    "before": "hex in tailwind.config.js L10 + :root in src/app/globals.css L5",
+    "after": "OKLCH tokens in ./tokens.css; tailwind.config.js aliases the --ch-* channel form so opacity modifiers keep working",
+    "anchorHue": 38
+  },
+  "motion": "framer-motion 12 installed (package.json L17) → motion-on project; user granted motion opt-in 2026-10-05",
+  "spacing": "was Tailwind default; now a 4pt named scale in tokens.css",
+  "tailwind": "v3.4.1 — no @theme block, so the config bridges tokens instead",
+  "preserved": ["font stack", "brand hues", "next-intl routing", "all SEO infrastructure", "route tree"],
+  "introduced": ["design.md", "tokens.css", "macrostructure families", "N12 nav", "Ft1 footer", "S2 section heads", "3 motion primitives", "WCAG-verified contrast tokens"]
+}

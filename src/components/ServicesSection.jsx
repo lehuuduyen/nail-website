@@ -2,11 +2,29 @@
 
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Sparkles } from 'lucide-react';
+import Reveal from '@/components/Reveal';
 import { SERVICE_CARD_IMAGES } from '@/lib/siteImages';
 import { trackEvent } from '@/lib/analytics';
+
+/**
+ * F6 · Product card grid (design.md § Macrostructure families).
+ *
+ * These four are priced products, not features, so the uniform grid is correct —
+ * the rhythm comes from the products. What was wrong was the card chrome: every
+ * tile carried a radius AND a border AND shadow-md AND a backdrop-blur AND a
+ * hover shadow upgrade AND a 1.03 image scale. F6 allows exactly one containment
+ * signal; this keeps the image itself as the container and drops the rest.
+ *
+ * Also fixed: the price was --color-accent at 2.94:1 on paper, a WCAG fail on the
+ * one number a visitor actually came to read. It is now --color-accent-ink
+ * (6.07:1). The three stacked Sparkles glyphs beside the heading are gone, the
+ * head is left-aligned (S2), and the per-card framer-motion stagger is replaced
+ * by the shared `reveal` primitive.
+ *
+ * Prices are the real ones from the pre-redesign component. Nothing here is
+ * rounded, padded, or invented.
+ */
 
 /** Homepage: only 4 cards — full list at /services. Tên dịch vụ giữ thuật ngữ ngành. */
 const POPULAR = [
@@ -16,55 +34,36 @@ const POPULAR = [
   { title: 'Nail Art', price: '$15', plus: true, category: 'nails', ...SERVICE_CARD_IMAGES.nailArt },
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-};
-
 export default function ServicesSection() {
   const t = useTranslations('home');
-  return (
-    <section id="popular-services" className="marble-bg pb-20 pt-4 md:pb-28 md:pt-2">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="flex flex-wrap items-center justify-center gap-2 text-center font-display text-3xl font-normal text-ink md:text-4xl">
-          {t('popular.heading')}
-          <span className="inline-flex items-center gap-0.5 text-rose-gold" aria-hidden>
-            <Sparkles className="h-6 w-6" strokeWidth={1.25} />
-            <Sparkles className="h-5 w-5 opacity-85" strokeWidth={1.25} />
-            <Sparkles className="h-4 w-4 opacity-70" strokeWidth={1.25} />
-          </span>
-        </h2>
-        <p className="mx-auto mt-3 max-w-lg text-center text-sm italic text-muted md:text-base">
-          {t('popular.subtitle')}
-        </p>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-40px' }}
-          className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+  return (
+    <section id="popular-services" className="marble-bg pb-3xl">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <header className="head-hang">
+          <h2>{t('popular.heading')}</h2>
+          <p>{t('popular.subtitle')}</p>
+        </header>
+
+        <Reveal
+          as="div"
+          index={0}
+          className="grid grid-cols-1 gap-lg sm:grid-cols-2 sm:gap-x-xl lg:grid-cols-4"
         >
           {POPULAR.map((s) => (
-            <motion.article
-              key={s.title}
-              variants={item}
-              className="group overflow-hidden rounded-2xl border border-rose-gold/15 bg-surface/70 shadow-md shadow-rose-gold/10 backdrop-blur-sm transition-shadow duration-300 hover:border-rose-gold/25 hover:shadow-lg"
-            >
+            /* Reveal wraps the whole grid, so the four cards arrive as one
+               orchestrated entrance rather than twelve staggered ones. */
+            <article key={s.title} className="group">
               {/* Whole card is one link → clicking the image or text goes to booking */}
               <Link
                 href={`/booking?category=${s.category}`}
                 onClick={() =>
                   trackEvent('book_click', { location: 'popular_services', service: s.title })
                 }
-                className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold/60"
+                className="block rounded-card"
                 aria-label={t('popular.bookAria', { title: s.title })}
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-paper-2">
                   <Image
                     src={s.src}
                     alt={s.alt}
@@ -72,43 +71,34 @@ export default function ServicesSection() {
                     height={s.height}
                     loading="lazy"
                     quality={80}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    /* 1.02 is the ceiling; the old 1.03 plus a shadow swap was two
+                       hover signals on one element. */
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-long ease-out group-hover:scale-[1.02]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
-                <div className="px-4 pb-5 pt-4 text-center">
-                  <h3 className="font-display text-lg font-medium text-ink">{s.title}</h3>
-                  <p className="mt-2 text-base font-medium text-rose-gold">
-                    {t('popular.fromPrice', { price: s.price })}{s.plus ? ' +' : ''}
+                <div className="pt-md">
+                  <h3 className="font-display text-step-md font-medium text-ink">{s.title}</h3>
+                  <p className="tnum mt-2xs text-step-sm font-semibold text-accent-ink">
+                    {t('popular.fromPrice', { price: s.price })}
+                    {s.plus ? ' +' : ''}
                   </p>
-                  <span className="mt-3 inline-block text-xs font-semibold uppercase tracking-wide text-muted underline decoration-rose-gold/50 underline-offset-4 group-hover:text-rose-gold">
-                    {t('popular.bookThis')}
-                  </span>
+                  <span className="link-type mt-sm">{t('popular.bookThis')} →</span>
                 </div>
               </Link>
-            </motion.article>
+            </article>
           ))}
-        </motion.div>
+        </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-14 flex flex-col items-center gap-4"
-        >
-          <Link
-            href="/booking"
-            className="btn-gold inline-flex min-w-[280px] items-center justify-center no-underline"
-          >
+        {/* Primary action, then the quiet typographic route to the full list. */}
+        <div className="mt-2xl flex flex-col items-start gap-md">
+          <Link href="/booking" className="btn-gold">
             {t('popular.bookAppointment')}
           </Link>
-          <Link
-            href="/services"
-            className="text-sm font-medium text-muted underline decoration-rose-gold/40 underline-offset-4 hover:text-ink"
-          >
-            {t('popular.viewAll')}
+          <Link href="/services" className="link-type">
+            {t('popular.viewAll')} →
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

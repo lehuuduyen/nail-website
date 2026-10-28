@@ -1,16 +1,39 @@
-'use client';
-
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Star } from 'lucide-react';
-import { SERVICE_CARD_IMAGES } from '@/lib/siteImages';
-import { WHY_LOVE_IMAGES } from '@/lib/siteImages';
+import Reveal from '@/components/Reveal';
+import { SERVICE_CARD_IMAGES, WHY_LOVE_IMAGES } from '@/lib/siteImages';
+
+/**
+ * Split Studio block 1 (design.md § Macrostructure families).
+ *
+ * Was: a centred display head, a diamond ornament divider, then three
+ * equal-height cards in a 3-column grid — each card a bordered panel holding
+ * another bordered panel, with shadow-lg on all three. That exact shape ran on
+ * five consecutive sections of this page; anti-patterns.md names the ingredients
+ * "the 3-column feature grid", "card-in-card" and "centred everything".
+ *
+ * Now: a hanging head (S2) over two diptych rows that alternate direction —
+ * proof beside photograph, then photograph beside proof. The rating is set as
+ * display type rather than boxed in a card, because a 4.9 is worth reading as a
+ * number, not as a tile.
+ *
+ * Also removed: six raw hex values (#f5e8ec, #c9a96e, #D4AF37, #e8ddd9, #f0e4e8,
+ * #8B6914), two ✦ glyphs standing in for an icon (gate 30), a four-stop gradient
+ * pill at 3.42:1, two dead absolutely-positioned overlay divs (one pointed at no
+ * image at all), and four per-card framer-motion reveals — the project is capped
+ * at three motion primitives and `reveal` is the one that covers this.
+ *
+ * Dropping framer-motion here also turns the section back into a server
+ * component; only the small Reveal wrappers ship JS.
+ */
 
 function GoogleLogo({ className = 'h-6 w-6' }) {
+  // Google's mark is a brand asset and must keep its own four brand colours —
+  // recolouring it to the palette would misrepresent the source of the rating.
   return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden>
+    <svg className={className} viewBox="0 0 24 24" role="img" aria-label="Google">
       <path
         fill="#4285F4"
         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -31,164 +54,111 @@ function GoogleLogo({ className = 'h-6 w-6' }) {
   );
 }
 
-const cardShell =
-  'overflow-hidden rounded-2xl border border-white/55 shadow-lg shadow-charcoal/[0.06] md:rounded-[14px]';
-
-const quotePanel =
-  'flex flex-1 flex-col justify-center bg-[#f5e8ec]/95 px-5 py-6 text-center md:px-6 md:py-7';
-
-const motionArticle = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.45 },
-};
+function Stars() {
+  return (
+    <span className="flex gap-3xs text-gold" aria-hidden>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <Star key={i} className="h-4 w-4 fill-current" strokeWidth={0} />
+      ))}
+    </span>
+  );
+}
 
 export default function WhyLoveSection({ reviewCount = '700', rating = '4.9' }) {
   const t = useTranslations('home.whyLove');
   const manicureImg = SERVICE_CARD_IMAGES.manicure;
 
   return (
-    <section
-      id="why-love"
-      className="relative z-[1] overflow-hidden scroll-mt-24 pb-16 pt-24 max-md:pt-28 md:py-24"
-    >
-      <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream/30 via-cream/10 to-cream/35"
-        aria-hidden
-      />
-      <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="text-center font-display text-3xl font-normal text-ink md:text-4xl">
-          {t('heading')}
-        </h2>
-        <div className="section-divider" aria-hidden>
-          <span className="section-divider-diamond" />
-        </div>
+    <section id="why-love" className="marble-bg scroll-mt-24 pb-2xl pt-3xl md:pb-3xl">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <header className="head-hang">
+          <h2>{t('heading')}</h2>
+        </header>
 
-        <div className="mt-10 grid grid-cols-1 items-stretch gap-6 lg:mt-12 lg:grid-cols-3 lg:gap-8">
-          {/* Column 1 — stacked: Google card + image / Book link */}
-          <div className="flex min-h-0 flex-col gap-4 lg:min-h-[min(100%,32rem)] lg:justify-between">
-            <motion.article
-              {...motionArticle}
-              className={`marble-bg ${cardShell} px-5 pb-5 pt-6 text-center`}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <GoogleLogo className="h-6 w-6 shrink-0 md:h-7 md:w-7" />
-              </div>
-              <div className="mt-3 flex justify-center gap-0.5 text-[#c9a96e]">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="h-4 w-4 fill-current md:h-4 md:w-4" strokeWidth={0} aria-hidden />
-                ))}
-              </div>
-              <p className="mt-3 font-display text-4xl font-normal leading-none text-ink md:text-[2.75rem]">
-                {rating}
-              </p>
-              <div className="mt-2 flex justify-center gap-0.5 text-[#c9a96e]">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="h-5 w-5 fill-current md:h-6 md:w-6" strokeWidth={0} aria-hidden />
-                ))}
-              </div>
-              <p className="mt-3 font-sans text-sm text-muted">{t('happyClients', { count: reviewCount })}</p>
-            </motion.article>
-
-            <motion.article
-              {...motionArticle}
-              transition={{ ...motionArticle.transition, delay: 0.04 }}
-              className={`marble-bg ${cardShell} flex min-h-[220px] flex-1 flex-col lg:min-h-0`}
-            >
-              <div className="relative min-h-[200px] w-full flex-1 lg:min-h-[200px]">
-                <Image
-                  src={manicureImg.src}
-                  alt={manicureImg.alt}
-                  fill
-                  loading="lazy"
-                  quality={65}
-                  className="object-cover"
-                  sizes="(max-width: 1023px) 100vw, 380px"
-                />
-              </div>
-              <div className="border-t border-white/40 bg-[#f0e4e8]/90 px-5 py-4 text-center">
-                <Link
-                  href="/booking"
-                  className="font-sans text-sm font-semibold text-ink underline decoration-[#c9a96e]/50 decoration-1 underline-offset-[6px] transition hover:text-[#8B6914]"
-                >
-                  {t('bookThis')}
-                </Link>
-              </div>
-            </motion.article>
+        {/* Row A — proof left, photograph right */}
+        <Reveal
+          as="div"
+          index={0}
+          className="grid items-center gap-xl md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-2xl"
+        >
+          <div>
+            <GoogleLogo className="h-7 w-7" />
+            <p className="tnum mt-md font-display text-step-3xl leading-none text-ink">{rating}</p>
+            <div className="mt-sm">
+              <Stars />
+            </div>
+            <p className="tnum mt-sm text-step-md text-ink-2">
+              {t('happyClients', { count: reviewCount })}
+            </p>
+            <Link href="/booking" className="link-type mt-lg">
+              {t('bookThis')} →
+            </Link>
           </div>
 
-          {/* Column 2 — tall testimonial + gold CTA */}
-          <motion.article
-            {...motionArticle}
-            transition={{ ...motionArticle.transition, delay: 0.08 }}
-            className={`marble-bg ${cardShell} flex min-h-[480px] flex-col lg:min-h-[32rem]`}
-          >
-            <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#e8ddd9]">
-              <Image
-                src={WHY_LOVE_IMAGES.manicure.src}
-                alt={t('imgAltManicure')}
-                fill
-                loading="lazy"
-                quality={65}
-                className="object-cover"
-                sizes="(max-width: 1023px) 100vw, 380px"
-              />
-            </div>
-            <div className={quotePanel}>
-              <p className="font-display text-lg italic leading-relaxed text-ink md:text-xl">
-                &ldquo;{t('quote1')}&rdquo;
-              </p>
-              <p className="mt-5 flex items-center justify-center gap-2 font-sans text-sm font-semibold text-ink">
-                <span className="text-[#D4AF37]" aria-hidden>
-                  ✦
-                </span>
-                Jessica T.
-              </p>
-              <Link
-                href="/booking"
-                className="mt-6 inline-flex items-center justify-center self-center rounded-full bg-gradient-to-r from-[#C9932A] via-[#E8C547] to-[#B8821E] px-10 py-3.5 font-sans text-sm font-semibold text-white no-underline shadow-[0_0_20px_rgba(212,175,55,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] transition hover:brightness-105"
-              >
-                {t('bookThis')}
-              </Link>
-            </div>
-          </motion.article>
+          <figure className="relative aspect-[4/3] w-full overflow-hidden rounded-card bg-paper-2">
+            <Image
+              src={WHY_LOVE_IMAGES.salonInterior.src}
+              alt={t('imgAltInterior')}
+              title={t('imgTitleInterior')}
+              fill
+              loading="lazy"
+              quality={65}
+              className="object-cover"
+              sizes="(max-width: 767px) 100vw, 640px"
+            />
+          </figure>
+        </Reveal>
 
-          {/* Column 3 — tall testimonial only */}
-          <motion.article
-            {...motionArticle}
-            transition={{ ...motionArticle.transition, delay: 0.12 }}
-            className={`marble-bg ${cardShell} flex min-h-[480px] flex-col lg:min-h-[32rem]`}
-          >
-            <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#e8ddd9]">
+        <hr className="rule-hair my-2xl" />
+
+        {/* Row B — direction flips: photograph left, the two quotes right */}
+        <Reveal
+          as="div"
+          index={1}
+          className="grid items-center gap-xl md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:gap-2xl"
+        >
+          <figure className="relative aspect-[4/3] w-full overflow-hidden rounded-card bg-paper-2 md:order-1">
+            <Image
+              src={WHY_LOVE_IMAGES.manicure.src}
+              alt={t('imgAltManicure')}
+              fill
+              loading="lazy"
+              quality={65}
+              className="object-cover"
+              sizes="(max-width: 767px) 100vw, 640px"
+            />
+          </figure>
+
+          {/* Typographic pull-quotes on a hairline, not quote cards. Italic is
+              allowed here: this is body copy, never a heading. */}
+          <div className="md:order-2">
+            <blockquote className="border-l border-accent pl-lg">
+              <p className="font-display text-step-lg italic leading-relaxed text-ink">
+                “{t('quote1')}”
+              </p>
+              <footer className="mt-sm text-step-sm font-semibold text-ink-2">Jessica T.</footer>
+            </blockquote>
+
+            <blockquote className="mt-xl border-l border-accent pl-lg">
+              <p className="font-display text-step-md italic leading-relaxed text-ink">
+                “{t('quote2')}”
+              </p>
+              <footer className="mt-sm text-step-sm font-semibold text-ink-2">Emma M.</footer>
+            </blockquote>
+
+            <figure className="relative mt-xl hidden aspect-[16/9] w-full overflow-hidden rounded-card bg-paper-2 lg:block">
               <Image
-                src={WHY_LOVE_IMAGES.salonInterior.src}
-                alt={t('imgAltInterior')}
-                title={t('imgTitleInterior')}
+                src={manicureImg.src}
+                alt={manicureImg.alt}
                 fill
                 loading="lazy"
                 quality={65}
                 className="object-cover"
-                sizes="(max-width: 1023px) 100vw, 380px"
+                sizes="380px"
               />
-            </div>
-            <div className={`${quotePanel} justify-center`}>
-              <p className="font-display text-base italic leading-relaxed text-ink md:text-lg">
-                &ldquo;{t('quote2')}&rdquo;
-              </p>
-              <p className="mt-6 flex items-center justify-center gap-2 font-sans text-sm font-semibold text-ink">
-                <span className="text-[#D4AF37]" aria-hidden>
-                  ✦
-                </span>
-                Emma M.
-              </p>
-            </div>
-          </motion.article>
-        </div>
+            </figure>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

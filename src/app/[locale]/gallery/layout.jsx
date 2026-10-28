@@ -1,4 +1,5 @@
 import { untranslatedMeta } from '@/lib/i18nMeta';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 
 const metadata = {
   title: { absolute: 'Nail Art Gallery Phoenix AZ | Nice Nails & Spa' },
@@ -22,7 +23,17 @@ const metadata = {
 };
 
 export default function GalleryLayout({ children }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Gallery', path: '/gallery' },
+        ]}
+      />
+      {children}
+    </>
+  );
 }
 
 export async function generateMetadata({ params: { locale } }) {

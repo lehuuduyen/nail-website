@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import { untranslatedMeta } from '@/lib/i18nMeta';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
 import { salonName, salonAddress } from '@/lib/salon';
 import { absoluteUrl } from '@/lib/siteUrl';
 
@@ -26,6 +27,12 @@ export default function TermsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-cream via-cream to-cream-dark/30">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Terms and Conditions', path: '/terms' },
+        ]}
+      />
       <section className="border-b border-rose-gold/15 bg-surface/85 px-4 py-10 text-center backdrop-blur-md">
         <h1 className="font-display text-3xl text-ink md:text-4xl">{PAGE_TITLE}</h1>
         <p className="mt-2 text-sm text-muted">{name}</p>

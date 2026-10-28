@@ -25,31 +25,31 @@ function GoogleIcon() {
 function ReviewCard({ r }) {
   const initial = (r.name || '?').charAt(0).toUpperCase();
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/8 p-6 backdrop-blur-sm">
+    <article className="flex h-full flex-col rounded-card border border-rule-dark bg-paper-dark-2 p-lg">
       <div className="mb-4 flex items-center justify-between">
-        <div className="flex gap-0.5 text-rose-gold">
+        <div className="flex gap-0.5 text-gold">
           {Array.from({ length: 5 }).map((_, k) => (
             <Star key={k} size={15} fill="currentColor" />
           ))}
         </div>
         {r.isGoogle && <GoogleIcon />}
       </div>
-      <p className="flex-1 text-sm leading-relaxed text-cream/85">
+      <p className="flex-1 text-step-sm leading-relaxed text-on-dark-2">
         &ldquo;{r.text}&rdquo;
       </p>
-      <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
+      <div className="mt-lg flex items-center gap-sm border-t border-rule-dark pt-md">
         {r.photoUri ? (
           <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
             <Image src={r.photoUri} alt={r.name} fill className="object-cover" sizes="36px" unoptimized />
           </div>
         ) : (
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-gold/20 text-xs font-bold text-rose-gold">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-pill bg-accent/20 text-step-xs font-bold text-gold">
             {initial}
           </div>
         )}
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-cream">{r.name}</p>
-          <p className="truncate text-xs text-cream/50">{r.relativeTime || r.service}</p>
+          <p className="truncate text-step-sm font-semibold text-on-dark">{r.name}</p>
+          <p className="truncate text-step-xs text-on-dark-2">{r.relativeTime || r.service}</p>
         </div>
       </div>
     </article>
@@ -80,32 +80,17 @@ export default function TestimonialsSection({ reviews: propReviews }) {
   }, [base.length]);
 
   return (
-    <section className="overflow-hidden bg-charcoal py-20 md:py-28">
-      <style>{`
-        @keyframes nns-marquee {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        .nns-track {
-          animation: nns-marquee 80s linear infinite;
-          will-change: transform;
-        }
-        .nns-track:hover,
-        .nns-track-paused {
-          animation-play-state: paused;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .nns-track { animation: none; }
-        }
-      `}</style>
-
+    <section className="band-dark overflow-hidden py-2xl md:py-3xl">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+        <div className="mb-xl flex flex-wrap items-end justify-between gap-md">
           <div>
-            <h2 className="font-display text-3xl text-cream md:text-4xl">{t('heading')}</h2>
-            <div className="mt-3 h-1 w-20 rounded-full bg-rose-gold" />
+            {/* S2 hanging head on the dark band; the 80x4px accent bar under it
+                was the ornament divider this redesign retires. */}
+            <h2 className="font-display text-step-2xl font-normal leading-tight text-on-dark md:text-step-3xl">
+              {t('heading')}
+            </h2>
             {hasGoogle && (
-              <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-cream/70">
+              <div className="mt-sm inline-flex items-center gap-2xs rounded-pill border border-rule-dark px-sm py-1 text-step-xs font-medium text-on-dark-2">
                 <GoogleIcon />
                 {t('liveGoogle')}
               </div>
@@ -116,7 +101,7 @@ export default function TestimonialsSection({ reviews: propReviews }) {
             type="button"
             onClick={() => setPaused((p) => !p)}
             aria-label={paused ? t('resume') : t('pause')}
-            className="hidden md:flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-cream transition hover:border-rose-gold hover:text-rose-gold"
+            className="hidden h-11 w-11 items-center justify-center rounded-pill border border-rule-dark text-on-dark transition-colors duration-short ease-out hover:border-gold hover:text-gold md:flex"
           >
             {paused ? <Play size={18} /> : <Pause size={18} />}
           </button>
@@ -161,24 +146,24 @@ export default function TestimonialsSection({ reviews: propReviews }) {
                 const cardW = firstCard.offsetWidth + 16;
                 el.scrollTo({ left: idx * cardW, behavior: 'smooth' });
               }}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                idx === activeIdx
-                  ? 'w-5 bg-rose-gold'
-                  : 'w-1.5 bg-white/25 hover:bg-white/50'
+              /* transition-all is banned; width is a layout property and should
+                  not animate at all, so only the colour transitions. */
+              className={`h-1.5 rounded-pill transition-colors duration-short ease-out ${
+                idx === activeIdx ? 'w-5 bg-gold' : 'w-1.5 bg-on-dark-2/40 hover:bg-on-dark-2'
               }`}
             />
           ))}
         </div>
 
         {/* Counter */}
-        <p className="mt-2 text-center text-xs text-cream/40">
+        <p className="tnum mt-2 text-center text-step-xs text-on-dark-2">
           {activeIdx + 1} / {base.length}
         </p>
       </div>
 
       {/* ── Desktop: marquee (unchanged) ── */}
       <div className="hidden md:block overflow-hidden pb-2">
-        <ul className={`flex nns-track${paused ? ' nns-track-paused' : ''}`}>
+        <ul className={`marquee-track flex${paused ? ' is-paused' : ''}`}>
           {base.map((r, idx) => (
             <li key={idx} className="w-[320px] flex-none mr-5 lg:w-[384px]">
               <ReviewCard r={r} />
@@ -192,14 +177,14 @@ export default function TestimonialsSection({ reviews: propReviews }) {
         </ul>
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl px-4 text-center md:px-6">
+      <div className="mx-auto mt-xl max-w-7xl px-4 md:px-6">
         <a
           href={REVIEW_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-rose-gold px-6 py-3 text-sm font-semibold text-rose-gold transition hover:bg-rose-gold hover:text-charcoal"
+          className="inline-flex min-h-11 items-center gap-xs whitespace-nowrap rounded-pill border border-gold px-lg py-sm text-step-sm font-semibold text-gold transition-colors duration-short ease-out hover:bg-gold hover:text-ink"
         >
-          <Star size={15} fill="currentColor" />
+          <Star size={15} fill="currentColor" aria-hidden />
           {t('reviewUs')}
         </a>
       </div>
