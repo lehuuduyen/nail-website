@@ -22,6 +22,9 @@ export default function Footer() {
           <p className="mt-2 text-sm leading-relaxed text-cream">
             {t('tagline')}
           </p>
+          <p lang="en" className="mt-sm text-step-sm leading-relaxed text-on-dark-2">
+            Nice Nails &amp; Spa — Operated by D &amp; C NAILS SPA LLC
+          </p>
         </div>
         <div className="flex flex-col gap-2 text-sm">
           <p className="font-semibold text-rose-gold">{t('explore')}</p>
